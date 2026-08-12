@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# Traits, Generics, and Associated Items",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                        TRAITS: THE ABSTRACTION LAYER                          |\n+===============================================================================+\n\n  DEFINE                                 IMPLEMENT (decoupled from definition)\n  ------                                 ------------------------------------\n  trait Area {                           impl Area for Circle {\n    const NAME: &str;   // assoc const     const NAME: &str = \"circle\";\n    type Unit;          // assoc type       type Unit = f64;\n    fn area(&self) -> Self::Unit;           fn area(&self) -> f64 { ... }\n    fn describe(&self) -> String {         }\n      format!(\"{}\", Self::NAME)  // default\n    }\n  }\n\n  CONSTRAIN GENERICS                     THE RULES THAT KEEP IT SOUND\n  ------------------                     ---------------------------\n  fn f<T: Area>(x: T) ...                COHERENCE: at most ONE impl of a trait\n  fn f<T>(x: T) where T: Area + Clone     for a type (no overlapping impls)\n  fn f(x: impl Area) ...                 ORPHAN RULE: impl Trait for Type only\n                                          if you own Trait OR Type (else it is\n  BLANKET IMPL                            someone else's to define)\n  impl<T: Display> Label for T { ... }   SUPERTRAIT: trait Ord: PartialEq { }\n    -> every Display type gets Label       (Ord requires PartialEq first)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 60,
+      "heading_context": "## Defining and Implementing",
+      "confidence": "candidate",
+      "text": "trait Summary {\n    fn summarize(&self) -> String;                 // required method\n    fn preview(&self) -> String {                  // default method\n        let summary = self.summarize();\n        let mut chars = summary.chars();\n        let prefix: String = chars.by_ref().take(10).collect();\n        if chars.next().is_some() { format!(\"{prefix}...\") } else { prefix }\n    }\n}\n\nstruct Article { title: String, body: String }\nimpl Summary for Article {\n    fn summarize(&self) -> String { self.title.clone() }\n    // preview() inherited from the default\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Associated Types vs Generic Parameters",
+      "confidence": "candidate",
+      "text": "trait Iterator {                 // associated type: ONE Item per implementing type\n    type Item;\n    fn next(&mut self) -> Option<Self::Item>;\n}\n\ntrait From<T> {                  // generic param: MANY froms per type\n    fn from(value: T) -> Self;   // impl From<u8> and From<u16> for MyNum both allowed\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 166,
+      "heading_context": "## Blanket Impls and Supertraits",
+      "confidence": "candidate",
+      "text": "trait Label { fn label(&self) -> String; }\nimpl<T: std::fmt::Display> Label for T {     // every Display type is now Label\n    fn label(&self) -> String { format!(\"[{self}]\") }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 207,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "  many-per-type -> parameter. Choosing wrong makes call sites verbose or impls",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    }
+  ]
+}

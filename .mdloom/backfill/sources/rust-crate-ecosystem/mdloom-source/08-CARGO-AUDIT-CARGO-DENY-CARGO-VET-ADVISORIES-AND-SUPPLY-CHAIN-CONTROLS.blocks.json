@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\08-CARGO-AUDIT-CARGO-DENY-CARGO-VET-ADVISORIES-AND-SUPPLY-CHAIN-CONTROLS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         SUPPLY-CHAIN CONTROL STACK                        |\n+===========================================================================+\n| Cargo.lock -> cargo-audit -> known RustSec matches                        |\n|            -> cargo-deny  -> advisory/license/ban/source policy           |\n|            -> cargo-vet   -> review and audit-trust requirements          |\n|            -> SBOM/provenance -> inventory and build custody              |\n|                                                                           |\n| Repository controls -> owners, CI, credentials, review, release           |\n| Result: layered evidence, not proof that all code is benign or correct.   |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## `cargo-vet`: Review Trust and Audit Criteria",
+      "confidence": "candidate",
+      "text": "our criteria\n     |\n     +-> local full audit\n     +-> delta audit from reviewed version\n     +-> imported audit from trusted source\n     +-> temporary exemption with owner/expiry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 172,
+      "heading_context": "## Advisory Triage",
+      "confidence": "candidate",
+      "text": "finding\n  |\n  +-> Is selected version affected?\n  |       no -> record why and close\n  |\n  +-> Is vulnerable code reachable in supported profile?\n  |       unknown -> investigate; do not assume no\n  |\n  +-> Is fixed version compatible?\n  |       yes -> update and validate\n  |       no  -> disable feature / patch / fork / replace / mitigate\n  |\n  +-> Assign deadline, owner, release, and evidence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

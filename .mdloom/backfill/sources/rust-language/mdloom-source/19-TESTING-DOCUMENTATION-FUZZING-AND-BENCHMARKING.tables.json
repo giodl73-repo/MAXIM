@@ -1,0 +1,118 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\19-TESTING-DOCUMENTATION-FUZZING-AND-BENCHMARKING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 220,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "xUnit / NUnit / MSTest",
+          "built-in `#[test]`",
+          "No framework/package needed"
+        ],
+        [
+          "`[TestMethod]` / `[Fact]`",
+          "`#[test]`",
+          "Same idea, zero setup"
+        ],
+        [
+          "`Assert.Equal`",
+          "`assert_eq!`",
+          "Macro; prints both values on failure"
+        ],
+        [
+          "separate integration-test project",
+          "`tests/*.rs` (own crate)",
+          "Sees only the public API"
+        ],
+        [
+          "XML doc comments (not executed)",
+          "doc tests (**executed**)",
+          "Examples can't rot — checked in CI"
+        ],
+        [
+          "BenchmarkDotNet",
+          "`criterion`",
+          "Same statistical rigor"
+        ],
+        [
+          "runnable samples / demos",
+          "`examples/*.rs`",
+          "Compiled in CI"
+        ],
+        [
+          "FsCheck / property testing",
+          "`proptest` / `quickcheck`",
+          "With input shrinking"
+        ],
+        [
+          "Valgrind / ASan on native code",
+          "Miri + sanitizers",
+          "Miri checks Rust's own UB model"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 256,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Test a function's logic (incl. private)",
+          "`#[test]` in `#[cfg(test)] mod tests`"
+        ],
+        [
+          "Test the public API end-to-end",
+          "`tests/*.rs` integration test"
+        ],
+        [
+          "Keep examples honest",
+          "doc tests in `///`"
+        ],
+        [
+          "Ship runnable usage",
+          "`examples/*.rs`"
+        ],
+        [
+          "Assert code must NOT compile",
+          "`trybuild` compile-fail tests"
+        ],
+        [
+          "Check invariants over random input",
+          "`proptest` / `quickcheck`"
+        ],
+        [
+          "Hunt crashes on untrusted bytes",
+          "`cargo-fuzz`"
+        ],
+        [
+          "Detect UB in `unsafe` code",
+          "`cargo +nightly miri test`"
+        ],
+        [
+          "Catch native memory/thread bugs",
+          "sanitizers (`-Z sanitizer=...`, nightly)"
+        ],
+        [
+          "Benchmark reliably",
+          "`criterion` (+ `black_box`)"
+        ],
+        [
+          "Force docs on public items",
+          "`#![deny(missing_docs)]`"
+        ]
+      ]
+    }
+  ]
+}

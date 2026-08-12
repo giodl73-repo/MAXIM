@@ -1,0 +1,256 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## The Axes That Select a Blueprint",
+      "headers": [
+        "Axis",
+        "Questions that change the design"
+      ],
+      "rows": [
+        [
+          "Initiation",
+          "Human command, request, queue delivery, clock, file arrival, interrupt, or host callback?"
+        ],
+        [
+          "Response contract",
+          "Exit status, HTTP response, acknowledgement, artifact, event, library value, or device actuation?"
+        ],
+        [
+          "State authority",
+          "Process memory, database, broker, filesystem, host, device, or another service?"
+        ],
+        [
+          "Failure scope",
+          "One invocation, one message, one partition, one service, one device, or the whole release?"
+        ],
+        [
+          "Deployment unit",
+          "Binary, library version, container, Wasm component, plugin, firmware image, or repository cohort?"
+        ],
+        [
+          "Compatibility",
+          "Source, semantic version, wire schema, ABI, host import, database, or hardware contract?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 88,
+      "heading_context": "## Reading Paths",
+      "headers": [
+        "Reader intent",
+        "Suggested path"
+      ],
+      "rows": [
+        [
+          "Establish a neutral application core",
+          "01 -> one entry blueprint -> 15"
+        ],
+        [
+          "Ship a request/response service",
+          "01 -> 03 -> 13 -> 15"
+        ],
+        [
+          "Process durable asynchronous work",
+          "01 -> 04 -> 07 -> 05"
+        ],
+        [
+          "Build analytical movement and transformation",
+          "01 -> 06 -> 05 -> 14"
+        ],
+        [
+          "Publish code for other teams",
+          "01 -> 08; add 09 or 10 only for an extension boundary"
+        ],
+        [
+          "Target a special host",
+          "01 -> choose 10, 11, or 12 -> 15"
+        ],
+        [
+          "Decide repository shape and release ownership",
+          "01 -> 14 -> 15"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 158,
+      "heading_context": "## Cross-Cutting Concerns Are Contracts",
+      "headers": [
+        "Concern",
+        "Neutral contract",
+        "Adapter-owned detail"
+      ],
+      "rows": [
+        [
+          "Configuration",
+          "Typed settings, precedence, validation, reload policy",
+          "environment, file, registry, secret store"
+        ],
+        [
+          "Time",
+          "`Clock` or explicit timestamps where determinism matters",
+          "system clock, simulated clock"
+        ],
+        [
+          "Identity",
+          "Request/message/run correlation and idempotency key",
+          "header, broker metadata, scheduler run id"
+        ],
+        [
+          "Observability",
+          "Event names, fields, severity, metric semantics",
+          "tracing/export backend"
+        ],
+        [
+          "Shutdown",
+          "Stop admission, drain bounded work, persist checkpoint",
+          "signal, SCM control, host callback"
+        ],
+        [
+          "Security",
+          "Capability and authorization decision points",
+          "TLS, token validation, OS/device credential"
+        ],
+        [
+          "Data evolution",
+          "Versioned schema and compatibility window",
+          "migration engine, registry, file format"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Operational Boundaries and Authority",
+      "headers": [
+        "Boundary",
+        "Must be explicit before implementation"
+      ],
+      "rows": [
+        [
+          "Admission",
+          "What may start new work, and when is it refused?"
+        ],
+        [
+          "Completion",
+          "What observable fact means the work is complete?"
+        ],
+        [
+          "Retry",
+          "Who retries, with what identity, budget, and backoff?"
+        ],
+        [
+          "Durability",
+          "Which state survives process or device loss?"
+        ],
+        [
+          "Cancellation",
+          "Which work can stop, and what partial effects remain?"
+        ],
+        [
+          "Authority",
+          "Which component may mutate each record, schema, or external resource?"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 224,
+      "heading_context": "## Testing and Rollback Are Blueprint Inputs",
+      "headers": [
+        "Change",
+        "Evidence",
+        "Rollback implication"
+      ],
+      "rows": [
+        [
+          "Pure policy",
+          "deterministic unit/property tests",
+          "code rollback is usually sufficient"
+        ],
+        [
+          "Adapter",
+          "contract plus real dependency test",
+          "dependency configuration may also revert"
+        ],
+        [
+          "Wire/schema",
+          "old/new compatibility matrix",
+          "expand before contract; keep old readers"
+        ],
+        [
+          "Durable side effect",
+          "replay/reconciliation test",
+          "code rollback may not reverse data"
+        ],
+        [
+          "Deployment topology",
+          "smoke, drain, failover exercise",
+          "preserve previous artifact and routing path"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Start with",
+        "Add when required"
+      ],
+      "rows": [
+        [
+          "Human-invoked automation",
+          "CLI [02]",
+          "library [08] for reusable core"
+        ],
+        [
+          "Synchronous network contract",
+          "HTTP/API [03]",
+          "distributed [13] only for independent ownership/deployment"
+        ],
+        [
+          "Durable background delivery",
+          "worker [04]",
+          "event-driven [07] for producer/consumer schema ownership"
+        ],
+        [
+          "Clock-driven finite run",
+          "scheduled/batch [05]",
+          "ETL [06] for dataset publication semantics"
+        ],
+        [
+          "Reusable consumer-facing code",
+          "library/SDK [08]",
+          "plugin [09] for third-party behavior"
+        ],
+        [
+          "Portable sandboxed component",
+          "Wasm [10]",
+          "plugin [09] when host lifecycle dominates"
+        ],
+        [
+          "Hardware-constrained control",
+          "embedded [11]",
+          "edge messaging through [07] where connectivity permits"
+        ],
+        [
+          "Windows lifecycle or native UI",
+          "Windows [12]",
+          "keep policy in neutral crates"
+        ],
+        [
+          "Many packages or release trains",
+          "monorepo [14]",
+          "selection/evolution [15] for split/merge gates"
+        ]
+      ]
+    }
+  ]
+}

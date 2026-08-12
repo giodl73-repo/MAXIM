@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\14-COMPLIANCE-MAPPINGS-SAFETY-CASES-AND-AUDIT-EVIDENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 72,
+      "heading_context": "## Map Rust Evidence to Control Intent",
+      "headers": [
+        "Engineering artifact",
+        "Can support control intent for",
+        "Must not be claimed as"
+      ],
+      "rows": [
+        [
+          "Threat model",
+          "risk assessment, secure design, change review",
+          "complete vulnerability inventory"
+        ],
+        [
+          "`forbid(unsafe_code)`/unsafe review",
+          "secure coding, high-risk code review",
+          "proof of whole-product memory safety"
+        ],
+        [
+          "Lockfile/SBOM/provenance",
+          "configuration, supplier, build integrity records",
+          "proof dependencies are non-malicious"
+        ],
+        [
+          "Tests/fuzz/Miri/sanitizers",
+          "verification and defect detection",
+          "exhaustive correctness proof"
+        ],
+        [
+          "Branch/review policy",
+          "change control and separation of duties",
+          "semantic correctness of approved change"
+        ],
+        [
+          "Signed artifact",
+          "release integrity and authorization",
+          "product safety/security by itself"
+        ],
+        [
+          "Incident/advisory records",
+          "response, remediation, lessons learned",
+          "prevention of all future incidents"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 100,
+      "heading_context": "## Safety and Security Cases Interact",
+      "headers": [
+        "Rust contribution",
+        "Safety/security qualification"
+      ],
+      "rows": [
+        [
+          "Memory-safe subset",
+          "under sound compiler/unsafe foundations, removes classes of undefined-behavior corruption paths"
+        ],
+        [
+          "Exhaustive enums/match",
+          "supports explicit state handling"
+        ],
+        [
+          "Strong types/newtypes",
+          "encode units, identities, and states"
+        ],
+        [
+          "Deterministic destruction",
+          "supports resource/lock cleanup arguments"
+        ],
+        [
+          "No GC requirement",
+          "can improve timing predictability in some designs"
+        ],
+        [
+          "Toolchain/ecosystem",
+          "qualification, target, compiler, unsafe/native, and timing evidence still required"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 114,
+      "heading_context": "## Evidence Quality",
+      "headers": [
+        "Attribute",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Relevance",
+          "Does evidence directly support this subclaim?"
+        ],
+        [
+          "Scope",
+          "Which code, target, feature, input, and environment?"
+        ],
+        [
+          "Reproducibility",
+          "Can an authorized reviewer rerun or independently verify it?"
+        ],
+        [
+          "Integrity",
+          "Is it tied to source/artifact digest and protected from alteration?"
+        ],
+        [
+          "Independence",
+          "Was the highest-risk claim challenged by someone other than its author?"
+        ],
+        [
+          "Freshness",
+          "What changes invalidate it?"
+        ],
+        [
+          "Completeness",
+          "Are exclusions and negative results retained?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 156,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established artifact",
+        "Assurance-oriented form"
+      ],
+      "rows": [
+        [
+          "Compliance checklist",
+          "bidirectional control-to-evidence mapping with scope"
+        ],
+        [
+          "Final Security Review packet",
+          "release assurance case tied to artifact digest"
+        ],
+        [
+          "Safety case",
+          "security-informed hazard argument and adversarial assumptions"
+        ],
+        [
+          "Audit screenshot",
+          "machine-readable, immutable, reproducible evidence"
+        ],
+        [
+          "Control owner",
+          "claim owner plus evidence owner and risk acceptor"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 186,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "New compliance framework",
+          "identify exact version, scope, owner, and authoritative interpretation"
+        ],
+        [
+          "Existing Rust evidence",
+          "map to control intent with limits; do not relabel it as certification"
+        ],
+        [
+          "Safety-relevant Rust component",
+          "add adversarial causes and toolchain/unsafe/platform assumptions"
+        ],
+        [
+          "Audit request",
+          "provide digest-bound reproducible artifacts, not screenshots alone"
+        ],
+        [
+          "Evidence reused across releases",
+          "define invalidation/freshness triggers"
+        ],
+        [
+          "Control exception",
+          "record compensating controls, risk acceptor, expiry, and remediation"
+        ],
+        [
+          "Ambiguous legal/regulatory duty",
+          "involve qualified specialists"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\19-TESTING-DOCUMENTATION-FUZZING-AND-BENCHMARKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Testing, Documentation, Fuzzing, and Benchmarking",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                        THE VERIFICATION LADDER                                |\n+===============================================================================+\n\n  LEVEL             TOOL                     CATCHES\n  -----             ----                     -------\n  unit tests        #[test] in src           logic per function/module\n  integration       tests/*.rs (own crate)   the PUBLIC API end-to-end\n  doc tests         ``` in /// comments      docs that lie / drift from code\n  examples          examples/*.rs            runnable usage, compiled in CI\n  compile-fail      trybuild crate           \"this SHOULD not compile\" (macros, bounds)\n  property tests    proptest / quickcheck    invariants over RANDOM inputs (shrinks)\n  fuzzing           cargo-fuzz (libFuzzer)   panics/UB on adversarial byte inputs\n  UB detection      Miri (nightly)           use-after-free, UB in UNSAFE code\n  sanitizers        ASan/TSan/MSan (nightly) memory/thread/leak errors at runtime\n  benchmarking      criterion                statistically rigorous timing\n\n  cargo test  --> runs unit + integration + doc tests in one command",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 56,
+      "heading_context": "## Unit Tests: `#[test]`, No Framework",
+      "confidence": "candidate",
+      "text": "pub fn add(a: i32, b: i32) -> i32 { a + b }\n\n#[cfg(test)]\nmod tests {\n    use super::*;\n    #[test]\n    fn adds() { assert_eq!(add(2, 3), 5); }\n    #[test]\n    #[should_panic(expected = \"overflow\")]\n    fn panics_on_bad_input() { do_thing_that_panics(); }\n    #[test]\n    fn fallible() -> Result<(), String> {          // tests can return Result\n        if add(2, 2) == 4 { Ok(()) } else { Err(\"math broke\".into()) }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

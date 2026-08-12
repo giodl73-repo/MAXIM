@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\15-OPERATIONAL-READINESS-AND-RELEASE-GATES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         READINESS GATE MODEL                               |\n|                                                                            |\n| design claims --> implementation --> executable proof --> owner decision   |\n|      |                 |                  |                    |           |\n|      v                 v                  v                    v           |\n| invariants         artifact/config    tests/drills/SLOs      accept/hold   |\n| failure model      platform contract  security/provenance    limit scope   |\n| recovery model     migrations         runbooks/alerts        record risk   |\n|                                                                            |\n| decision applies to one artifact, environment, exposure, and time window   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 153,
+      "heading_context": "## Progressive Release Gates",
+      "confidence": "candidate",
+      "text": "pre-deploy --> deploy no exposure --> smoke --> small cohort --> broad cohort\n     |               |                 |           |              |\n     +-- artifact ---+-- platform -----+-- SLI ----+-- capacity ---+\n                                                        |\n                                              full exposure / hold",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Exceptions and Risk Acceptance",
+      "confidence": "candidate",
+      "text": "gate missing --> hold\n                   |\n                   +--> remediate and rerun\n                   |\n                   +--> bounded exception with owner + expiry + controls",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

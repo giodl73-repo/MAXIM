@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\10-STRINGS-TEXT-AND-UNICODE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Strings, Text, and Unicode",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                    TEXT REPRESENTATIONS AND BOUNDARIES                        |\n+===============================================================================+\n\n  UTF-8 STRING TYPES\n  ------------------\n  OWNED                    BORROWED VIEW           RELATION\n  String   heap, growable  &str  slice of UTF-8    &String derefs to &str\n    ptr,len,cap              ptr,len               \"literal\" : &'static str\n\n  THE THREE LEVELS OF \"CHARACTER\"\n  -------------------------------\n  bytes      s.as_bytes()      -> &[u8]     UTF-8 code units   \"é\" = 2 bytes\n  chars      s.chars()         -> char      Unicode scalars    \"é\" = 1 char (if NFC)\n  graphemes  (crate)           -> &str      user clusters      family emoji = 1\n\n  OPAQUE OS / PATH TYPES (NOT GUARANTEED UTF-8)    WHY NO s[i] ?\n  ---------------------------------------------    -------------\n  OsString / OsStr : platform-native string        integer indexing is O(n) AND\n    representation; inspect through OS APIs        could split a multi-byte char.\n  Path / PathBuf   : filesystem paths              Use chars/valid byte boundaries.\n    (wrap OsStr)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

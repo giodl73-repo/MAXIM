@@ -1,0 +1,267 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\03-SEMVER-MSRV-DEPENDENCY-CONSTRAINTS-AND-COMPATIBILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 54,
+      "heading_context": "## Cargo Version Requirements",
+      "headers": [
+        "Requirement",
+        "Representative accepted range"
+      ],
+      "rows": [
+        [
+          "`\"1.2.3\"` or `\"^1.2.3\"`",
+          "`>=1.2.3, <2.0.0`"
+        ],
+        [
+          "`\"0.2.3\"`",
+          "`>=0.2.3, <0.3.0`"
+        ],
+        [
+          "`\"0.0.3\"`",
+          "`>=0.0.3, <0.0.4`"
+        ],
+        [
+          "`\"~1.2.3\"`",
+          "`>=1.2.3, <1.3.0`"
+        ],
+        [
+          "`\">=1.2, <1.5\"`",
+          "Explicit bounded interval"
+        ],
+        [
+          "`\"=1.2.3\"`",
+          "Exactly 1.2.3"
+        ],
+        [
+          "`\"*\"`",
+          "Any version; usually too broad for policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 85,
+      "heading_context": "## SemVer Is a Promise, Not Proof",
+      "headers": [
+        "Change",
+        "Usually SemVer impact",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "Remove public item",
+          "Major",
+          "Unless item was explicitly outside support"
+        ],
+        [
+          "Add required trait item without a default",
+          "Major",
+          "Existing implementations stop compiling"
+        ],
+        [
+          "Add defaulted trait item",
+          "Often compatible, but not risk-free",
+          "Name collisions and downstream method resolution can break"
+        ],
+        [
+          "Add enum variant",
+          "Can break exhaustive downstream matches",
+          "`#[non_exhaustive]` changes expectations"
+        ],
+        [
+          "Tighten generic bound",
+          "Often breaking",
+          "May reject existing callers"
+        ],
+        [
+          "Raise MSRV",
+          "Policy-dependent",
+          "Must be documented; Cargo package version rules do not enforce a universal MSRV policy"
+        ],
+        [
+          "Change defaults/features",
+          "Can be behaviorally or build breaking",
+          "Even if API types compile"
+        ],
+        [
+          "Fix unsoundness",
+          "May require breaking surface",
+          "Security and SemVer can conflict"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 123,
+      "heading_context": "## MSRV and `rust-version`",
+      "headers": [
+        "Resolver",
+        "Key compatibility behavior"
+      ],
+      "rows": [
+        [
+          "`\"1\"`",
+          "Legacy feature unification and selection behavior"
+        ],
+        [
+          "`\"2\"`",
+          "Separates several host/dev/target feature contexts; edition 2021 commonly implies it"
+        ],
+        [
+          "`\"3\"`",
+          "Adds MSRV-aware selection behavior; edition 2024 implies it for non-virtual packages"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 160,
+      "heading_context": "## Constraint Placement",
+      "headers": [
+        "Mechanism",
+        "Use for",
+        "Avoid using it as"
+      ],
+      "rows": [
+        [
+          "Version requirement",
+          "Express API compatibility",
+          "Security freeze"
+        ],
+        [
+          "`Cargo.lock`",
+          "Reproduce one graph",
+          "Public API compatibility statement"
+        ],
+        [
+          "`[patch]`",
+          "Temporarily replace a package source/version in a graph",
+          "Permanent invisible fork policy"
+        ],
+        [
+          "`cargo update -p`",
+          "Deliberately move selected package",
+          "Manifest compatibility declaration"
+        ],
+        [
+          "Policy deny/allow list",
+          "Enforce organizational constraints",
+          "Resolver replacement"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 186,
+      "heading_context": "## Compatibility Matrix",
+      "headers": [
+        "Axis",
+        "Minimum lane",
+        "Current lane",
+        "Exceptional lane"
+      ],
+      "rows": [
+        [
+          "Rust",
+          "Declared MSRV",
+          "Current stable",
+          "Beta/nightly observation only"
+        ],
+        [
+          "Features",
+          "Minimum supported",
+          "Default",
+          "Selected optional/maximal"
+        ],
+        [
+          "Target",
+          "Lowest-priority supported",
+          "Primary deployment",
+          "Cross/embedded/WASM"
+        ],
+        [
+          "Dependency graph",
+          "Lowest allowed where practical",
+          "Locked production graph",
+          "Candidate update"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 204,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar concept",
+        "Cargo equivalent"
+      ],
+      "rows": [
+        [
+          "Assembly/package reference range",
+          "`Cargo.toml` version requirement"
+        ],
+        [
+          "Restored exact dependency set",
+          "`Cargo.lock`"
+        ],
+        [
+          "Target framework/compiler floor",
+          "`rust-version` plus target matrix"
+        ],
+        [
+          "Binding redirect/central override",
+          "Resolver selection, `[patch]`, targeted update"
+        ],
+        [
+          "NuGet central package version",
+          "`[workspace.dependencies]` plus shared lockfile"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 229,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use",
+        "Verify"
+      ],
+      "rows": [
+        [
+          "Reusable library compatibility",
+          "Caret or explicit compatible range",
+          "Lower bound and current graph"
+        ],
+        [
+          "Application reproducibility",
+          "Committed `Cargo.lock`",
+          "`--locked` CI"
+        ],
+        [
+          "Compiler floor",
+          "`rust-version`",
+          "MSRV lane with supported features/targets"
+        ],
+        [
+          "Emergency transitive override",
+          "Bounded `[patch]` or targeted lock update",
+          "Removal date and upstream issue"
+        ],
+        [
+          "2024 workspace MSRV-aware selection",
+          "`resolver = \"3\"`",
+          "Cargo 1.84+ and accurate dependency metadata"
+        ],
+        [
+          "Breaking API review",
+          "Release notes plus API diff and tests",
+          "Semantic migration paths"
+        ]
+      ]
+    }
+  ]
+}

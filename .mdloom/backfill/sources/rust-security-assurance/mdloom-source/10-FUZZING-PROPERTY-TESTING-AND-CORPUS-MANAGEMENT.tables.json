@@ -1,0 +1,216 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\10-FUZZING-PROPERTY-TESTING-AND-CORPUS-MANAGEMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Choose the Right Test Generator",
+      "headers": [
+        "Technique",
+        "Input model",
+        "Best at",
+        "Limit"
+      ],
+      "rows": [
+        [
+          "Example test",
+          "hand-selected values",
+          "known cases and regressions",
+          "narrow exploration"
+        ],
+        [
+          "Property test",
+          "generated structured values",
+          "algebraic/domain invariants, shrinking",
+          "generator may exclude malformed encodings"
+        ],
+        [
+          "Coverage-guided fuzzing",
+          "mutated byte sequences or structured adapter",
+          "parser edges, panics, sanitizer/UB findings",
+          "coverage is not correctness"
+        ],
+        [
+          "Differential test",
+          "same input to two implementations/modes",
+          "semantic disagreement",
+          "both may share the same bug"
+        ],
+        [
+          "Stateful/model test",
+          "sequences of commands",
+          "protocol/state-machine bugs",
+          "state space grows rapidly"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 79,
+      "heading_context": "## Design a Security-Relevant Harness",
+      "headers": [
+        "Weak oracle",
+        "Stronger oracle"
+      ],
+      "rows": [
+        [
+          "\"did not panic\"",
+          "accepted value satisfies domain invariant"
+        ],
+        [
+          "serialize/deserialize returns",
+          "round trip preserves canonical meaning"
+        ],
+        [
+          "parser A accepts",
+          "parser A and B agree on meaning and rejection"
+        ],
+        [
+          "request completes",
+          "request stays within allocation/work budget"
+        ],
+        [
+          "unsafe call returns",
+          "Miri/sanitizer also observes no violation on that path"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 109,
+      "heading_context": "## `cargo-fuzz` Workflow",
+      "headers": [
+        "Campaign",
+        "Example stop/evidence rule"
+      ],
+      "rows": [
+        [
+          "Pull request smoke",
+          "fixed short duration per changed high-risk target"
+        ],
+        [
+          "Nightly",
+          "fixed budget; preserve new corpus and findings"
+        ],
+        [
+          "Release",
+          "required cumulative hours/coverage trend with no unresolved blocker"
+        ],
+        [
+          "Incident/advisory",
+          "focused target until patched path and nearby variants explored"
+        ],
+        [
+          "Continuous service",
+          "rolling campaign with deduplicated findings and retention"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 148,
+      "heading_context": "## Corpus Management Is Configuration Management",
+      "headers": [
+        "Corpus concern",
+        "Policy"
+      ],
+      "rows": [
+        [
+          "Secrets/PII",
+          "never ingest production samples without approved sanitization"
+        ],
+        [
+          "Licensing",
+          "know whether external samples can be redistributed"
+        ],
+        [
+          "Size",
+          "minimize redundant coverage; keep high-value semantic seeds"
+        ],
+        [
+          "Reproducibility",
+          "store finding input, target, toolchain, features, arguments"
+        ],
+        [
+          "Security",
+          "treat crash inputs as potentially sensitive until disclosure"
+        ],
+        [
+          "Retention",
+          "keep fixed regressions; define expiry for low-value generated bulk"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 169,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust workflow"
+      ],
+      "rows": [
+        [
+          "QuickCheck/FsCheck",
+          "`proptest`/`quickcheck` with shrinking"
+        ],
+        [
+          "AFL/libFuzzer harness",
+          "`cargo-fuzz` target around Rust API"
+        ],
+        [
+          "Parser corpus in test data",
+          "versioned fuzz corpus plus regression fixtures"
+        ],
+        [
+          "Native sanitizer fuzzing",
+          "libFuzzer with target-appropriate sanitizer/Miri follow-up"
+        ],
+        [
+          "Production crash dump",
+          "minimized reproducible input plus scoped build identity"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 198,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Algebraic/domain invariant",
+          "Property testing with shrinker"
+        ],
+        [
+          "Hostile byte parser",
+          "Coverage-guided fuzz target"
+        ],
+        [
+          "Two parsers/implementations",
+          "Differential fuzzing"
+        ],
+        [
+          "Protocol sequence",
+          "Stateful/model-based generator"
+        ],
+        [
+          "Unsafe hotspot",
+          "Fuzz plus Miri/sanitizer on supported configurations"
+        ],
+        [
+          "Production/advisory reproducer",
+          "Restricted corpus, regression test, disclosure controls"
+        ],
+        [
+          "Campaign report",
+          "Target, oracle, corpus hash, toolchain, flags, time, findings"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\03-HTTP-AND-API-SERVICE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 101,
+      "heading_context": "## Request Lifecycle and Authority",
+      "headers": [
+        "Concern",
+        "Owning layer"
+      ],
+      "rows": [
+        [
+          "TLS termination and edge limits",
+          "proxy/platform or server entrypoint"
+        ],
+        [
+          "Authentication evidence",
+          "protocol/security adapter"
+        ],
+        [
+          "Authorization decision",
+          "application/domain policy"
+        ],
+        [
+          "HTTP status and headers",
+          "HTTP representation layer"
+        ],
+        [
+          "Transaction and concurrency rule",
+          "application plus store port"
+        ],
+        [
+          "Database schema",
+          "service data owner"
+        ],
+        [
+          "Deadline propagation",
+          "entrypoint establishes; adapters respect"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 123,
+      "heading_context": "## Load, Backpressure, and Shutdown",
+      "headers": [
+        "Pressure point",
+        "Required bound"
+      ],
+      "rows": [
+        [
+          "Connections",
+          "listener/platform limit"
+        ],
+        [
+          "In-flight requests",
+          "concurrency budget"
+        ],
+        [
+          "Request body",
+          "byte and time limit"
+        ],
+        [
+          "Database work",
+          "pool and query deadline"
+        ],
+        [
+          "Remote calls",
+          "deadline, concurrency, retry budget"
+        ],
+        [
+          "Response buffering",
+          "stream or bounded body"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 174,
+      "heading_context": "## Data Evolution, Testing, and Rollback",
+      "headers": [
+        "Change",
+        "Rollback rule"
+      ],
+      "rows": [
+        [
+          "Handler only",
+          "old binary accepts current config and data"
+        ],
+        [
+          "API additive",
+          "old clients ignore or tolerate new fields per format contract"
+        ],
+        [
+          "API breaking",
+          "new version/route and explicit retirement window"
+        ],
+        [
+          "Database",
+          "old code works throughout rollback window"
+        ],
+        [
+          "Accepted async work",
+          "job identity remains observable across deployment"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Simple synchronous CRUD/use case",
+          "one service binary with HTTP adapter and owned store"
+        ],
+        [
+          "Work exceeds request deadline",
+          "return accepted job identity; process via worker [04]"
+        ],
+        [
+          "Multiple independent data owners",
+          "distributed application [13]"
+        ],
+        [
+          "Streaming response/request",
+          "explicit flow control and cancellation contract"
+        ],
+        [
+          "Public client ecosystem",
+          "versioned representation plus SDK [08] if useful"
+        ],
+        [
+          "Internal admin operation",
+          "consider CLI [02] rather than an undocumented endpoint"
+        ],
+        [
+          "Zero-downtime data change",
+          "expand/contract plus compatibility tests"
+        ]
+      ]
+    }
+  ]
+}

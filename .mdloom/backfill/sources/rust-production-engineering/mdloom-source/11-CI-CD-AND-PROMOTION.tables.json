@@ -1,0 +1,143 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\11-CI-CD-AND-PROMOTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Integration Gates",
+      "headers": [
+        "Gate",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Format/lint",
+          "Does source satisfy mechanical policy?"
+        ],
+        [
+          "Build matrix",
+          "Do supported targets/features compile?"
+        ],
+        [
+          "Unit/property tests",
+          "Do local invariants hold?"
+        ],
+        [
+          "Integration/contract tests",
+          "Do real boundaries agree?"
+        ],
+        [
+          "Dependency/license checks",
+          "Is the resolved graph acceptable?"
+        ],
+        [
+          "Artifact inspection",
+          "Is the package complete and expected?"
+        ],
+        [
+          "Provenance/signature",
+          "Can deployers verify origin and integrity?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Caching Without Corrupting Evidence",
+      "headers": [
+        "Cache",
+        "Benefit",
+        "Main risk"
+      ],
+      "rows": [
+        [
+          "Registry/git source",
+          "download reduction",
+          "stale policy metadata"
+        ],
+        [
+          "`target/`",
+          "compile reduction",
+          "incorrect reuse across inputs"
+        ],
+        [
+          "Compiler cache",
+          "object reuse",
+          "key/configuration mismatch"
+        ],
+        [
+          "Container layers",
+          "packaging speed",
+          "hidden mutable base/tag"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 179,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Rust/build",
+          "Cargo commands, test tools, artifact metadata, supply-chain tools"
+        ],
+        [
+          "Runtime",
+          "normally tested as a dependency; not the pipeline orchestrator"
+        ],
+        [
+          "Platform",
+          "GitHub Actions, Azure Pipelines, GitLab CI, Jenkins, deployment controllers"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "`--locked`",
+          "building an application from an approved dependency graph"
+        ],
+        [
+          "Target/feature matrix",
+          "multiple surfaces are supported in production"
+        ],
+        [
+          "Build once/promote",
+          "environment differences are configuration, not compilation"
+        ],
+        [
+          "Protected release job",
+          "signing/publishing requires trusted identity"
+        ],
+        [
+          "Short-lived federated identity",
+          "CI platform can exchange workload identity"
+        ],
+        [
+          "Canary/ring",
+          "live comparison can bound release risk"
+        ],
+        [
+          "Blue/green",
+          "rapid traffic switch and duplicated capacity are acceptable"
+        ],
+        [
+          "Manual approval",
+          "evidence needs human judgment or policy requires separation"
+        ]
+      ]
+    }
+  ]
+}

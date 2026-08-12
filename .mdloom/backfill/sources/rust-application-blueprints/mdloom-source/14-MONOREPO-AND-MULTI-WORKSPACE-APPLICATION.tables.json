@@ -1,0 +1,130 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\14-MONOREPO-AND-MULTI-WORKSPACE-APPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 122,
+      "heading_context": "## Multi-Workspace Layout",
+      "headers": [
+        "Shape",
+        "Prefer when"
+      ],
+      "rows": [
+        [
+          "One workspace",
+          "compatible toolchain/target graph and coordinated lockfile"
+        ],
+        [
+          "Multiple workspaces",
+          "firmware/server/tool graphs need independent policy"
+        ],
+        [
+          "Multiple repositories",
+          "access, lifecycle, or authority must be independent"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Dependency and Ownership Rules",
+      "headers": [
+        "Policy",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Dependency direction",
+          "metadata/graph check plus review"
+        ],
+        [
+          "Ownership",
+          "path-level owner and review rule"
+        ],
+        [
+          "Unsafe/FFI",
+          "named crates and stricter audit"
+        ],
+        [
+          "Version/MSRV",
+          "workspace or per-workspace CI matrix"
+        ],
+        [
+          "Generated contracts",
+          "source owner and reproducible generation check"
+        ],
+        [
+          "Releases",
+          "artifact-to-commit and dependency record"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 189,
+      "heading_context": "## CI, Affected Testing, and Release",
+      "headers": [
+        "Release model",
+        "Rollback"
+      ],
+      "rows": [
+        [
+          "One application cohort",
+          "revert cohort artifact and compatible state"
+        ],
+        [
+          "Independent binaries",
+          "retain per-artifact versions and contract matrix"
+        ],
+        [
+          "Published libraries",
+          "publish corrected versions; cannot rewrite history"
+        ],
+        [
+          "Firmware plus service",
+          "verify cross-workspace protocol compatibility"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 215,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Shared lockfile and coordinated Rust graph",
+          "one Cargo workspace"
+        ],
+        [
+          "Firmware, server, tools with incompatible policies",
+          "multiple explicit workspaces"
+        ],
+        [
+          "Independent access/security/lifecycle",
+          "separate repositories"
+        ],
+        [
+          "Common versions/lints",
+          "workspace inheritance"
+        ],
+        [
+          "Shared service behavior",
+          "protocol contract, not private domain crate"
+        ],
+        [
+          "Faster CI",
+          "affected graph plus non-skippable global gates"
+        ],
+        [
+          "Independent rollback",
+          "artifact and contract records per deployable"
+        ]
+      ]
+    }
+  ]
+}

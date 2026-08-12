@@ -1,0 +1,175 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## Layout Contracts",
+      "headers": [
+        "Representation",
+        "Contract",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Default `repr(Rust)`",
+          "Field/layout details may change; compiler controls layout",
+          "Internal Rust data"
+        ],
+        [
+          "`#[repr(C)]`",
+          "C-compatible field ordering/layout rules for the target ABI",
+          "FFI and externally interpreted layouts"
+        ],
+        [
+          "`#[repr(transparent)]`",
+          "Wrapper layout follows its single non-zero-sized field",
+          "FFI-safe newtypes where other rules also hold"
+        ],
+        [
+          "Integer `repr` on enum",
+          "Controls discriminant representation subject to enum rules",
+          "FFI/protocol cases with care"
+        ],
+        [
+          "Packed representation",
+          "Removes/reduces padding for a representation contract",
+          "Rare ABI/storage interop with alignment hazards; prefer explicit parsing for wire formats"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 105,
+      "heading_context": "## Array of Structs vs Structure of Arrays",
+      "headers": [
+        "Layout",
+        "Best when",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Array of structs",
+          "Operations consume most fields per entity",
+          "Simple ownership, good entity locality"
+        ],
+        [
+          "Structure of arrays",
+          "Hot loops consume a few fields across many entities",
+          "More coordination; insertion/removal complexity"
+        ],
+        [
+          "Hybrid/chunked",
+          "Mixed operations and bounded working sets",
+          "More design complexity"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Explicit SIMD",
+      "headers": [
+        "Route",
+        "Stability/portability",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Auto-vectorization",
+          "Available on stable; emitted vector code is not guaranteed",
+          "Default first choice"
+        ],
+        [
+          "`std::arch` target intrinsics",
+          "Stable APIs for supported architectures, often `unsafe`",
+          "Hot kernels with explicit target dispatch"
+        ],
+        [
+          "Portable SIMD (`std::simd`)",
+          "Nightly-only under `portable_simd` in Rust 1.97.1; recheck later toolchains",
+          "Cross-architecture vector code when toolchain policy permits"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 219,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust expression"
+      ],
+      "rows": [
+        [
+          "C/C++ POD layout",
+          "`repr(C)` when an ABI contract is required"
+        ],
+        [
+          "Struct packing pragmas",
+          "`repr(packed)` with stricter unaligned-access hazards"
+        ],
+        [
+          "`Span<T>` numeric loops",
+          "slices and iterators over contiguous storage"
+        ],
+        [
+          "`System.Numerics.Vector<T>` / intrinsics",
+          "auto-vectorization, `std::arch`, possibly portable SIMD"
+        ],
+        [
+          "ECS SoA/chunk layouts",
+          "Same data-oriented design; Rust ownership helps encode exclusive access"
+        ],
+        [
+          "Cache-line padding types",
+          "Explicit alignment/padding wrappers after measuring false sharing"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 246,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Problem",
+        "First choice"
+      ],
+      "rows": [
+        [
+          "Oversized hot records",
+          "Inspect `size_of`/alignment and hot-vs-cold field split"
+        ],
+        [
+          "Cache misses in a field-wise loop",
+          "Evaluate SoA or chunked layout"
+        ],
+        [
+          "Branch-heavy kernel",
+          "Separate classes/batches; then inspect vectorization"
+        ],
+        [
+          "Need a portable default",
+          "Scalar/auto-vectorized implementation"
+        ],
+        [
+          "Need ISA-specific speed",
+          "Runtime-dispatched `std::arch` kernel plus scalar fallback"
+        ],
+        [
+          "FFI layout",
+          "`repr(C)` and target-specific layout tests"
+        ],
+        [
+          "Persistent/wire format",
+          "Explicit serialization, not transmuted Rust layout"
+        ],
+        [
+          "Need to prove improvement",
+          "Counters plus end-to-end benchmark on supported CPUs"
+        ]
+      ]
+    }
+  ]
+}

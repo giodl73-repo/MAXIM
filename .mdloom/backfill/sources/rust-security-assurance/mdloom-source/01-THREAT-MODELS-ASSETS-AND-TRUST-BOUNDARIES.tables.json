@@ -1,0 +1,194 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\01-THREAT-MODELS-ASSETS-AND-TRUST-BOUNDARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## 1. Inventory Assets and Security Properties",
+      "headers": [
+        "Asset",
+        "Required property",
+        "Example failure"
+      ],
+      "rows": [
+        [
+          "Signing key",
+          "confidentiality, controlled use, rotation",
+          "attacker signs a trojan release"
+        ],
+        [
+          "Authorization decision",
+          "integrity, freshness, context binding",
+          "confused deputy grants another tenant's access"
+        ],
+        [
+          "Service capacity",
+          "availability, fair allocation",
+          "one request monopolizes workers or memory"
+        ],
+        [
+          "Audit record",
+          "integrity, ordering, retention",
+          "attacker erases evidence or injects false events"
+        ],
+        [
+          "Build recipe and source identity",
+          "integrity, traceability",
+          "artifact cannot be tied to reviewed source"
+        ],
+        [
+          "Unsafe invariant",
+          "validity across all safe call paths",
+          "safe caller triggers UB through a soundness hole"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 96,
+      "heading_context": "## 3. Draw Trust Boundaries, Including Build Time",
+      "headers": [
+        "Boundary",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Network -> parser",
+          "Is length bounded before allocation? Are framing and timeouts explicit?"
+        ],
+        [
+          "Parser -> domain object",
+          "Does syntactic validity imply semantic authorization? Usually not."
+        ],
+        [
+          "Safe API -> unsafe implementation",
+          "Can any safe input violate the documented invariant?"
+        ],
+        [
+          "Crate -> dependency",
+          "Who can publish, what features activate, what code runs at build time?"
+        ],
+        [
+          "Rust -> native ABI",
+          "Who owns memory, which layout/ABI applies, may unwinding cross?"
+        ],
+        [
+          "Process -> OS service",
+          "Which syscalls, files, devices, tokens, and namespaces are reachable?"
+        ],
+        [
+          "CI -> signing",
+          "Can a build job request a production signature without independent policy?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 137,
+      "heading_context": "## 4. Turn Diagrams into Abuse Cases",
+      "headers": [
+        "Abuse case",
+        "Prevent",
+        "Detect",
+        "Recover"
+      ],
+      "rows": [
+        [
+          "Oversized frame allocates unbounded memory",
+          "pre-allocation length cap",
+          "rejected-size metric",
+          "shed load; restart within budget"
+        ],
+        [
+          "Replayed signed request",
+          "nonce/timestamp and audience binding",
+          "replay counter",
+          "revoke credential; tighten window"
+        ],
+        [
+          "Malicious proc macro exfiltrates CI secret",
+          "isolated build and no secret in build job",
+          "egress/audit alert",
+          "rotate secret; rebuild from known inputs"
+        ],
+        [
+          "Safe API reaches invalid native pointer",
+          "ownership/lifetime design and review",
+          "Miri/sanitizer on supported paths",
+          "treat as security incident; patch dependents"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 158,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust-specific extension"
+      ],
+      "rows": [
+        [
+          "Data-flow diagram",
+          "Add Cargo/build-time and unsafe/native flows"
+        ],
+        [
+          "STRIDE worksheet",
+          "Pair each category with concrete Rust entry points and abuse tests"
+        ],
+        [
+          "Attack-surface inventory",
+          "Include features, targets, proc macros, `build.rs`, FFI, and syscalls"
+        ],
+        [
+          "Security requirement",
+          "Express as invariant plus measurable resource/response bound"
+        ],
+        [
+          "Final threat-model review",
+          "Re-open on lockfile, target, feature, privilege, or protocol changes"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 185,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "New service or protocol",
+          "Draw end-to-end data and authority flows before coding"
+        ],
+        [
+          "Existing crate gains `unsafe`",
+          "Add a safe/unsafe boundary and invariant-abuse cases"
+        ],
+        [
+          "New dependency or feature",
+          "Recompute build/runtime boundaries and publisher trust"
+        ],
+        [
+          "Cross-compilation or new target",
+          "Revisit native libraries, linker, runner, and platform assumptions"
+        ],
+        [
+          "Multi-tenant authorization change",
+          "Model tenant/object identity from parse through storage"
+        ],
+        [
+          "CI gains signing access",
+          "Separate build identity from signing authorization and model compromise"
+        ],
+        [
+          "Model has no owners or tests",
+          "Treat it as unfinished"
+        ]
+      ]
+    }
+  ]
+}

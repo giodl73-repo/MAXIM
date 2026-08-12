@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\01-THREAT-MODELS-ASSETS-AND-TRUST-BOUNDARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         THREAT-MODEL DATA FLOW                             |\n+============================================================================+\n| untrusted client -> parser -> domain logic -> privileged action            |\n|       |              |           |                 |                       |\n|       |              |           |                 +--> keys / money / ACL |\n|       |              |           +--> authorization + state invariants     |\n|       |              +--> CPU, memory, recursion, unsafe/native codecs     |\n|       +--> spoofing, replay, malformed input, load, protocol sequencing    |\n+----------------------------------------------------------------------------+\n| BUILD boundary: registry -> Cargo -> build.rs/proc macro -> compiler       |\n| HOST boundary: process -> libc/native library -> kernel/hypervisor         |\n| OPS boundary: artifact -> signer -> registry -> deployer -> runtime config |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

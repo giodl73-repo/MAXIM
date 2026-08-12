@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "# Threads, Send, Sync, Locks, and Atomics",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                 SEND + SYNC = THREAD SAFETY AS A TYPE PROPERTY                |\n+===============================================================================+\n\n  Send : ownership of T can MOVE to another thread   (most types)\n  Sync : &T can be SHARED across threads              (T is Sync iff &T is Send)\n  -> auto-derived; a struct is Send/Sync iff all its fields are\n\n  NOT Send/Sync              Send + Sync                THREAD-SAFE SHARING RECIPE\n  -------------              -----------                --------------------------\n  Rc<T>   (non-atomic rc)    Arc<T> if T: Send+Sync     Arc<Mutex<T>>  : shared + mutable\n  RefCell (unsync int.mut.)  Mutex<T> RwLock<T>         Arc<T>         : shared + read-only\n  *mut T  (raw pointer)      atomics (AtomicUsize..)    channels       : transfer ownership\n                                                        (mpsc / crossbeam)\n\n  COMMUNICATE                                MEMORY ORDERINGS (atomics)\n  -----------                                --------------------------\n  channels:  send/recv, MOVE ownership       Relaxed  : independent metrics only\n    \"share memory by communicating\"          Acquire/Release : lock-like pairing\n  shared state: Arc<Mutex<T>>                SeqCst   : total order among SeqCst ops\n    \"communicate by sharing memory\"          (stronger order cannot fix a wrong protocol)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 113,
+      "heading_context": "### Shared State (Arc + Mutex/RwLock)",
+      "confidence": "candidate",
+      "text": "use std::sync::{Arc, Mutex};\nlet counter = Arc::new(Mutex::new(0));\nlet mut handles = vec![];\nfor _ in 0..8 {\n    let c = Arc::clone(&counter);\n    handles.push(thread::spawn(move || {\n        let mut n = c.lock().unwrap();     // MutexGuard; unlocks on drop (RAII)\n        *n += 1;\n    }));                                   // guard dropped here -> lock released\n}\nfor h in handles { h.join().unwrap(); }\nassert_eq!(*counter.lock().unwrap(), 8);",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

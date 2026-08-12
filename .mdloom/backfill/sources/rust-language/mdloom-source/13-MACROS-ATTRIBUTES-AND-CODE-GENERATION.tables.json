@@ -1,0 +1,190 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\13-MACROS-ATTRIBUTES-AND-CODE-GENERATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## Declarative Macros: `macro_rules!`",
+      "headers": [
+        "Specifier",
+        "Matches",
+        "Example"
+      ],
+      "rows": [
+        [
+          "`expr`",
+          "an expression",
+          "`1 + 2`, `f(x)`"
+        ],
+        [
+          "`ty`",
+          "a type",
+          "`Vec<u8>`"
+        ],
+        [
+          "`ident`",
+          "an identifier",
+          "`foo`"
+        ],
+        [
+          "`pat`",
+          "a pattern",
+          "`Some(x)`"
+        ],
+        [
+          "`stmt` / `block`",
+          "a statement / `{...}`",
+          ""
+        ],
+        [
+          "`literal`",
+          "a literal",
+          "`42`, `\"s\"`"
+        ],
+        [
+          "`tt`",
+          "a single token tree (most flexible)",
+          "anything balanced"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 96,
+      "heading_context": "## Attributes",
+      "headers": [
+        "Attribute",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "`#[derive(Trait, ...)]`",
+          "auto-generate impls (compiler built-ins or custom derive macros)"
+        ],
+        [
+          "`#[cfg(...)]` / `#[cfg_attr(...)]`",
+          "conditional compilation ([18](18-CONST-STATICS-CFG-FEATURES-AND-EDITIONS.md))"
+        ],
+        [
+          "`#[test]` / `#[bench]`",
+          "mark test/bench functions ([19](19-TESTING-DOCUMENTATION-FUZZING-AND-BENCHMARKING.md))"
+        ],
+        [
+          "`#[repr(C)]` / `#[repr(transparent)]`",
+          "control memory layout ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ],
+        [
+          "`#[inline]` / `#[inline(always)]`",
+          "inlining hints"
+        ],
+        [
+          "`#[allow/warn/deny(lint)]`",
+          "lint control"
+        ],
+        [
+          "`#[non_exhaustive]`",
+          "API evolution ([20](20-API-DESIGN-SEMVER-AND-ADVANCED-TYPE-PATTERNS.md))"
+        ],
+        [
+          "`#![...]` (inner)",
+          "applies to the enclosing crate/module (`#![no_std]`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 152,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C preprocessor `#define`",
+          "`macro_rules!`",
+          "Syntactic fragments + mixed-site hygiene avoid many capture bugs"
+        ],
+        [
+          "C++ templates (codegen)",
+          "generics ([06](06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md)) + macros",
+          "Generics for types, macros for syntax"
+        ],
+        [
+          "C# source generators (Roslyn)",
+          "proc macros",
+          "Same \"generate code at compile time\" role"
+        ],
+        [
+          ".NET attributes + reflection",
+          "attributes + derive macros",
+          "Codegen at compile time, not runtime reflection"
+        ],
+        [
+          "Java annotation processors",
+          "derive/attribute macros",
+          "Direct analog"
+        ],
+        [
+          "`T4` templates / codegen tools",
+          "`build.rs` + `quote`",
+          "Integrated into the build"
+        ],
+        [
+          "runtime reflection/serialization",
+          "`#[derive(Serialize)]` (compile-time)",
+          "No reflection cost; generated statically"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 188,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Variadic / syntax-shaped helper in one crate",
+          "`macro_rules!`"
+        ],
+        [
+          "Auto-implement a trait from a type def",
+          "derive macro (`#[derive(...)]`)"
+        ],
+        [
+          "Rewrite/annotate an item",
+          "attribute proc macro"
+        ],
+        [
+          "DSL / compile-time-checked call syntax",
+          "function-like proc macro"
+        ],
+        [
+          "Conditionally compile code",
+          "`#[cfg(...)]` ([18](18-CONST-STATICS-CFG-FEATURES-AND-EDITIONS.md))"
+        ],
+        [
+          "Control memory layout for FFI",
+          "`#[repr(C)]` ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ],
+        [
+          "Generate code / link native libs pre-build",
+          "`build.rs`"
+        ],
+        [
+          "See what a macro produces",
+          "`cargo expand`"
+        ],
+        [
+          "Vet build-time trust",
+          "`cargo audit` / `cargo deny` / `cargo vet`"
+        ]
+      ]
+    }
+  ]
+}

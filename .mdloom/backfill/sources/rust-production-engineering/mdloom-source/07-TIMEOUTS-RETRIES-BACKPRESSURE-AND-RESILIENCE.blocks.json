@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\07-TIMEOUTS-RETRIES-BACKPRESSURE-AND-RESILIENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         RESILIENCE CONTROL LOOP                            |\n|                                                                            |\n| request deadline                                                           |\n|       |                                                                    |\n|       v                                                                    |\n| admission --> attempt --> classify outcome --> success                     |\n|    |           |             |                                             |\n|    | reject    | timeout     +--> permanent failure --> stop               |\n|    |           |             +--> transient + safe --> backoff/jitter --+  |\n|    v           v                                                      |    |\n| backpressure  cancel/abandon <------------------------------------------+  |\n|                                                                            |\n| bulkheads isolate capacity; breakers suppress predictably futile attempts  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Executable Bounded Retry",
+      "confidence": "candidate",
+      "text": "use std::{\n    num::NonZeroU32,\n    thread,\n    time::{Duration, Instant},\n};\n\n#[derive(Debug)]\nenum AttemptError {\n    Transient,\n    Permanent,\n    BudgetExhausted,\n}\n\nfn retry<T>(\n    deadline: Instant,\n    max_attempts: NonZeroU32,\n    mut operation: impl FnMut(u32, Duration) -> Result<T, AttemptError>,\n) -> Result<T, AttemptError> {\n    for attempt in 1..=max_attempts.get() {\n        let remaining = deadline.saturating_duration_since(Instant::now());\n        if remaining.is_zero() {\n            return Err(AttemptError::BudgetExhausted);\n        }\n\n        match operation(attempt, remaining) {\n            Ok(value) => return Ok(value),\n            Err(AttemptError::Permanent) => return Err(AttemptError::Permanent),\n            Err(AttemptError::BudgetExhausted) => return Err(AttemptError::BudgetExhausted),\n            Err(AttemptError::Transient) if attempt < max_attempts.get() => {\n                let delay = Duration::from_millis(20 * u64::from(attempt));\n                let remaining = deadline.saturating_duration_since(Instant::now());\n                if remaining <= delay {\n                    return Err(AttemptError::BudgetExhausted);\n                }\n                thread::sleep(delay);\n            }\n            Err(error) => return Err(error),\n        }\n    }\n    unreachable!(\"max_attempts must be non-zero\")\n}\n\nfn main() {\n    let deadline = Instant::now() + Duration::from_secs(1);\n    let max_attempts = NonZeroU32::new(3).expect(\"constant is non-zero\");\n    let result = retry(deadline, max_attempts, |attempt, remaining| {\n        println!(\"attempt={attempt} remaining_ms={}\", remaining.as_millis());\n        if std::env::var_os(\"PERMANENT_FAILURE\").is_some() {\n            Err(AttemptError::Permanent)\n        } else if attempt < 3 {\n            Err(AttemptError::Transient)\n        } else {\n            Ok(\"completed\")\n        }\n    });\n    println!(\"{result:?}\");\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

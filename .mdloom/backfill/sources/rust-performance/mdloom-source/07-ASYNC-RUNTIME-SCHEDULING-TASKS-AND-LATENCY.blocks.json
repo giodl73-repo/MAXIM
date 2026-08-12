@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                          ASYNC REQUEST PATH                                 |\n|                                                                             |\n| reactor completion -> runnable queue -> executor worker -> poll             |\n|                                      |                                      |\n|                                      +-> Pending: park until wake           |\n|                                      +-> Ready: emit response               |\n|                                      +-> blocking/long poll: delay peers    |\n|                                                                             |\n| latency = queueing + scheduling + polls + CPU work + I/O + downstream waits |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 94,
+      "heading_context": "## Queueing, Backpressure, and Tail Latency",
+      "confidence": "candidate",
+      "text": "arrival rate\n     |\n     v\n[accept] -> [bounded queue] -> [workers/tasks] -> [downstream]\n               |                    |\n               | full               | saturated\n               v                    v\n       reject/defer/backoff      queue delay grows",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

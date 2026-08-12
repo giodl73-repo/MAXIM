@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\03-CPU-PROFILING-AND-FLAME-GRAPHS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                          CPU ATTRIBUTION PIPELINE                           |\n|                                                                             |\n| representative workload [01] -> optimized symbolized binary [02]            |\n|             |                              |                                |\n|             v                              v                                |\n|       sample/trace stacks ---------> symbolize + unwind                     |\n|             |                              |                                |\n|             +-> on-CPU samples             +-> DWARF / PDB / dSYM           |\n|             +-> counters: cycles, IPC, misses                               |\n|             +-> off-CPU waits if tool supports them                         |\n|                                             |                               |\n|                                             v                               |\n|                               call tree / flame graph / timeline            |\n|                                             |                               |\n|                                             v                               |\n|                                  hypothesis -> change -> benchmark          |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## On-CPU vs Off-CPU",
+      "confidence": "candidate",
+      "text": "request latency\n   |\n   +-> on CPU: parsing, hashing, copying, user code\n   |\n   +-> runnable but not scheduled: CPU saturation / priority\n   |\n   +-> blocked: mutex, channel, socket, disk, timer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

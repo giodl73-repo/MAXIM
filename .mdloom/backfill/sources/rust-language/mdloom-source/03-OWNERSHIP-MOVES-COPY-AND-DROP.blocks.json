@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\03-OWNERSHIP-MOVES-COPY-AND-DROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "# Ownership, Moves, Copy, and Drop",
+      "confidence": "candidate",
+      "text": "promoted from a C++ convention to a type-system guarantee.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "# Ownership, Moves, Copy, and Drop",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                          THE OWNERSHIP MODEL                                  |\n+===============================================================================+\n\n  THREE RULES                              LIFECYCLE OF A VALUE\n  -----------                              --------------------\n  1. each value has ONE owner              let s = String::from(\"hi\");  <- born\n  2. owner drops -> value is freed              |  owner = s\n  3. assign/pass -> ownership MOVES         let t = s;   <- MOVED: s dead, t owns\n                                                 |\n                                            }    <- t's scope ends -> Drop::drop(t)\n                                                    heap buffer freed HERE\n\n  MOVE vs COPY                             THE FOUR TRAITS\n  ------------                             ---------------\n  heap-owning types  -> MOVE              Copy   : bitwise dup, old stays valid\n    String, Vec, Box, most structs       Clone  : explicit (maybe deep) dup\n  plain-old-data     -> COPY              Drop   : runs a destructor at scope end\n    i32, bool, char, &T, [T;N] of Copy   (Copy and Drop are mutually exclusive)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 114,
+      "heading_context": "## Drop: Deterministic Destructors (RAII)",
+      "confidence": "candidate",
+      "text": "declaration order. This is C++-style RAII with statically tracked moves, but",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Old World -> New World Bridge",
+      "confidence": "candidate",
+      "text": "The sharpest contrast is with C++: there, a moved-from object is left in a",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

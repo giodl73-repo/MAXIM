@@ -1,0 +1,189 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\13-PRODUCTION-DEBUGGING-AND-INCIDENT-RESPONSE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## First Questions",
+      "headers": [
+        "Question",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "What is the user-visible symptom?",
+          "SLI, support signal, failed operation"
+        ],
+        [
+          "What changed?",
+          "release, config, dependency, traffic, platform events"
+        ],
+        [
+          "How broad is impact?",
+          "region, tenant class, route, release, dependency"
+        ],
+        [
+          "Is capacity failing?",
+          "queues, pools, CPU, memory, descriptors, throttling"
+        ],
+        [
+          "Is state at risk?",
+          "error taxonomy, transaction/outbox lag, corruption signal"
+        ],
+        [
+          "What action is safest now?",
+          "rollback, shed, disable feature, add capacity, fail over"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Rust-Specific Diagnostic Surfaces",
+      "headers": [
+        "Symptom",
+        "Useful evidence"
+      ],
+      "rows": [
+        [
+          "Panic",
+          "hook output, backtrace, task/thread identity, release"
+        ],
+        [
+          "Deadlock/stall",
+          "thread stacks, task dump if runtime supports it, lock/queue metrics"
+        ],
+        [
+          "CPU hot loop",
+          "sampled profile with symbols"
+        ],
+        [
+          "Allocation growth",
+          "allocator/process metrics, heap profiler where supported"
+        ],
+        [
+          "Async starvation",
+          "runtime/task metrics, blocking duration, poll hotspots"
+        ],
+        [
+          "Native crash",
+          "core/minidump, symbols, FFI boundary, unsafe-code inventory"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 145,
+      "heading_context": "## Mitigation Hierarchy",
+      "headers": [
+        "Mitigation",
+        "Benefit",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "Shed optional work",
+          "immediate capacity protection",
+          "reduced functionality"
+        ],
+        [
+          "Disable feature",
+          "isolates recent/high-cost path",
+          "config propagation"
+        ],
+        [
+          "Roll back",
+          "fast if compatibility remains",
+          "state/schema incompatibility"
+        ],
+        [
+          "Roll forward",
+          "preserves one-way state transition",
+          "new code under pressure"
+        ],
+        [
+          "Add capacity",
+          "helps true capacity shortage",
+          "may overload dependency"
+        ],
+        [
+          "Fail over",
+          "escapes failed domain",
+          "stale state, cold caches, reduced margin"
+        ],
+        [
+          "Restart",
+          "clears some local faults",
+          "destroys evidence; restart storm"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 171,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "panic hooks, tracing, metrics, diagnostic endpoints"
+        ],
+        [
+          "Runtime",
+          "task dumps/metrics, scheduler behavior, runtime console"
+        ],
+        [
+          "Platform",
+          "journal/Event Log, profiler, dump service, orchestration events"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 193,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Rollback",
+          "recent artifact is suspect and compatibility is reversible"
+        ],
+        [
+          "Feature disable",
+          "one path can be isolated without broad rollback"
+        ],
+        [
+          "Load shedding",
+          "saturation threatens all work"
+        ],
+        [
+          "Sampled CPU profile",
+          "CPU is high and stack attribution is needed"
+        ],
+        [
+          "Core/minidump",
+          "crash/native state requires postmortem"
+        ],
+        [
+          "Live debugger",
+          "lower-impact evidence is insufficient and pause risk is accepted"
+        ],
+        [
+          "Restart",
+          "local state reset is safer than continued impact"
+        ],
+        [
+          "Failover",
+          "failure domain is isolated and target state/capacity are verified"
+        ]
+      ]
+    }
+  ]
+}

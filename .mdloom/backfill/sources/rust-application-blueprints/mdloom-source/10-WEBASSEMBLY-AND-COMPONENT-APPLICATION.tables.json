@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\10-WEBASSEMBLY-AND-COMPONENT-APPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 77,
+      "heading_context": "## Select the Execution Contract",
+      "headers": [
+        "Environment",
+        "Inputs/outputs",
+        "Capability source"
+      ],
+      "rows": [
+        [
+          "Browser core Wasm",
+          "JavaScript/Web APIs and linear-memory bindings",
+          "embedding page/runtime"
+        ],
+        [
+          "WASI command/reactor style",
+          "WASI imports provided by runtime",
+          "explicit preopened/host resources"
+        ],
+        [
+          "Component Model",
+          "typed imported/exported interfaces",
+          "component runtime and interface definitions"
+        ],
+        [
+          "Embedded host",
+          "application-specific imports",
+          "host application"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 86,
+      "heading_context": "## Select the Execution Contract",
+      "headers": [
+        "Example target",
+        "Boundary"
+      ],
+      "rows": [
+        [
+          "`wasm32-unknown-unknown`",
+          "minimal core Wasm; browser/host bindings supplied separately"
+        ],
+        [
+          "`wasm32-wasip1`",
+          "WASI Preview 1 command-style environment"
+        ],
+        [
+          "`wasm32-wasip2`",
+          "WASI 0.2/component-oriented target; verify runtime and binding path"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 111,
+      "heading_context": "## Interface, Memory, and Capability Ownership",
+      "headers": [
+        "Boundary",
+        "Contract decision"
+      ],
+      "rows": [
+        [
+          "Strings/bytes",
+          "encoding, size limit, malformed input"
+        ],
+        [
+          "Records/variants",
+          "versioning and unknown-case behavior"
+        ],
+        [
+          "Resources/handles",
+          "ownership, drop/close, host lifetime"
+        ],
+        [
+          "Calls",
+          "sync/async model, deadline, reentrancy"
+        ],
+        [
+          "State",
+          "guest memory, host store, external service, snapshot"
+        ],
+        [
+          "Errors",
+          "semantic categories versus trap/runtime failure"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 157,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Change",
+        "Safe rollback condition"
+      ],
+      "rows": [
+        [
+          "Guest logic",
+          "prior guest still satisfies current host imports"
+        ],
+        [
+          "Interface additive",
+          "prior host tolerates absent optional export/capability"
+        ],
+        [
+          "Host import change",
+          "old and new guests covered by negotiation/window"
+        ],
+        [
+          "Persistent state",
+          "old guest can read current state or state is versioned"
+        ],
+        [
+          "Runtime upgrade",
+          "retained runtime/artifact matrix has been tested"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 182,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Browser computation/UI helper",
+          "browser Wasm boundary plus JS/Web integration"
+        ],
+        [
+          "Portable server-side capability unit",
+          "WASI/component, after runtime matrix verification"
+        ],
+        [
+          "Tiny same-process extension",
+          "ordinary Rust crate may be simpler"
+        ],
+        [
+          "Third-party isolated extension",
+          "component/plugin host [09] with explicit capabilities"
+        ],
+        [
+          "Shared policy across native and Wasm",
+          "portable core crate plus thin bindings"
+        ],
+        [
+          "Direct OS/device control",
+          "native/embedded [11] unless host exposes bounded capability"
+        ],
+        [
+          "Fast rollback",
+          "immutable guest artifacts and versioned interfaces/state"
+        ]
+      ]
+    }
+  ]
+}

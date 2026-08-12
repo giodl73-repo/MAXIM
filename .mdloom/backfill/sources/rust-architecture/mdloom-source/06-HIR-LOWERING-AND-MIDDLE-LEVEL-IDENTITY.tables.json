@@ -1,0 +1,112 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\06-HIR-LOWERING-AND-MIDDLE-LEVEL-IDENTITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 86,
+      "heading_context": "## Where HIR Sits in the Front End",
+      "headers": [
+        "Layer",
+        "What it preserves",
+        "What it enables"
+      ],
+      "rows": [
+        [
+          "AST",
+          "source syntax and spans",
+          "parsing diagnostics and macro input/output"
+        ],
+        [
+          "expanded AST",
+          "post-macro program",
+          "final item/module universe"
+        ],
+        [
+          "HIR",
+          "normalized semantic structure",
+          "per-body typeck, trait obligations, later THIR/MIR"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 173,
+      "heading_context": "## Identity: DefId, LocalDefId, HirId",
+      "headers": [
+        "Identifier",
+        "Scope",
+        "Used for"
+      ],
+      "rows": [
+        [
+          "`DefId`",
+          "any crate loaded in this compilation",
+          "referring to items across crate boundaries"
+        ],
+        [
+          "`LocalDefId`",
+          "current crate only",
+          "indexing local definitions and query owners"
+        ],
+        [
+          "`HirId`",
+          "a node inside one HIR owner",
+          "mapping expressions/patterns/locals to typeck results"
+        ],
+        [
+          "`DefPathHash`",
+          "stable logical identity across builds",
+          "incremental reuse and metadata identity"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 289,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "\"Where does type checking primarily read from?\"",
+          "HIR owners and bodies",
+          "rustc internal"
+        ],
+        [
+          "\"Can I depend on HIR dump shape?\"",
+          "No; `-Z unpretty` is unstable",
+          "rustc"
+        ],
+        [
+          "\"What identifies an upstream item?\"",
+          "`DefId` in-session, backed by metadata and DefPath identity",
+          "rustc internal"
+        ],
+        [
+          "\"What identifies an expression in a function body?\"",
+          "`HirId` = owner plus local node id",
+          "rustc internal"
+        ],
+        [
+          "\"What is stable about `?` or `for`?\"",
+          "The Reference semantics, not the exact desugaring nodes",
+          "language"
+        ],
+        [
+          "\"Where does HIR go next?\"",
+          "Typeck results, THIR, then MIR",
+          "rustc internal"
+        ],
+        [
+          "\"Where do metadata details live?\"",
+          "`rmeta`/`rlib` artifacts",
+          "rustc; see [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md)"
+        ]
+      ]
+    }
+  ]
+}

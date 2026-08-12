@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 97,
+      "heading_context": "## The Three Ideas That Generate Everything Else",
+      "headers": [
+        "Idea",
+        "One-line statement",
+        "Where it lives"
+      ],
+      "rows": [
+        [
+          "**Ownership**",
+          "Every value has exactly one owner; drop runs when the owner dies.",
+          "[03](03-OWNERSHIP-MOVES-COPY-AND-DROP.md)"
+        ],
+        [
+          "**Borrowing**",
+          "You may alias (`&T`) *or* mutate (`&mut T`), never both at once.",
+          "[04](04-BORROWING-REFERENCES-AND-LIFETIMES.md)"
+        ],
+        [
+          "**Traits**",
+          "Behavior is composed, never inherited; generics monomorphize.",
+          "[06](06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 114,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "You know (C++/.NET/general CS)",
+        "Rust makes it a checked type-system fact"
+      ],
+      "rows": [
+        [
+          "RAII / destructors (C++), `IDisposable`/`using` (.NET)",
+          "`Drop` runs deterministically at scope end — no `using` needed, no GC finalizer nondeterminism"
+        ],
+        [
+          "`const T&` vs `T&` (C++ const correctness)",
+          "`&T` vs `&mut T`, enforced globally, not per-call convention"
+        ],
+        [
+          "`std::move`, move constructors",
+          "Moves are the *default*; the moved-from binding is statically dead"
+        ],
+        [
+          "`shared_ptr` / `unique_ptr`",
+          "`Arc`/`Rc` and `Box` — but thread-safety is a type property (`Send`/`Sync`)"
+        ],
+        [
+          "Nullable references, `Nullable<T>`",
+          "`Option<T>` — no null, exhaustiveness forces handling"
+        ],
+        [
+          "Exceptions",
+          "`Result<T, E>` + `?` — errors are values in the signature"
+        ],
+        [
+          "Interfaces / abstract classes",
+          "Traits — but with associated types, blanket impls, coherence"
+        ],
+        [
+          "Generics (erased in Java/C#)",
+          "Generics monomorphize like C++ templates (no vtable unless `dyn`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 196,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Go to"
+      ],
+      "rows": [
+        [
+          "Set up a toolchain and project loop",
+          "[01](01-TOOLCHAIN-AND-WORKFLOW.md)"
+        ],
+        [
+          "Understand why a value \"was moved\"",
+          "[03](03-OWNERSHIP-MOVES-COPY-AND-DROP.md)"
+        ],
+        [
+          "Fix a lifetime / borrow error",
+          "[04](04-BORROWING-REFERENCES-AND-LIFETIMES.md)"
+        ],
+        [
+          "Model a sum type / state machine",
+          "[05](05-STRUCTS-ENUMS-PATTERNS-AND-MATCH.md)"
+        ],
+        [
+          "Add polymorphism (generic or dynamic)",
+          "[06](06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md), [07](07-DISPATCH-TRAIT-OBJECTS-AND-IMPL-TRAIT.md)"
+        ],
+        [
+          "Handle errors idiomatically",
+          "[11](11-ERRORS-RESULT-OPTION-AND-PANIC.md)"
+        ],
+        [
+          "Share mutable state across threads",
+          "[15](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md), [16](16-SMART-POINTERS-INTERIOR-MUTABILITY-AND-SELF-REFERENCE.md)"
+        ],
+        [
+          "Call into / out of C",
+          "[17](17-UNSAFE-RUST-FFI-AND-ABI.md)"
+        ],
+        [
+          "Ship a stable public API",
+          "[20](20-API-DESIGN-SEMVER-AND-ADVANCED-TYPE-PATTERNS.md)"
+        ]
+      ]
+    }
+  ]
+}

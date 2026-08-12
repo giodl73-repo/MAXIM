@@ -1,0 +1,166 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\10-CONTAINERS-KUBERNETES-SYSTEMD-AND-WINDOWS-SERVICES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## Platform Comparison",
+      "headers": [
+        "Surface",
+        "Container runtime",
+        "Kubernetes",
+        "systemd",
+        "Windows SCM"
+      ],
+      "rows": [
+        [
+          "Unit",
+          "container/process",
+          "pod/workload",
+          "service unit",
+          "service"
+        ],
+        [
+          "Supervision",
+          "restart policy",
+          "controllers + kubelet",
+          "service manager",
+          "SCM recovery"
+        ],
+        [
+          "Stop",
+          "signal then force",
+          "pod termination flow",
+          "configured signal/timeout",
+          "service control"
+        ],
+        [
+          "Health",
+          "runtime-specific",
+          "startup/liveness/readiness",
+          "watchdog/exit policy",
+          "service status"
+        ],
+        [
+          "Config/secrets",
+          "mounts/env",
+          "objects + external stores",
+          "files/credentials/env",
+          "registry/files/secret stores"
+        ],
+        [
+          "Resources",
+          "cgroups/job objects",
+          "requests/limits",
+          "cgroups directives",
+          "job objects/policy"
+        ],
+        [
+          "Rollout",
+          "external tool",
+          "Deployment/StatefulSet/etc.",
+          "package + orchestration",
+          "installer + orchestration"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 209,
+      "heading_context": "## Resource and Filesystem Assumptions",
+      "headers": [
+        "Assumption",
+        "Make explicit"
+      ],
+      "rows": [
+        [
+          "Writable paths",
+          "exact directories and durability"
+        ],
+        [
+          "User identity",
+          "UID/GID or service account and permissions"
+        ],
+        [
+          "Network",
+          "bind address, outbound destinations, DNS behavior"
+        ],
+        [
+          "Clock",
+          "monotonic vs wall clock; synchronization expectations"
+        ],
+        [
+          "Limits",
+          "CPU, memory, descriptors, process/thread count"
+        ],
+        [
+          "Logs",
+          "stdout/stderr, journal, Event Log, or file ownership"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 220,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "signal/service adapters, health server, platform API wrappers"
+        ],
+        [
+          "Runtime",
+          "no inherent requirement; sync and async services fit all four"
+        ],
+        [
+          "Platform",
+          "container runtime, Kubernetes, systemd, Windows SCM, VM tooling"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 241,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Plain supervised process",
+          "host count and rollout needs are modest"
+        ],
+        [
+          "systemd",
+          "Linux host integration, hardening, and journaling are sufficient"
+        ],
+        [
+          "Windows service",
+          "native SCM lifecycle and Windows operations are required"
+        ],
+        [
+          "Container",
+          "immutable filesystem/process packaging improves delivery"
+        ],
+        [
+          "Kubernetes",
+          "fleet scheduling, declarative rollout, and control-plane APIs justify complexity"
+        ],
+        [
+          "Sidecar/proxy",
+          "cross-cutting capability needs independent lifecycle and cost is accepted"
+        ],
+        [
+          "Platform identity",
+          "short-lived workload credentials are available"
+        ]
+      ]
+    }
+  ]
+}

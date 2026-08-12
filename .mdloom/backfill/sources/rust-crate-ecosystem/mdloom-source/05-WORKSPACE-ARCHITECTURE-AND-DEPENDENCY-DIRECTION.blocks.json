@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\05-WORKSPACE-ARCHITECTURE-AND-DEPENDENCY-DIRECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        WORKSPACE DEPENDENCY FLOW                          |\n+===========================================================================+\n|                                                                           |\n|  binaries / services / CLI                                                |\n|            |                                                              |\n|            v                                                              |\n|  orchestration / use cases <------ adapters (db, http, queue)             |\n|            |                         |                                    |\n|            v                         | implements ports                   |\n|  domain API / traits / types <-------+                                    |\n|            |                                                              |\n|            v                                                              |\n|  small primitives / shared contracts                                      |\n|                                                                           |\n|  Forbidden: domain -> adapter, primitives -> application, dependency cycle |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Direction Before Reuse",
+      "confidence": "candidate",
+      "text": "pub trait RouteStore {\n    type Error;\n    fn load(&self, id: RouteId) -> Result<Route, Self::Error>;\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

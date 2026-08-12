@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\03-METRICS-HEALTH-AND-TELEMETRY-DESIGN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         TELEMETRY CONTRACT                                 |\n|                                                                            |\n|  work --> counters + histograms + gauges --> aggregation --> SLI/alerts    |\n|    |                                                                       |\n|    +----> health state --> live / ready / startup --> supervisor/router    |\n|    |                                                                       |\n|    +----> spans/events -----------------------> investigation              |\n|                                                                            |\n|  shared resource fields: service, release, region, instance, role          |\n|  controlled dimensions: operation, outcome, dependency, status_class       |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

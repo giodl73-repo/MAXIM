@@ -1,0 +1,194 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\08-CONCURRENCY-RESOURCE-EXHAUSTION-AND-DENIAL-OF-SERVICE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Build a Resource Ledger",
+      "headers": [
+        "Resource",
+        "Typical exhaustion path",
+        "Control"
+      ],
+      "rows": [
+        [
+          "Heap",
+          "attacker-sized buffers, decompression, retained cache",
+          "pre-allocation caps, quotas, eviction"
+        ],
+        [
+          "CPU",
+          "expensive parse/hash/regex/compression",
+          "work budget, restricted algorithm, admission"
+        ],
+        [
+          "Threads/tasks",
+          "spawn per request, blocked workers, task leak",
+          "bounded executor/semaphore, structured ownership"
+        ],
+        [
+          "Queue",
+          "producer faster than consumer",
+          "bounded channel and explicit full behavior"
+        ],
+        [
+          "File descriptors/sockets",
+          "slow peers, leaks, fan-out",
+          "concurrency cap, deadline, RAII, OS limits"
+        ],
+        [
+          "Locks",
+          "long critical section, cycle, priority inversion",
+          "hierarchy, short scope, partitioning, try/timeout where meaningful"
+        ],
+        [
+          "Logs/metrics",
+          "attacker-controlled cardinality or volume",
+          "sampling, field limits, cardinality budget"
+        ],
+        [
+          "External service",
+          "retry storm and fan-out",
+          "retry budget, jitter, circuit breaking, bulkhead"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 100,
+      "heading_context": "## Deadlock and Liveness",
+      "headers": [
+        "Liveness failure",
+        "Design response"
+      ],
+      "rows": [
+        [
+          "Lock cycle",
+          "global lock ordering or eliminate nested acquisition"
+        ],
+        [
+          "Starvation",
+          "fairer scheduling/partitioning; bound monopolization"
+        ],
+        [
+          "Priority inversion",
+          "minimize shared lock and isolate priority classes"
+        ],
+        [
+          "Lost wakeup/custom atomic bug",
+          "established primitives, Loom/model tests"
+        ],
+        [
+          "Blocking call on async worker",
+          "dedicated blocking pool with bounded permits"
+        ],
+        [
+          "Cancellation leak",
+          "ownership tree and drop-path tests"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 135,
+      "heading_context": "## Panic, OOM, and Process Strategy",
+      "headers": [
+        "Failure",
+        "Decision needed"
+      ],
+      "rows": [
+        [
+          "Request panic",
+          "isolate if unwind profile and boundary permit; do not assume arbitrary state is recoverable"
+        ],
+        [
+          "`panic = \"abort\"`",
+          "supervisor/process restart strategy"
+        ],
+        [
+          "Allocation failure",
+          "infallible allocation paths commonly abort through the allocation-error handler; use fallible reserve APIs where recovery is a real design and control capacity before this point"
+        ],
+        [
+          "Poisoned lock",
+          "decide whether invariant may be repaired or process must fail"
+        ],
+        [
+          "Repeated crash input",
+          "quarantine/rate-limit plus patch; avoid endless restart loop"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 162,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust expression"
+      ],
+      "rows": [
+        [
+          "Thread-pool max concurrency",
+          "bounded Tokio/rayon/custom pool or semaphore"
+        ],
+        [
+          "TPL cancellation token",
+          "runtime-specific cancellation plus drop/commit semantics"
+        ],
+        [
+          "Bounded producer-consumer queue",
+          "`sync_channel` or bounded async channel"
+        ],
+        [
+          "Circuit breaker/bulkhead",
+          "same resilience patterns; Rust ownership helps release permits"
+        ],
+        [
+          "CLR thread-safe collection",
+          "`Send`/`Sync` establishes data-race safety, not workload fairness"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 191,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Work arrives faster than service rate",
+          "Bound queue and define full behavior"
+        ],
+        [
+          "Expensive per-request operation",
+          "Authenticate/admit first; apply CPU/time quota"
+        ],
+        [
+          "Async code calls blocking API",
+          "Move to bounded blocking pool"
+        ],
+        [
+          "Retries proposed",
+          "Require idempotency/deduplication and one total retry budget"
+        ],
+        [
+          "Shared lock contention",
+          "shorten, partition, order, or redesign ownership"
+        ],
+        [
+          "Timeout exists",
+          "verify cancellation reaches work and resources are reclaimed"
+        ],
+        [
+          "Multi-tenant service",
+          "enforce per-tenant and global fairness/capacity budgets"
+        ]
+      ]
+    }
+  ]
+}

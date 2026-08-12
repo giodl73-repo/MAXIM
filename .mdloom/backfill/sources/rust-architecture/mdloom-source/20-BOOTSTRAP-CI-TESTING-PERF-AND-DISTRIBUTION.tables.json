@@ -1,0 +1,283 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\20-BOOTSTRAP-CI-TESTING-PERF-AND-DISTRIBUTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 76,
+      "heading_context": "## Authority Boundaries",
+      "headers": [
+        "Layer",
+        "What it owns",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Bootstrap / `x.py`",
+          "Building rustc, std, LLVM, and tools from the rust-lang/rust tree",
+          "Rust project's bootstrap and infra teams"
+        ],
+        [
+          "Compiler implementation",
+          "Front end, MIR, codegen, diagnostics, artifacts",
+          "`rustc` teams; see [03](03-RUSTC-DRIVER-SESSION-AND-QUERY-SYSTEM.md), [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md), [15](15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md)"
+        ],
+        [
+          "User builds",
+          "Dependency graph, features, lockfiles, per-crate rustc invocations",
+          "Cargo; conceptually guide [17](17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md)"
+        ],
+        [
+          "Toolchain install",
+          "Channels, components, target libraries, proxies",
+          "rustup; consumes released artifacts, does not build them ([02](02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md))"
+        ],
+        [
+          "Ecosystem regression",
+          "Build/test crates.io and GitHub crates against candidate compilers",
+          "crater (`rust-lang/crater`)"
+        ],
+        [
+          "Compiler performance",
+          "Compile-time and memory benchmark lab",
+          "rustc-perf (`rust-lang/rustc-perf`)"
+        ],
+        [
+          "Release train",
+          "Nightly, beta, stable cadence and publication",
+          "Rust release and infra teams; policy context in [01](01-PROJECT-GOVERNANCE-RFCS-AND-RELEASE-TRAIN.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 108,
+      "heading_context": "## Bootstrap Stages: What Is Built By What",
+      "headers": [
+        "Stage",
+        "Built by",
+        "Good for",
+        "Not good for"
+      ],
+      "rows": [
+        [
+          "**stage0**",
+          "Downloaded prebuilt beta rustc plus std/library artifacts",
+          "Seeding the build",
+          "Proving current source can self-host"
+        ],
+        [
+          "**stage1**",
+          "stage0 compiler",
+          "Most contributor `build`, `check`, and many `test` loops",
+          "Final performance/profile confidence"
+        ],
+        [
+          "**stage2**",
+          "stage1 compiler",
+          "Self-hosted compiler candidate, release validation, dist builds",
+          "Fast inner-loop iteration"
+        ],
+        [
+          "**stage3**",
+          "stage2 compiler",
+          "Determinism/reproducibility sanity check: stage2 and stage3 should match where expected",
+          "Routine development"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Testing: From Compiletest to Full CI",
+      "headers": [
+        "Suite / harness",
+        "What it catches"
+      ],
+      "rows": [
+        [
+          "`tests/ui` via compiletest",
+          "Diagnostics and compiler output snapshots; `--bless` updates expected stderr/stdout"
+        ],
+        [
+          "`tests/run-make`",
+          "End-to-end build orchestration cases that need makefiles, linkers, env, or files"
+        ],
+        [
+          "`tests/codegen`",
+          "LLVM IR expectations, normally FileCheck-based ([12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md))"
+        ],
+        [
+          "`tests/assembly`",
+          "Target assembly expectations for backend-sensitive behavior"
+        ],
+        [
+          "`tests/mir-opt`",
+          "MIR transform output and optimization pass changes ([09](09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md))"
+        ],
+        [
+          "`tests/incremental`",
+          "Dependency tracking, fingerprints, and cache reuse ([14](14-INCREMENTAL-COMPILATION-FINGERPRINTS-AND-CACHES.md))"
+        ],
+        [
+          "`tests/debuginfo`",
+          "Debugger-visible layout and metadata"
+        ],
+        [
+          "`tests/rustdoc`",
+          "Documentation generation, doctests, search, and rendering"
+        ],
+        [
+          "`library/` tests",
+          "Standard library unit/integration behavior ([16](16-CORE-ALLOC-STD-PANIC-AND-PLATFORM-LAYERS.md))"
+        ],
+        [
+          "`tidy`",
+          "Repository style, licensing, error-code, and metadata hygiene"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 205,
+      "heading_context": "## Performance and Ecosystem Regression: Two Orthogonal Farms",
+      "headers": [
+        "Question",
+        "Tool",
+        "Input",
+        "Output"
+      ],
+      "rows": [
+        [
+          "\"Did rustc get slower or use more memory?\"",
+          "rustc-perf",
+          "A compiler build compared against baseline on curated benchmarks",
+          "perf.rust-lang.org deltas, PR comments, gating evidence"
+        ],
+        [
+          "\"Does the ecosystem still compile and test?\"",
+          "crater",
+          "Candidate compiler vs baseline over a huge crates.io + GitHub sample",
+          "Regression reports for compatibility triage"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 273,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old world anchor",
+        "Rust equivalent"
+      ],
+      "rows": [
+        [
+          "GCC three-stage bootstrap",
+          "stage0 -> stage1 -> stage2 rustc; optional stage3 reproducibility check"
+        ],
+        [
+          "Roslyn self-hosting",
+          "rustc compiling the next rustc, with a release compiler as the seed"
+        ],
+        [
+          "Giant MSBuild/CMake repo orchestrator",
+          "`x.py` / bootstrap wrapping Cargo plus LLVM, std, tools, tests, dist"
+        ],
+        [
+          "VSTS gated check-in / merge queue",
+          "bors try builds and `@bors r+` full-CI merge discipline"
+        ],
+        [
+          "Perf lab with benchmark gates",
+          "rustc-perf and `@rust-timer`"
+        ],
+        [
+          "Large compatibility/integration farm",
+          "crater over crates.io + GitHub projects"
+        ],
+        [
+          "SDK package feed + CDN installer",
+          "static.rust-lang.org manifests consumed by rustup"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 289,
+      "heading_context": "## Reading Paths",
+      "headers": [
+        "You want to understand...",
+        "Read"
+      ],
+      "rows": [
+        [
+          "Channel policy and compatibility",
+          "[01](01-PROJECT-GOVERNANCE-RFCS-AND-RELEASE-TRAIN.md) -> this guide"
+        ],
+        [
+          "How a downloaded toolchain is selected",
+          "[02](02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md) -> this guide"
+        ],
+        [
+          "Why a compiler test changed output",
+          "[15](15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md) -> `tests/ui` here"
+        ],
+        [
+          "Why a build cache bug matters",
+          "[14](14-INCREMENTAL-COMPILATION-FINGERPRINTS-AND-CACHES.md) -> incremental tests here"
+        ],
+        [
+          "How LLVM/PGO/BOLT fit release builds",
+          "[12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md) -> release funnel here"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 301,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use / think"
+      ],
+      "rows": [
+        [
+          "I am changing rustc internals and want a fast sanity pass",
+          "`./x.py check`, then targeted `./x.py test ...`, usually stage1"
+        ],
+        [
+          "I changed diagnostics",
+          "`tests/ui`, update snapshots intentionally with `--bless`"
+        ],
+        [
+          "I changed MIR or incremental behavior",
+          "`tests/mir-opt` or `tests/incremental`, then broader CI"
+        ],
+        [
+          "I changed backend/codegen",
+          "`tests/codegen`, `tests/assembly`, LLVM-aware review, perf run"
+        ],
+        [
+          "I suspect compile-time regression",
+          "`@rust-timer queue` / rustc-perf data"
+        ],
+        [
+          "I suspect ecosystem compatibility fallout",
+          "crater run, usually team-mediated and expensive"
+        ],
+        [
+          "I need to merge a PR",
+          "bors try if needed, then `@bors r+`; never knowingly red main"
+        ],
+        [
+          "I just want to build my app",
+          "Cargo, not bootstrap; see guide [17](17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md)"
+        ],
+        [
+          "I just want the shipped compiler",
+          "rustup from static.rust-lang.org manifests ([02](02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md))"
+        ]
+      ]
+    }
+  ]
+}

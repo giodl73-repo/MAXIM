@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         PARALLEL WORK PATH                                  |\n|                                                                             |\n| input -> partition -> worker threads -> combine output                      |\n|              |             |                 |                              |\n|              |             +-> local work   +-> lock/channel/atomic         |\n|              |                    |                  |                      |\n|              |                    v                  v                      |\n|              |                 useful CPU      synchronization cost         |\n|              |                                       |                      |\n|              +-> load balance                         +-> waiting/parking   |\n|                                                      +-> cache-line traffic |\n|                                                      +-> wakeups/fairness   |\n|                                                                             |\n| speedup <= serial work + imbalance + scheduling + communication + contention|\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 136,
+      "heading_context": "## False Sharing",
+      "confidence": "candidate",
+      "text": "cache line:\n+----------------------+----------------------+\n| worker_0_counter     | worker_1_counter     |\n+----------------------+----------------------+\n      core 0 writes <---- coherence ----> core 1 writes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

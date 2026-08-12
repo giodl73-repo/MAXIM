@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\01-TOOLCHAIN-AND-WORKFLOW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Toolchain & Workflow — rustup, cargo, rustc, and the Inner Loop",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                     THE RUST TOOLCHAIN, LAYERED                               |\n+===============================================================================+\n\n   rustup            manages TOOLCHAINS (installs/switches compilers)\n   ------            \"which rustc?\"  stable / beta / nightly / 1.85.0\n     |               components: rustc, cargo, rustfmt, clippy, rust-src, ...\n     |               targets:    x86_64-pc-windows-msvc, wasm32-unknown-unknown\n     v\n   cargo             the FRONT DOOR for daily work\n   -----             build, test, run, add deps, publish, doc\n     |               reads Cargo.toml, writes Cargo.lock, drives everything below\n     |\n     +--> rustc      the actual COMPILER (rustc -> MIR -> LLVM IR -> object)\n     +--> rustfmt    canonical FORMATTER   (cargo fmt)\n     +--> clippy     the LINTER (450+ lints) (cargo clippy)\n     +--> rustdoc    DOC GENERATOR + doctest runner (cargo doc / cargo test)\n     +--> rust-analyzer   the LSP SERVER your editor talks to (out of band)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 112,
+      "heading_context": "## Layer 3: The Quality Tools",
+      "confidence": "candidate",
+      "text": "   SOURCE  --cargo fmt-->  FORMATTED  --cargo clippy-->  LINT-CLEAN  --cargo test-->  VERIFIED\n             (style)                     (idioms/bugs)                  (correctness)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## The Inner Loop, Concretely",
+      "confidence": "candidate",
+      "text": "   edit  ->  rust-analyzer flags errors inline (sub-second)\n     |\n     v\n   cargo check        (fast: no codegen)          <-- run constantly\n     |\n     v\n   cargo test         (correctness)               <-- run before commit\n     |\n     v\n   cargo clippy -- -D warnings ; cargo fmt --check   <-- run in CI + pre-commit\n     |\n     v\n   cargo build --release  (ship)                  <-- only when producing artifacts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

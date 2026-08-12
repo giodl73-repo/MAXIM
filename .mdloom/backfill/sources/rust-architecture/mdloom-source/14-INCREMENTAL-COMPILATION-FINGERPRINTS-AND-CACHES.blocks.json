@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\14-INCREMENTAL-COMPILATION-FINGERPRINTS-AND-CACHES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         TWO LAYERS OF INCREMENTALISM                      |\n|                                                                           |\n|  Cargo layer                                                        [17]  |\n|  Cargo.toml, Cargo.lock, features, profiles, build scripts, env, files    |\n|        |                                                                  |\n|        | decides: which units/crates need rustc at all                    |\n|        v                                                                  |\n|  rustc invocation for one crate                                           |\n|        |                                                                  |\n|        v                                                                  |\n|  Query system                                                      [03]   |\n|    parse? typeck? trait solve? MIR? mono? codegen unit?                   |\n|        |                                                                  |\n|        | records query reads                                              |\n|        v                                                                  |\n|  DepGraph + fingerprints + red/green marking                              |\n|        |                                                                  |\n|        v                                                                  |\n|  On-disk incremental cache                                                |\n|    serialized query results + work products                               |\n|    target/debug/incremental/<crate-hash>/                                 |\n|        |                                                                  |\n|        v                                                                  |\n|  unchanged queries reused; unchanged CGUs skip backend/LLVM [11][12]      |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## Cargo Freshness vs rustc Incremental Reuse",
+      "confidence": "candidate",
+      "text": "No source change:\n    Cargo says fresh -> rustc not invoked\n\nSmall source change in crate A:\n    Cargo invokes rustc for A\n    rustc says many nodes green -> reuse query results and some CGUs\n\nDifferent machine with compiler cache hit:\n    sccache may skip whole invocation -> third layer, outside rustc",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 85,
+      "heading_context": "## The Red-Green Algorithm",
+      "confidence": "candidate",
+      "text": "Previous build saved:\n    query node -> fingerprint(result)\n    query node -> edges to input/query nodes\n\nNext build:\n    source/flags/dependency metadata get new input fingerprints\n           |\n           v\n    visit dependent query node\n           |\n           +-- all inputs green and fingerprint matches? --> mark GREEN, reuse\n           |\n           +-- some input red/unknown? -------------------> re-run query\n                                                          |\n                                                          v\n                                      result fingerprint same as before?\n                                          | yes -> mark GREEN for dependents\n                                          | no  -> mark RED",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 180,
+      "heading_context": "## Limits of Reuse",
+      "confidence": "candidate",
+      "text": "Edit local function body:\n    often narrow red region -> good reuse\n\nEdit public trait signature:\n    dependency metadata changes -> broad downstream invalidation\n\nSwitch rustc version or target flags:\n    old cache no longer trusted -> rebuild",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

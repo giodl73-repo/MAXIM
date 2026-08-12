@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\06-HIR-LOWERING-AND-MIDDLE-LEVEL-IDENTITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                       AST TO HIR: SHAPE + IDENTITY                        |\n|                                                                           |\n|  parse AST [04]                                                           |\n|     |                                                                     |\n|     v                                                                     |\n|  macro expansion + hygiene + name resolution [05]                         |\n|     |  all item/module paths resolved enough to name definitions          |\n|     v                                                                     |\n|  HIR lowering                                                             |\n|     |                                                                     |\n|     +--> desugar surface forms: for, if let, ?, ranges, closures, async   |\n|     |                                                                     |\n|     +--> consume definition identity: DefId / LocalDefId / DefPathHash    |\n|     |                                                                     |\n|     +--> assign intra-owner node identity: HirId                          |\n|     |                                                                     |\n|     v                                                                     |\n|  per-owner HIR bodies                                                     |\n|     |                                                                     |\n|     v                                                                     |\n|  typeck(def_id) [07] -> THIR -> MIR build [09]                            |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 76,
+      "heading_context": "## Where HIR Sits in the Front End",
+      "confidence": "candidate",
+      "text": "+-------------------+     +----------------------+     +--------------------+\n| AST               | --> | expanded + resolved  | --> | HIR                |\n| close to syntax   |     | names/hygiene fixed  |     | regularized tree   |\n+-------------------+     +----------------------+     +--------------------+\n        |                            |                          |\n        | syntax authority:          | name authority:           | rustc internal\n        | Rust grammar               | rustc resolver             | semantic IR",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## Lowering as Controlled Desugaring",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| SURFACE FORM               HIR / LATER COMPILER SHAPE                 |\n|                                                                       |\n| for x in y { ... }       -> loop + match + IntoIterator protocol      |\n| if let P = e { ... }     -> match e { P => ..., _ => ... } shape      |\n| while let P = e { ... }  -> loop around a match                       |\n| expr?                    -> Try/FromResidual-shaped early-return path |\n| a..b                     -> range constructor expression              |\n| receiver.method(arg)     -> method-call node resolved against UFCS    |\n| closure                  -> closure expression with captured body     |\n| async/await              -> coroutine/future machinery, finished later|\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Lowering as Controlled Desugaring",
+      "confidence": "candidate",
+      "text": "fn read_count() -> Result<u32, std::num::ParseIntError> {\n    let s = std::fs::read_to_string(\"count.txt\")?;\n    Ok(s.trim().parse::<u32>()?)\n}\n\n// Source-equivalent model, not a stable rustc dump:\nfn read_count_desugared() -> Result<u32, std::num::ParseIntError> {\n    let s = match std::fs::read_to_string(\"count.txt\") {\n        Ok(v) => v,\n        Err(e) => return Err(From::from(e)),\n    };\n    let n = match s.trim().parse::<u32>() {\n        Ok(v) => v,\n        Err(e) => return Err(From::from(e)),\n    };\n    Ok(n)\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 156,
+      "heading_context": "## Identity: DefId, LocalDefId, HirId",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                           RUSTC IDENTITY MODEL                             |\n|                                                                            |\n|  Cross-crate definition identity                                           |\n|  DefId       = (CrateNum, DefIndex)                                        |\n|  LocalDefId  = DefId known to be in the current crate                      |\n|  DefPath     = logical path through the crate's definition tree            |\n|  DefPathHash = stable-across-builds hash of that path                      |\n|             | names items, impls, functions, types, consts                 |\n|             v                                                              |\n|  Intra-owner HIR node identity                                             |\n|  HirId = (owner LocalDefId, ItemLocalId)                                   |\n|             | names expressions, patterns, locals inside one HIR owner     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 197,
+      "heading_context": "## Owners, Bodies, and On-Demand Type Checking",
+      "confidence": "candidate",
+      "text": "+--------------------------- crate HIR ----------------------------+\n|                                                                  |\n|  owner: fn parse()   ---> body: expressions, patterns, locals    |\n|  owner: impl Foo     ---> items: methods, associated consts      |\n|  owner: const N      ---> body: const expression                 |\n|  owner: struct Bar   ---> fields, generics, where-clauses        |\n|                                                                  |\n+------------------------------------------------------------------+\n        | query keys use LocalDefId / DefId\n        v\n+---------------------+     +---------------------+     +---------+\n| typeck(parse) [07]  | --> | THIR construction   | --> | MIR [09]|\n+---------------------+     +---------------------+     +---------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "## Crate Metadata and Cross-Crate Identity",
+      "confidence": "candidate",
+      "text": "+------------------+       emits        +---------------------------+\n| upstream crate A | -----------------> | rlib / rmeta metadata [13]|\n| DefIds + paths   |                    | DefPathHashes + item info |\n+------------------+                    +---------------------------+\n                                                   |\n                                                   | loaded by rustc for crate B\n                                                   v\n                                      +-----------------------------+\n                                      | downstream crate B          |\n                                      | remaps CrateNum for A       |\n                                      | refers to A::Item by DefId  |\n                                      +-----------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

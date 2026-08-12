@@ -1,0 +1,181 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\11-MIRI-SANITIZERS-LOOM-MODEL-CHECKING-AND-TARGETED-FORMAL-METHODS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Evidence Matrix",
+      "headers": [
+        "Tool class",
+        "Strong signal for",
+        "Important blind spots"
+      ],
+      "rows": [
+        [
+          "Miri",
+          "many Rust UB classes, aliasing/model violations, invalid accesses on run paths",
+          "unsupported FFI/syscalls, unexecuted paths, model evolution, performance"
+        ],
+        [
+          "AddressSanitizer",
+          "native out-of-bounds/use-after-free on run paths",
+          "logical bugs, many uninitialized reads, unexecuted paths"
+        ],
+        [
+          "MemorySanitizer",
+          "uninitialized-memory use on supported native stack",
+          "requires instrumented dependencies; target limits"
+        ],
+        [
+          "ThreadSanitizer",
+          "native data races on run schedules",
+          "Rust-model aliasing, logical races, schedule coverage"
+        ],
+        [
+          "Loom",
+          "bounded interleavings and memory-order cases using Loom primitives",
+          "production-only code not abstracted, state explosion, model mismatch"
+        ],
+        [
+          "Bounded model checker",
+          "counterexamples/proofs within bounds/model",
+          "properties outside harness, unsupported features, bound completeness"
+        ],
+        [
+          "Deductive verification",
+          "mathematical argument for specified contracts",
+          "specification correctness, trusted solver/toolchain/axioms"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 81,
+      "heading_context": "## Miri: Dynamic Rust Semantics",
+      "headers": [
+        "Miri finding",
+        "Typical question"
+      ],
+      "rows": [
+        [
+          "invalid alignment/dereference",
+          "Was pointer arithmetic/layout justified?"
+        ],
+        [
+          "use after free",
+          "Who owned the allocation and callback/handle lifetime?"
+        ],
+        [
+          "invalid value",
+          "Was `transmute`/`assume_init` valid for the target type?"
+        ],
+        [
+          "aliasing violation",
+          "Did a raw-pointer/reference conversion overpromise exclusivity?"
+        ],
+        [
+          "data race",
+          "Was `Send`/`Sync` or shared mutation implemented incorrectly?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 128,
+      "heading_context": "## Loom: Bounded Concurrency Exploration",
+      "headers": [
+        "State-explosion control",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "Fewer threads/operations",
+          "may omit required production scenario"
+        ],
+        [
+          "Preemption bound",
+          "may miss bug requiring more switches"
+        ],
+        [
+          "Abstract data payload",
+          "sound if payload is irrelevant; dangerous if not"
+        ],
+        [
+          "Smaller capacities",
+          "often exposes boundaries, but verify generalization"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 169,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established tool/practice",
+        "Rust assurance role"
+      ],
+      "rows": [
+        [
+          "Valgrind / native ASan",
+          "Miri plus sanitizer matrix, with different semantics"
+        ],
+        [
+          "CHESS-style schedule exploration",
+          "Loom model tests"
+        ],
+        [
+          "TLA+ service protocol",
+          "same abstract model, connected to Rust state-machine tests"
+        ],
+        [
+          "Code Contracts/formal annotations",
+          "verifier-specific Rust contracts and harnesses"
+        ],
+        [
+          "Static analyzer \"clean\" report",
+          "dated scoped evidence, never a universal proof"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 198,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Claim/risk",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Unsafe Rust validity/aliasing",
+          "Miri plus invariant review"
+        ],
+        [
+          "Native/FFI memory defect",
+          "ASan/MSan as target support permits"
+        ],
+        [
+          "Native data race",
+          "TSan plus schedule-focused tests"
+        ],
+        [
+          "Custom atomic/lock-free algorithm",
+          "Loom and written memory-order argument"
+        ],
+        [
+          "Protocol safety/liveness",
+          "abstract model checker plus implementation tests"
+        ],
+        [
+          "Narrow critical function invariant",
+          "bounded/deductive Rust verifier after capability review"
+        ],
+        [
+          "Tool unsupported path",
+          "Record exclusion; add another evidence source or reduce claim"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\08-TRAIT-SOLVING-COHERENCE-AND-NEXT-SOLVER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 80,
+      "heading_context": "## Goals and Obligations",
+      "headers": [
+        "Predicate kind",
+        "Example",
+        "Why rustc asks"
+      ],
+      "rows": [
+        [
+          "trait ref",
+          "`T: Display`",
+          "method calls, bounds, derives, operators"
+        ],
+        [
+          "projection",
+          "`<T as Trait>::Assoc`",
+          "normalize associated types"
+        ],
+        [
+          "well-formedness",
+          "`&'a T`, `Struct<T>`",
+          "ensure type and predicates make sense"
+        ],
+        [
+          "outlives",
+          "`T: 'a`",
+          "lifetime and variance constraints"
+        ],
+        [
+          "auto trait",
+          "`T: Send`",
+          "thread-safety and marker behavior"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 302,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "\"Who asks trait questions?\"",
+          "Mostly typeck, with later compiler phases consuming facts",
+          "rustc"
+        ],
+        [
+          "\"What is stable: solver algorithm or trait semantics?\"",
+          "Trait semantics, coherence, orphan rules",
+          "Reference/RFCs"
+        ],
+        [
+          "\"Can two crates add competing impls?\"",
+          "No; orphan/coherence rules prevent it",
+          "language"
+        ],
+        [
+          "\"Is canonicalization a language feature?\"",
+          "No; it is a cache/query mechanism",
+          "rustc internal"
+        ],
+        [
+          "\"Can I use specialization on stable?\"",
+          "No; specialization/min_specialization are unstable nightly features",
+          "rustc/lang feature gate"
+        ],
+        [
+          "\"Is `-Znext-solver` stable?\"",
+          "No; version-sensitive compiler implementation flag",
+          "rustc internal"
+        ],
+        [
+          "\"What should library authors do?\"",
+          "Design around explicit traits, newtypes for foreign pairs, and stable bounds",
+          "language + ecosystem practice"
+        ]
+      ]
+    }
+  ]
+}

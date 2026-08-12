@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         MEMORY COST PIPELINE                                |\n|                                                                             |\n| values + ownership graph                                                    |\n|        |                                                                    |\n|        +-> inline/stack/static storage                                      |\n|        +-> heap owners: Box, Vec, String, maps                              |\n|        +-> shared owners: Rc/Arc + Weak                                     |\n|        +-> copies/clones/buffers                                            |\n|                         |                                                   |\n|                         v                                                   |\n| allocation sites -> allocator arenas -> virtual pages -> resident working   |\n|                         |                                                   |\n|                         v                                                   |\n| volume/rate     live bytes     retained capacity     fragmentation     RSS  |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 188,
+      "heading_context": "## Reference Counting and Shared State",
+      "confidence": "candidate",
+      "text": "Arc<Mutex<T>>\n |    |\n |    +-> lock acquisition, queueing, cache-line transfer\n +------> atomic refcount operations and shared lifetime",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

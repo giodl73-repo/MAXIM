@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\09-COM-WINRT-AND-WINDOWS-NATIVE-BOUNDARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 124,
+      "heading_context": "## Apartments, Marshaling, and Callbacks",
+      "headers": [
+        "Question",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "Initialization",
+          "Which thread calls `CoInitializeEx`, with which apartment model?"
+        ],
+        [
+          "Pointer transfer",
+          "Is interface marshaled, agile, or apartment-bound?"
+        ],
+        [
+          "Reentrancy",
+          "Can outgoing calls pump messages or invoke callbacks?"
+        ],
+        [
+          "Shutdown",
+          "Which thread releases final references and unadvises events?"
+        ],
+        [
+          "Error",
+          "How are `HRESULT`, restricted error info, and Rust errors mapped?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 152,
+      "heading_context": "## Allocators and Windows Value Types",
+      "headers": [
+        "Value",
+        "Owner/release"
+      ],
+      "rows": [
+        [
+          "`HANDLE`",
+          "API-specific close function such as `CloseHandle`, not `free`"
+        ],
+        [
+          "COM interface pointer",
+          "`Release`"
+        ],
+        [
+          "`CoTaskMem` buffer",
+          "`CoTaskMemFree`"
+        ],
+        [
+          "`BSTR`",
+          "`SysFreeString`"
+        ],
+        [
+          "`HSTRING`",
+          "Windows string API/projection ownership"
+        ],
+        [
+          "Rust `Box`/buffer",
+          "Rust-exported release function"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 166,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Windows boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Use Win32 `system` ABI, COM/WinRT defined interfaces, or C ABI; never substitute Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Pair each HANDLE/BSTR/HSTRING/CoTaskMem/COM/Rust value with its exact close/release function."
+        ],
+        [
+          "Panic/unwind",
+          "Translate Rust panic/error to `HRESULT`/failure; do not unwind through Windows callbacks or COM frames."
+        ],
+        [
+          "Lifetime",
+          "Honor AddRef/Release, borrowed parameter duration, event subscription, and apartment-bound pointer rules."
+        ],
+        [
+          "Threading",
+          "Initialize apartments, state agility/marshaling, handle reentrancy, and release on valid contexts."
+        ],
+        [
+          "Target",
+          "Test Windows version, x64/arm64, MSVC/GNU where claimed, SDK contract, and packaged/unpackaged context."
+        ],
+        [
+          "Packaging",
+          "Define DLL search, COM registration/manifest, MSIX identity/capabilities, signing, symbols, and servicing."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 178,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Windows prior art",
+        "Rust migration mapping"
+      ],
+      "rows": [
+        [
+          "HRESULT boundary",
+          "Rust error translated to stable platform status"
+        ],
+        [
+          "`CComPtr`/smart pointer",
+          "Generated Rust COM wrapper with `Drop`/clone reference counting"
+        ],
+        [
+          "IDL projection",
+          "Metadata/header remains canonical; Rust code is one projection"
+        ],
+        [
+          "STA message pump",
+          "Scheduler/affinity contract that Rust workers must respect"
+        ],
+        [
+          "Registration-free COM",
+          "Deployment-owned activation manifest"
+        ],
+        [
+          "MSIX",
+          "Signed package identity and native dependency closure"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 205,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Call Win32/COM/WinRT from Rust",
+          "`windows` crate with minimal namespace features"
+        ],
+        [
+          "Long-lived public native core",
+          "Universal C ABI, then optional COM/WinRT facade"
+        ],
+        [
+          "Existing COM ecosystem/activation",
+          "Proper COM interface implementation and new IID for evolution"
+        ],
+        [
+          "Modern packaged Windows projection",
+          "WinRT metadata/projection if product model fits"
+        ],
+        [
+          "Cross-apartment callback",
+          "Explicit marshaling/agility plus reentrancy plan"
+        ],
+        [
+          "Rust-owned buffer in Windows API",
+          "Keep Rust release export; do not guess platform allocator"
+        ],
+        [
+          "Cross-platform product",
+          "Keep Windows bridge supplemental to a universal core boundary"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\08-CONCURRENCY-RESOURCE-EXHAUSTION-AND-DENIAL-OF-SERVICE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         AVAILABILITY CONTROL LOOP                          |\n+============================================================================+\n| request -> authenticate -> admit -> queue -> execute -> emit response      |\n|              |            |       |         |                              |\n|              |         rate/quota |      CPU/time/IO budget                |\n|              |                    |                                        |\n|              +--> identity cost   +--> bounded capacity/backpressure       |\n+----------------------------------------------------------------------------+\n| observe saturation -> shed/degrade -> cancel/reclaim -> recover/rebalance  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 86,
+      "heading_context": "## Bounded Concurrency",
+      "confidence": "candidate",
+      "text": "unbounded spawn                         bounded admission\nrequest -> task -> task -> task         request -> permit? -> task\n             |                                      |\n             v                                      +-- no -> reject/defer\n        scheduler/memory collapse                    +-- yes -> release on drop",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

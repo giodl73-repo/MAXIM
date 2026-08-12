@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\10-BORROW-CHECKING-NLL-AND-POLONIUS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                              MIR BORROWCK                                 |\n|                                                                           |\n|  typed HIR/typeck [07]        MIR body [09]                               |\n|  outlives obligations         locals, places, CFG points                  |\n|             |                         |                                   |\n|             +-----------+-------------+                                   |\n|                         v                                                  |\n|                  query: mir_borrowck                                      |\n|                         |                                                  |\n|     +-------------------+-------------------+                              |\n|     | liveness          | region constraints| move/init dataflow           |\n|     | CFG point sets    | outlives closure  | maybe init / maybe uninit    |\n|     +-------------------+-------------------+                              |\n|                         |                                                  |\n|                         v                                                  |\n|           loan conflict checks + diagnostic construction                   |\n|                         |                                                  |\n|              accepted MIR or E0382/E0499/E0502/E0505...                   |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## What Borrowck Proves",
+      "confidence": "candidate",
+      "text": "program point p\n   |\n   +--> region facts: which references must be valid here?\n   +--> loan facts: which borrows are live here?\n   +--> move facts: which places may be initialized here?\n   +--> access: read / write / move / drop\n          |\n          v\n      accept or reject this access at p",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 99,
+      "heading_context": "## NLL Regions Are CFG Point Sets",
+      "confidence": "candidate",
+      "text": "+------------------------------ lexical block ------------------------------+\n| let r = &s;                                                               |\n| use(r);           last use of r                                           |\n| s.push('x');       legal under NLL if no later use of r                   |\n+---------------------------------------------------------------------------+\n       ^------------- region point-set for r ------------^\n                     not the whole lexical block",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 135,
+      "heading_context": "## The MIR Borrowck Pipeline",
+      "confidence": "candidate",
+      "text": "+------------------+     +------------------+     +------------------+\n| liveness         | --> | constraints      | --> | region inference |\n| uses at points   |     | 'a: 'b, p in 'r  |     | point-set solve  |\n+------------------+     +------------------+     +------------------+\n                                                          |\n                                                          v\n+------------------+     +------------------+     +------------------+\n| move/init flow   | --> | loan conflicts   | --> | diagnostics      |\n| MaybeInit facts  |     | access vs loan   |     | spans/errors     |\n+------------------+     +------------------+     +------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 170,
+      "heading_context": "## Loans, Moves, and Two-Phase Borrows",
+      "confidence": "candidate",
+      "text": "ordinary mutable borrow:       reserve + activate immediately\n   &mut x -------------------> exclusive loan live\n\ntwo-phase borrow:\n   reservation --------------> shared-like window ----> activation\n   v.push(        v.len()     )                         mutation occurs here",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 250,
+      "heading_context": "## Polonius",
+      "confidence": "candidate",
+      "text": "+----------------------+      +----------------------+      +----------------+\n| MIR facts            | ---> | Datalog-style rules  | ---> | invalid loans  |\n| origins, loans, cfg  |      | reachability/liveness|      | diagnostics    |\n+----------------------+      +----------------------+      +----------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

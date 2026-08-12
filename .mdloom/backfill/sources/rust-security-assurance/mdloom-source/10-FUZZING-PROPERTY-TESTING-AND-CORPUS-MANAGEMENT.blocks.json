@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\10-FUZZING-PROPERTY-TESTING-AND-CORPUS-MANAGEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         ADVERSARIAL TEST LOOP                              |\n+============================================================================+\n| seeds/generators -> target harness -> oracle/property -> finding           |\n|       ^                 |                  |              |                |\n|       |                 v                  v              v                |\n| corpus merge <---- coverage signal    reject/compare   minimize + triage   |\n|       |                                                    |               |\n|       +---------------- regression corpus <----------------+               |\n+----------------------------------------------------------------------------+\n| scope: target + features + toolchain + sanitizer/model + time + hardware   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 63,
+      "heading_context": "## Design a Security-Relevant Harness",
+      "confidence": "candidate",
+      "text": "raw bytes\n   |\n   +--> enforce harness cap\n   +--> call parser without network/filesystem nondeterminism\n   +--> if accepted:\n          assert canonical round trip\n          assert semantic invariant\n          compare reference implementation\n          bound output/work",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 189,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust trait feature",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "Interface (C#/Java)",
+          "trait (required methods)",
+          "Plus default methods, assoc types/consts"
+        ],
+        [
+          "Abstract base class",
+          "trait + default methods",
+          "No shared *state*, only behavior"
+        ],
+        [
+          "Haskell type class",
+          "trait",
+          "Nearly identical; associated types = type families"
+        ],
+        [
+          "C# extension methods",
+          "trait + impl on foreign type",
+          "Coherent and dispatchable, not just sugar"
+        ],
+        [
+          "C++ concepts (bounds)",
+          "trait bounds / `where`",
+          "Bounds are nominal, checked at definition"
+        ],
+        [
+          "Operator overloading",
+          "`impl Add`, `impl Index`, ...",
+          "Operators are traits"
+        ],
+        [
+          "C# generic constraints (`where T : IFoo`)",
+          "`where T: Foo`",
+          "Same spirit; monomorphized like C++ templates"
+        ],
+        [
+          "Java/C# type erasure",
+          "monomorphization",
+          "No hidden boxing; `dyn` is opt-in ([07](07-DISPATCH-TRAIT-OBJECTS-AND-IMPL-TRAIT.md))"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 223,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Define shared behavior",
+          "a `trait`"
+        ],
+        [
+          "Provide reusable logic on required methods",
+          "default methods"
+        ],
+        [
+          "One output type per implementer",
+          "associated type (`type Item;`)"
+        ],
+        [
+          "Many impls with different inputs",
+          "generic trait param (`From<T>`)"
+        ],
+        [
+          "Constrain a generic",
+          "bound: `<T: Trait>` or `where T: Trait`"
+        ],
+        [
+          "Give every `X` a method for free",
+          "blanket impl `impl<T: X> Y for T`"
+        ],
+        [
+          "Require a prerequisite trait",
+          "supertrait: `trait A: B`"
+        ],
+        [
+          "Implement a foreign trait on a foreign type",
+          "newtype wrapper (orphan rule)"
+        ],
+        [
+          "Avoid monomorphization bloat / need heterogeneity",
+          "`dyn Trait` ([07](07-DISPATCH-TRAIT-OBJECTS-AND-IMPL-TRAIT.md))"
+        ]
+      ]
+    }
+  ]
+}

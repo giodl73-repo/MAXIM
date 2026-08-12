@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\10-DATABASES-FILES-SCHEMAS-AND-DATA-FORMATS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Choose the Data Contract",
+      "headers": [
+        "Boundary",
+        "Strength",
+        "Migration risk"
+      ],
+      "rows": [
+        [
+          "Relational schema",
+          "Shared query semantics, constraints, transactions",
+          "Tight coupling through writes and migrations"
+        ],
+        [
+          "Event/protobuf schema",
+          "Decoupled producers/consumers, replay",
+          "Ordering, idempotency, compatibility discipline"
+        ],
+        [
+          "JSON/YAML",
+          "Human/debug friendly, broad ecosystem",
+          "Weak numeric/unknown-field conventions"
+        ],
+        [
+          "CSV",
+          "Simple interchange",
+          "Ambiguous types, quoting, locale, schema drift"
+        ],
+        [
+          "Arrow",
+          "In-memory columnar interchange",
+          "Buffer lifetime, alignment, version/library compatibility"
+        ],
+        [
+          "Parquet",
+          "Analytical columnar file",
+          "Schema evolution, logical types, row-group/codec support"
+        ],
+        [
+          "Custom binary",
+          "Exact performance/size control",
+          "Highest tooling and evolution burden"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 123,
+      "heading_context": "## Database Ownership",
+      "headers": [
+        "Model",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Single writer, multiple readers",
+          "Safest migration; route writes to one authority"
+        ],
+        [
+          "Dual write by application",
+          "High divergence risk; needs idempotency and reconciliation"
+        ],
+        [
+          "Transactional outbox/change feed",
+          "Publish changes without a distributed transaction"
+        ],
+        [
+          "Shadow writer",
+          "Write to isolated target and compare; not production authority"
+        ],
+        [
+          "Backfill job",
+          "Restartable, monotonic checkpoints, rate-limited, audited"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 148,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Data boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Persist a specified schema/format, never Rust memory layout, `repr(Rust)`, or trait-object representation."
+        ],
+        [
+          "Allocator",
+          "Mapped/shared buffers retain an owner; Arrow/FFI buffers need release callbacks and alignment contracts."
+        ],
+        [
+          "Panic/unwind",
+          "Parse failures are data errors; contain Rust panic and never corrupt/partially publish authoritative state."
+        ],
+        [
+          "Lifetime",
+          "Readers must not outlive mapped files, transaction snapshots, borrowed DB rows, or shared buffers."
+        ],
+        [
+          "Threading",
+          "Define connection/session ownership, transaction isolation, writer concurrency, and stream ordering."
+        ],
+        [
+          "Target",
+          "State endianness, integer widths, path/encoding/filesystem behavior, DB/server versions, and codec support."
+        ],
+        [
+          "Packaging",
+          "Ship migrations, schema descriptors, codecs, seed/config data, rollback scripts, and compatibility tooling with the binary."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 160,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust migration use"
+      ],
+      "rows": [
+        [
+          "Database expand/contract",
+          "Preserve mixed-version operation through rollback window"
+        ],
+        [
+          "ETL reconciliation",
+          "Shadow Rust output and compare normalized records"
+        ],
+        [
+          "IDL/schema registry",
+          "Canonical contract independent of generated Rust/host types"
+        ],
+        [
+          "ADO.NET transaction ownership",
+          "Rust connection/transaction scope must preserve the same isolation/commit semantics"
+        ],
+        [
+          "Memory-mapped file",
+          "Borrowed buffer whose lifetime is owned by mapping object"
+        ],
+        [
+          "Data warehouse backfill",
+          "Restartable checkpoints, rate limits, and evidence of completeness"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 187,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Mixed old/new binaries",
+          "Additive schema plus expand/migrate/contract"
+        ],
+        [
+          "High-confidence replacement",
+          "Shadow reads/writes and semantic diff"
+        ],
+        [
+          "Decoupled migration",
+          "Versioned event/protocol schema"
+        ],
+        [
+          "Analytical interchange",
+          "Arrow in-memory, Parquet at rest, with explicit version/ownership"
+        ],
+        [
+          "Simple public interchange",
+          "JSON with a written schema and compatibility rules"
+        ],
+        [
+          "Whole-file state",
+          "Versioned header plus atomic replace protocol"
+        ],
+        [
+          "Rollback after new writes",
+          "Prove old reader compatibility or supply reverse migration"
+        ]
+      ]
+    }
+  ]
+}

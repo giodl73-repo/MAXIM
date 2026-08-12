@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\12-NATIVE-DEPENDENCIES-BUILD-SCRIPTS-AND-SYSTEM-PACKAGES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                      RUST + NATIVE BUILD PIPELINE                         |\n+===========================================================================+\n| HOST                                                                      |\n|  build.rs -> host executable -> probe/generate/compile C -> cargo output  |\n|                                      |                                    |\n|                                      v                                    |\n| TARGET                             headers/libs/sysroot                    |\n|  Rust crate -> `-sys` bindings -> safe wrapper -> rustc -> native linker  |\n|                                                    |                      |\n|                                                    v                      |\n|                                     executable/shared/static artifact     |\n+===========================================================================+\n| host != target during cross compilation; discovery must respect TARGET.   |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

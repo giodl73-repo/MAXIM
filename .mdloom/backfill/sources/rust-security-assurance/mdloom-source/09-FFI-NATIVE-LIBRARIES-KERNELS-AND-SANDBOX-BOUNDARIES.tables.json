@@ -1,0 +1,218 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\09-FFI-NATIVE-LIBRARIES-KERNELS-AND-SANDBOX-BOUNDARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Specify the ABI Contract",
+      "headers": [
+        "Contract",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Calling convention",
+          "Is `extern \"C\"` or another ABI correct for every target?"
+        ],
+        [
+          "Layout",
+          "Are transferred types `#[repr(C)]`/`#[repr(transparent)]` and composed only of ABI-defined fields?"
+        ],
+        [
+          "Ownership",
+          "Who allocates, frees, closes, and may retain each handle?"
+        ],
+        [
+          "Lifetime",
+          "How long are pointers/callback contexts valid?"
+        ],
+        [
+          "Mutability/aliasing",
+          "May native code retain or concurrently mutate memory?"
+        ],
+        [
+          "Errors",
+          "Error code, out parameter, nullable pointer, thread-local error, exception?"
+        ],
+        [
+          "Unwinding",
+          "Can panic/exception cross? Usually contain and translate at the boundary."
+        ],
+        [
+          "Threads",
+          "Which thread may call, callback, initialize, or destroy?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 125,
+      "heading_context": "## Native Dependency Assurance",
+      "headers": [
+        "Source",
+        "Assurance concern"
+      ],
+      "rows": [
+        [
+          "Bundled source",
+          "upstream identity, patches, compiler flags, update cadence"
+        ],
+        [
+          "System library",
+          "distro/platform patch level and runtime image inventory"
+        ],
+        [
+          "Prebuilt binary",
+          "provenance, signature/digest, target/ABI compatibility"
+        ],
+        [
+          "Locally compiled C/C++",
+          "compiler/sysroot identity, hardening, sanitizers"
+        ],
+        [
+          "Kernel API/device",
+          "privilege, ioctl/input surface, driver trust"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 157,
+      "heading_context": "## Sandbox by Capability and Consequence",
+      "headers": [
+        "Platform family",
+        "Examples of mechanisms",
+        "Qualification"
+      ],
+      "rows": [
+        [
+          "Linux",
+          "user/mount/network namespaces, seccomp, capabilities, cgroups, LSMs",
+          "containers share a kernel; policy and kernel version matter"
+        ],
+        [
+          "Windows",
+          "restricted tokens, AppContainer, job objects, process mitigation policies",
+          "exact capability depends on application model and OS"
+        ],
+        [
+          "macOS",
+          "sandbox profiles/entitlements, hardened runtime",
+          "deployment/signing model constrains availability"
+        ],
+        [
+          "VM/hypervisor",
+          "separate guest kernel and device model",
+          "stronger boundary at higher operational cost"
+        ],
+        [
+          "WebAssembly runtime",
+          "capability-oriented host imports, runtime limits",
+          "runtime/host implementation becomes TCB"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 170,
+      "heading_context": "## Boundary Evidence",
+      "headers": [
+        "Claim",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "ABI matches supported targets",
+          "generated/header comparison, target builds, integration tests"
+        ],
+        [
+          "Ownership is single and explicit",
+          "API contract, drop/free tests, sanitizer/Miri where applicable"
+        ],
+        [
+          "Native parser cannot compromise service identity",
+          "separate low-privilege process/VM and IPC validation"
+        ],
+        [
+          "Required libraries are patched",
+          "native SBOM/runtime inventory and advisory response"
+        ],
+        [
+          "Sandbox blocks forbidden capability",
+          "negative tests against deployed policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 180,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust analogue"
+      ],
+      "rows": [
+        [
+          "P/Invoke/COM interop contract",
+          "`extern` declarations plus safe Rust wrapper"
+        ],
+        [
+          "C++ RAII handle wrapper",
+          "Rust newtype with `Drop`, ownership encoded in API"
+        ],
+        [
+          "Native helper process",
+          "sandboxed Rust/native worker over narrow IPC"
+        ],
+        [
+          "Windows job/restricted token",
+          "platform containment below Rust process"
+        ],
+        [
+          "Linux seccomp/container",
+          "syscall/resource boundary; not a language guarantee"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 210,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Designing new FFI",
+          "Prefer opaque handles and a small C-shaped API"
+        ],
+        [
+          "Passing buffers",
+          "Specify allocator, ptr/len validity, retention, mutation, and release"
+        ],
+        [
+          "Native callback",
+          "Model re-entry, thread, lifetime, and panic/exception behavior"
+        ],
+        [
+          "High-risk native parser",
+          "Move to least-privilege worker or stronger sandbox"
+        ],
+        [
+          "Static native library",
+          "Include version/provenance in SBOM and patch process"
+        ],
+        [
+          "Container deployment",
+          "Test actual capability/syscall/resource policy"
+        ],
+        [
+          "Cross-target support",
+          "Validate ABI and native toolchain per target"
+        ]
+      ]
+    }
+  ]
+}

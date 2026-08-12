@@ -1,0 +1,104 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\05-STRUCTS-ENUMS-PATTERNS-AND-MATCH.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 168,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C `enum` (named ints)",
+          "Rust `enum` (tagged union)",
+          "Variants carry typed payloads"
+        ],
+        [
+          "F# discriminated unions / Scala `sealed`",
+          "Rust `enum`",
+          "Same sum-type modeling"
+        ],
+        [
+          "TypeScript discriminated union + `switch`",
+          "`enum` + `match`",
+          "`match` exhaustiveness is enforced, not opt-in"
+        ],
+        [
+          "`switch` with `default` fallthrough (C#/Java)",
+          "`match` with `_`",
+          "No fallthrough-by-accident; arms are isolated"
+        ],
+        [
+          "`is`/pattern matching (C# 9+)",
+          "`match` / `if let`",
+          "First-class, exhaustive"
+        ],
+        [
+          "`class` + inheritance",
+          "`struct`/`enum` + traits",
+          "Composition over inheritance ([06](06-TRAITS-GENERICS-AND-ASSOCIATED-ITEMS.md))"
+        ],
+        [
+          "null checks scattered in code",
+          "`Option` + `match`/`if let`",
+          "Handling is forced by the type"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 202,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Model \"has A and B\"",
+          "`struct`"
+        ],
+        [
+          "Model \"is A or B or C\"",
+          "`enum`"
+        ],
+        [
+          "A distinct type over one value",
+          "newtype `struct Id(u64)`"
+        ],
+        [
+          "Handle every case of an enum",
+          "`match` (exhaustive)"
+        ],
+        [
+          "React to just one variant",
+          "`if let`"
+        ],
+        [
+          "Loop while a pattern matches",
+          "`while let`"
+        ],
+        [
+          "Extract-or-bail without nesting",
+          "`let ... else`"
+        ],
+        [
+          "A boolean \"does it match?\"",
+          "`matches!(x, Pat)`"
+        ],
+        [
+          "Condition a pattern arm",
+          "guard: `Pat if cond =>`"
+        ],
+        [
+          "Make illegal states impossible",
+          "encode invariants in enum variants"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\12-ARTIFACT-PROVENANCE-SBOMS-SIGNING-AND-REPRODUCIBLE-EVIDENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Distinguish the Evidence Types",
+      "headers": [
+        "Artifact",
+        "Answers",
+        "Does not answer"
+      ],
+      "rows": [
+        [
+          "`Cargo.lock`",
+          "selected Cargo package sources/versions for a resolution",
+          "native/runtime components, builder integrity, publisher intent"
+        ],
+        [
+          "SBOM",
+          "declared/discovered components and relationships in a stated scope",
+          "whether components are safe or artifact was built correctly"
+        ],
+        [
+          "Provenance",
+          "builder, inputs, recipe, subject digest, process metadata",
+          "semantic correctness of source"
+        ],
+        [
+          "Signature",
+          "specified identity authorized the exact bytes/statement",
+          "whether signer should have authorized them"
+        ],
+        [
+          "Reproducible build",
+          "independent build produced equivalent bytes/result under defined process",
+          "whether source is benign"
+        ],
+        [
+          "Advisory report",
+          "known records matched inventory at a time",
+          "absence of unknown or inapplicable defects"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 144,
+      "heading_context": "## Reproducibility and Equivalence",
+      "headers": [
+        "Rebuild result",
+        "Interpretation"
+      ],
+      "rows": [
+        [
+          "Exact byte match",
+          "strong evidence of deterministic equivalence for those environments"
+        ],
+        [
+          "Normalized match",
+          "useful only if normalization is specified and cannot hide meaningful differences"
+        ],
+        [
+          "Mismatch explained",
+          "record known nondeterministic field and risk"
+        ],
+        [
+          "Unexplained mismatch",
+          "block high-assurance release until understood"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 172,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Modern/Rust evidence"
+      ],
+      "rows": [
+        [
+          "Authenticode/package signature",
+          "artifact/attestation signature plus identity policy"
+        ],
+        [
+          "NuGet package manifest",
+          "Cargo graph normalized into SPDX/CycloneDX"
+        ],
+        [
+          "Build number and logs",
+          "provenance subject/materials/recipe with immutable digest"
+        ],
+        [
+          "Rebuild from source",
+          "independent reproducibility comparison"
+        ],
+        [
+          "CMDB/runtime inventory",
+          "SBOM plus deployed artifact and image identity"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 202,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Evidence/control"
+      ],
+      "rows": [
+        [
+          "Identify deployed bytes",
+          "cryptographic artifact digest"
+        ],
+        [
+          "List components",
+          "validated SBOM spanning Cargo, native, and runtime scope"
+        ],
+        [
+          "Show how artifact was built",
+          "provenance with materials, recipe, builder, subject"
+        ],
+        [
+          "Authorize release identity",
+          "signature/attestation plus strict verification policy"
+        ],
+        [
+          "Detect hidden build variation",
+          "independent reproducibility comparison"
+        ],
+        [
+          "Respond to advisory",
+          "query SBOM and deployed artifact inventory, then verify applicability"
+        ],
+        [
+          "Audit later",
+          "immutable release bundle and retention/access policy"
+        ]
+      ]
+    }
+  ]
+}

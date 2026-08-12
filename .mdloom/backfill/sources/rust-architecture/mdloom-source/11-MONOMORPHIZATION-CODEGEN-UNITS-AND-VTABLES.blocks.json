@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                    FROM MIR TO BACKEND WORK PRODUCTS                      |\n|                                                                           |\n|  optimized MIR [09]                                                       |\n|       |                                                                   |\n|       v                                                                   |\n|  mono item collector                                                      |\n|  roots: main/exported/reachable/#[no_mangle]                              |\n|       |                                                                   |\n|       v                                                                   |\n|  Instances: DefId + concrete substitutions                                |\n|  plus statics, vtables, drop glue                                         |\n|       |                                                                   |\n|       v                                                                   |\n|  codegen-unit partitioner                                                 |\n|       partitions: CGU 0   CGU 1   CGU 2   ...   CGU N                     |\n|                         v                                                 |\n|              LLVM / Cranelift / GCC backend [12]                          |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "## Monomorphization: Static Dispatch by Stamping",
+      "confidence": "candidate",
+      "text": "source generic item\n   fn max_of<T: Ord>(a: T, b: T) -> T\n        |\n        +-----------------------+------------------------+\n        |                       |                        |\n        v                       v                        v\n   max_of::<i32>          max_of::<String>         max_of::<MyKey>\n   concrete layout        concrete layout          concrete layout\n   direct comparisons     direct comparisons       direct comparisons",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 111,
+      "heading_context": "## Mono Item Collection",
+      "confidence": "candidate",
+      "text": "+-------------------------+\n| roots                   |\n| main, exports, reachable|\n| #[no_mangle], lang glue |\n+------------+------------+\n             |\n             v\n+-------------------------+        calls/uses/needs        +----------------+\n| collect mono items      | -----------------------------> | more instances |\n| functions, statics      |                                | statics, glue  |\n| vtables, drop glue      | <----------------------------- | vtables        |\n+------------+------------+            until fixed point   +----------------+\n             |\n             v\n      partition into CGUs",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 179,
+      "heading_context": "## Codegen Units",
+      "confidence": "candidate",
+      "text": "mono items\n   |\n   v\n+------------------ codegen-unit partitioner -------------------+\n| module affinity, inlining pressure, size, incremental reuse   |\n| heuristics are internal and change over time                  |\n+-------------+------------------+------------------+-----------+\n              |                  |                  |\n              v                  v                  v\n          CGU A              CGU B              CGU C\n              |                  |                  |\n              v                  v                  v\n          backend job        backend job        backend job",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 218,
+      "heading_context": "## Dynamic Dispatch and Vtables",
+      "confidence": "candidate",
+      "text": "&dyn Draw\ndata pointer   -----> concrete value: Button\nvtable pointer -----> table below\n                     |\n                     v\n             +-----------------------------------+\n             | drop-in-place fn                  |\n             | size / align                      |\n             | Draw::draw method fn              |\n             | more dyn-compatible method fns    |\n             +-----------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 68,
+      "heading_context": "## The Boundary Ladder",
+      "headers": [
+        "Boundary",
+        "Best property",
+        "Main cost",
+        "Typical lifetime"
+      ],
+      "rows": [
+        [
+          "Process plus versioned protocol",
+          "Failure and allocator isolation; polyglot",
+          "Serialization and operational overhead",
+          "Longest"
+        ],
+        [
+          "File, database, or event schema",
+          "Loose coupling and replay",
+          "Consistency and schema evolution",
+          "Long"
+        ],
+        [
+          "WebAssembly component plus WIT",
+          "Typed component contract; portable intent",
+          "Runtime/tooling maturity and target constraints",
+          "Medium to long"
+        ],
+        [
+          "C ABI with opaque handles",
+          "Low overhead; universal native reach",
+          "Manual ownership, layout, unwind, and target discipline",
+          "Medium to long"
+        ],
+        [
+          "Runtime bridge (`pyo3`, `napi-rs`, JNI, P/Invoke)",
+          "Native host ergonomics",
+          "Host/runtime/version coupling",
+          "Medium"
+        ],
+        [
+          "C++ bridge (`cxx`) or COM/WinRT projection",
+          "Richer local integration",
+          "Toolchain/platform coupling",
+          "Medium"
+        ],
+        [
+          "Rust ABI, `repr(Rust)`, trait object, compiler metadata",
+          "Convenient inside one build",
+          "No durable foreign ABI contract",
+          "Build-local only"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 112,
+      "heading_context": "## Migration Control Plane",
+      "headers": [
+        "Field",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Consumer set",
+          "Which processes, runtimes, versions, and teams call it?"
+        ],
+        [
+          "Boundary",
+          "C ABI, protocol, WIT, schema, or host-specific adapter?"
+        ],
+        [
+          "Ownership",
+          "Who allocates, retains, releases, closes, and cancels?"
+        ],
+        [
+          "Failure",
+          "How do ordinary errors, panics, exceptions, crashes, and timeouts map?"
+        ],
+        [
+          "Concurrency",
+          "Which thread invokes, completes, calls back, or destroys?"
+        ],
+        [
+          "Target",
+          "Which OS, architecture, libc/CRT, calling convention, and runtime versions?"
+        ],
+        [
+          "Packaging",
+          "Which artifact contains the code, how is it discovered, and how is it signed?"
+        ],
+        [
+          "Compatibility",
+          "What old/new producer-consumer combinations are supported?"
+        ],
+        [
+          "Rollback",
+          "Can traffic or loading return to the old implementation without data repair?"
+        ],
+        [
+          "Exit",
+          "What evidence permits deletion of the old path and bridge?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 132,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Default posture"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Use a specified C/system ABI, protocol, schema, or WIT contract; never promise the unstable Rust ABI or trait-object layout."
+        ],
+        [
+          "Allocator",
+          "The allocating side frees, or the API exposes a matched release function; never assume heaps or CRTs are interchangeable."
+        ],
+        [
+          "Panic/unwind",
+          "Catch and translate Rust panics where unwind is enabled; never let unwinding cross an ordinary foreign boundary."
+        ],
+        [
+          "Lifetime",
+          "Prefer copied values or opaque owned handles; every borrowed pointer has a stated validity interval and thread rule."
+        ],
+        [
+          "Threading",
+          "State affinity, reentrancy, callback thread, synchronization, and cancellation semantics."
+        ],
+        [
+          "Target",
+          "Test the exact OS/architecture/libc-or-CRT/calling-convention/runtime matrix."
+        ],
+        [
+          "Packaging",
+          "Treat library discovery, loader paths, symbols, signing, debug artifacts, and dependency closure as contract work."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 144,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior practice",
+        "Migration interpretation"
+      ],
+      "rows": [
+        [
+          "CORBA/COM IDL or RPC schema",
+          "Contract-first interop: generated projections are adapters, not the canonical behavior"
+        ],
+        [
+          "DLL export table",
+          "C ABI facade around opaque Rust state"
+        ],
+        [
+          "Service strangler",
+          "Route one capability to Rust while preserving the old implementation as rollback"
+        ],
+        [
+          "Database compatibility window",
+          "Expand/contract schema changes that permit mixed old/new binaries"
+        ],
+        [
+          "Managed safe-handle pattern",
+          "Opaque native handle plus deterministic release export"
+        ],
+        [
+          "Plugin SDK",
+          "Versioned host contract, capability negotiation, and load isolation"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 176,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Start with",
+        "Then read"
+      ],
+      "rows": [
+        [
+          "Select the first migration slice",
+          "Estate economics and seam analysis",
+          "[01](01-ESTATE-DISCOVERY-MIGRATION-ECONOMICS-AND-BOUNDARY-SELECTION.md)"
+        ],
+        [
+          "Compare durable boundary forms",
+          "Boundary decision matrix",
+          "[02](02-C-ABI-WIRE-PROTOCOLS-WIT-COMPONENTS-AND-PROCESS-BOUNDARIES.md)"
+        ],
+        [
+          "Embed Rust in a native host",
+          "Opaque C ABI facade",
+          "[03](03-C-INTEROP.md), [12](12-OWNERSHIP-ALLOCATION-ERRORS-AND-UNWINDING-ACROSS-BOUNDARIES.md)"
+        ],
+        [
+          "Integrate one language/runtime",
+          "Read its adapter guide after 02",
+          "[04](04-CPP-INTEROP.md) through [09](09-COM-WINRT-AND-WINDOWS-NATIVE-BOUNDARIES.md)"
+        ],
+        [
+          "Share persistent data",
+          "Version schema before implementation",
+          "[10](10-DATABASES-FILES-SCHEMAS-AND-DATA-FORMATS.md)"
+        ],
+        [
+          "Maximize rollback isolation",
+          "Use a process/service seam",
+          "[11](11-PROCESSES-SERVICES-IPC-AND-NETWORKING.md), [15](15-STRANGLER-ROLLOUT-ROLLBACK-AND-EXIT.md)"
+        ],
+        [
+          "Ship and support native artifacts",
+          "Define target and package matrices",
+          "[14](14-PACKAGING-DEPLOYMENT-VERSIONING-AND-SUPPORT.md)"
+        ]
+      ]
+    }
+  ]
+}

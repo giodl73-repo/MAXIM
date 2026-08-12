@@ -1,0 +1,172 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\03-CPU-PROFILING-AND-FLAME-GRAPHS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Sampling, Instrumentation, and Tracing",
+      "headers": [
+        "Method",
+        "Strength",
+        "Cost / blind spot"
+      ],
+      "rows": [
+        [
+          "Statistical sampling",
+          "Low overhead, production-compatible, call-stack attribution",
+          "Small/rare functions may be undersampled"
+        ],
+        [
+          "Instrumentation",
+          "Exact entries/exits for instrumented scope",
+          "Perturbs timing and code layout"
+        ],
+        [
+          "Hardware counters",
+          "Explains cycles, branches, cache/TLB behavior",
+          "Platform and privilege dependent"
+        ],
+        [
+          "Timeline tracing",
+          "Shows concurrency, waits, wakeups, I/O",
+          "Higher data volume and analysis cost"
+        ],
+        [
+          "Deterministic simulators such as Callgrind",
+          "Reproducible instruction/cache model",
+          "Slow; model differs from native timing"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 106,
+      "heading_context": "## Windows and macOS",
+      "headers": [
+        "Platform",
+        "Common choices",
+        "Artifact requirement"
+      ],
+      "rows": [
+        [
+          "Windows",
+          "WPR/WPA, PerfView, Visual Studio CPU Usage, `samply` where supported",
+          "PDB retained and matched to binary; ETW stack collection configured"
+        ],
+        [
+          "macOS",
+          "Instruments Time Profiler, `xctrace`, `samply`",
+          "dSYM/debug data and permitted sampling"
+        ],
+        [
+          "Linux",
+          "`perf`, `samply`, eBPF-based tools",
+          "DWARF/symbols; permissions"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 176,
+      "heading_context": "## Hardware Counters",
+      "headers": [
+        "Counter pattern",
+        "Possible interpretation",
+        "Next check"
+      ],
+      "rows": [
+        [
+          "High cycles, low instructions per cycle",
+          "stalls, dependency chains, memory latency",
+          "cache misses, branch misses, frontend stalls"
+        ],
+        [
+          "High branch misses",
+          "unpredictable control flow",
+          "input distribution, branchless/vector alternatives"
+        ],
+        [
+          "High last-level-cache misses",
+          "poor locality or working set too large",
+          "data layout, access order, NUMA"
+        ],
+        [
+          "High instructions but good IPC",
+          "excess work, copies, generic expansion",
+          "algorithm, data movement, codegen"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar tool/model",
+        "Rust-specific addition"
+      ],
+      "rows": [
+        [
+          "ETW/PerfView CPU stacks",
+          "Native Rust frames and PDB symbol retention"
+        ],
+        [
+          "`perf` for C/C++",
+          "Same tool; demangle monomorphized Rust symbols"
+        ],
+        [
+          "Visual Studio native profiler",
+          "Cargo profile replaces project configuration"
+        ],
+        [
+          "Call-tree hot path analysis",
+          "Account for inlining, iterator fusion, drop glue, allocator frames"
+        ],
+        [
+          "CLR wall-clock trace",
+          "No GC/JIT events by default; focus on native allocation, scheduler, syscalls"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 218,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Tool/approach"
+      ],
+      "rows": [
+        [
+          "Where is CPU time?",
+          "Sampling call stacks on an optimized symbolized build"
+        ],
+        [
+          "Is the process CPU-bound?",
+          "Wall time vs CPU time plus system utilization"
+        ],
+        [
+          "Why is a hot loop slow?",
+          "Hardware counters, assembly, and [05](05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md)"
+        ],
+        [
+          "Why is latency high with low CPU?",
+          "Off-CPU/scheduler/I/O trace"
+        ],
+        [
+          "Are generic abstractions bloating work?",
+          "Profile plus [06](06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md)"
+        ],
+        [
+          "Need production-safe attribution?",
+          "Low-frequency sampling with symbol custody and overhead limits"
+        ],
+        [
+          "Need a release claim?",
+          "Re-run the benchmark from [01](01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md) after the change"
+        ]
+      ]
+    }
+  ]
+}

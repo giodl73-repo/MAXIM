@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\14-MONOREPO-AND-MULTI-WORKSPACE-APPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| repository authority                                                       |\n| ownership | policy | dependency updates | CI graph | release records       |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| Cargo coordination                                                         |\n| one workspace graph OR several explicit workspace graphs                   |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                 shared crates          apps/services/tools\n                       |                      |\n                       +-----------+----------+\n                                   v\n                  independently named build/deploy/release units",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 130,
+      "heading_context": "## Dependency and Ownership Rules",
+      "confidence": "candidate",
+      "text": "apps ------> application crates ------> domain crates\n  |                  |\n  +--> adapters -----+\n\nforbidden:\ndomain-a ---> app-b\nservice-a private model ---> service-b\ngeneric \"common\" ---> every layer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 161,
+      "heading_context": "## CI, Affected Testing, and Release",
+      "confidence": "candidate",
+      "text": "changed paths\n   |\n   v\nmap to packages/contracts/ops\n   |\n   v\nreverse dependency closure\n   |\n   +--> fast affected checks\n   `--> required global/integration gates",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

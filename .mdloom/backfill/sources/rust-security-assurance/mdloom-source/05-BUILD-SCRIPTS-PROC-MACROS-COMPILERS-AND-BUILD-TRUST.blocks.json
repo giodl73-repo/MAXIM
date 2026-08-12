@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\05-BUILD-SCRIPTS-PROC-MACROS-COMPILERS-AND-BUILD-TRUST.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                          TRUSTED BUILD ENVELOPE                            |\n+============================================================================+\n| reviewed source + lockfile + config + toolchain + native inputs            |\n|       |              |          |           |                              |\n|       v              v          v           v                              |\n| Cargo unit graph -> build.rs ----+-> rustc <- proc-macro dylibs            |\n|                     host process |    |                                     |\n|                                  +--> linker/native tools                   |\n|                                         |                                  |\n|                                         v                                  |\n|                                  artifact + logs + provenance              |\n+----------------------------------------------------------------------------+\n| runner identity | filesystem | environment/secrets | network | clock/cache |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 93,
+      "heading_context": "## Isolate the Build",
+      "confidence": "candidate",
+      "text": "release build job\n  |\n  +-- ephemeral filesystem\n  +-- no production credentials\n  +-- read-only reviewed inputs\n  +-- explicit dependency/cache population\n  +-- network denied or allowlisted after fetch stage\n  +-- least-privilege user and constrained process/container/VM\n  +-- artifact output directory only\n  +-- logs + provenance exported before teardown",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

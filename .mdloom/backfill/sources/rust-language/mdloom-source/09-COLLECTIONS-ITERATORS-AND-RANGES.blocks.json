@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\09-COLLECTIONS-ITERATORS-AND-RANGES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# Collections, Iterators, and Ranges",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                        COLLECTIONS + THE ITERATOR PIPELINE                    |\n+===============================================================================+\n\n  OWNED COLLECTIONS           BORROWED VIEW        THE THREE ITER MODES\n  -----------------           -------------        --------------------\n  Vec<T>      growable array  &[T]  slice          v.iter()      -> &T\n  VecDeque<T> ring buffer     &str  string slice   v.iter_mut()  -> &mut T\n  HashMap<K,V> hash table                          v.into_iter() -> T  (consumes v)\n  BTreeMap<K,V> sorted map\n  HashSet<T>  hash set        RANGES               PIPELINE (lazy!)\n  BTreeSet<T> sorted set      0..10   [0,10)       source ---adapters---> consumer\n  BinaryHeap<T> max-heap      0..=10  [0,10]       iter() .map() .filter()  .collect()\n  LinkedList<T> (rarely)      'a'..='z'            \\____lazy, nothing runs____/  \\runs/\n\n  ITERATOR MARKER TRAITS\n  ----------------------\n  Iterator          : fn next(&mut self) -> Option<Item>   (the core)\n  DoubleEndedIterator: also next_back()  -> .rev(), consume from both ends\n  ExactSizeIterator : .len() is known exactly  (Vec, Range<usize>)\n  FusedIterator     : once None, always None   (safe to call next() forever)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

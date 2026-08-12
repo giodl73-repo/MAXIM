@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\07-TYPE-INFERENCE-CHECKING-AND-REGION-CONSTRAINTS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 85,
+      "heading_context": "## Function-Local Inference, Not Global HM",
+      "headers": [
+        "Inference target",
+        "Scope",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "type variables `?T`",
+          "body-local",
+          "resolved by constraints and expected types"
+        ],
+        [
+          "integer variables `?I`",
+          "body-local",
+          "fallback commonly chooses `i32`"
+        ],
+        [
+          "float variables `?F`",
+          "body-local",
+          "fallback commonly chooses `f64`"
+        ],
+        [
+          "region variables",
+          "body/typeck plus later MIR",
+          "constraints collected; NLL solves on MIR"
+        ],
+        [
+          "const variables",
+          "body/type-level expressions",
+          "unified where const generics require it"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 320,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "\"Does Rust infer function signatures?\"",
+          "No; item signatures are explicit",
+          "language/rustc"
+        ],
+        [
+          "\"Where is inference scoped?\"",
+          "Primarily one body at a time",
+          "rustc internal implementation of language behavior"
+        ],
+        [
+          "\"Are coercions the same as subtyping?\"",
+          "No; coercions are directed at coercion sites",
+          "Reference"
+        ],
+        [
+          "\"Who resolves trait methods?\"",
+          "typeck plus trait solver obligations",
+          "rustc internals; semantics in Reference"
+        ],
+        [
+          "\"Where are NLL lifetimes solved?\"",
+          "MIR borrow checking, fed by typeck facts",
+          "rustc internal; see [10](10-BORROW-CHECKING-NLL-AND-POLONIUS.md)"
+        ],
+        [
+          "\"Can inference behavior change?\"",
+          "Yes, when non-breaking; internals can change freely",
+          "language compatibility + rustc"
+        ],
+        [
+          "\"What consumes TypeckResults?\"",
+          "THIR/MIR construction and diagnostics",
+          "rustc internal"
+        ]
+      ]
+    }
+  ]
+}

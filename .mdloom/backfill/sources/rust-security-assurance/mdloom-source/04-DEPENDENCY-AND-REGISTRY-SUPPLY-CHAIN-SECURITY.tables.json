@@ -1,0 +1,153 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\04-DEPENDENCY-AND-REGISTRY-SUPPLY-CHAIN-SECURITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Source Types Have Different Identities",
+      "headers": [
+        "Dependency source",
+        "Identity recorded by Cargo",
+        "Principal risk"
+      ],
+      "rows": [
+        [
+          "Registry package",
+          "registry, name, version, checksum",
+          "publisher/account compromise; malicious or vulnerable release"
+        ],
+        [
+          "Git dependency",
+          "repository URL and selected commit in lockfile",
+          "mutable branch/tag intent; repository compromise; submodules/build behavior"
+        ],
+        [
+          "Path dependency",
+          "local path and current files",
+          "workspace/change-control integrity; no registry checksum"
+        ],
+        [
+          "Patched/replaced source",
+          "effective source after `[patch]`/source config",
+          "reviewers inspect manifest intent but miss actual selected source"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 99,
+      "heading_context": "## Evaluate More Than Popularity",
+      "headers": [
+        "Review dimension",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Necessity",
+          "Can the feature be implemented with std or an existing dependency?"
+        ],
+        [
+          "Privilege",
+          "Does it parse hostile input, handle secrets, run at build time, or contain unsafe/FFI?"
+        ],
+        [
+          "Maintenance",
+          "Are releases, ownership, security policy, and issue response coherent?"
+        ],
+        [
+          "Source",
+          "Is the selected registry/repository expected and protected by project policy?"
+        ],
+        [
+          "Scope",
+          "Which targets/features activate it? Is default-feature behavior intended?"
+        ],
+        [
+          "Change size",
+          "Can updates be reviewed as bounded deltas rather than graph-wide churn?"
+        ],
+        [
+          "Exit",
+          "Is replacement possible if the crate becomes abandoned or compromised?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 170,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established ecosystem",
+        "Cargo equivalent",
+        "Security difference"
+      ],
+      "rows": [
+        [
+          "NuGet/npm lockfile",
+          "`Cargo.lock`",
+          "Same reproducibility role; feature/target graphs still need inspection"
+        ],
+        [
+          "Private package feed",
+          "alternate Cargo registry/source",
+          "Source policy and credential isolation still required"
+        ],
+        [
+          "Package signature/checksum",
+          "registry checksum plus external provenance/signing",
+          "Integrity signal is not publisher trust"
+        ],
+        [
+          "Dependabot/Renovate update",
+          "automated Cargo lockfile PR",
+          "Review selected source, features, build code, and evidence"
+        ],
+        [
+          "Software composition analysis",
+          "RustSec/cargo-deny plus complete SBOM",
+          "Advisory matching is only one assurance input"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 201,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Application/binary release",
+          "Commit lockfile and build with `--locked`"
+        ],
+        [
+          "High-privilege new crate",
+          "Perform maintainer/source/unsafe/build-time review before adoption"
+        ],
+        [
+          "Git dependency",
+          "Pin through lockfile to a reviewed commit; avoid mutable-reference assumptions"
+        ],
+        [
+          "Offline/restricted build",
+          "Vendor sources, preserve identity, and test `--offline`"
+        ],
+        [
+          "Advisory scanner is green",
+          "Treat as one dated signal, not a security verdict"
+        ],
+        [
+          "Large dependency update",
+          "Split where possible; inspect graph/features/targets and regenerate evidence"
+        ],
+        [
+          "Private registry",
+          "Apply identity, access, immutability, backup, and response controls"
+        ]
+      ]
+    }
+  ]
+}

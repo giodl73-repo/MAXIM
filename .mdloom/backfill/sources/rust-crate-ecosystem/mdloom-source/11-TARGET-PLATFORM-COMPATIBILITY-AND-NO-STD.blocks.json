@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\11-TARGET-PLATFORM-COMPATIBILITY-AND-NO-STD.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                       PLATFORM SUPPORT MATRIX                             |\n+===========================================================================+\n|                                                                           |\n| target triple + Rust target tier + toolchain component                    |\n|       |                                                                   |\n|       v                                                                   |\n| core only -> core + alloc -> std                                          |\n|       |             |          |                                          |\n|       v             v          v                                          |\n| no OS assumptions  allocator  threads/files/network/process              |\n|       |             |          |                                          |\n|       +-------------+----------+--> crate features and target deps         |\n|                                      |                                    |\n|                                      v                                    |\n|                          native/build/link environment                     |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 132,
+      "heading_context": "## Proving a Support Claim",
+      "confidence": "candidate",
+      "text": "check -> link -> execute -> integrate\n  |        |        |          |\nRust API  linker   runtime    product behavior",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

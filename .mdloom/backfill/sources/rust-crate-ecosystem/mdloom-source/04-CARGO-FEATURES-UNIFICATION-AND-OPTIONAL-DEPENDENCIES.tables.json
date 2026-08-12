@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\04-CARGO-FEATURES-UNIFICATION-AND-OPTIONAL-DEPENDENCIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 95,
+      "heading_context": "## Feature Unification",
+      "headers": [
+        "Rule",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Requests are unioned",
+          "One edge can activate capability for all users in that unit"
+        ],
+        [
+          "Default features are ordinary named features",
+          "Any edge that leaves defaults on can re-enable them"
+        ],
+        [
+          "Features are package-ID/unit scoped",
+          "Different versions or sources are distinct; resolver context can create separate host/target units"
+        ],
+        [
+          "Target/host/dev boundaries depend on resolver",
+          "Inspect against the workspace resolver and command"
+        ],
+        [
+          "Public feature names are part of compatibility",
+          "Removing or repurposing one can break downstream users"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 121,
+      "heading_context": "## Default Features",
+      "headers": [
+        "Default-feature strategy",
+        "Prefer when",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Small portable default",
+          "Most users need it and compatibility is broad",
+          "Lowest surprise"
+        ],
+        [
+          "`std` default, `no_std` opt-out",
+          "Desktop/server is primary but embedded is supported",
+          "Must continuously test both"
+        ],
+        [
+          "No defaults",
+          "Every capability has meaningful cost or policy impact",
+          "More setup and fragmented examples"
+        ],
+        [
+          "\"full\" opt-in feature",
+          "Convenience for applications/tests",
+          "Must not become required by library internals"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 187,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar mechanism",
+        "Cargo feature comparison"
+      ],
+      "rows": [
+        [
+          "C/C++ preprocessor symbol",
+          "Similar `cfg` effect, but activated through package graph"
+        ],
+        [
+          "MSBuild property",
+          "More global and target-oriented; Cargo features are additive package capabilities"
+        ],
+        [
+          "NuGet optional package",
+          "Optional dependency activated by a feature"
+        ],
+        [
+          "Runtime app setting",
+          "Not equivalent; Cargo feature is compiled in"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 213,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Prefer",
+        "Avoid"
+      ],
+      "rows": [
+        [
+          "Add independent capability",
+          "Additive named feature",
+          "Feature that disables another"
+        ],
+        [
+          "Hide implementation crate name",
+          "Capability feature using `dep:`",
+          "Accidental implicit dependency feature"
+        ],
+        [
+          "Support `no_std`",
+          "Small `std`/`alloc` layering with tested defaults",
+          "Scattered negative `cfg` logic"
+        ],
+        [
+          "Select one backend",
+          "Application-owned adapter or separate crates",
+          "Two transitively unified exclusive features"
+        ],
+        [
+          "Understand graph activation",
+          "`cargo tree -e features`",
+          "Reading only the direct manifest"
+        ],
+        [
+          "Ship a feature contract",
+          "Document and test named combinations",
+          "Promising every powerset combination"
+        ]
+      ]
+    }
+  ]
+}

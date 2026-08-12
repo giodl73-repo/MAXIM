@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                     RUST INTEROP MIGRATION LANDSCAPE                       |\n+============================================================================+\n|  EXISTING ESTATE                                                           |\n|  C/C++ | .NET | Python | Node | JVM | COM/WinRT | DB/files | services      |\n|      |                                                                     |\n|      v                                                                     |\n|  DISCOVER AND SELECT A SEAM                                      [01]      |\n|  value, change rate, blast radius, latency, data gravity, reversibility    |\n|      |                                                                     |\n|      v                                                                     |\n|  CHOOSE THE MOST DURABLE BOUNDARY                                [02]      |\n|                                                                            |\n|  process + protocol > component/WIT > C ABI > runtime bridge > Rust ABI    |\n|  durable/broad       portable        native  convenient       NOT durable  |\n|      |                      |                    |                       X |\n|                 v                                                          |\n|  LANGUAGE / PLATFORM ADAPTERS                                    [03-09]   |\n|  C | C++ | .NET | Python | Node | JVM | COM/WinRT                          |\n|                 |                                                          |\n|                 v                                                          |\n|  SHARED STATE AND EXECUTION                                      [10-13]   |\n|  schemas/files/DB | IPC/network | ownership/errors | async/threading       |\n|                 |                                                          |\n|                 v                                                          |\n|  SHIP, OPERATE, AND EXIT                                         [14-15]   |\n|  target matrix | packaging | versioning | strangler | rollback | removal   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## Reading Paths",
+      "confidence": "candidate",
+      "text": "  PATH A - \"Where should Rust enter this estate?\"\n  01 -> 02 -> 10 -> 11 -> 15\n  economics, boundary choice, state, service seam, rollout\n\n  PATH B - \"I need an in-process native library\"\n  02 -> 03 -> 12 -> 13 -> 14\n  C ABI, ownership/errors, callbacks/threads, packaging\n\n  PATH C - \"I have a managed or scripting host\"\n  02 -> one of 05/06/07/08 -> 12 -> 13 -> 14\n  universal contract first, host adapter second\n\n  PATH D - \"Windows is the product boundary\"\n  02 -> 09 -> 12 -> 13 -> 14 -> 15\n  C/system ABI before COM/WinRT projection and rollout\n\n  PATH E - \"I need the lowest rollback risk\"\n  01 -> 11 -> 10 -> 14 -> 15\n  process isolation, schema compatibility, deployment, strangler exit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

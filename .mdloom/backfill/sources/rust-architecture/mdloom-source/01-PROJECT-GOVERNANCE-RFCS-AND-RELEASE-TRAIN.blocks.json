@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\01-PROJECT-GOVERNANCE-RFCS-AND-RELEASE-TRAIN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                 RUST GOVERNANCE AND RELEASE PIPELINE                      |\n|                                                                           |\n|  RUST PROJECT GOVERNANCE                                                  |\n|  Leadership Council · project teams · lang/libs/compiler/cargo/infra      |\n|  Foundation: trademark/legal/funding, NOT language design                 |\n+---------------------------------------------------------------------------+\n             | charters teams; teams own decisions in their domains\n             v\n+---------------------------------------------------------------------------+\n|  DESIGN PROCESS                                                           |\n|  Rust Reference · RFCs · editions · tracking issues · stabilization FCP   |\n|  Authority: lang/types/libs-api/cargo/etc. depending on subject           |\n+---------------------------------------------------------------------------+\n             | accepted design becomes an unstable implementation task\n             v\n+---------------------------------------------------------------------------+\n|  IMPLEMENTATION                                                           |\n|  rustc feature gates · std stability attributes · Cargo behavior          |\n|  Authority: compiler/libs/Cargo teams. Internals are NOT stable.          |\n+---------------------------------------------------------------------------+\n             | rides the release channels when stabilized\n             v\n+---------------------------------------------------------------------------+\n|  RELEASE TRAIN                                                            |\n|  nightly -> beta -> stable, six-week cadence, point releases as needed    |\n|  Authority: release + infra teams, with owning teams approving content    |\n+---------------------------------------------------------------------------+\n             | users opt in by toolchain channel and crate edition\n             v\n+---------------------------------------------------------------------------+\n|  USER SURFACE                                                             |\n|  stable Rust 1.x · Cargo.toml edition · crates.io semver · lints          |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 85,
+      "heading_context": "## The Authority Stack",
+      "confidence": "candidate",
+      "text": "+-------------------+      +-------------------+      +-------------------+\n| Governance        | ---> | Domain teams      | ---> | Implementations   |\n| council/process   |      | lang/libs/cargo   |      | rustc/cargo/std   |\n+-------------------+      +-------------------+      +-------------------+\n        |                          |                          |\n        v                          v                          v\n project legitimacy         technical authority          versioned artifacts",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 103,
+      "heading_context": "## RFCs, Feature Gates, and Stabilization",
+      "confidence": "candidate",
+      "text": "+-------------+    +-------------+    +-------------+    +-------------+\n| RFC PR      | -> | Discussion  | -> | FCP + team  | -> | Merged RFC  |\n| proposal    |    | tradeoffs   |    | sign-off    |    | design text |\n+-------------+    +-------------+    +-------------+    +-------------+\n                                                               |\n                                                               v\n+-------------+    +-------------+    +-------------+    +-------------+\n| Tracking    | -> | Nightly     | -> | Stabilize   | -> | Stable Rust |\n| issue       |    | feature gate|    | report/FCP  |    | release     |\n+-------------+    +-------------+    +-------------+    +-------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 142,
+      "heading_context": "## Release Train and Channels",
+      "confidence": "candidate",
+      "text": "nightly:  N N N N N N N N N N N N N N\n                 |\n                 | branch\n                 v\nbeta:            B B B B B B\n                             |\n                             | promote\n                             v\nstable:                      S --------> S+1 --------> S+2",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 170,
+      "heading_context": "## Editions: Opt-In Source Evolution",
+      "confidence": "candidate",
+      "text": "+----------------+      +----------------+      +----------------+\n| crate A        | ---> | crate B        | ---> | crate C        |\n| edition 2018   |      | edition 2021   |      | edition 2024   |\n+----------------+      +----------------+      +----------------+\n          \\                 same rustc, same linker, same Cargo graph\n           +---------------------------------------------------------->",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

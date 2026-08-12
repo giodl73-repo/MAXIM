@@ -1,0 +1,116 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\07-TYPE-INFERENCE-CHECKING-AND-REGION-CONSTRAINTS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         TYPECK FOR ONE HIR OWNER                          |\n|                                                                           |\n|  HIR owner/body [06]                                                      |\n|      |                                                                    |\n|      v                                                                    |\n|  typeck(def_id) query [03]                                                |\n|      |                                                                    |\n|      +--> InferCtxt: ?T, ?I, ?F, region vars, const vars                  |\n|      |                                                                    |\n|      +--> expected-type propagation + unification                         |\n|      |                                                                    |\n|      +--> coercion sites: deref, unsize, fn item -> fn ptr, closure cases |\n|      |                                                                    |\n|      +--> method lookup: autoderef/autoref + inherent/trait candidates    |\n|      |                                                                    |\n|      +--> obligations sent to trait solver [08]                           |\n|      |                                                                    |\n|      +--> region constraints recorded for later MIR borrowck/NLL [10]     |\n|      v                                                                    |\n|  writeback: TypeckResults -> THIR -> MIR build [09]                       |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 71,
+      "heading_context": "## Function-Local Inference, Not Global HM",
+      "confidence": "candidate",
+      "text": "+------------------+        explicit         +-----------------------+\n| item boundary    | ----------------------> | fn f(x: T) -> U       |\n| crate metadata   |                         | trait method sigs     |\n+------------------+                         +-----------------------+\n          |\n          | inside one body only\n          v\n+------------------+        inferred         +-----------------------+\n| let v=Vec::new() |  ---------------------> | v: Vec<u8> after push |\n| closure params   |                         | numeric fallback      |\n+------------------+                         +-----------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## InferCtxt, Unification, and Fallback",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| INFERENCE VARIABLE LIFE CYCLE                                         |\n|                                                                       |\n| create ?T from missing annotation                                     |\n|       |                                                               |\n|       v                                                               |\n| add facts: expected type, operator, receiver, return                  |\n|       |                                                               |\n|       v                                                               |\n| unify facts; register trait/region obligations                        |\n|       |                                                               |\n|       v                                                               |\n| resolve or fallback                                                   |\n|       |                                                               |\n|       +--> success: write concrete type into TypeckResults            |\n|       +--> failure: E0282/E0283-style diagnostic [15]                 |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 155,
+      "heading_context": "## Coercions Are Directed, Not Subtyping in Disguise",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                            COERCION SITES                                 |\n|                                                                           |\n|  let x: Target = expr;                                                    |\n|  function_argument(expr)                                                  |\n|  return expr;                                                             |\n|  array / tuple / block expected type propagation                          |\n|                                                                           |\n|  Examples:                                                                |\n|  &Vec<T> -------- deref coercion --------> &[T]                           |\n|  &[T; N] ------ unsizing -------------> &[T]                              |\n|  &Concrete ---- unsizing -------------> &dyn Trait                        |\n|  fn item ------ coercion -------------> fn pointer                        |\n|  noncapturing closure ---------------> fn pointer                         |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 173,
+      "heading_context": "## Coercions Are Directed, Not Subtyping in Disguise",
+      "confidence": "candidate",
+      "text": "fn takes_slice(xs: &[u8]) -> usize { xs.len() }\n\nfn coercions() {\n    let v = vec![1u8, 2, 3];\n    let n = takes_slice(&v);        // &Vec<u8> -> &[u8] by deref coercion\n\n    let f: fn(i32) -> i32 = |x| x + 1; // noncapturing closure -> fn pointer\n    let _ = (n, f(10));\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Method Resolution, Autoderef, and Obligations",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| METHOD CALL: receiver.method(arg)                                     |\n|                                                                       |\n| receiver type: Rc<Box<String>>                                        |\n|       |                                                               |\n|       v                                                               |\n| autoderef chain: Rc<Box<String>> -> Box<String> -> String -> str      |\n|       |                                                               |\n|       v                                                               |\n| candidate receiver forms: T, &T, &mut T at each step                  |\n|       |                                                               |\n|       v                                                               |\n| inherent methods first, then trait methods in scope / prelude         |\n|       |                                                               |\n|       v                                                               |\n| selected method + obligations -> trait solver [08]                    |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 219,
+      "heading_context": "## Method Resolution, Autoderef, and Obligations",
+      "confidence": "candidate",
+      "text": "use std::rc::Rc;\n\nfn method_lookup(s: Rc<Box<String>>) -> bool {\n    s.starts_with(\"rust\")\n    // Rc<Box<String>> autoderef -> Box<String> -> String -> str,\n    // then uses str::starts_with through an autoref receiver.\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 229,
+      "heading_context": "## Method Resolution, Autoderef, and Obligations",
+      "confidence": "candidate",
+      "text": "This is where Rust feels unlike both C# and C++. It resembles extension-method",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 245,
+      "heading_context": "## Regions, Variance, and the NLL Boundary",
+      "confidence": "candidate",
+      "text": "+----------------------+      produces       +-------------------------+\n| HIR type checking    | ------------------> | TypeckResults           |\n| - reference types    |                     | - resolved types        |\n| - variance facts     |                     | - adjustments           |\n| - outlives predicates|                     | - region constraints    |\n+----------------------+                     +-------------------------+\n             |                                             |\n             v                                             v\n       THIR / MIR build [09]                    MIR borrowck + NLL [10]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 273,
+      "heading_context": "## Writeback and Downstream Consumers",
+      "confidence": "candidate",
+      "text": "+------------------+      resolve       +-----------------------+\n| InferCtxt        | -----------------> | TypeckResults         |\n| ?T, obligations  |                    | expr_ty(HirId)        |\n| adjustments      |                    | adjustments(HirId)    |\n+------------------+                    +-----------------------+\n                                                |\n                                                v\n                                      +--------------------+\n                                      | THIR -> MIR [09]   |\n                                      +--------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

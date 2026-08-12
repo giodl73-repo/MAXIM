@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\13-PROC-MACROS-CODE-GENERATION-AND-TOOL-DEPENDENCIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                       BUILD-TIME EXECUTION                                |\n+===========================================================================+\n|                                                                           |\n| proc-macro crate -> host dylib -> rustc token expansion -> target source  |\n| build.rs         -> host exe   -> files/cfg/link args    -> target build  |\n| generator CLI    -> host exe   -> committed/OUT_DIR files                |\n| xtask/tool       -> host exe   -> repository workflow/release artifacts   |\n|                                                                           |\n| Inputs + tool version + environment -> generated result -> product graph  |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 61,
+      "heading_context": "## Procedural Macros",
+      "confidence": "candidate",
+      "text": "use proc_macro::TokenStream;\nuse quote::quote;\nuse syn::{parse_macro_input, DeriveInput};\n\n#[proc_macro_derive(Route)]\npub fn derive_route(input: TokenStream) -> TokenStream {\n    let input = parse_macro_input!(input as DeriveInput);\n    let name = input.ident;\n\n    quote! {\n        impl #name {\n            pub fn route_name() -> &'static str {\n                stringify!(#name)\n            }\n        }\n    }\n    .into()\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 189,
+      "heading_context": "## Build Environment Controls",
+      "confidence": "candidate",
+      "text": "CI build identity\n  |\n  +-> minimal credentials\n  +-> read-only source checkout where possible\n  +-> controlled network\n  +-> pinned toolchain and tool dependencies\n  +-> clean generated-output comparison",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

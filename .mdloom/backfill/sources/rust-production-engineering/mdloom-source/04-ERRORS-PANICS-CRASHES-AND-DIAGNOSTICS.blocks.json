@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\04-ERRORS-PANICS-CRASHES-AND-DIAGNOSTICS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         FAILURE TAXONOMY                                   |\n|                                                                            |\n|  expected failure --> Result<T, E> --> classify --> retry/reject/degrade   |\n|  broken invariant --> panic ---------> hook -----> unwind or abort         |\n|  process failure  --> alloc/signal/SEH --> supervisor + crash artifacts    |\n|  host failure     --> machine/node ----> replica/failover/recovery         |\n|                                                                            |\n|  caller evidence: stable error kind, safe message, protocol status         |\n|  operator evidence: chain, backtrace, release, context, crash dump         |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## Executable Error and Panic Boundary",
+      "confidence": "candidate",
+      "text": "use std::{backtrace::Backtrace, error::Error, fmt, process::ExitCode};\n\n#[derive(Debug)]\nenum AppError {\n    InvalidConfig(String),\n    Dependency(std::io::Error),\n}\n\nimpl fmt::Display for AppError {\n    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {\n        match self {\n            Self::InvalidConfig(msg) => write!(f, \"invalid configuration: {msg}\"),\n            Self::Dependency(_) => write!(f, \"dependency I/O failed\"),\n        }\n    }\n}\n\nimpl Error for AppError {\n    fn source(&self) -> Option<&(dyn Error + 'static)> {\n        match self {\n            Self::Dependency(source) => Some(source),\n            _ => None,\n        }\n    }\n}\n\nfn run() -> Result<(), AppError> {\n    let path = std::env::var(\"APP_INPUT\")\n        .map_err(|_| AppError::InvalidConfig(\"APP_INPUT is required\".into()))?;\n    std::fs::read(path).map_err(AppError::Dependency)?;\n    Ok(())\n}\n\nfn main() -> ExitCode {\n    std::panic::set_hook(Box::new(|info| {\n        eprintln!(\"panic: {info}\\nbacktrace:\\n{}\", Backtrace::force_capture());\n    }));\n\n    match run() {\n        Ok(()) => ExitCode::SUCCESS,\n        Err(error) => {\n            eprintln!(\"error: {error}\");\n            let mut source = error.source();\n            while let Some(item) = source {\n                eprintln!(\"caused by: {item}\");\n                source = item.source();\n            }\n            ExitCode::FAILURE\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 136,
+      "heading_context": "## Panic Policy",
+      "confidence": "candidate",
+      "text": "panic\n  |\n  +--> hook emits bounded evidence\n  |\n  +--> unwind: destructors run until caught or process boundary\n  |\n  +--> abort: immediate process termination",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\12-OWNERSHIP-ALLOCATION-ERRORS-AND-UNWINDING-ACROSS-BOUNDARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## Four Ownership Patterns",
+      "headers": [
+        "Pattern",
+        "Contract",
+        "Best use"
+      ],
+      "rows": [
+        [
+          "Call-scoped borrow",
+          "Pointer valid and immutable/mutable only during call",
+          "Inputs and small synchronous outputs"
+        ],
+        [
+          "Caller-allocated output",
+          "Caller supplies buffer/capacity; callee reports required/written",
+          "Strings/bytes with one allocator"
+        ],
+        [
+          "Opaque owned handle",
+          "Creator returns pointer/token; matching owner-side release",
+          "Stateful native objects"
+        ],
+        [
+          "Shared resource with retain/release",
+          "Explicit reference counting and thread rules",
+          "COM/resources that genuinely need sharing"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 121,
+      "heading_context": "## Error Taxonomy",
+      "headers": [
+        "Failure",
+        "Boundary representation"
+      ],
+      "rows": [
+        [
+          "Invalid arguments",
+          "Stable status; no partial mutation"
+        ],
+        [
+          "Domain failure",
+          "Stable code plus structured/copyable detail"
+        ],
+        [
+          "Resource exhaustion",
+          "Distinct code; retry/backpressure policy"
+        ],
+        [
+          "Cancellation/timeout",
+          "Distinct terminal state, not generic failure"
+        ],
+        [
+          "Rust panic",
+          "Contained terminal status/log, or process abort by policy"
+        ],
+        [
+          "Foreign exception",
+          "Caught in foreign adapter and translated"
+        ],
+        [
+          "Process crash",
+          "Supervisor/transport failure with correlation evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 161,
+      "heading_context": "## Strings and Encodings",
+      "headers": [
+        "Form",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "UTF-8 pointer plus length",
+          "Embedded NUL allowed; validate UTF-8 if text is required"
+        ],
+        [
+          "C NUL string",
+          "No embedded NUL; encoding separately specified"
+        ],
+        [
+          "UTF-16 pointer plus length",
+          "Code units; define treatment of unpaired surrogates"
+        ],
+        [
+          "`BSTR`/`HSTRING`",
+          "Platform owner/release semantics"
+        ],
+        [
+          "Host string object",
+          "Convert in host adapter; do not expose runtime object to Rust core"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 174,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Required invariant"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Every exported type/call has specified representation/calling convention; Rust ABI and trait objects stay private."
+        ],
+        [
+          "Allocator",
+          "Each allocation names its freeing side and exact release API; no cross-CRT/heap guess."
+        ],
+        [
+          "Panic/unwind",
+          "Ordinary errors are values; panics/exceptions are caught and translated or process policy aborts."
+        ],
+        [
+          "Lifetime",
+          "Borrow validity, retention, aliasing, handle state, and callback teardown are stated."
+        ],
+        [
+          "Threading",
+          "Use/free/callback races are prohibited or synchronized; final release thread is defined where relevant."
+        ],
+        [
+          "Target",
+          "Pointer width, alignment, enum/integer sizes, CRT/libc, exception model, and atomic guarantees are tested."
+        ],
+        [
+          "Packaging",
+          "The release function and error/version APIs ship in every artifact version; symbols cannot be stripped accidentally."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 186,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior model",
+        "Rust boundary equivalent"
+      ],
+      "rows": [
+        [
+          "RAII / `IDisposable` / `AutoCloseable`",
+          "Host owner around opaque handle and matching release"
+        ],
+        [
+          "HRESULT plus `IErrorInfo`",
+          "Stable code plus copied/owned detail"
+        ],
+        [
+          "COM AddRef/Release",
+          "Explicit shared ownership protocol"
+        ],
+        [
+          "SAL pointer annotations",
+          "Written nullability, extent, retention, and thread contract"
+        ],
+        [
+          "Arena ownership",
+          "One owner releases a family of borrowed values together"
+        ],
+        [
+          "SEH/exception firewall",
+          "Catch at adapter; return status across universal boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 212,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Pattern"
+      ],
+      "rows": [
+        [
+          "Synchronous input",
+          "Call-scoped pointer-plus-length borrow"
+        ],
+        [
+          "Variable output",
+          "Caller buffer/two-call sizing"
+        ],
+        [
+          "Stateful object",
+          "Opaque handle plus exactly one owner-side free"
+        ],
+        [
+          "Shared foreign object",
+          "Explicit retain/release only when unavoidable"
+        ],
+        [
+          "Error detail",
+          "Stable code plus caller buffer or owned error handle"
+        ],
+        [
+          "Panic policy",
+          "Catch/map in unwind builds or deliberately abort; never cross ordinary boundary"
+        ],
+        [
+          "Cross-language exceptions",
+          "Catch in originating language adapter and translate"
+        ]
+      ]
+    }
+  ]
+}

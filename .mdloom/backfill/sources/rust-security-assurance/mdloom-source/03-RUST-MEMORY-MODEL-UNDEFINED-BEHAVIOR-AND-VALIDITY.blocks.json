@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\03-RUST-MEMORY-MODEL-UNDEFINED-BEHAVIOR-AND-VALIDITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                       TYPED MEMORY ACCESS CONTRACT                         |\n+============================================================================+\n| allocation identity + provenance                                           |\n|        |                                                                   |\n|        v                                                                   |\n| pointer/reference: live? in bounds? aligned? permitted to access?          |\n|        |                                                                   |\n|        v                                                                   |\n| bytes initialized for this operation?                                      |\n|        |                                                                   |\n|        v                                                                   |\n| bit pattern valid for T?  aliasing/exclusivity respected?                  |\n|        |                                                                   |\n|        v                                                                   |\n| operation and concurrency ordering satisfy their contracts?                |\n+----------------------------------------------------------------------------+\n| Violate a required condition in an executed path -> undefined behavior     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## References Are Stronger Than Raw Pointers",
+      "confidence": "candidate",
+      "text": "integer address          raw pointer                 reference\nweak identity info  ->   provenance + address   ->   validity + alias contract\n                         (model-sensitive)            (strong language promise)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

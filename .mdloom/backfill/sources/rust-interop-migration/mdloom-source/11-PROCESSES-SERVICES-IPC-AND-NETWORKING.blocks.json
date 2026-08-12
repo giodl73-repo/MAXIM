@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\11-PROCESSES-SERVICES-IPC-AND-NETWORKING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                     PROCESS-BOUNDARY MIGRATION                             |\n+============================================================================+\n|  CALLER / OLD SYSTEM                                                       |\n|      | request: version, deadline, idempotency key, trace context          |\n|      v                                                                     |\n|  ROUTER / ADAPTER                                                          |\n|  old implementation: authoritative/fallback                               |\n|  Rust implementation: shadow/canary/primary                               |\n|                    | response/status/telemetry                             |\n|                    v                                                       |\n|  CONTRACT                                                                  |\n|  schema | framing | ordering | auth | backpressure | timeout | retry       |\n|                    |                                                       |\n|                    v                                                       |\n|  DEPLOYMENT                                                                |\n|  subprocess | sidecar | local daemon | remote service | queue consumer     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 66,
+      "heading_context": "## Protocol Contract",
+      "confidence": "candidate",
+      "text": "  frame =\n    magic/version\n    message type\n    correlation id\n    payload length\n    payload bytes\n    integrity/auth metadata as required\n\n  receiver:\n    bound length -> allocate/read -> decode -> validate semantics -> dispatch",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

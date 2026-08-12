@@ -1,0 +1,155 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\18-CONST-STATICS-CFG-FEATURES-AND-EDITIONS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 57,
+      "heading_context": "## `const` vs `static`",
+      "headers": [
+        "Property",
+        "`const`",
+        "`static`"
+      ],
+      "rows": [
+        [
+          "Semantics",
+          "a value evaluated at each use; storage is a codegen choice",
+          "one named memory location"
+        ],
+        [
+          "Lifetime",
+          "no storage identity of its own",
+          "`'static`, lives whole program"
+        ],
+        [
+          "Mutability",
+          "always immutable",
+          "immutable, or `static mut` (unsafe)"
+        ],
+        [
+          "Address",
+          "taking a reference may create/promote storage, but no unique named address is promised",
+          "has one address (`&STATIC` is `'static`)"
+        ],
+        [
+          "Type",
+          "must be annotated",
+          "must be annotated"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 214,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "`#define` / `#ifdef` (C)",
+          "`const` / `#[cfg(...)]`",
+          "Typed, hygienic, not textual"
+        ],
+        [
+          "`constexpr` (C++)",
+          "`const fn` / const eval",
+          "Growing subset; some parts nightly"
+        ],
+        [
+          "`static const` (C++)",
+          "`const` (value item) / `static` (addressed storage)",
+          "Two distinct concepts"
+        ],
+        [
+          "`#if DEBUG` / build configs (.NET)",
+          "`#[cfg(debug_assertions)]` / features",
+          "Per-crate, additive features"
+        ],
+        [
+          "conditional package refs / `#if` symbols",
+          "Cargo features",
+          "Additive, unified across graph"
+        ],
+        [
+          "target frameworks / RIDs (.NET)",
+          "target triples",
+          "`rustup target add` + `--target`"
+        ],
+        [
+          "language version (`<LangVersion>`)",
+          "edition",
+          "Interoperable across the graph"
+        ],
+        [
+          "framework/runtime min version",
+          "MSRV (`rust-version`)",
+          "Compiler floor, checked by Cargo"
+        ],
+        [
+          "`Lazy<T>` (.NET)",
+          "`LazyLock` / `OnceLock`",
+          "Std since 1.80/1.70; else `once_cell`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 245,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A named compile-time constant",
+          "`const NAME: T = ...`"
+        ],
+        [
+          "A single global instance / address",
+          "`static` (atomics for mutation)"
+        ],
+        [
+          "Compute a value at compile time",
+          "`const fn` / `const { }` (1.79+)"
+        ],
+        [
+          "Lazily initialize a global",
+          "`LazyLock` (1.80+) / `OnceLock` / `once_cell`"
+        ],
+        [
+          "Compile code only for tests",
+          "`#[cfg(test)]`"
+        ],
+        [
+          "Per-OS / per-arch code",
+          "`#[cfg(target_os = ...)]`"
+        ],
+        [
+          "Optional functionality / deps",
+          "Cargo `[features]` (additive)"
+        ],
+        [
+          "Cross-compile",
+          "`rustup target add` + `--target`"
+        ],
+        [
+          "Bare-metal / embedded",
+          "`#![no_std]` (+ `alloc`)"
+        ],
+        [
+          "Adopt new language surface",
+          "bump `edition`, run `cargo fix --edition`"
+        ],
+        [
+          "Promise a compiler floor",
+          "`rust-version` (MSRV)"
+        ]
+      ]
+    }
+  ]
+}

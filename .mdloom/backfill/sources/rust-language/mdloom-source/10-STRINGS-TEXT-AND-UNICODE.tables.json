@@ -1,0 +1,165 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\10-STRINGS-TEXT-AND-UNICODE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 104,
+      "heading_context": "## The Three Levels of \"Character\"",
+      "headers": [
+        "Level",
+        "API",
+        "`\"é\"` (composed)",
+        "`\"👨‍👩‍👧\"` family emoji"
+      ],
+      "rows": [
+        [
+          "**byte** (`u8`)",
+          "`.as_bytes()`, `.bytes()`",
+          "2 bytes",
+          "18+ bytes"
+        ],
+        [
+          "**char** (Unicode scalar)",
+          "`.chars()`, `.char_indices()`",
+          "1 char (NFC) or 2 (NFD)",
+          "many chars (ZWJ-joined)"
+        ],
+        [
+          "**grapheme** (user-perceived)",
+          "`unicode-segmentation` crate",
+          "1 grapheme",
+          "1 grapheme"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 149,
+      "heading_context": "## The OS / Path Boundary",
+      "headers": [
+        "UTF-8 world",
+        "OS world",
+        "Filesystem"
+      ],
+      "rows": [
+        [
+          "`String` (owned)",
+          "`OsString`",
+          "`PathBuf`"
+        ],
+        [
+          "`&str` (borrowed)",
+          "`&OsStr`",
+          "`&Path`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 169,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C# `string` (UTF-16, indexable)",
+          "`String`/`&str` (UTF-8, not indexable)",
+          "No `s[i]`; byte vs char explicit"
+        ],
+        [
+          "C# `char` (UTF-16 code unit)",
+          "`char` (Unicode scalar, 4 bytes)",
+          "Rust `char` holds any scalar; C# `char` is half a surrogate pair"
+        ],
+        [
+          "`StringBuilder`",
+          "`String` + `push_str`/`write!`",
+          "`String` is already growable"
+        ],
+        [
+          "C `char*` (bytes, NUL-terminated)",
+          "`&[u8]` / `CStr` ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))",
+          "No implicit NUL terminator"
+        ],
+        [
+          "`string.Length` (UTF-16 units)",
+          "`.len()` (bytes) / `.chars().count()`",
+          "Neither equals \"grapheme count\""
+        ],
+        [
+          "`Path.Combine` (.NET)",
+          "`Path::join`",
+          "Same intent, OS-correct"
+        ],
+        [
+          "`string.Format` / interpolation",
+          "`format!` / `{name}`",
+          "Trait-driven (`Display`/`Debug`)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A function param for read-only text",
+          "`&str`"
+        ],
+        [
+          "Return newly built text",
+          "`String`"
+        ],
+        [
+          "Maybe-borrow, maybe-own",
+          "`Cow<str>`"
+        ],
+        [
+          "Count bytes / storage size",
+          "`.len()`"
+        ],
+        [
+          "Count Unicode scalars",
+          "`.chars().count()`"
+        ],
+        [
+          "Segment user-perceived character clusters",
+          "`unicode-segmentation` graphemes"
+        ],
+        [
+          "Estimate terminal display columns",
+          "`unicode-width` plus an explicit terminal policy"
+        ],
+        [
+          "Iterate characters",
+          "`.chars()` (with `.char_indices()` for offsets)"
+        ],
+        [
+          "Work with raw bytes",
+          "`.as_bytes()` / `&[u8]`"
+        ],
+        [
+          "Build a filesystem path",
+          "`Path::join` / `PathBuf`"
+        ],
+        [
+          "Interpolate/format",
+          "`format!` / `println!` with `Display`/`Debug`"
+        ],
+        [
+          "Cross an FFI boundary",
+          "`CStr`/`CString` ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ]
+      ]
+    }
+  ]
+}

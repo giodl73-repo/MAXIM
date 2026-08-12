@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\09-PLUGIN-AND-EXTENSION-HOST.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Choose the Boundary Deliberately",
+      "headers": [
+        "Boundary",
+        "Strength",
+        "Main liability"
+      ],
+      "rows": [
+        [
+          "Rust trait/callback in one build",
+          "simplest and strongly typed",
+          "same process/build graph; no security isolation"
+        ],
+        [
+          "Native C-compatible ABI",
+          "low overhead and broad tool support",
+          "unsafe ownership/layout/version discipline; no process isolation"
+        ],
+        [
+          "Subprocess protocol",
+          "crash/process isolation and language neutrality",
+          "serialization, startup, supervision"
+        ],
+        [
+          "Wasm/component",
+          "portable capability-oriented sandbox model",
+          "runtime/component ecosystem evolves; verify exact versions"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Capability and Lifecycle Contract",
+      "headers": [
+        "Capability",
+        "Host policy question"
+      ],
+      "rows": [
+        [
+          "Filesystem",
+          "which roots and operations?"
+        ],
+        [
+          "Network",
+          "which destinations/protocols?"
+        ],
+        [
+          "UI",
+          "which surfaces and thread/dispatcher rules?"
+        ],
+        [
+          "Data",
+          "read, propose mutation, or direct mutation?"
+        ],
+        [
+          "Secrets",
+          "opaque operation or raw secret access?"
+        ],
+        [
+          "Compute",
+          "time, memory, concurrency, cancellation budgets?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 133,
+      "heading_context": "## Compatibility, Testing, and Rollback",
+      "headers": [
+        "Host",
+        "Plugin contract",
+        "Expected"
+      ],
+      "rows": [
+        [
+          "current",
+          "current",
+          "full"
+        ],
+        [
+          "current",
+          "previous supported",
+          "compatible/degraded"
+        ],
+        [
+          "previous supported",
+          "current compatible subset",
+          "explicit result"
+        ],
+        [
+          "current",
+          "unknown future",
+          "reject safely"
+        ],
+        [
+          "current",
+          "malformed/hostile",
+          "contain and preserve diagnostics"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 177,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Boundary"
+      ],
+      "rows": [
+        [
+          "First-party extension in same release",
+          "ordinary crate/trait callback"
+        ],
+        [
+          "Third-party native low-latency plugin",
+          "carefully versioned C ABI"
+        ],
+        [
+          "Strong crash/language isolation",
+          "subprocess protocol"
+        ],
+        [
+          "Portable capability sandbox",
+          "Wasm/component [10]"
+        ],
+        [
+          "Untrusted arbitrary code with broad OS access",
+          "do not claim safety from a plugin API alone"
+        ],
+        [
+          "User recovery from bad extension",
+          "independent disable/quarantine path"
+        ],
+        [
+          "Stable long-lived ecosystem",
+          "explicit negotiation, test kit, compatibility matrix"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\02-STRUCTURED-LOGGING-AND-TRACING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                        REQUEST EVIDENCE FLOW                               |\n|                                                                            |\n| inbound context                                                            |\n| trace_id, parent_id, request_id                                            |\n|          |                                                                 |\n|          v                                                                 |\n|  SERVER SPAN ---------------------------------------------------+          |\n|    fields: route, method, release, tenant_class                 |          |\n|      |                                                         |           |\n|      +--> event: request.validated                              |          |\n|      +--> DB SPAN: operation, system, outcome                   |          |\n|      +--> RPC SPAN: peer, operation, retry_attempt              |          |\n|                                                                |           |\n| outbound context <----------------------------------------------+          |\n|          |                                                                 |\n|          v                                                                 |\n| logs + spans --> processor/exporter --> storage/query --> alert/debug      |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 82,
+      "heading_context": "# Cargo.toml",
+      "confidence": "candidate",
+      "text": "use tracing::{info, info_span, instrument};\nuse tracing_subscriber::EnvFilter;\n\n#[instrument(skip(card_token), fields(payment.system = \"example\"))]\nfn authorize(order_id: u64, card_token: &str) -> Result<(), &'static str> {\n    let _ = card_token; // deliberately never recorded\n    info!(outcome = \"approved\", \"authorization completed\");\n    Ok(())\n}\n\nfn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {\n    tracing_subscriber::fmt()\n        .json()\n        .with_env_filter(\n            EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new(\"info\")),\n        )\n        .try_init()?;\n\n    let request = info_span!(\n        \"http.server.request\",\n        http.method = \"POST\",\n        http.route = \"/orders/{id}\",\n        request.id = \"req-42\",\n        release = env!(\"CARGO_PKG_VERSION\")\n    );\n\n    let _guard = request.enter();\n    authorize(42, \"not-for-telemetry\")?;\n    info!(outcome = \"success\", \"request completed\");\n    Ok(())\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

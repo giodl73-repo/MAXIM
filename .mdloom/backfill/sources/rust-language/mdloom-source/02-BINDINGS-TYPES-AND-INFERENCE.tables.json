@@ -1,0 +1,179 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\02-BINDINGS-TYPES-AND-INFERENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 86,
+      "heading_context": "## Scalars: Fixed-Width, No Surprises",
+      "headers": [
+        "Category",
+        "Types",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Signed int",
+          "`i8 i16 i32 i64 i128 isize`",
+          "`isize` = pointer width (index type)"
+        ],
+        [
+          "Unsigned int",
+          "`u8 u16 u32 u64 u128 usize`",
+          "`usize` indexes collections"
+        ],
+        [
+          "Float",
+          "`f32 f64`",
+          "IEEE-754; `f64` is the default float"
+        ],
+        [
+          "Boolean",
+          "`bool`",
+          "1 byte; `true`/`false`, never coerces to/from int"
+        ],
+        [
+          "Character",
+          "`char`",
+          "4 bytes; a Unicode scalar value, **not** a byte"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 181,
+      "heading_context": "## Coercions and Casts: Three Distinct Mechanisms",
+      "headers": [
+        "Mechanism",
+        "Syntax",
+        "Semantics",
+        "Can lose data?"
+      ],
+      "rows": [
+        [
+          "**`as` cast**",
+          "`x as u8`",
+          "Primitive numeric/pointer cast",
+          "**Yes** — truncates, wraps, saturates float->int"
+        ],
+        [
+          "**`From`/`Into`**",
+          "`u64::from(x)`, `x.into()`",
+          "Value conversion, *infallible + lossless by convention*",
+          "No (that is the contract)"
+        ],
+        [
+          "**`TryFrom`/`TryInto`**",
+          "`u8::try_from(x)?`",
+          "Fallible conversion",
+          "Returns `Err` instead of losing data"
+        ],
+        [
+          "**Deref/unsize coercion**",
+          "implicit",
+          "`&String -> &str`, `&[T; N] -> &[T]`, `&Box<T> -> &T`",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 202,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C++ / .NET",
+        "Rust",
+        "Difference that bites"
+      ],
+      "rows": [
+        [
+          "`int x = 5;` (mutable default)",
+          "`let x = 5;` (immutable default)",
+          "Add `mut` to mutate"
+        ],
+        [
+          "`const` / `readonly` / `final`",
+          "the *absence* of `mut`",
+          "Immutability is the baseline"
+        ],
+        [
+          "implicit int widening (`int`->`long`)",
+          "no implicit numeric conversion",
+          "Use `From`/`as` explicitly"
+        ],
+        [
+          "C `char` = 1 byte",
+          "Rust `char` = 4-byte Unicode scalar",
+          "Byte is `u8`, not `char`"
+        ],
+        [
+          "`void`",
+          "`()` unit — a real value",
+          "You can bind and pass `()`"
+        ],
+        [
+          "C++ `[[noreturn]]`",
+          "the `!` never type",
+          "Coerces to any type"
+        ],
+        [
+          "`static_cast<T>`",
+          "`as` (for primitives) / `From`",
+          "`as` is unchecked; prefer `TryFrom`"
+        ],
+        [
+          "`var`/`auto` local inference",
+          "`let` local inference",
+          "But never across fn signatures"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 232,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A variable I will reassign",
+          "`let mut x = ...`"
+        ],
+        [
+          "Refine a value through a pipeline (maybe changing type)",
+          "shadowing: `let x = ...; let x = ...`"
+        ],
+        [
+          "A fixed-size inline buffer",
+          "`[T; N]`"
+        ],
+        [
+          "A growable sequence",
+          "`Vec<T>` ([09](09-COLLECTIONS-ITERATORS-AND-RANGES.md))"
+        ],
+        [
+          "A borrowed view over a sequence",
+          "`&[T]`"
+        ],
+        [
+          "Widen a number safely",
+          "`i64::from(x)` / `x.into()`"
+        ],
+        [
+          "Narrow a number safely",
+          "`u8::try_from(x)?`"
+        ],
+        [
+          "Bit-level truncation on purpose",
+          "`x as u8`"
+        ],
+        [
+          "Signal \"cannot happen / never returns\"",
+          "`!` (via `panic!`, `return`, `unreachable!()`)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\10-MAINTENANCE-STEWARDSHIP-BUS-FACTOR-AND-FORKS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 48,
+      "heading_context": "## Maintenance Signals",
+      "headers": [
+        "Signal",
+        "Healthy interpretation",
+        "Misleading shortcut"
+      ],
+      "rows": [
+        [
+          "Release cadence",
+          "Matches change/security needs",
+          "More releases always better"
+        ],
+        [
+          "Issue response",
+          "Clear triage and bounded expectations",
+          "Every issue must be closed quickly"
+        ],
+        [
+          "Review pattern",
+          "Multiple trusted reviewers or explicit single-owner model",
+          "Contributor count equals governance depth"
+        ],
+        [
+          "Registry owners",
+          "Current, least-privilege, succession-aware",
+          "Many owners automatically safer"
+        ],
+        [
+          "CI matrix",
+          "Covers stated MSRV/targets/features",
+          "Badge means all profiles work"
+        ],
+        [
+          "Changelog/migrations",
+          "Explains compatibility decisions",
+          "Version number alone proves SemVer"
+        ],
+        [
+          "Security process",
+          "Private intake and response ownership",
+          "Public issues are the only evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 90,
+      "heading_context": "## Concentration Risk",
+      "headers": [
+        "Concentration",
+        "Risk",
+        "Mitigation"
+      ],
+      "rows": [
+        [
+          "One publisher, one reviewer",
+          "Account loss or absence blocks response",
+          "Internal fork readiness, relationship, alternative"
+        ],
+        [
+          "One sponsoring company",
+          "Strategy/funding change",
+          "Neutral governance or replaceability"
+        ],
+        [
+          "Many contributors, one final approver",
+          "Review bottleneck hidden by activity",
+          "Understand actual decision rights"
+        ],
+        [
+          "Automated release credentials",
+          "Credential/process compromise",
+          "Protected environments, short-lived credentials, review"
+        ],
+        [
+          "Complex unsafe/native core known by one person",
+          "Knowledge concentration",
+          "Independent review and documented invariants"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 118,
+      "heading_context": "## Response Options Before Forking",
+      "headers": [
+        "Fork cost",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Source custody",
+          "Where is the fork hosted and mirrored?"
+        ],
+        [
+          "Package identity",
+          "Internal registry name, `[patch]`, or unpublished source?"
+        ],
+        [
+          "Security",
+          "Who receives advisories and reviews diffs?"
+        ],
+        [
+          "Release",
+          "Who versions, signs, publishes, and supports artifacts?"
+        ],
+        [
+          "Merge strategy",
+          "Track upstream, selective cherry-pick, or permanent divergence?"
+        ],
+        [
+          "License/attribution",
+          "Are modifications and notices preserved?"
+        ],
+        [
+          "Exit",
+          "Conditions to rejoin upstream, replace, or retire?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 157,
+      "heading_context": "## Upstream Engagement",
+      "headers": [
+        "Need",
+        "Constructive action"
+      ],
+      "rows": [
+        [
+          "Bug fix",
+          "Small reproduction and focused patch"
+        ],
+        [
+          "MSRV clarity",
+          "CI proposal and documented policy tradeoff"
+        ],
+        [
+          "Security report",
+          "Use private process; coordinate disclosure"
+        ],
+        [
+          "Succession",
+          "Offer sustained co-maintenance, not a one-off demand"
+        ],
+        [
+          "Product-specific feature",
+          "Adapter/fork if upstream scope reasonably excludes it"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 170,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Traditional supplier concern",
+        "Open-source crate concern"
+      ],
+      "rows": [
+        [
+          "Vendor viability",
+          "Maintainer/entity continuity"
+        ],
+        [
+          "Support contract",
+          "Published scope and response process"
+        ],
+        [
+          "Escrow/source access",
+          "Public source plus tested internal custody"
+        ],
+        [
+          "Product end-of-life",
+          "Deprecation/archive/ownership transfer"
+        ],
+        [
+          "Custom vendor branch",
+          "Internal fork with merge and release policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 194,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Preferred response"
+      ],
+      "rows": [
+        [
+          "Quiet but stable crate, small surface, easy replacement",
+          "Accept with periodic renewal"
+        ],
+        [
+          "Active project with clear governance",
+          "Engage upstream and retain exit plan"
+        ],
+        [
+          "Single maintainer, critical deep dependency",
+          "Add fork/replacement readiness and stronger review"
+        ],
+        [
+          "Urgent fix likely to land upstream",
+          "Temporary immutable patch"
+        ],
+        [
+          "Permanent strategic divergence",
+          "Named internal fork product with full ownership"
+        ],
+        [
+          "No credible continuity and expensive exit",
+          "Reject or replace before deeper adoption"
+        ]
+      ]
+    }
+  ]
+}

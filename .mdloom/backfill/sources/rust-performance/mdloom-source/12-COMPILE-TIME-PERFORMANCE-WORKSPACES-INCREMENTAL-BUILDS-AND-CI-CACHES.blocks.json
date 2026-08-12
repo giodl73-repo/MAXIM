@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                          BUILD CRITICAL PATH                                |\n|                                                                             |\n| resolve graph -> build scripts/proc macros -> crate checks/codegen -> link  |\n|                       |                     |                   |           |\n|                       v                     v                   v           |\n|                 host dependencies     parallel crate DAG       linker       |\n|                                             |                               |\n|                                             +-> incremental query/CGU reuse |\n|                                             +-> compiler cache reuse        |\n|                                                                             |\n| clean build | warm no-op | scripted edit-build | test | release are separate|\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 148,
+      "heading_context": "## Proc Macros, Build Scripts, and Native Dependencies",
+      "confidence": "candidate",
+      "text": "- invoke C/C++ compilers repeatedly;",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

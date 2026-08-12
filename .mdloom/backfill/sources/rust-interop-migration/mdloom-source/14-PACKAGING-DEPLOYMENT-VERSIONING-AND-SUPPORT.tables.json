@@ -1,0 +1,262 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\14-PACKAGING-DEPLOYMENT-VERSIONING-AND-SUPPORT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 59,
+      "heading_context": "## Artifact Types",
+      "headers": [
+        "Rust crate type",
+        "Consumer",
+        "Interop posture"
+      ],
+      "rows": [
+        [
+          "`cdylib`",
+          "Foreign dynamic loader",
+          "Export explicit C/system ABI only"
+        ],
+        [
+          "`staticlib`",
+          "Foreign final linker",
+          "Include native dependency/link requirements"
+        ],
+        [
+          "`bin`",
+          "Process/service/supervisor",
+          "Protocol is the contract"
+        ],
+        [
+          "`rlib`",
+          "Matching rustc build",
+          "Internal Rust compilation artifact; not durable foreign package"
+        ],
+        [
+          "`dylib`",
+          "Rust dynamic linking",
+          "Rust ABI/toolchain coupled; not a foreign stability contract"
+        ],
+        [
+          "`wasm` component/module",
+          "Compatible runtime/host",
+          "WIT/module imports/exports plus runtime feature matrix"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 108,
+      "heading_context": "## Contract Versioning",
+      "headers": [
+        "Version",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Rust crate SemVer",
+          "Source dependency compatibility for Rust builds"
+        ],
+        [
+          "Foreign ABI/protocol version",
+          "What non-Rust consumer can call/read"
+        ],
+        [
+          "Host package version",
+          "NuGet/wheel/npm/JAR/installer resolution"
+        ],
+        [
+          "Deployment/schema version",
+          "What mixed old/new processes and data support"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 137,
+      "heading_context": "## Compatibility and Version Skew",
+      "headers": [
+        "Host/native combination",
+        "Policy"
+      ],
+      "rows": [
+        [
+          "Host N with native N",
+          "Primary tested pair"
+        ],
+        [
+          "Host N with native N-1",
+          "Support only if the ABI capability range says so"
+        ],
+        [
+          "Host N-1 with native N",
+          "Usually reject unless forward compatibility is explicit"
+        ],
+        [
+          "Host N with unknown native",
+          "Fail before creating handles or registering callbacks"
+        ],
+        [
+          "Two native versions loaded in one process",
+          "Avoid unless symbols, global state, allocators, and callbacks are isolated by design"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 152,
+      "heading_context": "## Loader and Dependency Closure",
+      "headers": [
+        "Platform/host",
+        "Typical load problem"
+      ],
+      "rows": [
+        [
+          "Windows",
+          "Wrong architecture, Safe DLL search, missing VC runtime/dependent DLL, package identity"
+        ],
+        [
+          "Linux",
+          "glibc baseline, `rpath`/`RUNPATH`, SONAME, missing `.so`, symbol version"
+        ],
+        [
+          "macOS",
+          "install names, `@rpath`, code signing/notarization, universal slices"
+        ],
+        [
+          "Python",
+          "Incorrect wheel tag or unbundled native dependency"
+        ],
+        [
+          "Node",
+          "Wrong OS/arch/libc prebuild or package `exports`"
+        ],
+        [
+          "JVM",
+          "Extraction collision, classloader, `java.library.path`, dependent library"
+        ],
+        [
+          ".NET",
+          "RID resolution, publish mode, trimming/NativeAOT, dependent native library"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 185,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Packaging/support rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Export/test only declared C/system/protocol/WIT contracts; scan for accidental symbols; never support Rust ABI or trait objects externally."
+        ],
+        [
+          "Allocator",
+          "Package the matching release APIs and compatible runtime dependencies; static/dynamic CRT policy is recorded."
+        ],
+        [
+          "Panic/unwind",
+          "Build panic policy is known (`unwind`/`abort`); foreign entry points still contain/translate as designed."
+        ],
+        [
+          "Lifetime",
+          "Unload policy states whether live handles/callbacks/threads prevent unload; process packages define drain/stop."
+        ],
+        [
+          "Threading",
+          "Runtime initialization and shutdown integrate with host unload/service lifecycle; no orphan callbacks after package update."
+        ],
+        [
+          "Target",
+          "Build and test every claimed OS/arch/libc/CRT/runtime tuple on real or faithful target environments."
+        ],
+        [
+          "Packaging",
+          "Package selection, loader path, signing, dependencies, symbols, SBOM/provenance, upgrade, and rollback are release gates."
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 197,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior practice",
+        "Rust interop equivalent"
+      ],
+      "rows": [
+        [
+          "DLL import library + redist",
+          "`cdylib` plus host package and dependency closure"
+        ],
+        [
+          "NuGet/RID or Maven classifier",
+          "Select exact native target artifact"
+        ],
+        [
+          "COM interface version",
+          "Stable foreign contract version independent of Rust crate"
+        ],
+        [
+          "MSI/MSIX rollback",
+          "Retain previous native artifact and compatible state"
+        ],
+        [
+          "PDB/source indexing",
+          "Native symbols and source commit/toolchain correlation"
+        ],
+        [
+          "Servicing baseline",
+          "Explicit support matrix and security patch process"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 226,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Foreign dynamic library",
+          "`cdylib` with controlled export surface"
+        ],
+        [
+          "Foreign static link",
+          "`staticlib` plus documented native link dependencies"
+        ],
+        [
+          "Independent rollout",
+          "`bin`/service with versioned protocol"
+        ],
+        [
+          "Host package",
+          "Publish per exact target identity, not generic OS label"
+        ],
+        [
+          "ABI evolution",
+          "Query/version/capability plus additive structures or new entry point"
+        ],
+        [
+          "Host/native skew",
+          "Early version probe, explicit compatibility range, paired rollback"
+        ],
+        [
+          "Production diagnosis",
+          "Retain symbols, source/toolchain metadata, crash correlation"
+        ],
+        [
+          "Support claim",
+          "Publish and continuously test the full compatibility matrix"
+        ]
+      ]
+    }
+  ]
+}

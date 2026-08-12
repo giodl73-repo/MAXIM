@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\03-HTTP-AND-API-SERVICE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| client -> proxy/load balancer -> connection and request admission          |\n+---------------------------------------+------------------------------------+\n                                        v\n+----------------------------------------------------------------------------+\n| protocol shell                                                             |\n| route | decode | authenticate | deadline | correlation | response mapping  |\n+---------------------------------------+------------------------------------+\n                                        v\n+----------------------------------------------------------------------------+\n| application use case -> domain policy -> ports                             |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                 data adapter          remote-service adapter\n                       |                      |\n                       +-----------+----------+\n                                   v\n                    response + telemetry + durable effects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 132,
+      "heading_context": "## Load, Backpressure, and Shutdown",
+      "confidence": "candidate",
+      "text": "shutdown requested\n      |\n      +--> stop new admission\n      +--> mark unready at routing boundary\n      +--> drain in-flight work until deadline\n      +--> cancel work that preserves invariants\n      `--> close adapters and exit observably",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 148,
+      "heading_context": "## Data Evolution, Testing, and Rollback",
+      "confidence": "candidate",
+      "text": "contract tests -> handler tests -> real-store integration\n       -> packaged server smoke -> rollout/drain exercise",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

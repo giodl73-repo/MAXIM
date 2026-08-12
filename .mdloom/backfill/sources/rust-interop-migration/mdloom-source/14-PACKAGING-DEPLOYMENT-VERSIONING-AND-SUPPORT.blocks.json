@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\14-PACKAGING-DEPLOYMENT-VERSIONING-AND-SUPPORT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                       INTEROP DELIVERY PIPELINE                            |\n+============================================================================+\n|  SOURCE + LOCKFILE + TOOLCHAIN POLICY                                      |\n|      |                                                                     |\n|      v                                                                     |\n|  BUILD MATRIX                                                              |\n|  target triple x profile x features x runtime/host adapter                 |\n|      |                                                                     |\n|      v                                                                     |\n|  ARTIFACT CONTRACT                                                         |\n|  cdylib/staticlib/bin/wasm + exports + protocol/schema + version query     |\n|      |                                                                     |\n|      v                                                                     |\n|  HOST PACKAGE                                                              |\n|  NuGet RID | wheel | npm prebuild | JAR native | installer/image/MSIX      |\n|      |                                                                     |\n|      v                                                                     |\n|  VERIFY                                                                    |\n|  clean install -> load -> contract tests -> upgrade -> rollback -> symbols |\n|      |                                                                     |\n|      v                                                                     |\n|  SUPPORT                                                                   |\n|  compatibility matrix + SBOM/provenance + servicing owner + retirement     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## Target Matrix",
+      "confidence": "candidate",
+      "text": "  target triple\n  x86_64-pc-windows-msvc\n  aarch64-pc-windows-msvc\n  x86_64-unknown-linux-gnu\n  x86_64-unknown-linux-musl\n  aarch64-apple-darwin\n          |\n          +-> host runtime/version\n          +-> CPU baseline\n          +-> libc/CRT and dynamic deps\n          +-> package identifier/tag/RID",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

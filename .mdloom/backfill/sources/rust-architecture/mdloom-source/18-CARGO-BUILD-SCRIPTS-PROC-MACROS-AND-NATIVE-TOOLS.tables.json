@@ -1,0 +1,313 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Build Scripts: The Stable Stdout Protocol",
+      "headers": [
+        "Directive",
+        "Effect"
+      ],
+      "rows": [
+        [
+          "`cargo::rustc-link-lib=foo`",
+          "Ask rustc/linker to link `foo`"
+        ],
+        [
+          "`cargo::rustc-link-search=native=PATH`",
+          "Add a native library search path"
+        ],
+        [
+          "`cargo::rustc-cfg=has_foo`",
+          "Add a cfg for conditional Rust compilation"
+        ],
+        [
+          "`cargo::rustc-env=KEY=VALUE`",
+          "Set compile-time environment for `env!`"
+        ],
+        [
+          "`cargo::rerun-if-changed=PATH`",
+          "Re-run script when a file changes"
+        ],
+        [
+          "`cargo::rerun-if-env-changed=VAR`",
+          "Re-run script when an env var changes"
+        ],
+        [
+          "`cargo::warning=message`",
+          "Emit a Cargo warning"
+        ],
+        [
+          "`cargo::metadata=KEY=VALUE`",
+          "Pass metadata to dependent build scripts for `links` crates"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 150,
+      "heading_context": "## The `links` Key and `-sys` Crates",
+      "headers": [
+        "Layer",
+        "Typical crate",
+        "Responsibility"
+      ],
+      "rows": [
+        [
+          "Native library",
+          "`libz`, OpenSSL, SQLite",
+          "C ABI and platform artifacts"
+        ],
+        [
+          "`-sys` crate",
+          "`z-sys`, `openssl-sys`, `libsqlite3-sys`",
+          "Link/probe/generate FFI"
+        ],
+        [
+          "Safe wrapper",
+          "`flate2`, `openssl`, `rusqlite`",
+          "Rust API and safety invariants"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 169,
+      "heading_context": "## Native Tool Discovery and Linker Handoff",
+      "headers": [
+        "Input",
+        "Who reads it",
+        "Result"
+      ],
+      "rows": [
+        [
+          "`CC_<target>`, `AR_<target>`, `CFLAGS_<target>` (or documented generic fallbacks)",
+          "`cc` crate / build.rs",
+          "Target-native objects or static archives"
+        ],
+        [
+          "Target-aware `PKG_CONFIG_*` / sysroot settings",
+          "`pkg-config` crate",
+          "Target include paths and link flags"
+        ],
+        [
+          "`VCPKG_ROOT` plus target triplet/configuration",
+          "`vcpkg` crate",
+          "Windows target library discovery"
+        ],
+        [
+          "`TARGET`, `HOST`",
+          "build.rs",
+          "Branch between host and target logic"
+        ],
+        [
+          "`cargo::rustc-link-*`",
+          "Cargo then `rustc`",
+          "Linker flags on the target unit"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 239,
+      "heading_context": "## Cross-Compilation Shape",
+      "headers": [
+        "Unit kind",
+        "Compiled for host?",
+        "Compiled for target?"
+      ],
+      "rows": [
+        [
+          "build script executable",
+          "yes",
+          "no"
+        ],
+        [
+          "build dependencies",
+          "yes",
+          "no"
+        ],
+        [
+          "proc-macro crate",
+          "yes",
+          "no"
+        ],
+        [
+          "normal library/bin",
+          "no, unless also used as a host dep",
+          "yes"
+        ],
+        [
+          "tests",
+          "host when running locally; target when cross-building harnesses",
+          "depends on command/target"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 268,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old-world concept",
+        "Rust analogue",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "MSBuild pre-build target",
+          "`build.rs`",
+          "Rust gives a narrow stdout protocol rather than arbitrary project-file graph mutation"
+        ],
+        [
+          "Custom MSBuild task / npm preinstall",
+          "build script host executable",
+          "Same supply-chain risk: code runs during build"
+        ],
+        [
+          "Roslyn Source Generator",
+          "proc macro",
+          "Strong parallel: host code runs in the compiler pipeline; Rust exposes tokens through `proc_macro`"
+        ],
+        [
+          "RID/TFM cross-build",
+          "Cargo host/target split",
+          "Build tools stay host while product artifacts target another triple"
+        ],
+        [
+          "P/Invoke/native NuGet package",
+          "`links` + `-sys` crate",
+          "Cargo enforces one link owner per native library name"
+        ],
+        [
+          "CMake/vcpkg/pkg-config discovery",
+          "`cc`, `vcpkg`, `pkg-config` crates in build.rs",
+          "Discovery is explicit host code feeding Cargo directives"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 285,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Use / answer",
+        "Stable?"
+      ],
+      "rows": [
+        [
+          "Need to generate Rust at build time?",
+          "`build.rs` writes into `OUT_DIR`, target uses `include!`",
+          "protocol stable"
+        ],
+        [
+          "Need to link a native library?",
+          "`links`, `cargo::rustc-link-lib`, possibly a `-sys` crate",
+          "stable Cargo contract"
+        ],
+        [
+          "Need a C compiler?",
+          "`cc` crate from build.rs",
+          "crate API, not Cargo core"
+        ],
+        [
+          "Need system library discovery?",
+          "`pkg-config` or `vcpkg` crate",
+          "crate API"
+        ],
+        [
+          "Need syntax-driven code generation?",
+          "proc macro using stable `proc_macro`",
+          "API stable; bridge internal"
+        ],
+        [
+          "Cross-compiling?",
+          "`cargo build --target`, install target with rustup",
+          "documented command stable"
+        ],
+        [
+          "Need to build std for an unusual target?",
+          "`-Z build-std`",
+          "unstable nightly feature"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 299,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"A build script builds my crate.\"",
+          "It runs before the crate and emits directives; `rustc` still compiles the crate."
+        ],
+        [
+          "\"Proc macros are target code.\"",
+          "Proc macros are host dylibs loaded by `rustc` during compilation."
+        ],
+        [
+          "\"Host equals target.\"",
+          "Only on native builds. Cross-compilation makes the distinction visible."
+        ],
+        [
+          "\"`links` links the library by itself.\"",
+          "`links` declares ownership; build script directives supply actual flags."
+        ],
+        [
+          "\"`cargo::rerun-if-changed` is optional bookkeeping.\"",
+          "Without precise rerun directives, Cargo's freshness model can be too broad or too stale."
+        ],
+        [
+          "\"The proc-macro bridge is a stable plugin API.\"",
+          "The stable surface is `proc_macro`; the bridge implementation is internal."
+        ],
+        [
+          "\"`-Z build-std` is normal Cargo.\"",
+          "`-Z` flags are nightly/unstable."
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 313,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "The Cargo Book: Build Scripts, Build Script Examples, `links`, environment variables",
+          "Stable build-script and native-linking contract"
+        ],
+        [
+          "Cargo reference on cross-compilation",
+          "Host/target behavior and target selection"
+        ],
+        [
+          "`proc_macro` standard library documentation",
+          "Stable public API for procedural macros"
+        ],
+        [
+          "rustc-dev-guide: macro expansion and proc-macro bridge",
+          "Internal compiler boundary and caveats"
+        ],
+        [
+          "`cc`, `pkg-config`, and `vcpkg` crate docs",
+          "De facto native discovery/build APIs"
+        ],
+        [
+          "Siblings: [17](17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md), [05](05-MACRO-EXPANSION-HYGIENE-AND-NAME-RESOLUTION.md), [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md), [19](19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md)",
+          "Adjacent graph, macro, artifact, and tool layers"
+        ]
+      ]
+    }
+  ]
+}

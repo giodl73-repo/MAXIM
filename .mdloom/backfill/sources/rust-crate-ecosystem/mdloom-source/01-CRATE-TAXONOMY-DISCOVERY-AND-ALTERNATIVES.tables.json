@@ -1,0 +1,220 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\01-CRATE-TAXONOMY-DISCOVERY-AND-ALTERNATIVES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## A Working Taxonomy",
+      "headers": [
+        "Crate type",
+        "Typical responsibility",
+        "Main evaluation pressure"
+      ],
+      "rows": [
+        [
+          "Leaf utility",
+          "One algorithm, format, or data structure",
+          "API quality, MSRV, dependency weight"
+        ],
+        [
+          "Data/model crate",
+          "Types and serialization contracts",
+          "SemVer stability, feature design"
+        ],
+        [
+          "Facade",
+          "Stable API over selectable implementations",
+          "Abstraction leakage, backend policy"
+        ],
+        [
+          "Runtime/framework",
+          "Scheduling, lifecycle, global conventions",
+          "Architectural lock-in, operational model"
+        ],
+        [
+          "Adapter/integration",
+          "Connects two ecosystems",
+          "Version matrix, feature fan-out"
+        ],
+        [
+          "`-sys`/FFI binding",
+          "Raw native ABI and link discovery",
+          "Native provenance, ABI, build scripts"
+        ],
+        [
+          "Safe native wrapper",
+          "Rust invariants over a `-sys` layer",
+          "Soundness boundary, upstream native lifecycle"
+        ],
+        [
+          "Proc macro",
+          "Runs during compilation and emits tokens",
+          "Build-time trust, diagnostics, compiler compatibility"
+        ],
+        [
+          "Build/tool crate",
+          "Code generation, packaging, test support",
+          "Host execution, reproducibility"
+        ],
+        [
+          "Facade plus re-exports",
+          "Curated ecosystem entry point",
+          "Hidden dependency breadth, version coupling"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 110,
+      "heading_context": "## The Alternatives Must Include \"No Crate\"",
+      "headers": [
+        "Alternative",
+        "Prefer when",
+        "Reject when"
+      ],
+      "rows": [
+        [
+          "Standard library",
+          "Capability is present and sufficient",
+          "Missing protocol/algorithm or excessive custom glue"
+        ],
+        [
+          "Small internal module",
+          "Behavior is narrow, stable, and easy to test",
+          "Domain is security-sensitive or deceptively complex"
+        ],
+        [
+          "External crate",
+          "Mature implementation materially reduces risk or effort",
+          "Governance and transitive cost exceed value"
+        ],
+        [
+          "Platform service/API",
+          "Capability belongs operationally outside process",
+          "Latency, availability, or portability makes it unsuitable"
+        ],
+        [
+          "Generate at build time",
+          "Source data/schema is authoritative and generation is deterministic",
+          "Generator adds opaque host execution or unstable outputs"
+        ],
+        [
+          "Vendor/fork",
+          "Continuity or auditability requires custody",
+          "Team cannot sustain divergence"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 151,
+      "heading_context": "## Popularity Is a Weak Signal",
+      "headers": [
+        "Signal",
+        "What it may indicate",
+        "Why it is weak"
+      ],
+      "rows": [
+        [
+          "crates.io downloads",
+          "Historical or current distribution activity",
+          "CI, transitive use, caching patterns, and age distort counts"
+        ],
+        [
+          "Repository stars",
+          "Attention or interest",
+          "Not usage, maintenance, correctness, or compatibility"
+        ],
+        [
+          "Dependents",
+          "Integration pressure and ecosystem role",
+          "Dependents may be stale or concentrated in one framework"
+        ],
+        [
+          "Release frequency",
+          "Activity",
+          "Stable software may release rarely; churn can also be a warning"
+        ],
+        [
+          "Contributor count",
+          "Participation",
+          "Commit count does not reveal review authority or succession"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 167,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar component category",
+        "Rust ecosystem form"
+      ],
+      "rows": [
+        [
+          "Interface assembly/package",
+          "Facade or types crate"
+        ],
+        [
+          "Provider/plugin",
+          "Backend or adapter crate"
+        ],
+        [
+          "Application framework",
+          "Runtime/framework crate"
+        ],
+        [
+          "Native interop package",
+          "`-sys` crate plus safe wrapper"
+        ],
+        [
+          "Code generator/MSBuild task",
+          "Build dependency, `build.rs`, proc macro, or `xtask`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 194,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Prefer",
+        "Required follow-up"
+      ],
+      "rows": [
+        [
+          "Capability exists in `std`",
+          "Standard library",
+          "Confirm target/MSRV support"
+        ],
+        [
+          "Narrow stable behavior under a few hundred reviewable lines",
+          "Internal module",
+          "Tests, ownership, and security review where relevant"
+        ],
+        [
+          "Complex protocol/algorithm with mature implementations",
+          "External implementation crate",
+          "[02](02-EVALUATION-SCORECARDS-AND-EVIDENCE.md) evidence pass"
+        ],
+        [
+          "Multiple backends are realistic",
+          "Facade plus internal adapter",
+          "Feature and dependency-direction review"
+        ],
+        [
+          "Native library is unavoidable",
+          "Established `-sys` plus safe wrapper",
+          "[12](12-NATIVE-DEPENDENCIES-BUILD-SCRIPTS-AND-SYSTEM-PACKAGES.md)"
+        ],
+        [
+          "Compile-time generation is optional convenience",
+          "Avoid or isolate it",
+          "[13](13-PROC-MACROS-CODE-GENERATION-AND-TOOL-DEPENDENCIES.md)"
+        ]
+      ]
+    }
+  ]
+}

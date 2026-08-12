@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\13-MULTI-SERVICE-DISTRIBUTED-APPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| clients -> edge/gateway -> independently deployed service authorities      |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                 service A                service B\n                 owns data A              owns data B\n                       |                      |\n                       +--> API/events <------+\n                               |\n                               v\n                    workflow/projection services\n                               |\n                               v\n              shared platform: routing | identity | telemetry | delivery",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 92,
+      "heading_context": "## Service and Data Boundaries",
+      "confidence": "candidate",
+      "text": "service A needs fact owned by B\n      |\n      +--> synchronous query: fresh, coupled availability/latency\n      |\n      `--> subscribed projection: stale by policy, locally available",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 138,
+      "heading_context": "## Testing and Rollback",
+      "confidence": "candidate",
+      "text": "service-local tests\n   -> serialized provider/consumer contract tests\n   -> real dependency integration tests\n   -> multi-service scenario tests\n   -> failure/latency/rollback exercises",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

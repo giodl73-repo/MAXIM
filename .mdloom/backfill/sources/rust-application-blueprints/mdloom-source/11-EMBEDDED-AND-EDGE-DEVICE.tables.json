@@ -1,0 +1,154 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\11-EMBEDDED-AND-EDGE-DEVICE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## Hardware and Execution Authority",
+      "headers": [
+        "Layer",
+        "Owns"
+      ],
+      "rows": [
+        [
+          "PAC/chip support",
+          "register-level representation"
+        ],
+        [
+          "HAL",
+          "portable peripheral capabilities where available"
+        ],
+        [
+          "Board support",
+          "concrete pins, clocks, memory, peripherals"
+        ],
+        [
+          "Driver",
+          "device protocol and timing"
+        ],
+        [
+          "Application",
+          "domain state machine and safety policy"
+        ],
+        [
+          "Bootloader/update system",
+          "image selection, verification, rollback"
+        ],
+        [
+          "Watchdog",
+          "independent progress/fault boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 113,
+      "heading_context": "## Memory, Time, Power, and Faults",
+      "headers": [
+        "Resource",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "Stack",
+          "bounded worst-case depth; no accidental large locals"
+        ],
+        [
+          "Heap",
+          "absent, fixed, or deliberately bounded allocator"
+        ],
+        [
+          "Time",
+          "monotonic ticks for deadlines; wall time only if synchronized"
+        ],
+        [
+          "Power",
+          "sleep states, wake sources, state retention"
+        ],
+        [
+          "Flash",
+          "write endurance, atomic record/update layout"
+        ],
+        [
+          "Network",
+          "intermittent connectivity, bounded queues, replay identity"
+        ],
+        [
+          "Fault",
+          "watchdog action, safe actuator state, retained diagnostic"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 157,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Mechanism",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Signed/verified image",
+          "reject unauthorized or corrupt code"
+        ],
+        [
+          "A/B or fallback slot",
+          "retain bootable prior image"
+        ],
+        [
+          "Boot-attempt counter",
+          "detect crash loop"
+        ],
+        [
+          "Health confirmation",
+          "mark new image good only after bounded evidence"
+        ],
+        [
+          "State schema strategy",
+          "old firmware can read state or migration is forward-only"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Pure portable control logic",
+          "`no_std` core crate with host tests"
+        ],
+        [
+          "One board/product",
+          "board crate plus firmware entry binary"
+        ],
+        [
+          "Multiple boards",
+          "shared application/driver crates, separate board crates"
+        ],
+        [
+          "Tight interrupt latency",
+          "minimal ISR and explicit handoff"
+        ],
+        [
+          "Intermittent cloud link",
+          "durable outbound queue and message identity"
+        ],
+        [
+          "Safe remote update",
+          "verified A/B/fallback flow with health confirmation"
+        ],
+        [
+          "Rich OS edge gateway",
+          "ordinary service/worker blueprint may fit better"
+        ]
+      ]
+    }
+  ]
+}

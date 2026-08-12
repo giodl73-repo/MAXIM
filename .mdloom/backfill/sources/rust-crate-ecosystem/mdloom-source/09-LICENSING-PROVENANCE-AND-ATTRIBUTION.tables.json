@@ -1,0 +1,180 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\09-LICENSING-PROVENANCE-AND-ATTRIBUTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## Evidence Hierarchy",
+      "headers": [
+        "Evidence",
+        "Use",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "`Cargo.toml` SPDX expression",
+          "Automated policy and discovery",
+          "Publisher assertion"
+        ],
+        [
+          "License files in crate archive",
+          "Distributed terms",
+          "May conflict with metadata or omit generated inputs"
+        ],
+        [
+          "Repository license/history",
+          "Provenance context",
+          "Repository head may differ from published crate"
+        ],
+        [
+          "Source headers/notices",
+          "File-level obligations",
+          "Inconsistent practices require interpretation"
+        ],
+        [
+          "Upstream clarification",
+          "Resolve ambiguity",
+          "Preserve durable written record"
+        ],
+        [
+          "Legal review",
+          "Interpret obligations for product use",
+          "Scope-specific, not a universal engineering rule"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 119,
+      "heading_context": "## Provenance Questions",
+      "headers": [
+        "Question",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Which registry/git/path supplied the package?",
+          "`Cargo.lock`, `cargo metadata`"
+        ],
+        [
+          "Which exact source archive/revision was built?",
+          "Lockfile checksum or git revision plus retained source"
+        ],
+        [
+          "Does repository tag match published archive?",
+          "Reproducible comparison or upstream provenance"
+        ],
+        [
+          "Who may publish new versions?",
+          "Registry owners and governance documentation"
+        ],
+        [
+          "Does generated code include third-party material?",
+          "Generator inputs/templates and output headers"
+        ],
+        [
+          "Does a vendored native library have separate terms?",
+          "Vendor directory and upstream notices"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 150,
+      "heading_context": "## Attribution Output",
+      "headers": [
+        "Distribution form",
+        "Review emphasis"
+      ],
+      "rows": [
+        [
+          "Hosted service",
+          "Source/network-copyleft triggers and internal policy"
+        ],
+        [
+          "Binary/firmware",
+          "Notices, relinking/source obligations, native components"
+        ],
+        [
+          "SDK/library",
+          "Downstream license clarity and re-exported API"
+        ],
+        [
+          "Source distribution/vendor bundle",
+          "Complete license files and modifications"
+        ],
+        [
+          "Container image",
+          "OS packages plus Rust graph and copied assets"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 175,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar software-composition task",
+        "Cargo ecosystem task"
+      ],
+      "rows": [
+        [
+          "Third-party notices from binaries/packages",
+          "Generate notices from lockfile plus non-Cargo inventory"
+        ],
+        [
+          "Source drop manifest",
+          "Retain registry archives/git revisions/vendor bundle"
+        ],
+        [
+          "NuGet license metadata",
+          "Cargo SPDX `license` field"
+        ],
+        [
+          "Container license scan",
+          "Combine OS/native inventory with Cargo graph"
+        ],
+        [
+          "Vendor legal approval",
+          "Supported-profile license/provenance gate"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 201,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Action"
+      ],
+      "rows": [
+        [
+          "Standard SPDX expression matches distributed files and allowlist",
+          "Record evidence and include required notices"
+        ],
+        [
+          "Metadata/file conflict",
+          "Hold and seek upstream/legal clarification"
+        ],
+        [
+          "Non-standard license",
+          "Review `license-file` and distribution obligations"
+        ],
+        [
+          "Vendored/native/generated input",
+          "Add separate provenance and notice entry"
+        ],
+        [
+          "Internal crate may be published",
+          "Set explicit workspace license/repository metadata"
+        ],
+        [
+          "Tool reports low-confidence license",
+          "Inspect source files; do not silently allow"
+        ]
+      ]
+    }
+  ]
+}

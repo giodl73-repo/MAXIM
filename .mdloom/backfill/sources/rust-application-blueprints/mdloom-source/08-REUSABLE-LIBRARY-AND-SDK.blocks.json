@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\08-REUSABLE-LIBRARY-AND-SDK.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| consumer crate                                                             |\n+------------------------------+---------------------------------------------+\n                               v\n+----------------------------------------------------------------------------+\n| public facade: stable names | constructors | traits | errors | docs        |\n+------------------------------+---------------------------------------------+\n                               v\n+----------------------------------------------------------------------------+\n| semantic core -> optional capabilities -> protocol/OS adapters             |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                 consumer runtime       external authority",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## Features, Async, and Dependencies",
+      "confidence": "candidate",
+      "text": "default facade\n   |-- core capability (always)\n   |-- feature \"serde\"  -> serialization integration\n   |-- feature \"tls-x\"  -> one compatible adapter family\n   `-- no hidden mutually exclusive environment modes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Evidence, Release, and Rollback",
+      "confidence": "candidate",
+      "text": "unit tests\n  -> doctests/examples\n  -> public API integration tests\n  -> minimal-feature and all-supported-feature matrix\n  -> MSRV + current stable toolchain checks\n  -> downstream fixture build",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         RUST ARTIFACT PIPELINE                            |\n|                                                                           |\n|  source crate                                                             |\n|      |                                                                    |\n|      v                                                                    |\n|  rustc front/middle: HIR, types, MIR, mono items                          |\n|      |                                                                    |\n|      +-------------------+------------------------------------------------+\n|                          |                                                |\n|                          v                                                |\n|              crate metadata (.rmeta)                                      |\n|              DefIds, types, MIR-for-generics, exports, deps       [06]    |\n|                          |                                                |\n|                          v                                                |\n|              downstream Rust crates type-check without recompiling code    |\n|                                                                           |\n|      |                                                                    |\n|      v                                                                    |\n|  backend objects from LLVM/other backend                          [12]    |\n|      |                                                                    |\n|      +--> rlib / staticlib archives (archive outputs; linked later)       |\n|      |                                                                    |\n|      +--> rustc link driver -> platform linker                            |\n|              link.exe / lld / ld / compiler driver                       |\n|                          |                                                |\n|                          v                                                |\n|              bin / dylib / cdylib + DWARF/PDB debug information          |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Crate Types and Who Consumes Them",
+      "confidence": "candidate",
+      "text": "Rust-to-Rust dependency path:\n    crate A --rlib/rmeta--> rustc compiling crate B\n\nNative embedding path:\n    Rust crate --staticlib/cdylib + extern \"C\"--> C ABI host\n\nExecutable path:\n    Rust crate --bin--> platform loader",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 116,
+      "heading_context": "## rmeta: Metadata Is the Rust Dependency Interface",
+      "confidence": "candidate",
+      "text": "Dependency crate:\n  rustc --emit=metadata --------------> libdep.rmeta\n              |                              |\n              |                              v\n              |                  dependent crate can type-check\n              |                  before dependency codegen finishes\n              v\n  backend codegen still running",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "## Rust ABI, C ABI, and Distribution Reality",
+      "confidence": "candidate",
+      "text": "Do not publish this as a stable Rust ABI contract:\n    libfoo.rlib  or  libfoo.dylib   -> arbitrary future Rust toolchain\n\nDo publish this when you need a binary boundary:\n    extern \"C\" API + cdylib/staticlib -> C/Python/.NET/PInvoke/host program",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 157,
+      "heading_context": "## Linking: rustc Delegates to the Platform Toolchain",
+      "confidence": "candidate",
+      "text": "+-------------------+      +-------------------+      +-------------------+\n| backend object    | ---> | rustc link driver | ---> | platform linker   |\n| files + archives  |      | selects args      |      | link.exe/lld/ld   |\n+-------------------+      +-------------------+      +-------------------+\n          |                         |                          |\n          |                         | -L, -l, #[link]          | CRT, libc, SDK libs\n          |                         | -C linker, link-arg      | relocations, image\n          v                         v                          v\n                    final executable / dylib / cdylib",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Debug Info: DWARF, PDB, and Source Spans",
+      "confidence": "candidate",
+      "text": "`rust-gdb` and `rust-lldb` are wrappers that load Rust pretty-printers and make Rust names/types less hostile in native debuggers. On MSVC Windows, PDB is not an alien layer; it is the same debug-information universe a .NET/VC++ veteran already knows, except the code is native Rust rather than IL or managed code.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

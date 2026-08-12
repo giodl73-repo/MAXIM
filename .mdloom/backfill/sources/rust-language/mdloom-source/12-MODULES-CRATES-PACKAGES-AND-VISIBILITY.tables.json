@@ -1,0 +1,147 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\12-MODULES-CRATES-PACKAGES-AND-VISIBILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 124,
+      "heading_context": "## Visibility: Private by Default",
+      "headers": [
+        "Modifier",
+        "Visible to",
+        "Use for"
+      ],
+      "rows": [
+        [
+          "(none)",
+          "current module + descendants",
+          "internal helpers"
+        ],
+        [
+          "`pub`",
+          "everyone (if the path is reachable)",
+          "the public API"
+        ],
+        [
+          "`pub(crate)`",
+          "anywhere in this crate",
+          "cross-module internals"
+        ],
+        [
+          "`pub(super)`",
+          "the parent module",
+          "sibling collaboration"
+        ],
+        [
+          "`pub(in path)`",
+          "a specific ancestor module",
+          "precise scoping"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 162,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          ".NET assembly (`.dll`)",
+          "crate",
+          "The unit of compilation and linking"
+        ],
+        [
+          ".NET solution (`.sln`)",
+          "Cargo workspace",
+          "Groups projects/packages"
+        ],
+        [
+          ".NET project (`.csproj`)",
+          "package (`Cargo.toml`)",
+          "Metadata + one lib + N bins"
+        ],
+        [
+          "`namespace` (C#)",
+          "`mod`",
+          "Namespaces, but file-tree-linked"
+        ],
+        [
+          "`internal` (C#)",
+          "`pub(crate)`",
+          "Crate-wide visibility"
+        ],
+        [
+          "`public`/`private`",
+          "`pub`/(default)",
+          "Private is the default in Rust"
+        ],
+        [
+          "Java package = directory",
+          "`mod` = file/dir",
+          "Similar file mapping"
+        ],
+        [
+          "`using`/`import`",
+          "`use`",
+          "Same idea; supports grouping and `as`"
+        ],
+        [
+          "C# `[assembly:InternalsVisibleTo]`",
+          "`pub(crate)` + workspace paths",
+          "Different mechanism"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Split code into namespaces",
+          "`mod` (inline or file)"
+        ],
+        [
+          "Expose an item publicly",
+          "`pub` (ensure the whole path is reachable)"
+        ],
+        [
+          "Share internals across modules only",
+          "`pub(crate)`"
+        ],
+        [
+          "Curate a flat public API",
+          "`pub use` re-exports facade"
+        ],
+        [
+          "Offer a convenient import bundle",
+          "ship a `prelude` module"
+        ],
+        [
+          "Group related packages",
+          "a Cargo `[workspace]`"
+        ],
+        [
+          "Add an extra executable",
+          "`src/bin/<name>.rs`"
+        ],
+        [
+          "Depend on a sibling package",
+          "path dependency in the workspace"
+        ],
+        [
+          "Import a trait's methods only",
+          "`use Trait as _;`"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\08-JVM-INTEROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Select JNI, FFM, or a Process",
+      "headers": [
+        "Option",
+        "Use when",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "JNI",
+          "Broad JDK compatibility; existing native methods",
+          "Verbose handles, local/global refs, classloader/thread rules"
+        ],
+        [
+          "Foreign Function and Memory API",
+          "Controlled modern JDK baseline; C-shaped native library",
+          "JDK-version policy and newer ecosystem tooling"
+        ],
+        [
+          "JNA/JNR",
+          "Lower-volume calls and faster wrapper development",
+          "Dynamic mapping overhead and less compile-time checking"
+        ],
+        [
+          "Process/service",
+          "Strong failure, heap, and rollout isolation",
+          "Serialization and operations"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Errors and Async",
+      "headers": [
+        "Native event",
+        "JVM projection"
+      ],
+      "rows": [
+        [
+          "Domain error",
+          "Return status/result data, then throw a documented Java exception"
+        ],
+        [
+          "Rust panic",
+          "Catch/map to terminal native failure; never unwind into JVM"
+        ],
+        [
+          "Blocking call",
+          "Run on a Java executor or native worker; do not block sensitive JVM threads"
+        ],
+        [
+          "Native completion",
+          "Complete `CompletableFuture` through an attached JVM thread"
+        ],
+        [
+          "Cancellation",
+          "Explicit cancel handle/flag; define whether work stops or result is ignored"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "JVM boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "JNI/system ABI or FFM-to-C ABI only; never expose Rust ABI, `repr(Rust)`, or trait objects."
+        ],
+        [
+          "Allocator",
+          "JVM owns Java objects; Rust frees Rust handles/buffers; FFM arenas do not free arbitrary Rust allocations."
+        ],
+        [
+          "Panic/unwind",
+          "Catch/map Rust panic; Java exceptions remain pending/handled through JVM APIs and never unwind through Rust."
+        ],
+        [
+          "Lifetime",
+          "Local/global JNI refs, array pins, `MemorySegment` scopes, and opaque handles each need explicit duration."
+        ],
+        [
+          "Threading",
+          "`JNIEnv` is thread-affine; attach workers, define callback executor/reentrancy, and respect GC-sensitive regions."
+        ],
+        [
+          "Target",
+          "Test JDK range, JNI/FFM adapter, OS, architecture, libc, and JVM distribution constraints."
+        ],
+        [
+          "Packaging",
+          "Ship/select/extract native libraries securely; include dependencies, symbols, signing, and classloader behavior."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 176,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "JVM prior art",
+        "Rust interop mapping"
+      ],
+      "rows": [
+        [
+          "JNI native method",
+          "Runtime adapter over a C-shaped Rust operation"
+        ],
+        [
+          "Direct `ByteBuffer`",
+          "Explicit off-heap view with lifetime and position/limit semantics"
+        ],
+        [
+          "`AutoCloseable`",
+          "Managed owner of an opaque Rust handle"
+        ],
+        [
+          "`CompletableFuture`",
+          "Completion projected from native work on a JVM-safe path"
+        ],
+        [
+          "JAR classifier",
+          "Per-target native artifact selection"
+        ],
+        [
+          "Java interface",
+          "Java projection over functions/handles, not a Rust trait-object vtable"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 204,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Broad JDK compatibility",
+          "JNI with a narrow wrapper"
+        ],
+        [
+          "Controlled JDK 22+ estate and C-shaped API",
+          "FFM API"
+        ],
+        [
+          "Long-lived native state",
+          "`AutoCloseable` wrapper around opaque handle"
+        ],
+        [
+          "Large call-scoped bytes",
+          "Direct buffer/segment with explicit lifetime, or copy"
+        ],
+        [
+          "Native worker callback",
+          "Attach thread, use global refs, marshal to chosen executor"
+        ],
+        [
+          "Easy rollback and crash isolation",
+          "Separate process/service"
+        ],
+        [
+          "Portable distribution",
+          "Platform artifacts plus clean JVM load tests"
+        ]
+      ]
+    }
+  ]
+}

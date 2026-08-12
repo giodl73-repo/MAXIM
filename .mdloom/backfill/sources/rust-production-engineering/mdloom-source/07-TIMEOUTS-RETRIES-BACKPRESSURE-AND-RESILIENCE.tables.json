@@ -1,0 +1,194 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\07-TIMEOUTS-RETRIES-BACKPRESSURE-AND-RESILIENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Deadlines Before Timeouts",
+      "headers": [
+        "Concept",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Deadline",
+          "absolute end of caller value"
+        ],
+        [
+          "Timeout",
+          "maximum duration for one local wait/attempt"
+        ],
+        [
+          "Budget",
+          "remaining time and attempts available"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 85,
+      "heading_context": "## Retry Preconditions",
+      "headers": [
+        "Idempotency element",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "Key scope",
+          "one caller and one named operation"
+        ],
+        [
+          "Request binding",
+          "reuse with a different payload is rejected"
+        ],
+        [
+          "Effect",
+          "concurrent duplicates produce one semantic mutation"
+        ],
+        [
+          "Result",
+          "completed outcome can be returned consistently"
+        ],
+        [
+          "Retention",
+          "key/result lives at least through the retry and replay horizon"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 166,
+      "heading_context": "## Backpressure and Load Shedding",
+      "headers": [
+        "Mechanism",
+        "Protects",
+        "Caller experience"
+      ],
+      "rows": [
+        [
+          "Bounded queue",
+          "memory and wait time",
+          "wait or rejection"
+        ],
+        [
+          "Semaphore",
+          "scarce in-flight resource",
+          "wait with deadline or rejection"
+        ],
+        [
+          "Rate limit",
+          "service/dependency throughput",
+          "explicit throttling"
+        ],
+        [
+          "Load shedding",
+          "whole service under overload",
+          "fast failure"
+        ],
+        [
+          "Priority isolation",
+          "critical traffic",
+          "lower classes delayed/rejected"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 185,
+      "heading_context": "## Breakers, Bulkheads, and Hedging",
+      "headers": [
+        "Pattern",
+        "Use when",
+        "Avoid when"
+      ],
+      "rows": [
+        [
+          "Breaker",
+          "failures are correlated and attempts are expensive",
+          "natural deadlines and shedding already suffice"
+        ],
+        [
+          "Bulkhead",
+          "workloads have distinct failure/capacity domains",
+          "fragmentation would waste scarce capacity"
+        ],
+        [
+          "Hedge",
+          "read-like operation has rare long tails and spare capacity",
+          "writes, overload, or expensive requests"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 193,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "retry policy, middleware, semaphore, rate limiter, idempotency store"
+        ],
+        [
+          "Runtime",
+          "timeout timer, cancellation, task selection, sleep"
+        ],
+        [
+          "Platform",
+          "proxy timeouts, queue redelivery, autoscaling, load balancer retries"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 217,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "End-to-end deadline",
+          "caller value expires after a known time"
+        ],
+        [
+          "Per-attempt timeout",
+          "one dependency wait needs a sub-budget"
+        ],
+        [
+          "Retry",
+          "transient failure and duplicate safety are established"
+        ],
+        [
+          "Exponential backoff + jitter",
+          "many clients could synchronize retries"
+        ],
+        [
+          "Bounded queue",
+          "short buffering improves throughput without violating value"
+        ],
+        [
+          "Immediate rejection",
+          "waiting would exceed budget or deepen overload"
+        ],
+        [
+          "Bulkhead",
+          "failure/capacity domains require isolation"
+        ],
+        [
+          "Circuit breaker",
+          "repeated attempts are predictably futile and costly"
+        ],
+        [
+          "Hedging",
+          "idempotent read tails dominate and spare capacity is proven"
+        ]
+      ]
+    }
+  ]
+}

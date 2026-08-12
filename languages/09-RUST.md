@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/09-RUST.md
 canonical_path: languages/09-RUST.md
-backsource_ids: [proof-backfill:languages:09-rust, git-history:languages:09-rust]
+backsource_ids: [mdloom-backfill:languages:09-rust, git-history:languages:09-rust]
 concepts: [rust]
 root_concepts: [rust]
 index_roles: [guide, root-concept]
@@ -614,6 +614,28 @@ The key mental shift: in C#, exception propagation is invisible. In Rust, `?` ma
 | Generic `List<T>` works at runtime | Generics monomorphize — larger binary | Trade-off: performance vs size |
 | `async Task<T>` runs on ThreadPool | `async fn` returns a Future — must be driven by a runtime | Choose tokio/async-std |
 | `try/catch` exceptions | `Result<T,E>` + `?` operator | Different mental model but explicit |
+
+---
+
+## Deep Rust Reference
+
+This guide is the compact language card. Eight dedicated MAXIM modules carry
+the full treatment:
+
+| Need | Continue with |
+|------|---------------|
+| Learn and use the complete stable language surface | [`rust-language/`](../rust-language/00-OVERVIEW.md) |
+| Understand rustc, Cargo, std, toolchain, artifacts, and compiler internals | [`rust-architecture/`](../rust-architecture/00-OVERVIEW.md) |
+| Select and govern crates, features, workspaces, registries, and support profiles | [`rust-crate-ecosystem/`](../rust-crate-ecosystem/00-OVERVIEW.md) |
+| Choose an application shape and its authority, testing, and rollback contracts | [`rust-application-blueprints/`](../rust-application-blueprints/00-OVERVIEW.md) |
+| Operate Rust services and tools through delivery, incidents, and release gates | [`rust-production-engineering/`](../rust-production-engineering/00-OVERVIEW.md) |
+| Introduce Rust across native, managed, scripting, data, and service boundaries | [`rust-interop-migration/`](../rust-interop-migration/00-OVERVIEW.md) |
+| Build a bounded security assurance case beyond the safe-Rust slogan | [`rust-security-assurance/`](../rust-security-assurance/00-OVERVIEW.md) |
+| Measure and optimize runtime, build time, artifacts, capacity, and cost | [`rust-performance/`](../rust-performance/00-OVERVIEW.md) |
+
+Start with language or architecture for mechanism. Move into crate governance,
+blueprints, and production engineering for adoption. Apply interop, security,
+and performance as cross-cutting evidence disciplines.
 
 ---
 

@@ -1,0 +1,402 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Monomorphization: Static Dispatch by Stamping",
+      "headers": [
+        "Strategy",
+        "Runtime shape",
+        "Trade-off"
+      ],
+      "rows": [
+        [
+          "Rust monomorphization",
+          "Specialized native code per used type",
+          "Fast/static, but bloat and compile cost"
+        ],
+        [
+          "C++ templates",
+          "Similar per-type instantiation",
+          "Strong old-world analogue"
+        ],
+        [
+          ".NET generics",
+          "JIT specializes value types, shares many reference-type cases",
+          "Less AOT bloat, runtime/JIT involved"
+        ],
+        [
+          "Java erasure",
+          "Mostly one erased body plus casts/bridges",
+          "Smaller code, less specialization"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 129,
+      "heading_context": "## Mono Item Collection",
+      "headers": [
+        "Mono item",
+        "Why it is collected"
+      ],
+      "rows": [
+        [
+          "Function `Instance`",
+          "A reachable call needs machine code"
+        ],
+        [
+          "Static",
+          "Addressable data must be emitted or referenced"
+        ],
+        [
+          "Drop glue",
+          "Destructors and recursive field drops need callable code"
+        ],
+        [
+          "Vtable",
+          "A `dyn Trait` value needs method/drop/layout entries"
+        ],
+        [
+          "Shim",
+          "ABI adaptation, closures, fn pointers, and trait dispatch support"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 150,
+      "heading_context": "## Polymorphization: Removed Optimization",
+      "headers": [
+        "Question",
+        "Current answer"
+      ],
+      "rows": [
+        [
+          "Does rustc currently share generic instances through polymorphization?",
+          "No"
+        ],
+        [
+          "Should architecture or size estimates assume it?",
+          "No; reason from ordinary monomorphization"
+        ],
+        [
+          "Can identical native code still be folded?",
+          "A backend or linker may perform identical-code folding, but that is separate, target-dependent machinery"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 195,
+      "heading_context": "## Codegen Units",
+      "headers": [
+        "Setting",
+        "Effect",
+        "When to use"
+      ],
+      "rows": [
+        [
+          "`-C codegen-units=N`",
+          "Stable rustc flag controlling partition count",
+          "Direct rustc or `cargo rustc` experiments"
+        ],
+        [
+          "Cargo profile `codegen-units`",
+          "Profile-level setting in `Cargo.toml`",
+          "Normal project tuning"
+        ],
+        [
+          "Higher N",
+          "More parallel backend work, often faster compile",
+          "Debug/dev, large crates"
+        ],
+        [
+          "`codegen-units=1`",
+          "More whole-crate optimization opportunity, slower builds",
+          "Release/perf-sensitive binaries"
+        ],
+        [
+          "LTO",
+          "Lets backend optimize across CGU/crate boundaries",
+          "See [12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md) and [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md)"
+        ],
+        [
+          "Incremental",
+          "CGUs become reusable work products",
+          "See [14](14-INCREMENTAL-COMPILATION-FINGERPRINTS-AND-CACHES.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 232,
+      "heading_context": "## Dynamic Dispatch and Vtables",
+      "headers": [
+        "Choice",
+        "Dispatch",
+        "Strength",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "`fn f<T: Trait>(x: T)`",
+          "Static, monomorphized",
+          "Inlining and concrete layout",
+          "Code bloat per type"
+        ],
+        [
+          "`fn f(x: &dyn Trait)`",
+          "Dynamic via vtable",
+          "Smaller code, heterogeneous values",
+          "Indirect call, object-safety limits"
+        ],
+        [
+          "`Box<dyn Trait>`",
+          "Dynamic plus heap ownership",
+          "Type-erased ownership",
+          "Allocation and vtable call"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 250,
+      "heading_context": "## Symbols, Mangling, and Concrete Trace",
+      "headers": [
+        "Task",
+        "Command"
+      ],
+      "rows": [
+        [
+          "Build optimized artifact",
+          "`cargo build --release`"
+        ],
+        [
+          "Force one CGU for a release experiment",
+          "`cargo rustc --release -- -C codegen-units=1`"
+        ],
+        [
+          "Request v0 mangling",
+          "`cargo rustc --release -- -C symbol-mangling-version=v0`"
+        ],
+        [
+          "Emit object files",
+          "`cargo rustc --release -- --emit=obj`"
+        ],
+        [
+          "Inspect symbols",
+          "`llvm-nm -C target\\release\\deps\\*.obj` or `dumpbin /symbols ...` on MSVC"
+        ],
+        [
+          "Demangle outside the toolchain",
+          "`rustfilt` from the ecosystem"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 281,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust analogue",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "C++ templates",
+          "Monomorphized Rust generics",
+          "Closest match: per-type code, bloat, compile-time cost"
+        ],
+        [
+          ".NET generics",
+          "Rust generics",
+          "Rust is AOT and usually specializes all concrete instances; no CLR/JIT sharing model"
+        ],
+        [
+          "Java erasure",
+          "`dyn Trait` in spirit, not mechanics",
+          "Rust dynamic dispatch is explicit and uses trait objects, not erased generic bodies"
+        ],
+        [
+          "C++ vtable in object header",
+          "Rust `dyn Trait` fat pointer metadata",
+          "The pointer carries the vtable; the object need not contain a vptr header"
+        ],
+        [
+          "COM vtable/interface pointer",
+          "Rust trait object call table",
+          "Similar indirect-call intuition; Rust adds ownership/drop/layout constraints"
+        ],
+        [
+          "RyuJIT backend work",
+          "rustc CGUs into LLVM/backend jobs",
+          "Partitioning happens before backend optimization and interacts with incremental/LTO"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 297,
+      "heading_context": "## Stability Boundary",
+      "headers": [
+        "Stable contract",
+        "Internal / version-sensitive"
+      ],
+      "rows": [
+        [
+          "Generic semantics and trait bounds",
+          "Mono item collector algorithms"
+        ],
+        [
+          "Trait object semantics and dyn-compatibility rules",
+          "Vtable byte layout and entry order"
+        ],
+        [
+          "`-C codegen-units` stable flag",
+          "CGU partitioning heuristics"
+        ],
+        [
+          "`-C symbol-mangling-version` stable flag",
+          "Exact symbol hashes/spelling as program interface"
+        ],
+        [
+          "Observable drop behavior",
+          "Drop glue generation details"
+        ],
+        [
+          "Backend selection flags where stabilized",
+          "LLVM/Cranelift/GCC internal optimization choices"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 314,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Need maximum runtime speed for generic code?",
+          "Prefer static dispatch; profile code size",
+          "language + rustc"
+        ],
+        [
+          "Need heterogeneous values behind one interface?",
+          "Use `dyn Trait` if the trait is dyn-compatible",
+          "language Reference"
+        ],
+        [
+          "Binary too large from generics?",
+          "Inspect monomorphization pressure; consider `dyn`, factoring, LTO, profile settings",
+          "rustc/Cargo/backends"
+        ],
+        [
+          "Release perf more important than build time?",
+          "Try `codegen-units=1` and LTO, then measure",
+          "Cargo/rustc/backends"
+        ],
+        [
+          "Need faster dev builds?",
+          "Higher CGUs and incremental are usually appropriate",
+          "Cargo/rustc"
+        ],
+        [
+          "Need symbol inspection?",
+          "Use `cargo rustc -- --emit=obj`, `llvm-nm`, `dumpbin`, `rustfilt`",
+          "rustc/ecosystem tools"
+        ],
+        [
+          "Need a stable vtable ABI?",
+          "Rust does not provide one for trait objects",
+          "language/rustc boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 328,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"Rust generics are like Java generics.\"",
+          "Rust usually monomorphizes; Java mostly erases."
+        ],
+        [
+          "\"`dyn Trait` is slower Rust generics.\"",
+          "It is a different representation and dispatch model, chosen explicitly."
+        ],
+        [
+          "\"A vtable layout description is an ABI guarantee.\"",
+          "No. Layout is rustc-internal and can change."
+        ],
+        [
+          "\"More codegen units always make builds better.\"",
+          "More CGUs can reduce optimization quality; measure per profile."
+        ],
+        [
+          "\"Polymorphization removes generic bloat.\"",
+          "Rustc removed that optimization; inspect actual mono items and backend/linker output instead."
+        ],
+        [
+          "\"Cargo decides monomorphization.\"",
+          "Cargo schedules crates and passes flags; rustc collects and emits mono items."
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 341,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: \"Monomorphization\" and \"Collector\"",
+          "Mono items, instances, reachability"
+        ],
+        [
+          "rustc-dev-guide: \"Codegen units\" and partitioning notes",
+          "CGU work products and heuristics"
+        ],
+        [
+          "rustc-dev-guide: \"Symbol mangling\"",
+          "Legacy and v0 mangling implementation"
+        ],
+        [
+          "rustc-dev-guide: dyn/vtable codegen material",
+          "Trait object lowering and glue"
+        ],
+        [
+          "The Rust Reference: generics",
+          "Stable generic semantics"
+        ],
+        [
+          "The Rust Reference: trait objects and dyn compatibility",
+          "Stable trait object rules"
+        ],
+        [
+          "rustc book: codegen options",
+          "`-C codegen-units`, `-C symbol-mangling-version`, backend flags"
+        ],
+        [
+          "Cargo Book: profiles",
+          "Profile-level `codegen-units`, LTO, incremental settings"
+        ]
+      ]
+    }
+  ]
+}

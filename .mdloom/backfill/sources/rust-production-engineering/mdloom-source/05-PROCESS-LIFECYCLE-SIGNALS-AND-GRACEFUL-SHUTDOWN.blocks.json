@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\05-PROCESS-LIFECYCLE-SIGNALS-AND-GRACEFUL-SHUTDOWN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         PROCESS LIFECYCLE                                  |\n|                                                                            |\n|  created --> initialize --> ready --> serving                              |\n|                  |            |          |                                 |\n|                  | fail       | unready  | stop request                    |\n|                  v            v          v                                 |\n|              exit nonzero   isolate    draining                            |\n|                                         |                                  |\n|                              stop admission                                |\n|                              cancel optional work                          |\n|                              finish/abort in-flight work                   |\n|                              flush bounded evidence                        |\n|                                         | deadline                         |\n|                                         v                                  |\n|                                      stopped                               |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 99,
+      "heading_context": "# Cargo.toml",
+      "confidence": "candidate",
+      "text": "#[cfg(unix)]\nfn main() -> Result<(), Box<dyn std::error::Error>> {\n    use signal_hook::{\n        consts::{SIGINT, SIGTERM},\n        iterator::Signals,\n    };\n    use std::{\n        sync::{\n            atomic::{AtomicBool, Ordering},\n            mpsc::{self, RecvTimeoutError},\n            Arc,\n        },\n        thread,\n        time::{Duration, Instant},\n    };\n\n    let stopping = Arc::new(AtomicBool::new(false));\n    let worker_stop = Arc::clone(&stopping);\n    let (done_tx, done_rx) = mpsc::sync_channel(1);\n    let worker = thread::spawn(move || {\n        while !worker_stop.load(Ordering::Acquire) {\n            thread::sleep(Duration::from_millis(100));\n        }\n        // Finish only bounded, invariant-preserving work here.\n        let _ = done_tx.send(());\n    });\n\n    let mut signals = Signals::new([SIGINT, SIGTERM])?;\n    let signal = signals.forever().next().expect(\"signal iterator ended\");\n    eprintln!(\"shutdown requested by signal {signal}\");\n    let deadline = Instant::now() + Duration::from_secs(10);\n    stopping.store(true, Ordering::Release);\n\n    let remaining = deadline.saturating_duration_since(Instant::now());\n    match done_rx.recv_timeout(remaining) {\n        Ok(()) => worker.join().map_err(|_| \"worker panicked\")?,\n        Err(RecvTimeoutError::Timeout) => {\n            // Dropping the handle detaches the worker; returning from `main`\n            // lets the supervisor observe failure and enforce termination.\n            drop(worker);\n            return Err(\"shutdown deadline exceeded\".into());\n        }\n        Err(RecvTimeoutError::Disconnected) => {\n            worker.join().map_err(|_| \"worker panicked\")?;\n            return Err(\"worker exited without completion signal\".into());\n        }\n    }\n    Ok(())\n}\n\n#[cfg(not(unix))]\nfn main() {\n    eprintln!(\"This example is scoped to Unix SIGINT/SIGTERM.\");\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

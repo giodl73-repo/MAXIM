@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\02-C-ABI-WIRE-PROTOCOLS-WIT-COMPONENTS-AND-PROCESS-BOUNDARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    INTEROP BOUNDARY DECISION STACK                         |\n+============================================================================+\n|  MOST ISOLATED / MOST DURABLE                                              |\n|                                                                            |\n|  1. PROCESS / SERVICE                                                      |\n|     HTTP/gRPC/messages; crash, heap, runtime, deploy isolation             |\n|             |                                                              |\n|             v                                                              |\n|  2. WASM COMPONENT + WIT                                                   |\n|     typed interface, canonical ABI, sandbox/capability host                |\n|             |                                                              |\n|             v                                                              |\n|  3. C ABI + OPAQUE TYPES                                                   |\n|     specified calling convention, low overhead, broad language reach       |\n|             |                                                              |\n|             v                                                              |\n|  4. HOST-SPECIFIC BRIDGE                                                   |\n|     pyo3/napi/JNI/PInvoke/cxx/COM; best ergonomics, host coupling          |\n|             |                                                              |\n|             v                                                              |\n|  5. RUST ABI / TRAIT OBJECT                                                |\n|     compiler-private; BUILD-LOCAL ONLY, NOT A FOREIGN CONTRACT             |\n|  LOWEST CALL OVERHEAD / LEAST DURABLE                                      |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 116,
+      "heading_context": "## WIT and the WebAssembly Component Model",
+      "confidence": "candidate",
+      "text": "package maxim:parser@1.0.0;\n\ninterface parse {\n  record result-summary {\n    records: u32,\n    warnings: u32,\n  }\n  parse: func(input: list<u8>) -> result<result-summary, string>;\n}\n\nworld parser {\n  export parse;\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

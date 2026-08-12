@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\07-PARSING-DESERIALIZATION-INPUT-VALIDATION-AND-PROTOCOL-ABUSE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         HOSTILE INPUT PIPELINE                             |\n+============================================================================+\n| bytes -> framing -> syntax -> typed value -> semantic rules -> authz       |\n|   |        |          |          |              |             |            |\n| limits   length/EOF  grammar   duplicate/     ranges, IDs,   subject,       |\n| first    compression  depth    canonical form  relationships  tenant, state |\n+----------------------------------------------------------------------------+\n| only after every stage: side effect / storage / privileged operation       |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 122,
+      "heading_context": "## Canonicalization and Differential Interpretation",
+      "confidence": "candidate",
+      "text": "client bytes\n   +--> signature verifier sees canonical object A\n   +--> router/parser sees object B\n   +--> authorization cache keys object C",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

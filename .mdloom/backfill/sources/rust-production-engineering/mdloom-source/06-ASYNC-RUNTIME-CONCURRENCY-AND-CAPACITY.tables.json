@@ -1,0 +1,175 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\06-ASYNC-RUNTIME-CONCURRENCY-AND-CAPACITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 49,
+      "heading_context": "## Choose the Execution Model from the Work",
+      "headers": [
+        "Workload",
+        "Strong default",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Small CLI or batch",
+          "synchronous",
+          "minimal lifecycle and dependency surface"
+        ],
+        [
+          "CPU-bound parallel stages",
+          "fixed worker pool or Rayon",
+          "explicit CPU parallelism"
+        ],
+        [
+          "Many mostly-waiting sockets",
+          "async runtime",
+          "cheap suspended tasks and I/O integration"
+        ],
+        [
+          "Blocking legacy/native API",
+          "dedicated bounded thread pool",
+          "isolate blocking from async workers"
+        ],
+        [
+          "Mixed service",
+          "async I/O plus bounded CPU/blocking pools",
+          "separate capacity domains"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 75,
+      "heading_context": "## Capacity Model",
+      "headers": [
+        "Capacity boundary",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Admission semaphore",
+          "active permits, rejected/waiting work"
+        ],
+        [
+          "Queue",
+          "depth, oldest age, enqueue rejection"
+        ],
+        [
+          "Worker pool",
+          "busy workers, queue wait, execution time"
+        ],
+        [
+          "Connection pool",
+          "checked-out, waiters, acquisition timeout"
+        ],
+        [
+          "Memory",
+          "per-request estimate, allocator/process working set"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 127,
+      "heading_context": "## Async Runtime Selection",
+      "headers": [
+        "Criterion",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Protocol ecosystem",
+          "Do required clients/servers assume a runtime?"
+        ],
+        [
+          "I/O model",
+          "Which OS targets and drivers are supported?"
+        ],
+        [
+          "Scheduling",
+          "Work stealing, current-thread mode, fairness controls?"
+        ],
+        [
+          "Time and cancellation",
+          "Are timer and shutdown semantics sufficient?"
+        ],
+        [
+          "Blocking integration",
+          "Is there a bounded blocking path?"
+        ],
+        [
+          "Operations",
+          "Runtime metrics, task dumps, tracing integration?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 164,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "bounded channels, semaphores, Rayon, client/server abstractions"
+        ],
+        [
+          "Runtime",
+          "Tokio/async-std/smol/Embassy/custom executor, timers, I/O driver"
+        ],
+        [
+          "Platform",
+          "CPU/memory limits, process count, file descriptors, autoscaling"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 188,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Synchronous code",
+          "concurrency is small or waiting is not dominant"
+        ],
+        [
+          "Fixed OS-thread pool",
+          "blocking or CPU work has a clear bounded parallelism"
+        ],
+        [
+          "Rayon",
+          "data-parallel CPU work fits fork/join semantics"
+        ],
+        [
+          "Async runtime",
+          "many concurrent operations spend most time waiting"
+        ],
+        [
+          "Current-thread executor",
+          "deterministic ownership or constrained environment matters"
+        ],
+        [
+          "Semaphore",
+          "one scarce resource needs an in-flight cap"
+        ],
+        [
+          "Bounded queue",
+          "buffering is useful but memory and wait must be capped"
+        ],
+        [
+          "Immediate shedding",
+          "queued work would exceed caller value or system budget"
+        ]
+      ]
+    }
+  ]
+}

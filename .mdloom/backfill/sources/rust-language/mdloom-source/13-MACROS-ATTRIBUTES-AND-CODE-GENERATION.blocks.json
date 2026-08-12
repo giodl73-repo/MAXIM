@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\13-MACROS-ATTRIBUTES-AND-CODE-GENERATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# Macros, Attributes, and Code Generation",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                       MACRO / CODEGEN LANDSCAPE                               |\n+===============================================================================+\n\n  DECLARATIVE (macro_rules!)              PROCEDURAL (host proc-macro crate)\n  --------------------------              -----------------------------------\n  pattern -> template, mixed hygiene      fn(TokenStream) -> TokenStream\n  vec![], println!, matches!              three kinds:\n  match on FRAGMENTS:                        #[derive(Serialize)]  derive macro\n    $x:expr $t:ty $i:ident $p:pat            #[route(GET, \"/\")]    attribute macro\n    $s:stmt $b:block $l:literal              sql!( ... )           function-like proc macro\n  repetition: $( ... )*  $( ... ),+       lives in a `proc-macro = true` crate\n                                          uses syn + quote to parse/generate\n\n  ATTRIBUTES (metadata on items)          TRUST BOUNDARY\n  ------------------------------          --------------\n  #[derive(Debug, Clone)]  auto-impl      proc macros + build.rs run ARBITRARY code\n  #[cfg(test)]             conditional     on YOUR machine at BUILD time.\n  #[inline]  #[repr(C)]   codegen hints    Auditing dependencies matters:\n  #[allow(dead_code)]     lint control     a malicious macro can do anything cargo can.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Declarative Macros: `macro_rules!`",
+      "confidence": "candidate",
+      "text": "macro_rules! my_vec {\n    () => { Vec::new() };\n    ($($x:expr),+ $(,)?) => {{        // one-or-more exprs, optional trailing comma\n        let mut v = Vec::new();\n        $( v.push($x); )+             // repeat the push for each matched $x\n        v\n    }};\n}\nlet v = my_vec![1, 2, 3];            // expands to the push sequence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

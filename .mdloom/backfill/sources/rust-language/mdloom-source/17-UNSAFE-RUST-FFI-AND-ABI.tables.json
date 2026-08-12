@@ -1,0 +1,117 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\17-UNSAFE-RUST-FFI-AND-ABI.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 196,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C pointers everywhere",
+          "raw `*const`/`*mut`",
+          "Creation/carrying can be safe; access and reference creation require `unsafe`"
+        ],
+        [
+          "C++ `reinterpret_cast` / manual lifetimes",
+          "`unsafe` blocks",
+          "Bounded; must uphold documented invariants"
+        ],
+        [
+          "`extern \"C\"` in C++",
+          "`extern \"C\"` in Rust",
+          "Same ABI concept"
+        ],
+        [
+          "`struct` layout (implementation-defined)",
+          "`#[repr(C)]` for FFI",
+          "Default Rust layout is unspecified"
+        ],
+        [
+          "P/Invoke / `DllImport` (.NET)",
+          "`extern` block + FFI",
+          "Same \"call native code\" role"
+        ],
+        [
+          "COM / marshaling",
+          "manual FFI + `cxx`/`bindgen`",
+          "You control marshaling"
+        ],
+        [
+          "`char*` ownership conventions",
+          "`CString`/`CStr` + explicit free",
+          "Ownership is a manual contract"
+        ],
+        [
+          "SEH / exceptions across boundary",
+          "`catch_unwind` or explicit `\"C-unwind\"`",
+          "Non-unwind C exports abort if a Rust panic escapes"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 229,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Call a C library function",
+          "`unsafe extern \"C\"` block + `unsafe` call"
+        ],
+        [
+          "Expose Rust to C",
+          "`#[unsafe(no_mangle)] pub extern \"C\" fn`"
+        ],
+        [
+          "Pass a struct across FFI",
+          "mirrored FFI-safe fields + `#[repr(C)]`"
+        ],
+        [
+          "Newtype with inner ABI",
+          "`#[repr(transparent)]`"
+        ],
+        [
+          "Pass strings to/from C",
+          "`CString` / `CStr`"
+        ],
+        [
+          "Hand heap ownership to C",
+          "`Box::into_raw` (and provide a free fn)"
+        ],
+        [
+          "Prevent a Rust-side drop",
+          "`mem::forget` / `ManuallyDrop`"
+        ],
+        [
+          "Contain panics at a non-unwind boundary",
+          "`catch_unwind` in unwind builds; translate to an error"
+        ],
+        [
+          "Deliberately support cross-language unwind",
+          "`\"C-unwind\"` plus matching platform/toolchain contract"
+        ],
+        [
+          "Interop with C++",
+          "`cxx` crate (safe) / `bindgen` / `cbindgen`"
+        ],
+        [
+          "Assert `Send`/`Sync` manually",
+          "`unsafe impl` (rare; you own the proof)"
+        ],
+        [
+          "Check unsafe code for UB",
+          "`cargo +nightly miri`"
+        ]
+      ]
+    }
+  ]
+}

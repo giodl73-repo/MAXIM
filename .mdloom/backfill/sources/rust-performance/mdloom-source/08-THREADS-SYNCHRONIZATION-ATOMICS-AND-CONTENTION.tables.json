@@ -1,0 +1,190 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Start with Decomposition",
+      "headers": [
+        "Pattern",
+        "Strength",
+        "Failure mode"
+      ],
+      "rows": [
+        [
+          "Data parallel (`rayon`)",
+          "Easy partitioning and work stealing",
+          "Tiny tasks, shared mutation, skew"
+        ],
+        [
+          "Dedicated worker threads",
+          "Stable ownership and affinity",
+          "Idle threads, manual lifecycle"
+        ],
+        [
+          "Message passing",
+          "Clear ownership transfer",
+          "Queueing, copies, backpressure"
+        ],
+        [
+          "Shared lock-protected state",
+          "Simple central invariant",
+          "Contention and convoying"
+        ],
+        [
+          "Atomics",
+          "Low-level counters/state machines",
+          "Cache-line ping-pong, ordering bugs"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 91,
+      "heading_context": "## Channels and Ownership Transfer",
+      "headers": [
+        "Choice",
+        "Benefit",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "Bounded channel",
+          "Backpressure and bounded memory",
+          "Producers block/fail when full"
+        ],
+        [
+          "Unbounded channel",
+          "Simple burst absorption",
+          "Memory growth and hidden queue latency"
+        ],
+        [
+          "Per-worker queue",
+          "Locality and less central contention",
+          "Work imbalance"
+        ],
+        [
+          "Work stealing",
+          "Dynamic balance",
+          "Steal overhead and less deterministic locality"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 106,
+      "heading_context": "## Atomics and Memory Ordering",
+      "headers": [
+        "Ordering",
+        "Broad intent",
+        "Caution"
+      ],
+      "rows": [
+        [
+          "`Relaxed`",
+          "Atomicity only; counters where ordering is irrelevant",
+          "Does not publish other memory"
+        ],
+        [
+          "`Acquire`",
+          "Observe writes released before a synchronization event",
+          "Usually paired with release operation"
+        ],
+        [
+          "`Release`",
+          "Publish prior writes before an event",
+          "Does not constrain later reads like seq-cst"
+        ],
+        [
+          "`AcqRel`",
+          "Read-modify-write with both roles",
+          "Protocol still needs proof"
+        ],
+        [
+          "`SeqCst`",
+          "Single global order among seq-cst operations",
+          "Stronger/easier to reason about, sometimes costlier"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 196,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "`lock`/Monitor, `Mutex`, SRWLock",
+          "`std::sync::Mutex` / `RwLock` or ecosystem alternatives"
+        ],
+        [
+          "TPL/PLINQ",
+          "Rayon data parallelism"
+        ],
+        [
+          "`Interlocked`",
+          "`std::sync::atomic`"
+        ],
+        [
+          "ConcurrentQueue / channels",
+          "`std::sync::mpsc` and ecosystem bounded channels"
+        ],
+        [
+          "ETW contention/context switches",
+          "Same OS-level analysis for Rust native threads"
+        ],
+        [
+          "ThreadPool starvation",
+          "Oversubscribed executor/pool and blocking work"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 221,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Symptom",
+        "First response"
+      ],
+      "rows": [
+        [
+          "Scaling flattens with cores",
+          "Measure serial fraction, imbalance, and shared-state contention"
+        ],
+        [
+          "Lock dominates profile",
+          "Shorten/shard/remove critical section before swapping mutex implementation"
+        ],
+        [
+          "Queue memory grows",
+          "Bound the channel and define overload behavior"
+        ],
+        [
+          "Atomics dominate CPU",
+          "Shard/batch updates and inspect false sharing"
+        ],
+        [
+          "Tail spikes under load",
+          "Capture waits/context switches; look for convoys"
+        ],
+        [
+          "Many thread pools",
+          "Consolidate or size explicitly to quota"
+        ],
+        [
+          "Lock-free algorithm planned",
+          "Prove ordering/invariants with Loom/modeling, then benchmark"
+        ],
+        [
+          "Need simple CPU parallelism",
+          "Start with Rayon and immutable partitions"
+        ]
+      ]
+    }
+  ]
+}

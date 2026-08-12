@@ -1,0 +1,216 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\15-SUPPORTED-PROFILES-RENEWAL-AND-REMOVAL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Profile Layers",
+      "headers": [
+        "Layer",
+        "Must name"
+      ],
+      "rows": [
+        [
+          "Identity",
+          "Package name, source, version requirement, exact locked version"
+        ],
+        [
+          "Capabilities",
+          "Default and explicit features"
+        ],
+        [
+          "Compatibility",
+          "Resolver, Rust/Cargo floor, editions where relevant, targets"
+        ],
+        [
+          "Execution",
+          "Build scripts, proc macros, generators, native/system inputs"
+        ],
+        [
+          "Policy",
+          "License, source, advisory, audit criteria, exceptions"
+        ],
+        [
+          "Ownership",
+          "Internal owner, upstream relationship, escalation"
+        ],
+        [
+          "Lifecycle",
+          "Renewal cadence, rollback, replacement/removal trigger"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 101,
+      "heading_context": "## Renewal",
+      "headers": [
+        "Cadence driver",
+        "Example posture"
+      ],
+      "rows": [
+        [
+          "Security-critical parser/crypto/network edge",
+          "Continuous advisories plus quarterly full renewal"
+        ],
+        [
+          "Stable leaf utility",
+          "Semiannual or annual renewal"
+        ],
+        [
+          "Fast-moving framework/runtime",
+          "Monthly/quarterly update planning"
+        ],
+        [
+          "Internal fork",
+          "Frequent upstream-diff and custody review"
+        ],
+        [
+          "Deprecated/temporary patch",
+          "Short expiry with explicit removal issue"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 132,
+      "heading_context": "## Rollback",
+      "headers": [
+        "Rollback layer",
+        "Artifact"
+      ],
+      "rows": [
+        [
+          "Manifest",
+          "Version requirements/features/patches"
+        ],
+        [
+          "Resolution",
+          "`Cargo.lock`"
+        ],
+        [
+          "Source",
+          "Registry mirror/vendor/git revision"
+        ],
+        [
+          "Toolchain",
+          "Rust/Cargo and target/native tool versions"
+        ],
+        [
+          "Product",
+          "Data/schema/protocol compatibility"
+        ],
+        [
+          "Deployment",
+          "Previous releasable artifact and configuration"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 195,
+      "heading_context": "## Removal Triggers",
+      "headers": [
+        "Trigger",
+        "Response"
+      ],
+      "rows": [
+        [
+          "Unacceptable vulnerability",
+          "Update, constrain, patch, fork, or remove under incident timing"
+        ],
+        [
+          "License/source policy change",
+          "Hold new releases and establish compliant path"
+        ],
+        [
+          "Upstream abandonment",
+          "Assess stability, fork readiness, alternatives"
+        ],
+        [
+          "MSRV/target regression",
+          "Constrain version or replace"
+        ],
+        [
+          "Excess graph/build cost",
+          "Feature reduction, adapter boundary, replacement"
+        ],
+        [
+          "Duplicated capability",
+          "Consolidate after migration analysis"
+        ],
+        [
+          "Product feature retirement",
+          "Delete capability and dependency"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 228,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar lifecycle practice",
+        "Cargo ecosystem form"
+      ],
+      "rows": [
+        [
+          "Supported configuration matrix",
+          "Version/feature/MSRV/target/source profile"
+        ],
+        [
+          "Vendor renewal",
+          "Upstream and dependency profile renewal"
+        ],
+        [
+          "Patch Tuesday/service train",
+          "Bounded Cargo update cadence"
+        ],
+        [
+          "Known-good rollback package",
+          "Manifest, lock, source, toolchain, artifact set"
+        ],
+        [
+          "Product/component retirement",
+          "Remove graph edge, policy, notices, artifacts"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 253,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Lifecycle question",
+        "Action"
+      ],
+      "rows": [
+        [
+          "What exactly do we support?",
+          "Create one record per version/feature/target/source profile"
+        ],
+        [
+          "When do we reconsider?",
+          "Set risk-based renewal date and continuous event triggers"
+        ],
+        [
+          "How do we update safely?",
+          "Bounded batch, graph diff, full profile gates, observation"
+        ],
+        [
+          "How do we recover?",
+          "Rehearse manifest/lock/source/toolchain/artifact rollback"
+        ],
+        [
+          "When upstream fails?",
+          "Constrain, patch, fork, replace, or remove with named owner"
+        ],
+        [
+          "How do we prove removal?",
+          "Reverse-tree and metadata checks across every supported profile"
+        ]
+      ]
+    }
+  ]
+}

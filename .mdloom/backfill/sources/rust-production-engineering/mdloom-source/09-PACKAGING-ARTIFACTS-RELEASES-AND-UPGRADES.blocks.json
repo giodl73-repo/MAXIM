@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\09-PACKAGING-ARTIFACTS-RELEASES-AND-UPGRADES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                          RELEASE SUPPLY CHAIN                              |\n|                                                                            |\n| source + lockfile + toolchain + build policy                               |\n|                  |                                                         |\n|                  v                                                         |\n|          compile/link/package --> verify --> sign/attest --> publish       |\n|                  |                                      |                  |\n|                  v                                      v                  |\n|     binary + symbols + licenses + SBOM             immutable identity      |\n|                  |                                      |                  |\n|                  +-------------- promote ---------------+                  |\n|                                         |                                  |\n|                               upgrade / rollback / reconcile               |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 137,
+      "heading_context": "## Version and Compatibility Surfaces",
+      "confidence": "candidate",
+      "text": "artifact version\n  +--> command/config schema\n  +--> network protocol/API\n  +--> persisted data/schema\n  +--> message/event schema\n  +--> platform requirements",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

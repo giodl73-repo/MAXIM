@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\07-PARSING-DESERIALIZATION-INPUT-VALIDATION-AND-PROTOCOL-ABUSE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## Bound Before You Parse",
+      "headers": [
+        "Expansion",
+        "Required bound"
+      ],
+      "rows": [
+        [
+          "Compressed -> plain bytes",
+          "maximum output and compression ratio/work"
+        ],
+        [
+          "Frame -> collection",
+          "item count and per-item size"
+        ],
+        [
+          "Recursive syntax",
+          "nesting depth or iterative parser budget"
+        ],
+        [
+          "Name -> lookup",
+          "lookup count, latency, and result size"
+        ],
+        [
+          "Regex/query",
+          "pattern complexity, timeout, or restricted grammar"
+        ],
+        [
+          "Batch request",
+          "operations, fan-out, and transaction duration"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 105,
+      "heading_context": "## Serde-Specific Review",
+      "headers": [
+        "Concern",
+        "Review"
+      ],
+      "rows": [
+        [
+          "Unknown fields",
+          "Reject for strict control messages or accept for forward compatibility by explicit policy"
+        ],
+        [
+          "Duplicate map keys",
+          "Know the format/deserializer behavior; reject ambiguity where security-relevant"
+        ],
+        [
+          "Untagged enums",
+          "Consider ambiguity and trial-parse cost; prefer explicit discriminants for protocols"
+        ],
+        [
+          "Defaults",
+          "Ensure omitted fields cannot silently gain privilege or disable limits"
+        ],
+        [
+          "Flattening",
+          "Review name collisions and ownership of fields"
+        ],
+        [
+          "Custom deserializer",
+          "Treat as parser code; fuzz and bound allocations/recursion"
+        ],
+        [
+          "Borrowed data",
+          "Ensure lifetime does not outlive the validated backing buffer"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 136,
+      "heading_context": "## Protocol State and Replay",
+      "headers": [
+        "Property",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Ordering",
+          "Can message 3 arrive before message 2?"
+        ],
+        [
+          "Replay",
+          "Is freshness bound to nonce, time, sequence, or channel?"
+        ],
+        [
+          "Idempotency",
+          "Can retry duplicate a privileged effect?"
+        ],
+        [
+          "Downgrade",
+          "Can a peer select weaker version/algorithm/capability?"
+        ],
+        [
+          "Confused deputy",
+          "Is the caller's authority bound to the selected target?"
+        ],
+        [
+          "Error oracle",
+          "Do failures reveal secret-dependent or account-existence information?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 151,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust expression"
+      ],
+      "rows": [
+        [
+          "DTO then domain validation",
+          "deserialize into wire struct, convert via `TryFrom` to validated type"
+        ],
+        [
+          "Parser combinators / compiler front end",
+          "staged framing, syntax, semantic analysis, then execution"
+        ],
+        [
+          "ASP.NET model binding",
+          "Serde extraction; neither substitutes for authorization"
+        ],
+        [
+          "XML entity/decompression bomb limits",
+          "explicit byte/output/depth/work budgets"
+        ],
+        [
+          "Canonical request signing",
+          "one representation shared by verifier, router, and cache"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 180,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Network/file input",
+          "Bound encoded bytes before buffering"
+        ],
+        [
+          "Compressed/archive input",
+          "Bound expanded bytes, entries, depth, and work"
+        ],
+        [
+          "Serde API request",
+          "Deserialize to untrusted wire type, then validated domain type"
+        ],
+        [
+          "Signed or cached representation",
+          "Define and reuse one canonical form"
+        ],
+        [
+          "Privileged operation",
+          "Bind subject, tenant, object, action, and current state after parsing"
+        ],
+        [
+          "Multiple parsers/components",
+          "Differential-test a shared adversarial corpus"
+        ],
+        [
+          "Recursive/ambiguous format",
+          "Add explicit depth/trial/work budgets and fuzz it"
+        ]
+      ]
+    }
+  ]
+}

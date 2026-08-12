@@ -1,0 +1,153 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\08-CARGO-AUDIT-CARGO-DENY-CARGO-VET-ADVISORIES-AND-SUPPLY-CHAIN-CONTROLS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## `cargo-audit`: Known Advisory Matching",
+      "headers": [
+        "It can report",
+        "It cannot establish"
+      ],
+      "rows": [
+        [
+          "Matching RustSec vulnerabilities",
+          "Absence of unknown vulnerabilities"
+        ],
+        [
+          "Informational categories supported by the tool/database",
+          "Exploitability in your exact product without analysis"
+        ],
+        [
+          "Dependency path to a finding",
+          "Runtime reachability by itself"
+        ],
+        [
+          "Patched/unaffected ranges published in advisory",
+          "Correctness of the upstream advisory"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 156,
+      "heading_context": "## Controls Beyond Cargo Plugins",
+      "headers": [
+        "Control",
+        "Threat/question addressed",
+        "Boundary"
+      ],
+      "rows": [
+        [
+          "Locked graph",
+          "What exact packages were selected?",
+          "Does not assess code"
+        ],
+        [
+          "Registry checksum",
+          "Did archive bytes match metadata?",
+          "Does not prove author or safety"
+        ],
+        [
+          "Protected branches/review",
+          "Who may change manifests/locks/policy?",
+          "Depends on identity and repository controls"
+        ],
+        [
+          "Least-privilege publish tokens",
+          "Who may publish?",
+          "Registry and credential implementation matter"
+        ],
+        [
+          "Provenance/attestation",
+          "How was an artifact built?",
+          "Trust depends on builder and verification"
+        ],
+        [
+          "SBOM",
+          "What was included?",
+          "Inventory may omit runtime/system components"
+        ],
+        [
+          "Sandboxed builds",
+          "What can host-executed code access?",
+          "Platform-specific and rarely absolute"
+        ],
+        [
+          "Incident playbook",
+          "How will findings be triaged and removed?",
+          "Requires rehearsed ownership"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 215,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar control",
+        "Rust ecosystem form"
+      ],
+      "rows": [
+        [
+          "CVE/SCA scan",
+          "RustSec plus `cargo-audit`/advisory checks"
+        ],
+        [
+          "License/source policy",
+          "`cargo-deny`"
+        ],
+        [
+          "Third-party source review",
+          "`cargo-vet` audits and criteria"
+        ],
+        [
+          "Approved package feed",
+          "Registry/source policy plus ingest controls"
+        ],
+        [
+          "Component exception register",
+          "Advisory/license/audit exemption with owner and expiry"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 242,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Primary control",
+        "Required companion"
+      ],
+      "rows": [
+        [
+          "Does our lock match a known RustSec advisory?",
+          "`cargo-audit`",
+          "Product reachability/response analysis"
+        ],
+        [
+          "Are sources/licenses/duplicates within policy?",
+          "`cargo-deny`",
+          "Reviewed, versioned configuration"
+        ],
+        [
+          "Has code review evidence met our trust criteria?",
+          "`cargo-vet`",
+          "Defined criteria and trusted audit sources"
+        ],
+        [
+          "Can we prove exact shipped inventory?",
+          "Lockfile/SBOM",
+          "Native/runtime artifact inventory"
+        ],
+        [
+          "Can we survive a compromised or abandoned crate?",
+          "Source control, fork/remove playbook",
+          "[10](10-MAINTENANCE-STEWARDSHIP-BUS-FACTOR-AND-FORKS.md) and [15](15-SUPPORTED-PROFILES-RENEWAL-AND-REMOVAL.md)"
+        ]
+      ]
+    }
+  ]
+}

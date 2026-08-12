@@ -1,0 +1,135 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\14-ASYNC-FUTURES-AND-PINNING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 116,
+      "heading_context": "## Executors: You Must Choose One",
+      "headers": [
+        "Runtime",
+        "Character"
+      ],
+      "rows": [
+        [
+          "**tokio**",
+          "de-facto standard; multi-threaded work-stealing scheduler, full I/O/timers/sync"
+        ],
+        [
+          "**async-std**",
+          "std-like API (less active now)"
+        ],
+        [
+          "**smol**",
+          "small, composable"
+        ],
+        [
+          "**embassy**",
+          "`no_std` / embedded async"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 183,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust async",
+        "Difference"
+      ],
+      "rows": [
+        [
+          ".NET `Task<T>` / `async`/`await`",
+          "`Future` / `async`/`await`",
+          "Rust futures are **lazy**; `Task` is hot (already running)"
+        ],
+        [
+          ".NET task scheduling",
+          "`tokio::spawn`",
+          "Schedules on the chosen executor; not one OS thread per task"
+        ],
+        [
+          "`CancellationToken`",
+          "drop an owned future / `select!` / task-handle abort",
+          "Branch drop and spawned-task cancellation are distinct"
+        ],
+        [
+          "`await` yields to scheduler",
+          "`.await` yields to executor",
+          "Cooperative; a CPU loop blocks the worker"
+        ],
+        [
+          "JS event loop / Promises",
+          "executor + reactor",
+          "Promises are eager; Rust futures are lazy"
+        ],
+        [
+          "`ConfigureAwait(false)` nuances",
+          "`Send` bounds on futures",
+          "Different mechanism, same \"which thread?\" concern"
+        ],
+        [
+          "green threads (Go goroutines)",
+          "async tasks",
+          "Rust async is stackless state machines, not stackful"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 220,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Run async code from `main`",
+          "`#[tokio::main] async fn main()`"
+        ],
+        [
+          "Run two futures concurrently",
+          "`tokio::join!` (both) / `select!` (first)"
+        ],
+        [
+          "Fan out many tasks",
+          "`tokio::spawn` per task (needs `Send + 'static`)"
+        ],
+        [
+          "CPU-bound work in async context",
+          "`spawn_blocking` or a thread"
+        ],
+        [
+          "Time-limit an operation",
+          "`tokio::time::timeout` (drops on expiry)"
+        ],
+        [
+          "Lock shared state across `.await`",
+          "`tokio::sync::Mutex` (async-aware)"
+        ],
+        [
+          "Lock only within sync sections",
+          "`std::sync::Mutex` (never across `.await`)"
+        ],
+        [
+          "Async trait method whose future must be `Send`",
+          "return `impl Future + Send` or use `trait-variant`"
+        ],
+        [
+          "Cancel a spawned Tokio task",
+          "retain its `JoinHandle` and call `.abort()`"
+        ],
+        [
+          "Store/poll a future manually",
+          "`Box::pin` / `pin!`"
+        ],
+        [
+          "Learn threads first",
+          "[15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md)"
+        ]
+      ]
+    }
+  ]
+}

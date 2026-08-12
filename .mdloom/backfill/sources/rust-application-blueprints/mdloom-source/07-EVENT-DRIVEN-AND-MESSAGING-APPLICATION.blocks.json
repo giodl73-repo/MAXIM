@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\07-EVENT-DRIVEN-AND-MESSAGING-APPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| command/request -> authoritative application -> state change               |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| transaction: domain state + outbox event intent                            |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| publisher -> broker/log -> consumer inbox -> handler                       |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                  projection             downstream command/effect\n                       |                      |\n                       +-----------+----------+\n                                   v\n                   observable state + replay/recovery evidence",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Ordering, Projections, and Coordination",
+      "confidence": "candidate",
+      "text": "event stream ---> projection A (search)\n             +--> projection B (reporting)\n             `--> process manager ---> command to another authority",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

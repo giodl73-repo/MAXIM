@@ -1,0 +1,244 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## Measure Distinct Build Scenarios",
+      "headers": [
+        "Scenario",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Clean check",
+          "How fast can a fresh contributor get diagnostics?"
+        ],
+        [
+          "Clean build",
+          "What is full codegen/link cost?"
+        ],
+        [
+          "Warm no-op",
+          "Is Cargo freshness cheap and correct?"
+        ],
+        [
+          "Leaf edit",
+          "How fast is a common local change?"
+        ],
+        [
+          "Core crate edit",
+          "How wide is invalidation?"
+        ],
+        [
+          "Feature/target change",
+          "How much cache duplication occurs?"
+        ],
+        [
+          "Release build",
+          "What is the delivery critical path with LTO/PGO policy?"
+        ],
+        [
+          "Test run",
+          "Is compilation or test execution dominant?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 103,
+      "heading_context": "## Workspace and Crate Boundaries",
+      "headers": [
+        "More crates can help",
+        "More crates can hurt"
+      ],
+      "rows": [
+        [
+          "Parallel compilation",
+          "Per-crate metadata and scheduling overhead"
+        ],
+        [
+          "Narrow invalidation",
+          "More link inputs and dependency management"
+        ],
+        [
+          "Stable API boundaries",
+          "Cross-crate optimization may need LTO/inlining"
+        ],
+        [
+          "Team ownership",
+          "Deep serial dependency chains"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 119,
+      "heading_context": "## Incremental Compilation",
+      "headers": [
+        "Layer",
+        "Reuse decision"
+      ],
+      "rows": [
+        [
+          "Cargo",
+          "Has this package unit's inputs/configuration changed?"
+        ],
+        [
+          "rustc incremental",
+          "Which compiler queries/codegen units can be reused inside a rebuilt crate?"
+        ],
+        [
+          "Compiler cache",
+          "Can a matching compilation output be restored from local/remote storage?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 163,
+      "heading_context": "## Generics, Macros, and Codegen",
+      "headers": [
+        "Cause",
+        "Mitigation to evaluate"
+      ],
+      "rows": [
+        [
+          "Many generic instantiations",
+          "Move heavy logic behind a non-generic internal core"
+        ],
+        [
+          "Large derive/proc-macro output",
+          "Reduce generated surface; inspect expanded code carefully"
+        ],
+        [
+          "Deep trait solving",
+          "Simplify bounds/types at hot compile sites"
+        ],
+        [
+          "Large debug info",
+          "Tune dev debug level if debugging requirements allow"
+        ],
+        [
+          "Many codegen units",
+          "Balance parallel codegen and downstream optimization"
+        ],
+        [
+          "Slow link",
+          "Faster compatible linker, dynamic dev linking where appropriate, fewer artifacts"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 183,
+      "heading_context": "## CI Cache Layers",
+      "headers": [
+        "Cache",
+        "Usually worth it",
+        "Key inputs"
+      ],
+      "rows": [
+        [
+          "Cargo registry/git downloads",
+          "Yes",
+          "lockfile/source config"
+        ],
+        [
+          "`sccache` compiler outputs",
+          "Often",
+          "compiler, target, flags, source, environment"
+        ],
+        [
+          "Entire `target` directory",
+          "Sometimes",
+          "OS, toolchain, target, profile, features, flags, paths"
+        ],
+        [
+          "Test data/tool downloads",
+          "Often",
+          "version/checksum"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 223,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "MSBuild project graph / critical path",
+          "Cargo unit graph and `--timings`"
+        ],
+        [
+          "Roslyn incremental compilation",
+          "rustc query/work-product incremental reuse"
+        ],
+        [
+          "ccache / remote build cache",
+          "`sccache`"
+        ],
+        [
+          "NuGet package cache",
+          "Cargo registry/git download cache"
+        ],
+        [
+          "Solution decomposition",
+          "Workspace/crate boundaries"
+        ],
+        [
+          "VSTS/Azure Pipelines cache task",
+          "Cache Cargo downloads and compiler outputs with complete keys"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 249,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Observation",
+        "First action"
+      ],
+      "rows": [
+        [
+          "Slow diagnostics loop",
+          "Measure `cargo check`; inspect long gating crates"
+        ],
+        [
+          "Slow leaf edit",
+          "Script the edit; inspect invalidation and crate boundaries"
+        ],
+        [
+          "Low CPU utilization",
+          "Examine dependency critical path/build scripts"
+        ],
+        [
+          "Proc macro/build script dominates",
+          "Narrow rerun inputs and generated surface"
+        ],
+        [
+          "Final link dominates",
+          "Evaluate compatible linker and artifact/profile policy"
+        ],
+        [
+          "Ephemeral CI is slow",
+          "Cache downloads, test `sccache`, compare incremental off"
+        ],
+        [
+          "Huge cache, low benefit",
+          "Tighten keys or remove `target` caching"
+        ],
+        [
+          "Need rustc internal attribution",
+          "Pinned nightly self-profile after stable timings"
+        ]
+      ]
+    }
+  ]
+}

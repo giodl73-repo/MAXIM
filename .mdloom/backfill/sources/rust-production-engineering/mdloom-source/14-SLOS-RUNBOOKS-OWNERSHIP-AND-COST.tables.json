@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\14-SLOS-RUNBOOKS-OWNERSHIP-AND-COST.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## SLI and SLO Design",
+      "headers": [
+        "Element",
+        "Example"
+      ],
+      "rows": [
+        [
+          "Event",
+          "an eligible order submission"
+        ],
+        [
+          "Good event",
+          "accepted durably within 750 ms"
+        ],
+        [
+          "SLI",
+          "good eligible events / all eligible events"
+        ],
+        [
+          "SLO",
+          "99.9% over rolling 28 days"
+        ],
+        [
+          "Exclusions",
+          "explicitly enumerated invalid requests"
+        ],
+        [
+          "Error budget",
+          "0.1% bad eligible events"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Runbooks",
+      "headers": [
+        "Runbook section",
+        "Required content"
+      ],
+      "rows": [
+        [
+          "Trigger",
+          "alert and symptom this handles"
+        ],
+        [
+          "User impact",
+          "what is failing and for whom"
+        ],
+        [
+          "Safety",
+          "actions that can lose data or widen impact"
+        ],
+        [
+          "First checks",
+          "bounded queries/commands and expected results"
+        ],
+        [
+          "Mitigations",
+          "reversible steps, permissions, verification"
+        ],
+        [
+          "Escalation",
+          "owner, dependency contact, decision thresholds"
+        ],
+        [
+          "Recovery",
+          "health confirmation and state reconciliation"
+        ],
+        [
+          "Follow-up",
+          "temporary changes and evidence to preserve"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 142,
+      "heading_context": "## Cost as a Reliability Dimension",
+      "headers": [
+        "Cost driver",
+        "Useful denominator"
+      ],
+      "rows": [
+        [
+          "CPU/memory",
+          "per successful request or job"
+        ],
+        [
+          "Database",
+          "per durable operation or tenant"
+        ],
+        [
+          "Telemetry",
+          "per million requests and per retained day"
+        ],
+        [
+          "Network",
+          "per useful byte/workflow"
+        ],
+        [
+          "On-call toil",
+          "interventions per service/month"
+        ],
+        [
+          "Idle capacity",
+          "resilience margin by failure domain"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 161,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "SLI instrumentation and cost attribution fields"
+        ],
+        [
+          "Runtime",
+          "runtime metrics that explain saturation, not the objective itself"
+        ],
+        [
+          "Platform",
+          "SLO evaluator, paging, runbook system, cost allocation"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 183,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Availability SLI",
+          "success/failure of eligible work is primary"
+        ],
+        [
+          "Latency SLI",
+          "delayed success loses user value"
+        ],
+        [
+          "Freshness SLI",
+          "data age matters more than request latency"
+        ],
+        [
+          "Error budget",
+          "reliability and release pace need one policy variable"
+        ],
+        [
+          "Page",
+          "prompt human action can materially reduce user harm"
+        ],
+        [
+          "Ticket",
+          "issue is actionable but not urgent"
+        ],
+        [
+          "Runbook",
+          "response requires repeatable diagnosis/mitigation"
+        ],
+        [
+          "Unit cost",
+          "architecture or scaling decision needs economic comparison"
+        ]
+      ]
+    }
+  ]
+}

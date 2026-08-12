@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\15-STRANGLER-ROLLOUT-ROLLBACK-AND-EXIT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                   STRANGLER CONTROL AND EVIDENCE LOOP                      |\n+============================================================================+\n|  BASELINE -> RECORD/REPLAY -> SHADOW -> CANARY -> PROGRESSIVE -> DEFAULT   |\n|                                    |                                       |\n|                                    v                                       |\n|  EVIDENCE                                                                  |\n|  correctness diff | latency/resources | errors | crashes | data | support  |\n|                                    |                                       |\n|  GATE RESULT: pass -> advance traffic; fail -> rollback/reroute            |\n|                                                    |                       |\n|                                                    v                       |\n|                                             diagnose and repair            |\n|                                                                            |\n|  EXIT: 100% stable + rollback drill + no old callers + compatible state    |\n|        + support ready + bridge deletion PR + retained recovery evidence   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## Compare Semantics, Not Bytes",
+      "confidence": "candidate",
+      "text": "  old output ---- normalize ----+\n                                +--> semantic comparator --> divergence class\n  Rust output --- normalize ----+\n\n  classes:\n    equivalent\n    allowed improvement/change\n    legacy defect intentionally preserved for compatibility\n    Rust defect\n    test/input ambiguity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\11-CI-CD-AND-PROMOTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                           DELIVERY PIPELINE                                |\n|                                                                            |\n| change --> review --> clean build --> test/analyze --> package/attest      |\n|                                      |                                     |\n|                                      v                                     |\n|                              immutable artifact                            |\n|                                      |                                     |\n|                +---------------------+---------------------+               |\n|                v                     v                     v               |\n|             test env             staging/canary          production        |\n|          verify contract      compare live signals     expand exposure     |\n|                |                     |                     |               |\n|                +-------- evidence + approval policy ------+                |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## Pipeline Trust Boundaries",
+      "confidence": "candidate",
+      "text": "untrusted change\n   |\n   +--> build/test with read-only source and no production secrets\n   |\ntrusted protected revision/tag\n   |\n   +--> sign/publish using short-lived scoped identity\n   |\ndeployment controller\n   |\n   +--> verify policy, then change environment reference to digest",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 154,
+      "heading_context": "## Promotion and Progressive Exposure",
+      "confidence": "candidate",
+      "text": "0% exposed --> internal/smoke --> 1% --> 10% --> 50% --> 100%\n                  |                |      |       |\n                  +---- hold/compare/rollback or roll-forward ----+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

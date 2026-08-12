@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\15-SUPPORTED-PROFILES-RENEWAL-AND-REMOVAL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        DEPENDENCY SUPPORT LIFECYCLE                       |\n+===========================================================================+\n| evaluate -> approve profile -> integrate -> observe -> renew              |\n| profile: versions + features + source + MSRV + targets + owners           |\n| renewal: continue / constrain / replace / remove                          |\n| incident: rollback / patch / fork / replace / remove                      |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 89,
+      "heading_context": "## Renewal",
+      "confidence": "candidate",
+      "text": "renewal input\n  +-> current lock/manifest/profile diff\n  +-> upstream releases/governance/security\n  +-> target/MSRV/feature matrix\n  +-> graph/license/source/audit results\n  +-> product usage and exit cost\n        |\n        v\ncontinue / update / constrain / replace / remove",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## Removal",
+      "confidence": "candidate",
+      "text": "inventory use sites\n      |\n      v\nintroduce/confirm internal boundary\n      |\n      +-> replace implementation\n      +-> internalize small behavior\n      +-> delete unused capability\n      |\n      v\nremove features/manifest edge\n      |\n      v\nupdate lock/policy/notices/SBOM/docs\n      |\n      v\nprove no package/source/build artifact remains",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

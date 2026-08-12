@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\11-ERRORS-RESULT-OPTION-AND-PANIC.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Errors — Result, Option, and Panic",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                        THE FAILURE MODEL                                      |\n+===============================================================================+\n\n  RECOVERABLE (values)                    UNRECOVERABLE (panic)\n  --------------------                    ---------------------\n  Option<T>  = Some(T) | None             panic!(\"msg\")   unwrap()   expect()\n    \"absence, no reason needed\"           assert!  slice[out_of_bounds]  checked overflow\n  Result<T,E> = Ok(T) | Err(E)                 |\n    \"failure, with a reason E\"                 v  (default) UNWIND the stack, run Drop\n                                             or ABORT (panic=abort in profile)\n  PROPAGATE with ?                              |\n  ----------------                         a panic is a BUG signal, not error handling\n  let x = may_fail()?;   // Ok -> unwrap   catch: std::panic::catch_unwind (unwind mode;\n                         // Err -> return          test/containment boundary only)\n\n  ? CONVERTS the error via From\n  -----------------------------\n  fn f() -> Result<T, MyErr> {\n     let a = io_op()?;   // io::Error --From--> MyErr automatically\n  }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 59,
+      "heading_context": "## Option: Absence Without a Reason",
+      "confidence": "candidate",
+      "text": "let map = std::collections::HashMap::from([(\"a\", 1)]);\nmatch map.get(\"a\") {\n    Some(v) => println!(\"{v}\"),\n    None => println!(\"missing\"),\n}\n// combinators avoid the match:\nlet doubled = map.get(\"a\").map(|v| v * 2).unwrap_or(0);   // 2\nlet v = map.get(\"b\").copied().unwrap_or_default();        // 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 78,
+      "heading_context": "## Result: Failure With a Reason",
+      "confidence": "candidate",
+      "text": "use std::fs;\nfn read_config(path: &str) -> Result<String, std::io::Error> {\n    let raw = fs::read_to_string(path)?;   // ? : Ok(v) -> v ; Err(e) -> return Err(e.into())\n    Ok(raw.trim().to_owned())\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## The `?` Operator and `From` Conversion",
+      "confidence": "candidate",
+      "text": "// This:\nlet n: i32 = s.parse()?;\n// desugars to:\nlet n: i32 = match s.parse() {\n    Ok(v)  => v,\n    Err(e) => return Err(e.into()),   // From<ParseIntError> for the fn's error type\n};",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 123,
+      "heading_context": "## Custom Error Types",
+      "confidence": "candidate",
+      "text": "// LIBRARY error with thiserror (derive generates Display + Error + From):\n#[derive(thiserror::Error, Debug)]\npub enum ConfigError {\n    #[error(\"io failure: {0}\")]\n    Io(#[from] std::io::Error),        // From<io::Error> generated -> ? just works\n    #[error(\"bad value: {0}\")]\n    Parse(#[from] std::num::ParseIntError),\n}\n\n// APPLICATION code with anyhow (don't care about the exact type, want context):\nuse anyhow::{Context, Result};\nfn run() -> Result<()> {\n    let raw = std::fs::read_to_string(\"cfg\").context(\"reading cfg\")?;\n    let n: i32 = raw.trim().parse().context(\"parsing cfg as int\")?;\n    Ok(())\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 146,
+      "heading_context": "#[error(\"bad value: {0}\")]",
+      "confidence": "candidate",
+      "text": "On the standard-library-only path, `Box<dyn std::error::Error + Send + Sync>` is",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

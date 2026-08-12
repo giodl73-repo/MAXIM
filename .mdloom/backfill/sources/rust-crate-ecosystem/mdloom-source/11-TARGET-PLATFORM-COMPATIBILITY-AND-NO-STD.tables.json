@@ -1,0 +1,180 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\11-TARGET-PLATFORM-COMPATIBILITY-AND-NO-STD.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## `core`, `alloc`, and `std`",
+      "headers": [
+        "Layer",
+        "Provides",
+        "Assumption"
+      ],
+      "rows": [
+        [
+          "`core`",
+          "Fundamental language/library types and traits",
+          "No allocator or OS"
+        ],
+        [
+          "`alloc`",
+          "`Vec`, `String`, `Box`, and allocation-backed types",
+          "Global allocator supplied by environment"
+        ],
+        [
+          "`std`",
+          "OS-facing facilities, threads, files, networking, process, synchronization",
+          "Supported standard-library target/platform"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 140,
+      "heading_context": "## Support Matrix Example",
+      "headers": [
+        "Profile",
+        "Toolchain",
+        "Features",
+        "Evidence",
+        "Claim"
+      ],
+      "rows": [
+        [
+          "Linux server",
+          "MSRV and stable",
+          "`std,tls-rustls`",
+          "check/test/release build",
+          "Supported"
+        ],
+        [
+          "Windows service",
+          "Stable",
+          "`std,tls-native`",
+          "native CI test",
+          "Supported"
+        ],
+        [
+          "Browser WASM",
+          "Stable",
+          "`alloc,js`",
+          "check plus browser integration",
+          "Supported"
+        ],
+        [
+          "Embedded Cortex-M",
+          "Pinned stable",
+          "no defaults",
+          "check plus hardware test",
+          "Experimental"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 152,
+      "heading_context": "## Portability Traps in Dependencies",
+      "headers": [
+        "Trap",
+        "Detection"
+      ],
+      "rows": [
+        [
+          "Default feature pulls `std`",
+          "`cargo tree -e features` under no-default profile"
+        ],
+        [
+          "Unconditional filesystem/network use",
+          "Source/API review and target check"
+        ],
+        [
+          "Architecture-specific atomics",
+          "Compile matrix and target docs"
+        ],
+        [
+          "Entropy/clock assumptions",
+          "Runtime integration on target"
+        ],
+        [
+          "Native library unavailable",
+          "[12](12-NATIVE-DEPENDENCIES-BUILD-SCRIPTS-AND-SYSTEM-PACKAGES.md) review"
+        ],
+        [
+          "Proc macro works on host but emits target-invalid code",
+          "Cross-target expansion/check"
+        ],
+        [
+          "`usize`/endianness/layout assumption",
+          "Tests on architecture variants and explicit serialization"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 164,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar portability concept",
+        "Rust equivalent"
+      ],
+      "rows": [
+        [
+          "Target framework/platform moniker",
+          "Target triple plus `cfg`"
+        ],
+        [
+          "Base class library subset",
+          "`core` / `alloc` / `std` layers"
+        ],
+        [
+          "Conditional project reference",
+          "Target-specific dependency table"
+        ],
+        [
+          "Cross compiler SDK/sysroot",
+          "Rust target component plus linker/native sysroot"
+        ],
+        [
+          "Portable class library contract",
+          "Feature/target profile tested across consumers"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 190,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Profile"
+      ],
+      "rows": [
+        [
+          "Desktop/server only",
+          "`std` default, explicit OS target matrix"
+        ],
+        [
+          "Library usable in embedded and server",
+          "`no_std` core, optional `alloc`, additive `std`"
+        ],
+        [
+          "Browser WASM",
+          "Dedicated feature/dependency profile plus browser execution test"
+        ],
+        [
+          "Cross-compiled native product",
+          "Target check, linker/sysroot configuration, target runtime test"
+        ],
+        [
+          "Claim a target as supported",
+          "Named toolchain/features plus compile, link, execute evidence"
+        ],
+        [
+          "Unsupported optional target",
+          "Label experimental; do not let docs imply parity"
+        ]
+      ]
+    }
+  ]
+}

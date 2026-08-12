@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\09-FILES-NETWORKING-BUFFERING-AND-IO.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                            I/O DATA PATH                                    |\n|                                                                             |\n| application objects                                                         |\n|      | encode/copy                                                          |\n|      v                                                                      |\n| user buffer -> syscall/API -> kernel buffer/cache -> device/network         |\n|      ^                |                |                    |               |\n|      |                |                |                    v               |\n| decode/copy <----------+ completion/wake/interrupt <----- peer/storage      |\n|                                                                             |\n| cost: calls + bytes copied + queueing + latency + durability + backpressure |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 101,
+      "heading_context": "## Filesystem Cache, Directness, and Durability",
+      "confidence": "candidate",
+      "text": "write() success\n   |\n   +-> bytes accepted by OS cache\n   |\n   +-> NOT necessarily durable on storage\n          |\n          +-> flush user buffer\n          +-> sync file data/metadata as required\n          +-> account for filesystem/device guarantees",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

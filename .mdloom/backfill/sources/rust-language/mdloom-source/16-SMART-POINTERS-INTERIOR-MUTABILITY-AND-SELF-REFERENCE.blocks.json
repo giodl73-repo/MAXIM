@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\16-SMART-POINTERS-INTERIOR-MUTABILITY-AND-SELF-REFERENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Smart Pointers, Interior Mutability, and Self-Reference",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|            WHICH RULE ARE YOU RELAXING? (compile-time -> run-time)            |\n+===============================================================================+\n\n  OWNERSHIP POINTERS                       INTERIOR MUTABILITY (mutate via &T)\n  ------------------                       -----------------------------------\n  Box<T>   single owner, on heap           Cell<T>    move values in/out (Copy-friendly)\n    (recursive types, trait objects)          get/set/replace, NO references handed out\n  Rc<T>    shared owner, 1 thread           RefCell<T> hands out &/&mut, borrow rules\n    ref-counted; drop when count=0             CHECKED AT RUNTIME (panics on violation)\n  Arc<T>   atomic shared owner; cross-thread UnsafeCell<T> opts out of &T's normal\n    only when T satisfies Send/Sync (15)       immutability rule (unsafe primitive)\n  Weak<T>  non-owning ref (breaks cycles)\n\n  COMBINE FOR REAL PATTERNS                 COW\n  ------------------------                  ---\n  Rc<RefCell<T>>   shared + mutable, 1 thr  Cow<'a, B>  borrow until you must mutate,\n  Arc<Mutex<T>>    shared + mutable, N thr    then clone-on-write (Borrowed | Owned)\n  Rc<T> + Weak<T>  parent<->child, no leak",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Old World -> New World Bridge",
+      "confidence": "candidate",
+      "text": "For a C++ reader the mapping is nearly one-to-one (`Box`/`Arc`/`Weak` =",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

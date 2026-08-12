@@ -1,0 +1,197 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\15-OPERATIONAL-READINESS-AND-RELEASE-GATES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 49,
+      "heading_context": "## Gate Categories",
+      "headers": [
+        "Category",
+        "Minimum question"
+      ],
+      "rows": [
+        [
+          "Product/service",
+          "What user work is protected and what degradation is acceptable?"
+        ],
+        [
+          "Architecture",
+          "Where are state, trust, capacity, and failure boundaries?"
+        ],
+        [
+          "Configuration/identity",
+          "Can startup validate inputs and rotate credentials safely?"
+        ],
+        [
+          "Reliability",
+          "Are deadlines, admission, retries, and failure isolation bounded?"
+        ],
+        [
+          "Observability",
+          "Can impact, saturation, release, and causality be identified?"
+        ],
+        [
+          "Data/recovery",
+          "Are invariants, migration, backup, restore, and reconciliation proven?"
+        ],
+        [
+          "Delivery/supply chain",
+          "Is the artifact immutable, traceable, verified, and promotable?"
+        ],
+        [
+          "Platform/lifecycle",
+          "Do start, health, drain, resource, and termination contracts align?"
+        ],
+        [
+          "Operations",
+          "Are SLO, alerts, runbooks, ownership, access, and escalation ready?"
+        ],
+        [
+          "Security/privacy",
+          "Are threats, dependencies, secrets, data handling, and incident paths reviewed?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 122,
+      "heading_context": "## Evidence Quality",
+      "headers": [
+        "Weak claim",
+        "Strong evidence"
+      ],
+      "rows": [
+        [
+          "\"Graceful shutdown implemented\"",
+          "test sends platform stop, verifies readiness drop, drain, and deadline"
+        ],
+        [
+          "\"Retries are safe\"",
+          "idempotency/transaction proof plus bounded-attempt test"
+        ],
+        [
+          "\"Backups enabled\"",
+          "dated restore drill with achieved RPO/RTO"
+        ],
+        [
+          "\"Dashboards exist\"",
+          "reader tasks answered from current panels"
+        ],
+        [
+          "\"Rollback supported\"",
+          "compatibility matrix and exercised rollback or roll-forward"
+        ],
+        [
+          "\"On-call ready\"",
+          "paging test, access check, runbook game day"
+        ],
+        [
+          "\"Secure supply chain\"",
+          "verified provenance/signature and dependency policy result"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 138,
+      "heading_context": "## Risk-Based Gate Classes",
+      "headers": [
+        "Change",
+        "Additional gates"
+      ],
+      "rows": [
+        [
+          "Stateless logic",
+          "canary signals and rollback"
+        ],
+        [
+          "New dependency",
+          "timeout/capacity/failure/ownership contract"
+        ],
+        [
+          "Schema change",
+          "expand/contract, backfill, restore, rollback window"
+        ],
+        [
+          "New async runtime or major runtime update",
+          "scheduler/blocking/load/shutdown evidence"
+        ],
+        [
+          "New platform",
+          "lifecycle, identity, networking, resource, diagnostic parity"
+        ],
+        [
+          "New sensitive data",
+          "threat/privacy/retention/access review"
+        ],
+        [
+          "Irreversible operation",
+          "dual control, dry run, reconciliation, roll-forward"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 190,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Readiness responsibility"
+      ],
+      "rows": [
+        [
+          "Library",
+          "behavior, API/error semantics, dependency and unsafe boundaries"
+        ],
+        [
+          "Runtime",
+          "scheduling, blocking, timer, cancellation, shutdown evidence"
+        ],
+        [
+          "Platform",
+          "identity, resources, health, rollout, dump/log access, recovery"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 213,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Mandatory automated gate",
+          "evidence is objective, repeatable, and machine-verifiable"
+        ],
+        [
+          "Human review",
+          "tradeoff, data risk, or irreversible transition needs judgment"
+        ],
+        [
+          "Canary hold point",
+          "live behavior must be compared before broad exposure"
+        ],
+        [
+          "Rollback gate",
+          "prior artifact remains state/protocol compatible"
+        ],
+        [
+          "Roll-forward gate",
+          "state transition cannot safely reverse"
+        ],
+        [
+          "Time-bounded exception",
+          "risk is consciously accepted with compensating controls"
+        ],
+        [
+          "Re-review",
+          "runtime, platform, dependency, data, scale, or ownership changed materially"
+        ]
+      ]
+    }
+  ]
+}

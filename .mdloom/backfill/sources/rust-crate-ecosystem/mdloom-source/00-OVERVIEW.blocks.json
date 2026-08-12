@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                        THE CRATE ADOPTION LIFECYCLE                       |\n+===========================================================================+\n| Need and boundary [01]                                                    |\n|   -> discover candidates and alternatives [01]                            |\n|   -> evaluate fit, evidence, and hard gates [02]                          |\n|   -> constrain versions, MSRV, and features [03-04]                       |\n|   -> integrate graph, source, build, license, and API [05-14]             |\n|   -> operate, renew, rollback, replace, or remove [15]                    |\n|                                                                           |\n| Supported profile = version + features + target + source + policy         |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Four Systems, Not One",
+      "confidence": "candidate",
+      "text": "registry/index ----> resolver ----> Cargo.lock ----> build units\n      |                 |               |                |\n availability      compatibility    exact graph      code executes\n      |                 |               |                |\n      +-----------------+---------------+----------------+\n                        governance overlays all four",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Reading Paths",
+      "confidence": "candidate",
+      "text": "PATH A: adopting one third-party crate\n  01 -> 02 -> 03 -> 04 -> 08 -> 09 -> 10 -> 15\n\nPATH B: designing a large Rust workspace\n  05 -> 14 -> 04 -> 06 -> 15\n\nPATH C: regulated or high-assurance delivery\n  02 -> 06 -> 07 -> 08 -> 09 -> 10 -> 15\n\nPATH D: embedded, WASM, mobile, or cross-platform\n  11 -> 04 -> 12 -> 13 -> 03 -> 15\n\nPATH E: dependency incident or upstream abandonment\n  08 -> 10 -> 06 -> 07 -> 15",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

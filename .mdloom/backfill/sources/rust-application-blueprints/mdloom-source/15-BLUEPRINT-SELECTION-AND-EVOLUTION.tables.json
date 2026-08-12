@@ -1,0 +1,346 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\15-BLUEPRINT-SELECTION-AND-EVOLUTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 56,
+      "heading_context": "## Selection Scorecard",
+      "headers": [
+        "Force",
+        "Weight",
+        "CLI",
+        "HTTP",
+        "Worker",
+        "Batch",
+        "Library",
+        "Distributed"
+      ],
+      "rows": [
+        [
+          "Initiator fit",
+          "3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Completion fit",
+          "3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Durable authority",
+          "3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Failure isolation",
+          "2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Independent scaling",
+          "1",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Independent release",
+          "2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Target/platform fit",
+          "2",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Operability capacity",
+          "3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Rollback feasibility",
+          "3",
+          "",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 111,
+      "heading_context": "## Evolution Paths",
+      "headers": [
+        "From",
+        "Pressure",
+        "Evolution",
+        "Preserve"
+      ],
+      "rows": [
+        [
+          "CLI",
+          "reusable engine",
+          "extract library facade",
+          "exit/output compatibility"
+        ],
+        [
+          "HTTP",
+          "work exceeds deadline",
+          "durable job + worker",
+          "request id to job id"
+        ],
+        [
+          "Worker",
+          "many independent facts",
+          "owned events/outbox",
+          "idempotency and message identity"
+        ],
+        [
+          "Batch",
+          "continuous arrivals",
+          "worker/stream pipeline",
+          "checkpoint and reconciliation"
+        ],
+        [
+          "Library",
+          "untrusted/independent code",
+          "process or Wasm plugin",
+          "semantic API and version negotiation"
+        ],
+        [
+          "Monolith",
+          "independent data/team/release",
+          "service extraction",
+          "source authority and compatibility"
+        ],
+        [
+          "Services",
+          "lockstep/no independence",
+          "merge boundary",
+          "external contract and data migration"
+        ],
+        [
+          "Any",
+          "platform constraint",
+          "Wasm/embedded/Windows adapter",
+          "neutral application policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 142,
+      "heading_context": "## Split and Merge Gates",
+      "headers": [
+        "Split signal",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Independent data authority",
+          "mutation ownership and migration plan"
+        ],
+        [
+          "Independent lifecycle",
+          "separate deployment/rollback is required and testable"
+        ],
+        [
+          "Distinct failure/scale profile",
+          "observed saturation or blast-radius need"
+        ],
+        [
+          "Stable contract",
+          "API/event semantics and compatibility owner"
+        ],
+        [
+          "Operational owner",
+          "on-call, dashboards, runbook, capacity plan"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 175,
+      "heading_context": "## Exit Criteria for Any Blueprint Change",
+      "headers": [
+        "Gate",
+        "Minimum evidence"
+      ],
+      "rows": [
+        [
+          "Contract",
+          "fixtures/scenarios for supported old and new forms"
+        ],
+        [
+          "Implementation",
+          "targeted plus workspace tests"
+        ],
+        [
+          "Operations",
+          "health, admission, saturation, and recovery signals"
+        ],
+        [
+          "Security",
+          "caller/capability/data-scope matrix plus revocation evidence"
+        ],
+        [
+          "Migration",
+          "dry run or rehearsal on representative state"
+        ],
+        [
+          "Rollback",
+          "timed exercise before irreversible step"
+        ],
+        [
+          "Retirement",
+          "no supported reader/writer/traffic depends on old path"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 195,
+      "heading_context": "## Ownership, Decision Records, and Time",
+      "headers": [
+        "Field",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Decision and rejected alternatives",
+          "prevents mythology"
+        ],
+        [
+          "Current facts/metrics",
+          "bounds the claim in time"
+        ],
+        [
+          "Authority map",
+          "identifies who may mutate and recover"
+        ],
+        [
+          "Compatibility horizon",
+          "makes old/new overlap explicit"
+        ],
+        [
+          "Exit criteria",
+          "prevents permanent transitional architecture"
+        ],
+        [
+          "Revisit trigger/date",
+          "allows evidence to invalidate the choice"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 228,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Decision"
+      ],
+      "rows": [
+        [
+          "Unsure between one app and services",
+          "start modular in one deployable"
+        ],
+        [
+          "Human invokes finite work",
+          "CLI [02]"
+        ],
+        [
+          "Request needs immediate answer",
+          "HTTP [03]"
+        ],
+        [
+          "Durable delivery owns retry",
+          "worker [04]"
+        ],
+        [
+          "Clock owns finite run",
+          "batch [05]"
+        ],
+        [
+          "Dataset custody/publication dominates",
+          "ETL [06]"
+        ],
+        [
+          "Facts fan out across owners",
+          "event-driven [07]"
+        ],
+        [
+          "Consumer process owns lifecycle",
+          "library [08]"
+        ],
+        [
+          "Independent extension lifecycle",
+          "plugin [09]"
+        ],
+        [
+          "Portable capability host",
+          "Wasm [10]"
+        ],
+        [
+          "Hardware/resource bounds dominate",
+          "embedded [11]"
+        ],
+        [
+          "Windows host rules dominate",
+          "Windows [12]"
+        ],
+        [
+          "Independent data/release authority exists",
+          "distributed [13]"
+        ],
+        [
+          "Repository graphs need governance",
+          "monorepo [14]"
+        ]
+      ]
+    }
+  ]
+}

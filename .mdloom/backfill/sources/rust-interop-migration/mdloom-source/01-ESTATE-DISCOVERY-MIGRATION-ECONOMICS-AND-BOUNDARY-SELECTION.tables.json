@@ -1,0 +1,260 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\01-ESTATE-DISCOVERY-MIGRATION-ECONOMICS-AND-BOUNDARY-SELECTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## Inventory the Estate, Not Just the Repository",
+      "headers": [
+        "Dimension",
+        "Evidence to collect"
+      ],
+      "rows": [
+        [
+          "Callers",
+          "Static references, dynamic loads, RPC clients, scripts, scheduled jobs"
+        ],
+        [
+          "Runtime",
+          "Native, CLR, CPython, Node/V8, JVM, COM apartment, container, WASM host"
+        ],
+        [
+          "Data",
+          "Database tables, files, queues, caches, object stores, in-memory ownership"
+        ],
+        [
+          "Execution",
+          "Threading model, callbacks, async runtime, reentrancy, cancellation"
+        ],
+        [
+          "Target",
+          "OS, architecture, libc/CRT, compiler family, runtime version"
+        ],
+        [
+          "Packaging",
+          "Installer, image, wheel, NuGet/npm/JAR, system package, sidecar"
+        ],
+        [
+          "Operations",
+          "Health checks, dashboards, support owner, rollout mechanism, rollback"
+        ],
+        [
+          "Change",
+          "Release cadence, active feature work, defect rate, compatibility promises"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 113,
+      "heading_context": "## Migration Economics",
+      "headers": [
+        "Candidate trait",
+        "Favor early",
+        "Defer"
+      ],
+      "rows": [
+        [
+          "Inputs/outputs",
+          "Bytes, records, messages, opaque handles",
+          "Shared mutable object graph"
+        ],
+        [
+          "State",
+          "Stateless or explicitly persisted",
+          "Hidden process-global state"
+        ],
+        [
+          "Consumers",
+          "One or few controlled callers",
+          "Broad plugin/customer SDK"
+        ],
+        [
+          "Failure",
+          "Explicit error contract",
+          "Exceptions, callbacks, and partial side effects interleaved"
+        ],
+        [
+          "Performance",
+          "Measurable hotspot with representative corpus",
+          "Anecdotal \"Rust will be faster\""
+        ],
+        [
+          "Deployment",
+          "Independently routable or replaceable artifact",
+          "Monolithic installer with no feature switch"
+        ],
+        [
+          "Compatibility",
+          "Contract tests exist",
+          "Behavior encoded only in production folklore"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 131,
+      "heading_context": "## Boundary Selection Matrix",
+      "headers": [
+        "Pressure",
+        "Prefer"
+      ],
+      "rows": [
+        [
+          "Maximum failure and rollback isolation",
+          "Process/service boundary"
+        ],
+        [
+          "Existing durable protocol or event stream",
+          "Keep protocol; replace one endpoint"
+        ],
+        [
+          "Portable sandboxed plugin/component",
+          "WIT/component model, if host/target support is proven"
+        ],
+        [
+          "Microsecond in-process calls and C-shaped data",
+          "C ABI with opaque handles"
+        ],
+        [
+          "Rich C++ ownership types under one toolchain",
+          "`cxx` behind a narrow bridge"
+        ],
+        [
+          "Managed/scripting ergonomics for controlled host versions",
+          "Host adapter over a C-shaped or message-shaped core"
+        ],
+        [
+          "Windows platform identity is contractual",
+          "C/system ABI core plus COM/WinRT projection"
+        ],
+        [
+          "Shared mutable heap across runtimes",
+          "Redesign the seam; do not start there"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 165,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Discovery question",
+        "Selection rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Which calling conventions, layouts, symbol names, and compiler/runtime versions exist?",
+          "Select an explicit protocol, WIT, or C/system ABI; reject Rust ABI and trait objects as durable contracts."
+        ],
+        [
+          "Allocator",
+          "Which CRT/runtime owns each allocation today?",
+          "Prefer copied values or owner-frees APIs; price matched release exports into the bridge."
+        ],
+        [
+          "Panic/unwind",
+          "Where do exceptions, SEH, longjmp, or panics travel?",
+          "Terminate each failure domain at the seam and translate."
+        ],
+        [
+          "Lifetime",
+          "Which values are retained after calls and by whom?",
+          "Favor bounded borrows and opaque owned handles over shared object graphs."
+        ],
+        [
+          "Threading",
+          "Are callers reentrant, affine, concurrent, or callback-driven?",
+          "Choose a seam whose scheduler and callback rules can be written and tested."
+        ],
+        [
+          "Target",
+          "How many OS/architecture/libc/CRT/runtime combinations ship?",
+          "Multiply bridge cost by the actual matrix, not the developer laptop."
+        ],
+        [
+          "Packaging",
+          "How are artifacts found, updated, signed, and rolled back?",
+          "Select a boundary whose deployment unit can coexist with the old path."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 177,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established practice",
+        "Rust migration use"
+      ],
+      "rows": [
+        [
+          "Domain decomposition",
+          "Find a capability seam, not a file-by-file translation plan"
+        ],
+        [
+          "Make/buy analysis",
+          "Include bridge lifetime, dual operations, and support in migration cost"
+        ],
+        [
+          "Anti-corruption layer",
+          "Keep host types out of the Rust core and Rust types out of the durable foreign contract"
+        ],
+        [
+          "Expand/contract deployment",
+          "Permit old/new implementations and schemas to coexist"
+        ],
+        [
+          "Performance engineering",
+          "Benchmark the whole boundary, including copies and serialization"
+        ],
+        [
+          "VSTS release gates or modern progressive delivery",
+          "Treat rollback evidence as a release criterion, not an incident improvisation"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 203,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Decision"
+      ],
+      "rows": [
+        [
+          "Unclear production callers",
+          "Stop and instrument discovery before selecting a seam"
+        ],
+        [
+          "High-value capability with message-shaped input/output",
+          "Strong first candidate"
+        ],
+        [
+          "Shared mutable heap and cross-runtime callbacks",
+          "Redesign or choose a process boundary"
+        ],
+        [
+          "Many uncontrolled consumers",
+          "Preserve the existing durable protocol/ABI; replace behind it"
+        ],
+        [
+          "Native in-process latency is mandatory",
+          "C ABI facade, explicit ownership, per-target conformance"
+        ],
+        [
+          "Rollback cannot coexist with new data writes",
+          "Fix schema/state reversibility before implementation"
+        ],
+        [
+          "Packaging matrix exceeds test capacity",
+          "Reduce supported targets or choose a service boundary"
+        ]
+      ]
+    }
+  ]
+}

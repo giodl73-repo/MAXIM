@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\14-ASYNC-FUTURES-AND-PINNING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "# Async, Futures, and Pinning",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|          ASYNC STATE MACHINE + TYPICAL TOKIO-STYLE I/O RUNTIME                |\n+===============================================================================+\n\n  async fn f() { a().await; b().await; }   compiles to ~\n  +------------------------------------------------------------------+\n  | enum FState { Start, AwaitingA, AwaitingB, Done }                |\n  | impl Future for FState {                                         |\n  |   fn poll(self, cx) -> Poll<()> {                                |\n  |     match state {                                                |\n  |       Start      => match a().poll(cx) { Pending=>return Pending |\n  |                                           Ready=>state=AwaitingB |\n  |       AwaitingB  => ... Poll::Ready(())                          |\n  |     } } }                                                        |\n  +------------------------------------------------------------------+\n\n  THE LOOP (who drives it)                 Poll RESULT\n  ------------------------                 -----------\n  EXECUTOR (tokio) --poll--> FUTURE        Poll::Ready(v)   done, value v\n     ^                          |          Poll::Pending    not ready; I registered\n     |                          v                           a WAKER, call me later\n     +----- waker.wake() <-- REACTOR (one common readiness source)\n\n  KEY CONTRASTS\n  -------------\n  future is LAZY: nothing runs until .await/spawn drives it (unlike a hot Task)\n  .await is a SUSPENSION POINT: the only place a task yields\n  NO runtime in std: pick tokio / async-std / smol / embassy",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## The `Future` Trait, Poll, and Wakers",
+      "confidence": "candidate",
+      "text": "trait Future {\n    type Output;\n    fn poll(self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output>;\n}\nenum Poll<T> { Ready(T), Pending }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

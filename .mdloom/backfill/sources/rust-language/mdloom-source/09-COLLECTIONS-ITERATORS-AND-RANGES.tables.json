@@ -1,0 +1,235 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\09-COLLECTIONS-ITERATORS-AND-RANGES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 57,
+      "heading_context": "## The Core Collections",
+      "headers": [
+        "Type",
+        "Backing",
+        "Use when",
+        "Ordering"
+      ],
+      "rows": [
+        [
+          "`Vec<T>`",
+          "contiguous heap array",
+          "default list; push/pop at end; index",
+          "insertion"
+        ],
+        [
+          "`VecDeque<T>`",
+          "ring buffer",
+          "push/pop both ends (queue/deque)",
+          "insertion"
+        ],
+        [
+          "`HashMap<K,V>`",
+          "hash table (implementation unspecified)",
+          "key -> value, expected O(1)",
+          "**unspecified**"
+        ],
+        [
+          "`BTreeMap<K,V>`",
+          "B-tree",
+          "sorted keys, range queries",
+          "sorted by key"
+        ],
+        [
+          "`HashSet<T>` / `BTreeSet<T>`",
+          "map with `()` values",
+          "membership",
+          "unspecified / sorted"
+        ],
+        [
+          "`BinaryHeap<T>`",
+          "binary max-heap",
+          "priority queue, pop max",
+          "heap order"
+        ],
+        [
+          "`LinkedList<T>`",
+          "doubly linked",
+          "almost never (poor locality)",
+          "insertion"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 110,
+      "heading_context": "## Iterators: Lazy, Composable, Zero-Cost",
+      "headers": [
+        "Adapter (lazy)",
+        "Does",
+        "Consumer (drives)",
+        "Does"
+      ],
+      "rows": [
+        [
+          "`map(f)`",
+          "transform each",
+          "`collect()`",
+          "build a collection"
+        ],
+        [
+          "`filter(p)`",
+          "keep matching",
+          "`sum()`/`product()`",
+          "fold to a number"
+        ],
+        [
+          "`enumerate()`",
+          "pair with index",
+          "`count()`",
+          "count items"
+        ],
+        [
+          "`zip(other)`",
+          "pair two iters",
+          "`fold(init, f)`",
+          "general reduction"
+        ],
+        [
+          "`take(n)`/`skip(n)`",
+          "slice the stream",
+          "`find(p)`/`any`/`all`",
+          "search/predicate"
+        ],
+        [
+          "`flat_map(f)`",
+          "map+flatten",
+          "`for_each(f)`",
+          "side effects"
+        ],
+        [
+          "`rev()`",
+          "reverse (needs DoubleEnded)",
+          "`min`/`max`",
+          "extremes"
+        ],
+        [
+          "`chain(other)`",
+          "concatenate",
+          "`reduce(f)`",
+          "fold with no init"
+        ],
+        [
+          "`peekable()`",
+          "look ahead",
+          "`collect::<Result<_,_>>()`",
+          "short-circuit on Err"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 170,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C# LINQ (`Select`/`Where`/`Aggregate`)",
+          "iterator adapters (`map`/`filter`/`fold`)",
+          "Lazy, statically typed adapters; no mandatory `IEnumerable` boxing"
+        ],
+        [
+          "Java Streams",
+          "iterators",
+          "Similar laziness; monomorphized, not boxed"
+        ],
+        [
+          "C++ ranges (C++20)",
+          "iterator adapters",
+          "Same lazy-pipeline philosophy"
+        ],
+        [
+          "`List<T>` / `ArrayList`",
+          "`Vec<T>`",
+          "Growable heap array"
+        ],
+        [
+          "`Dictionary<K,V>`",
+          "`HashMap` / `BTreeMap`",
+          "Choose hashed vs sorted explicitly"
+        ],
+        [
+          "`SortedDictionary`",
+          "`BTreeMap`",
+          "Sorted iteration guaranteed"
+        ],
+        [
+          "`foreach` (borrows)",
+          "`for x in &v` (borrow) / `for x in v` (moves!)",
+          "Default `for x in v` consumes"
+        ],
+        [
+          "`yield return` generators",
+          "iterators (or nightly `gen` blocks)",
+          "You implement `Iterator` or chain adapters"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 203,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "A default growable list",
+          "`Vec<T>`"
+        ],
+        [
+          "Queue / push-pop both ends",
+          "`VecDeque<T>`"
+        ],
+        [
+          "Key -> value, fastest lookup",
+          "`HashMap<K,V>`"
+        ],
+        [
+          "Key -> value, sorted / range queries",
+          "`BTreeMap<K,V>`"
+        ],
+        [
+          "Priority queue",
+          "`BinaryHeap<T>`"
+        ],
+        [
+          "Function param over any sequence",
+          "`&[T]` (not `&Vec<T>`)"
+        ],
+        [
+          "Transform/filter a sequence",
+          "iterator adapters + a consumer"
+        ],
+        [
+          "Iterate without consuming",
+          "`for x in &v` / `v.iter()`"
+        ],
+        [
+          "Mutate in place while iterating",
+          "`v.iter_mut()`"
+        ],
+        [
+          "Consume and take ownership of items",
+          "`v.into_iter()`"
+        ],
+        [
+          "Collect fallible items",
+          "`collect::<Result<Vec<_>, _>>()`"
+        ]
+      ]
+    }
+  ]
+}

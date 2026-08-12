@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\03-C-INTEROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 190,
+      "heading_context": "## Binding and Build Tools",
+      "headers": [
+        "Tool",
+        "Direction",
+        "Use",
+        "Boundary warning"
+      ],
+      "rows": [
+        [
+          "`bindgen`",
+          "C/C++ headers -> Rust declarations",
+          "Large existing headers",
+          "Generated output mirrors unsafe source contracts; wrap it"
+        ],
+        [
+          "`cbindgen`",
+          "Rust exports -> C/C++ header",
+          "Rust-owned C API",
+          "Review generated ABI and publish the header as a versioned artifact"
+        ],
+        [
+          "`cc` crate",
+          "Compile C/C++ in `build.rs`",
+          "Bundled native source",
+          "Host/target compiler and flags must match Cargo target"
+        ],
+        [
+          "`pkg-config` crate/tool",
+          "Discover Unix native libraries",
+          "System dependencies",
+          "Not a Windows-universal packaging story"
+        ],
+        [
+          "`vcpkg` crate/tool",
+          "Discover vcpkg libraries",
+          "Common Windows native dependencies",
+          "Triplet and linkage mode are part of target matrix"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 204,
+      "heading_context": "## Data Layout Rules",
+      "headers": [
+        "C contract",
+        "Rust representation"
+      ],
+      "rows": [
+        [
+          "`uint32_t`",
+          "`u32`"
+        ],
+        [
+          "`size_t`",
+          "`usize` for same-target calls"
+        ],
+        [
+          "`const uint8_t *p, size_t n`",
+          "`*const u8, usize`, validated then borrowed"
+        ],
+        [
+          "Plain C struct",
+          "`#[repr(C)]` with FFI-safe fields"
+        ],
+        [
+          "Tagged union",
+          "Fixed-width integer tag plus explicit `repr(C)` union/payload contract"
+        ],
+        [
+          "NUL string",
+          "`CStr`/`CString`; encoding stated separately"
+        ],
+        [
+          "Opaque object",
+          "Forward declaration in C, pointer to private Rust type"
+        ],
+        [
+          "Callback",
+          "`Option<unsafe extern \"C\" fn(...)>` plus context pointer"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 222,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "C boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Use explicit `extern \"C\"`/`extern \"system\"` and `repr(C)` where appropriate; export stable symbols; never expose Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Rust frees Rust allocations via exported destructors; C frees C allocations; do not exchange `malloc`/`Vec` ownership implicitly."
+        ],
+        [
+          "Panic/unwind",
+          "Catch and map at Rust exports when applicable; prohibit C++ exceptions, `longjmp`, or Rust panic unwinding through ordinary frames."
+        ],
+        [
+          "Lifetime",
+          "State pointer validity, mutability, aliasing, and retention for every parameter and callback context."
+        ],
+        [
+          "Threading",
+          "Mark handles thread-safe, thread-confined, or externally synchronized; specify callback reentrancy."
+        ],
+        [
+          "Target",
+          "Verify compiler family, architecture, endianness, alignment, libc/CRT, and calling convention."
+        ],
+        [
+          "Packaging",
+          "Ship header, import/static/shared library, transitive native dependencies, symbols/debug files, license, and loader instructions together."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 234,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C/C++ practice",
+        "Rust boundary equivalent"
+      ],
+      "rows": [
+        [
+          "PIMPL / incomplete struct",
+          "Opaque Rust handle"
+        ],
+        [
+          "Constructor/destructor pair",
+          "`new`/`free` exports owning `Box::into_raw`/`from_raw` internally"
+        ],
+        [
+          "HRESULT/errno result",
+          "Stable status enum plus optional error-detail retrieval"
+        ],
+        [
+          "SAL annotations",
+          "Machine-readable header annotations plus prose ownership/thread contract"
+        ],
+        [
+          "RAII wrapper around C handle",
+          "Safe Rust newtype with `Drop`"
+        ],
+        [
+          "DEF/export map",
+          "Controlled symbol surface for `cdylib`/`staticlib`"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 260,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Pattern"
+      ],
+      "rows": [
+        [
+          "Stable native object boundary",
+          "Opaque handle plus versioned C functions"
+        ],
+        [
+          "Borrow input only during call",
+          "Pointer plus length, validated before slice creation"
+        ],
+        [
+          "Return variable data",
+          "Caller-provided buffer/two-call sizing or Rust object plus Rust free"
+        ],
+        [
+          "Call a broad existing C library",
+          "`bindgen` for declarations, handwritten safe facade"
+        ],
+        [
+          "Publish a Rust C API",
+          "`cbindgen` or reviewed manual header plus ABI tests"
+        ],
+        [
+          "Cross-thread use",
+          "Explicit thread-safe handle contract; internal synchronization if promised"
+        ],
+        [
+          "Rich polymorphic API",
+          "Keep polymorphism behind opaque handle; do not export Rust trait objects"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\08-CLOSURES-FUNCTION-TRAITS-AND-CALLABLES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 141,
+      "heading_context": "## Callbacks and Storage",
+      "headers": [
+        "Storage",
+        "Type",
+        "When"
+      ],
+      "rows": [
+        [
+          "Owned, static-dispatched",
+          "generic field `struct S<F: Fn()>{ cb: F }`",
+          "one callback type per instance, max speed"
+        ],
+        [
+          "Owned, dynamic",
+          "`Box<dyn Fn()>` / `Box<dyn FnMut()>`",
+          "many callback types, heterogeneous"
+        ],
+        [
+          "Borrowed",
+          "`&dyn Fn()` with a lifetime",
+          "callback outlived by the caller"
+        ],
+        [
+          "Thread/async",
+          "`Box<dyn Fn() + Send + 'static>`",
+          "crossing threads ([15](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md))"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 153,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C# `Func<>` / `Action<>` / lambda",
+          "closure + `Fn`/`FnMut`/`FnOnce`",
+          "Capture mode is part of the type, checked"
+        ],
+        [
+          "Java functional interfaces / lambdas",
+          "closures",
+          "Same idea; ownership-aware"
+        ],
+        [
+          "C++ lambda `[=]` (by copy) vs `[&]` (by ref)",
+          "`move ||` vs default `||`",
+          "Compiler infers the minimal capture; `move` = `[=]`"
+        ],
+        [
+          "C++ `std::function` (type-erased)",
+          "`Box<dyn Fn>`",
+          "Explicit boxing/vtable"
+        ],
+        [
+          "C function pointer callback",
+          "`fn` pointer / `extern \"C\" fn`",
+          "Non-capturing; FFI-safe"
+        ],
+        [
+          "JS closures (capture by reference)",
+          "Rust closures (capture by borrow/move)",
+          "Borrow checker enforces validity"
+        ],
+        [
+          "LINQ `.Select(x => ...)`",
+          "`.map(|x| ...)`",
+          "Iterator adapters take closures ([09](09-COLLECTIONS-ITERATORS-AND-RANGES.md))"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 188,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Callback callable repeatedly through shared access",
+          "`Fn` / `impl Fn(...)`"
+        ],
+        [
+          "Callback that mutates state across calls",
+          "`FnMut`"
+        ],
+        [
+          "One-shot callback that consumes data",
+          "`FnOnce`"
+        ],
+        [
+          "Closure must outlive current scope",
+          "`move ||`"
+        ],
+        [
+          "Return a closure (zero cost)",
+          "`-> impl Fn(...)`"
+        ],
+        [
+          "Store heterogeneous callbacks",
+          "`Box<dyn Fn()>`"
+        ],
+        [
+          "Callback on another thread",
+          "`move` + `Send + 'static` bounds"
+        ],
+        [
+          "FFI / C callback",
+          "`extern \"C\" fn` pointer ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\02-EVALUATION-SCORECARDS-AND-EVIDENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Hard Gates Before Scoring",
+      "headers": [
+        "Gate",
+        "Pass evidence",
+        "Typical failure"
+      ],
+      "rows": [
+        [
+          "Functional boundary",
+          "API spike meets the actual use case",
+          "Candidate solves adjacent, not required, problem"
+        ],
+        [
+          "Source policy",
+          "Approved registry/git/path provenance",
+          "Unknown or disallowed source"
+        ],
+        [
+          "License",
+          "Reviewed SPDX expression and notices",
+          "Incompatible or unclear terms"
+        ],
+        [
+          "Target/MSRV",
+          "Matrix succeeds under supported profile",
+          "README-only claim or undeclared MSRV"
+        ],
+        [
+          "Execution boundary",
+          "Build scripts, proc macros, native code accepted",
+          "Host execution exceeds policy"
+        ],
+        [
+          "Security",
+          "Risk owner accepts current findings and exposure",
+          "Unresolved advisory or unbounded unsafe boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 68,
+      "heading_context": "## A Practical Weighted Scorecard",
+      "headers": [
+        "Dimension",
+        "Weight",
+        "1 means",
+        "3 means",
+        "5 means"
+      ],
+      "rows": [
+        [
+          "Functional/API fit",
+          "20",
+          "Major adapter or missing behavior",
+          "Meets core need with manageable glue",
+          "Natural boundary, low coupling"
+        ],
+        [
+          "Compatibility",
+          "15",
+          "Target/MSRV conflict",
+          "Works in current matrix",
+          "Explicit policy plus verified matrix"
+        ],
+        [
+          "Dependency/build cost",
+          "10",
+          "Large opaque graph or heavy host/native execution",
+          "Acceptable graph",
+          "Small, inspectable, feature-controlled"
+        ],
+        [
+          "Safety/security posture",
+          "15",
+          "Unbounded unsafe or unresolved findings",
+          "Known boundaries and mitigations",
+          "Small documented boundary, active process"
+        ],
+        [
+          "Maintenance/stewardship",
+          "15",
+          "No credible owner or continuity",
+          "Responsive enough for use",
+          "Clear policy, succession, sustainable cadence"
+        ],
+        [
+          "API stability/upgrade cost",
+          "10",
+          "High churn or weak SemVer discipline",
+          "Normal migration cost",
+          "Stable surface and useful release notes"
+        ],
+        [
+          "License/provenance",
+          "10",
+          "Ambiguous or incompatible",
+          "Acceptable with conditions",
+          "Clear SPDX/provenance/notices"
+        ],
+        [
+          "Documentation/operability",
+          "5",
+          "Cannot reproduce basic use",
+          "Usable docs and diagnostics",
+          "Excellent examples and failure guidance"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 102,
+      "heading_context": "## Evidence Ledger",
+      "headers": [
+        "Evidence class",
+        "Example",
+        "Confidence boundary"
+      ],
+      "rows": [
+        [
+          "Observed",
+          "Command output from the candidate spike",
+          "Applies to named versions/configuration"
+        ],
+        [
+          "Primary claim",
+          "Upstream manifest, policy, docs, release notes",
+          "May be incomplete or stale"
+        ],
+        [
+          "Source inspection",
+          "Reviewed unsafe/build/API paths",
+          "Applies to inspected revision and scope"
+        ],
+        [
+          "External data",
+          "Advisory, license scan, dependent report",
+          "Depends on database/tool coverage"
+        ],
+        [
+          "Inference",
+          "\"Likely sustainable because...\"",
+          "Must name assumptions"
+        ],
+        [
+          "Unknown",
+          "No published security policy",
+          "Do not convert to a negative fact without more evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 156,
+      "heading_context": "## Inspect the Graph, Not Only the Direct Crate",
+      "headers": [
+        "Question",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Which default features are active?",
+          "Defaults can add runtimes, TLS, native code, or macros"
+        ],
+        [
+          "Are duplicate major versions present?",
+          "Binary size, type incompatibility, and patch burden"
+        ],
+        [
+          "Which units run on the host?",
+          "Build-time trust and reproducibility"
+        ],
+        [
+          "Which dependencies are target-specific?",
+          "Cross-platform support and dormant risk"
+        ],
+        [
+          "Which package owns unsafe/native boundaries?",
+          "Review and incident routing"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 171,
+      "heading_context": "## Popularity and Reputation",
+      "headers": [
+        "Weak signal",
+        "Better follow-up"
+      ],
+      "rows": [
+        [
+          "High downloads",
+          "Inspect dependents, release policy, and current graph"
+        ],
+        [
+          "Many stars",
+          "Inspect issue/PR handling and maintainer authority"
+        ],
+        [
+          "Frequent releases",
+          "Read changelog and SemVer behavior"
+        ],
+        [
+          "Few maintainers",
+          "Examine succession, automation, and fork feasibility"
+        ],
+        [
+          "Corporate use claim",
+          "Find public evidence or treat as unverified"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 185,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Traditional review artifact",
+        "Cargo ecosystem artifact"
+      ],
+      "rows": [
+        [
+          "Vendor questionnaire",
+          "Upstream policy/repository review"
+        ],
+        [
+          "Binary qualification matrix",
+          "Toolchain/target/feature spike"
+        ],
+        [
+          "Bill of materials",
+          "`Cargo.lock` plus `cargo metadata`"
+        ],
+        [
+          "Architecture review",
+          "API boundary and dependency-direction review"
+        ],
+        [
+          "Renewal date",
+          "Supported-profile review in [15](15-SUPPORTED-PROFILES-RENEWAL-AND-REMOVAL.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 210,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision state",
+        "Use when",
+        "Required next action"
+      ],
+      "rows": [
+        [
+          "Adopt",
+          "Gates pass, evidence is current, score meets threshold, owner exists",
+          "Record supported profile"
+        ],
+        [
+          "Trial",
+          "Technical fit is promising but operational evidence is incomplete",
+          "Time-box spike with explicit questions"
+        ],
+        [
+          "Hold",
+          "A material unknown blocks a gate",
+          "Assign evidence owner and expiry"
+        ],
+        [
+          "Reject",
+          "A gate fails or cost clearly exceeds value",
+          "Record reason and reconsideration trigger"
+        ],
+        [
+          "Adopt with condition",
+          "Risk is bounded by feature/source/target constraint",
+          "Encode condition in manifest, CI, and policy"
+        ]
+      ]
+    }
+  ]
+}

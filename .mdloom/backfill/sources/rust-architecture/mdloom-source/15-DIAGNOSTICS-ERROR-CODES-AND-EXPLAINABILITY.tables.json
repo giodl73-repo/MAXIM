@@ -1,0 +1,463 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Authority Map",
+      "headers": [
+        "Authority",
+        "Owns",
+        "Does not own"
+      ],
+      "rows": [
+        [
+          "Rust Reference / language teams",
+          "Language semantics and compatibility commitments",
+          "rustc's diagnostic wording"
+        ],
+        [
+          "rustc",
+          "Compiler diagnostics, spans, error codes, lint emission",
+          "Cargo scheduling or Clippy lint policy"
+        ],
+        [
+          "Cargo",
+          "Build orchestration and `cargo fix` workflow",
+          "The diagnostic facts emitted by rustc"
+        ],
+        [
+          "rustup",
+          "Installed toolchains, components, and target libraries",
+          "Compilation or lint policy"
+        ],
+        [
+          "Standard library libs/libs-api teams",
+          "Public `core`/`alloc`/`std` API surface",
+          "Borrow checker diagnostics"
+        ],
+        [
+          "LLVM/backends",
+          "Backend errors and codegen integration points",
+          "Front-end type and borrow explanations"
+        ],
+        [
+          "Ecosystem tools",
+          "Clippy, rust-analyzer, IDE rendering, rustfix",
+          "Stable ownership of rustc internals"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 66,
+      "heading_context": "## Diagnostic Anatomy: What Gets Emitted",
+      "headers": [
+        "Field",
+        "Purpose",
+        "Stable contract?"
+      ],
+      "rows": [
+        [
+          "Level",
+          "error, warning, note, help, lint level, or ICE path",
+          "The broad categories are public behavior"
+        ],
+        [
+          "Code",
+          "`E0502`, `E0308`, etc. when one exists",
+          "Stable-ish identifier, not a promise that every case has one"
+        ],
+        [
+          "Primary span",
+          "Main source location",
+          "Anchored in public source text, produced by rustc internals"
+        ],
+        [
+          "Secondary spans",
+          "Related source locations",
+          "Essential for borrowck and trait errors"
+        ],
+        [
+          "Labels",
+          "Per-span explanation",
+          "Wording is not stable"
+        ],
+        [
+          "Notes/help",
+          "Extra context and next actions",
+          "Wording is not stable"
+        ],
+        [
+          "Suggestions",
+          "Machine-readable replacements",
+          "Structure matters; exact suggestion set can change"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 97,
+      "heading_context": "## Structured Suggestions and Applicability",
+      "headers": [
+        "Applicability",
+        "Meaning",
+        "Tool behavior"
+      ],
+      "rows": [
+        [
+          "`MachineApplicable`",
+          "Compiler believes the edit is correct and complete",
+          "`cargo fix` / `rustfix` may apply automatically"
+        ],
+        [
+          "`MaybeIncorrect`",
+          "Plausible, needs human judgment",
+          "Show to user, do not silently apply"
+        ],
+        [
+          "`HasPlaceholders`",
+          "Edit contains holes like `todo!()` or `_`",
+          "Present as guidance"
+        ],
+        [
+          "`Unspecified`",
+          "No confidence recorded",
+          "Treat conservatively"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 114,
+      "heading_context": "## Error Codes and `--explain`",
+      "headers": [
+        "Command or URL",
+        "What it gives you"
+      ],
+      "rows": [
+        [
+          "`rustc --explain E0502`",
+          "Extended explanation of one error code"
+        ],
+        [
+          "`rustc --explain E0308`",
+          "Type mismatch writeup with examples"
+        ],
+        [
+          "`https://doc.rust-lang.org/error_codes/`",
+          "The published Error Codes Index"
+        ],
+        [
+          "Terminal diagnostic",
+          "Specific source-spanned failure in your build"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 145,
+      "heading_context": "## Lints, Levels, and Compatibility Pressure",
+      "headers": [
+        "Level",
+        "Meaning",
+        "Can later override?"
+      ],
+      "rows": [
+        [
+          "`allow`",
+          "Suppress the lint",
+          "Yes"
+        ],
+        [
+          "`warn`",
+          "Print warning",
+          "Yes"
+        ],
+        [
+          "`deny`",
+          "Emit as error",
+          "Yes, unless capped or forbidden"
+        ],
+        [
+          "`forbid`",
+          "Emit as error and cannot be lowered",
+          "No"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 160,
+      "heading_context": "## Output Formats and Tool Consumers",
+      "headers": [
+        "Format",
+        "Command",
+        "Primary consumer"
+      ],
+      "rows": [
+        [
+          "Human default",
+          "`cargo build`",
+          "Developer terminal"
+        ],
+        [
+          "Short",
+          "`rustc --error-format=short`",
+          "Dense logs"
+        ],
+        [
+          "JSON",
+          "`rustc --error-format=json`",
+          "Cargo, IDEs, rust-analyzer, CI parsers"
+        ],
+        [
+          "Cargo JSON stream",
+          "`cargo build --message-format=json`",
+          "Build systems and automation"
+        ],
+        [
+          "Rendered ANSI inside JSON",
+          "`--json=diagnostic-rendered-ansi`",
+          "Tools that want both structure and rustc's rendering"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 185,
+      "heading_context": "## A Concrete Diagnostic Trace",
+      "headers": [
+        "Step",
+        "Artifact"
+      ],
+      "rows": [
+        [
+          "Compile",
+          "Spanned diagnostic with code and help"
+        ],
+        [
+          "Explain",
+          "Error-index narrative via `rustc --explain`"
+        ],
+        [
+          "Enforce",
+          "Lint levels or warning promotion"
+        ],
+        [
+          "Repair",
+          "Human edit or `cargo fix` for safe suggestions"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 233,
+      "heading_context": "## UI Tests: Regression Control for Diagnostics",
+      "headers": [
+        "Piece",
+        "Role"
+      ],
+      "rows": [
+        [
+          "`tests/ui/*.rs`",
+          "Source programs expected to fail or warn in particular ways"
+        ],
+        [
+          "`.stderr` snapshots",
+          "Expected rendered diagnostics"
+        ],
+        [
+          "compiletest",
+          "Harness that compares actual output to snapshots"
+        ],
+        [
+          "`--bless`",
+          "Developer command to accept intentional output changes"
+        ],
+        [
+          "CI",
+          "Prevents accidental diagnostic regressions"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 247,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "MSVC `Cxxxx` / C# `CSxxxx`",
+          "`E0502`, `E0308`, Error Codes Index",
+          "Rust codes often encode ownership/type-system concepts, not just parser/type errors"
+        ],
+        [
+          "Roslyn diagnostics",
+          "rustc JSON diagnostics",
+          "rustc is not a stable compiler-as-a-service API"
+        ],
+        [
+          "Roslyn code fixes / lightbulbs",
+          "structured suggestions + rustfix / `cargo fix`",
+          "Only `MachineApplicable` edits should be automatic"
+        ],
+        [
+          "SARIF / diagnostic streams",
+          "`--error-format=json`, Cargo message stream",
+          "JSON is the native rustc/Cargo integration path"
+        ],
+        [
+          "warning-as-error / EditorConfig severity",
+          "lint levels, `-D warnings`, `[lints]`",
+          "`forbid` is intentionally stronger than `deny`"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 261,
+      "heading_context": "## Stability Boundary",
+      "headers": [
+        "Documented user surface",
+        "Version-sensitive diagnostic detail"
+      ],
+      "rows": [
+        [
+          "CLI switches such as `--error-format=json` and Cargo `--message-format=json`",
+          "rustc diagnostic JSON schema and fields inside Cargo `compiler-message`"
+        ],
+        [
+          "Public lint names, groups, and levels for the selected toolchain",
+          "Mapping from one source program to an `E####` code, spans, suggestions, and prose"
+        ],
+        [
+          "`cargo fix` workflow for machine-applicable suggestions",
+          "Which rustc phase emitted a diagnostic and the internal builder types"
+        ],
+        [
+          "Cargo's documented message envelope",
+          "UI-test harness layout and `.stderr` snapshot mechanics"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 277,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Understand one compiler error deeply",
+          "`rustc --explain E####`"
+        ],
+        [
+          "Feed diagnostics to a tool",
+          "`cargo build --message-format=json`, with tolerant parsing and toolchain-version tests"
+        ],
+        [
+          "Promote warnings in an application CI build",
+          "`cargo clippy -- -D warnings` or `RUSTFLAGS=\"-D warnings\"` with care"
+        ],
+        [
+          "Silence an intentional local warning",
+          "`#[allow(lint_name)]` at the narrowest scope"
+        ],
+        [
+          "Enforce a lint as policy",
+          "`[lints]` in `Cargo.toml` or `-D lint-name` in CI"
+        ],
+        [
+          "Apply safe compiler fixes",
+          "`cargo fix` and review the diff"
+        ],
+        [
+          "Investigate diagnostic regressions in rustc itself",
+          "rustc `tests/ui` snapshots and `--bless`"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 291,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"The error text is stable.\"",
+          "No. Use the documented JSON command surface, but treat rustc's payload, codes, spans, and prose as version-sensitive."
+        ],
+        [
+          "\"Every error has an `E` code.\"",
+          "No. Many do, some do not; lints primarily have lint names."
+        ],
+        [
+          "\"Clippy is rustc.\"",
+          "No. Clippy is a separate tool, though it uses compiler infrastructure."
+        ],
+        [
+          "\"`cargo fix` applies every suggestion.\"",
+          "No. It is conservative and primarily applies `MachineApplicable` edits."
+        ],
+        [
+          "\"`#[deny(warnings)]` is good library hygiene.\"",
+          "Usually no. It can make downstream builds fail when compiler warnings evolve."
+        ],
+        [
+          "\"UI tests make wording stable for users.\"",
+          "No. They prevent accidental regressions inside rustc development."
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 304,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: Emitting diagnostics",
+          "How diagnostics are built and emitted inside rustc"
+        ],
+        [
+          "rustc-dev-guide: Diagnostic and subdiagnostic structs",
+          "The structured diagnostic model"
+        ],
+        [
+          "rustc-dev-guide: Errors and lints / Adding a lint",
+          "Lint architecture and contributor workflow"
+        ],
+        [
+          "rustc-dev-guide: UI tests",
+          "Snapshot-based diagnostic regression process"
+        ],
+        [
+          "Rust Error Codes Index",
+          "Published `E####` explanations"
+        ],
+        [
+          "rustc book: lint levels, `--error-format`, JSON output",
+          "CLI-facing diagnostic controls"
+        ],
+        [
+          "`rust-lang/rustfix`",
+          "Suggestion application engine used by Cargo workflows"
+        ]
+      ]
+    }
+  ]
+}

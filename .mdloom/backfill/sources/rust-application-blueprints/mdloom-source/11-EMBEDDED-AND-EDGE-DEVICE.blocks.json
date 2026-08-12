@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\11-EMBEDDED-AND-EDGE-DEVICE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| physical world: sensors | actuators | clocks | buses | power               |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| chip support / HAL / drivers                                               |\n| registers -> interrupts/DMA -> typed device capabilities                   |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| application state machine                                                  |\n| sample -> validate -> decide -> actuate -> persist/report                  |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                local durable state       edge/network adapter\n                       |                      |\n                       +-----------+----------+\n                                   v\n                    watchdog + telemetry + update/rollback",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Testing and Rollback",
+      "confidence": "candidate",
+      "text": "host tests for pure state machine\n       -> driver tests with fake bus\n       -> emulator/simulator where representative\n       -> hardware-in-loop\n       -> power-loss/update/watchdog exercise",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

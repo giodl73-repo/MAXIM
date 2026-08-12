@@ -1,0 +1,187 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\14-INTERNAL-CRATES-API-BOUNDARIES-PUBLISHING-AND-DEPRECATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 59,
+      "heading_context": "## Internal Package Configuration",
+      "headers": [
+        "Boundary",
+        "Visibility/control"
+      ],
+      "rows": [
+        [
+          "Private module item",
+          "Only parent/child visibility rules"
+        ],
+        [
+          "`pub(crate)`",
+          "Anywhere in one crate"
+        ],
+        [
+          "`pub` in internal package",
+          "Any dependent crate"
+        ],
+        [
+          "`publish = false`",
+          "Cargo publication disabled"
+        ],
+        [
+          "Private registry",
+          "Distribution/auth boundary, not language visibility"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 74,
+      "heading_context": "## Public API Surface",
+      "headers": [
+        "Surface",
+        "Compatibility concern"
+      ],
+      "rows": [
+        [
+          "Public structs/enums/traits/functions",
+          "Direct source compatibility"
+        ],
+        [
+          "Public trait implementations",
+          "Coherence and downstream behavior"
+        ],
+        [
+          "Re-exported dependency types",
+          "Couples downstream API to dependency version"
+        ],
+        [
+          "Feature names/defaults",
+          "Build and behavior compatibility"
+        ],
+        [
+          "Error types",
+          "Pattern matching and source-chain expectations"
+        ],
+        [
+          "Macro-generated API",
+          "Expansion can expose hidden dependencies/paths"
+        ],
+        [
+          "MSRV/targets",
+          "Build compatibility"
+        ],
+        [
+          "Serialization/wire formats",
+          "Data compatibility beyond Rust types"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 176,
+      "heading_context": "## Deprecation",
+      "headers": [
+        "Change",
+        "Internal crate",
+        "Published crate"
+      ],
+      "rows": [
+        [
+          "Rename API",
+          "Coordinate consumers in one change if atomic",
+          "Deprecate/migrate under SemVer policy"
+        ],
+        [
+          "Remove feature",
+          "Update all workspace consumers and support profiles",
+          "Usually breaking; document replacement"
+        ],
+        [
+          "Split crate",
+          "Workspace migration",
+          "Publish compatibility facade if needed"
+        ],
+        [
+          "Raise MSRV",
+          "Product policy decision",
+          "Public support-policy change"
+        ],
+        [
+          "Yank version",
+          "Rarely relevant internally",
+          "Prevent new selection; existing locks remain"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 204,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar boundary",
+        "Rust/Cargo boundary"
+      ],
+      "rows": [
+        [
+          "Internal assembly/project",
+          "`publish = false` package"
+        ],
+        [
+          "`internal` visibility/friend assembly",
+          "No workspace equivalent; redesign boundary or keep one crate"
+        ],
+        [
+          "Public NuGet package",
+          "Published crate"
+        ],
+        [
+          "Obsolete attribute",
+          "`#[deprecated]`"
+        ],
+        [
+          "Central package release train",
+          "Workspace dependency-order publish pipeline"
+        ],
+        [
+          "Public DTO leaked from dependency",
+          "Re-exported/vendor type coupling"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 230,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Prefer"
+      ],
+      "rows": [
+        [
+          "Hide implementation details",
+          "Keep them in one crate with private/`pub(crate)` modules"
+        ],
+        [
+          "Enforce dependency direction",
+          "Separate crate with narrow `pub` API"
+        ],
+        [
+          "Prevent accidental public publication",
+          "`publish = false`"
+        ],
+        [
+          "Develop locally and publish later",
+          "Path plus version dependency"
+        ],
+        [
+          "Change published API",
+          "Replacement, deprecation window, SemVer release"
+        ],
+        [
+          "Recover bad release",
+          "Publish fixed version; yank when appropriate; notify consumers"
+        ]
+      ]
+    }
+  ]
+}

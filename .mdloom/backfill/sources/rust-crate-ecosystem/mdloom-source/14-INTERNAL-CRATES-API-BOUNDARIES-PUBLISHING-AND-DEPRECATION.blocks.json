@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\14-INTERNAL-CRATES-API-BOUNDARIES-PUBLISHING-AND-DEPRECATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                            CRATE API LIFECYCLE                            |\n+===========================================================================+\n| module-private -> pub(crate) -> cross-crate public -> published API       |\n| implementation -> one crate -> internal migration -> SemVer policy        |\n|                                                                           |\n| publish = false controls registry publication, not Rust visibility.       |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 186,
+      "heading_context": "## Publishing Controls",
+      "confidence": "candidate",
+      "text": "release approval\n   |\n   +-> clean source and reviewed diff\n   +-> package list and license/notices\n   +-> tests/MSRV/targets/features\n   +-> advisory/source policy\n   +-> changelog/version\n   +-> least-privilege registry credential\n   +-> post-publish verification and rollback plan",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\13-ASYNC-THREADING-CALLBACKS-AND-CANCELLATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                     CROSS-RUNTIME ASYNC OPERATION                          |\n+============================================================================+\n|  HOST CALL                                                                 |\n|  create operation + retain inputs/context + return host handle/future      |\n|      |                                                                     |\n|      v                                                                     |\n|  RUST EXECUTION                                                            |\n|  dedicated thread | worker pool | Rust async runtime | remote service      |\n|      |                                                                     |\n|      v                                                                     |\n|  TERMINAL OUTCOME: success, error, cancellation, or panic/crash            |\n|  exactly one terminal transition in operation state                        |\n|      |                                                                     |\n|      v                                                                     |\n|  COMPLETION ADAPTER                                                        |\n|  marshal to valid host thread/context; invoke once; release retained state |\n|                                                                            |\n|  races to define: cancel vs complete, callback vs destroy, shutdown vs run |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 54,
+      "heading_context": "## Define the Operation State Machine",
+      "confidence": "candidate",
+      "text": "  Created -> Running -> Succeeded\n                    \\-> Failed\n                    \\-> Cancelled\n\n  cancel request does not imply Cancelled yet\n  completion is exactly once\n  destroy is legal only after ownership of callback/context is resolved",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Reentrancy and Locks",
+      "confidence": "candidate",
+      "text": "  host -> Rust object (lock held)\n               |\n               +-> callback -> host -> same Rust object\n                                      |\n                                      v\n                                   deadlock",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

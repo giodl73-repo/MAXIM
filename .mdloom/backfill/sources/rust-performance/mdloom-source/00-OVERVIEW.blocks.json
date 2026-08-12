@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         PERFORMANCE EVIDENCE FLOW                           |\n|                                                                             |\n|  QUESTION [01] -> WORKLOAD + BASELINE -> MEASURE -> PROFILE -> CHANGE       |\n|                         |              |            |                       |\n|                         |              |            +-> CPU [03]            |\n|                         |              |            +-> memory [04]         |\n|                         |              |            +-> async [07]          |\n|                         |              |            +-> contention [08]     |\n|                         |              |                                    |\n|                         |              +-> runtime latency/throughput       |\n|                         |              +-> compile time [12]                |\n|                         |                                                   |\n|                         +-> build/profile contract [02]                     |\n|                                                                             |\n|  CHANGE SURFACES                                                            |\n|  layout/SIMD [05]  codegen/dispatch [06]  I/O [09]  parsing/data [10]       |\n|  link/PGO/size [11]  benchmark gates [13]  production/cost [14]             |\n|                                                                             |\n|  RELEASE DECISION [15]: evidence, risk, rollback, and workload coverage     |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 75,
+      "heading_context": "## The Three Performance Planes",
+      "confidence": "candidate",
+      "text": "PRODUCT OUTCOME: latency / capacity / cost / user deadline\n    |\n    +--> RUNTIME PLANE\n    |      CPU, memory, I/O, scheduling, locks\n    |      guides 03-11 and 14\n    |\n    +--> DELIVERY PLANE\n           compile, link, test, cache, CI critical path\n           guide 12",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\08-TRAIT-SOLVING-COHERENCE-AND-NEXT-SOLVER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 32,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                           TRAIT SOLVING PIPELINE                          |\n|                                                                           |\n|  typeck body [07]                                                         |\n|      | emits obligations                                                  |\n|      v                                                                    |\n|  goals / predicates                                                       |\n|      | TraitRef, projection, well-formedness, outlives                    |\n|      v                                                                    |\n|  canonicalize for caching [03]                                            |\n|      | replace inference vars with canonical placeholders                 |\n|      v                                                                    |\n|  solve                                                                    |\n|      | old solver: assemble candidates -> winnow -> confirm               |\n|      | next solver: logic-programming-style engine (-Znext-solver)        |\n|      v                                                                    |\n|  result                                                                   |\n|      | impl selected, associated type normalized, ambiguity, or error     |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## Goals and Obligations",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| COMMON SOLVER QUESTIONS                                               |\n|                                                                       |\n| Trait goal:        Vec<u8>: Clone                                     |\n| Projection goal:   <I as Iterator>::Item == u8                        |\n| WF goal:           type Foo<T> is well-formed under its bounds        |\n| Outlives goal:     T: 'a or 'a: 'b                                    |\n| Auto-trait goal:   T: Send / Sync                                     |\n| Const/type goal:   const generic predicates where applicable          |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 101,
+      "heading_context": "## Canonicalization and Query-Friendly Solving",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         CANONICALIZATION SKETCH                           |\n|                                                                           |\n|  caller context:                                                          |\n|     ?T: Iterator, prove < ?T as Iterator >::Item: Clone                   |\n|                                                                           |\n|        canonicalize                                                       |\n|             |                                                             |\n|             v                                                             |\n|  canonical goal:                                                          |\n|     forall<C0> { <C0 as Iterator>::Item: Clone }                          |\n|                                                                           |\n|        solve / cache in query system [03]                                 |\n|             |                                                             |\n|             v                                                             |\n|  instantiate result back into caller                                      |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 134,
+      "heading_context": "## Legacy Selection: Candidates, Winnowing, Confirmation",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| OLD SOLVER SHAPE                                                      |\n|                                                                       |\n| obligation: T: Trait                                                  |\n|       |                                                               |\n|       v                                                               |\n| assemble candidates                                                   |\n|   - impl candidates: impl Trait for Type                              |\n|   - where-bound candidates: where T: Trait                            |\n|   - builtin candidates: tuples, fn pointers, closures, unsizing       |\n|   - auto-trait candidates: Send/Sync-style structural reasoning       |\n|       |                                                               |\n|       v                                                               |\n| winnow: remove impossible/ambiguous candidates                        |\n|       |                                                               |\n|       v                                                               |\n| confirm: select impl, instantiate vars, emit nested obligations       |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 168,
+      "heading_context": "## Coherence and the Orphan Rule",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         WHY THE ORPHAN RULE EXISTS                        |\n|                                                                           |\n|  crate std owns:       trait Display, type Vec<T>                         |\n|                                                                           |\n|  your crate owns:      type MyVec<T>                                      |\n|                                                                           |\n|  allowed:              impl Display for MyVec<T>       (you own type)     |\n|  allowed:              impl MyTrait for Vec<T>         (you own trait)    |\n|  rejected:             impl Display for Vec<T>         (own neither)      |\n|                                                                           |\n|  Result: no third crate can introduce a competing global impl             |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 184,
+      "heading_context": "## Coherence and the Orphan Rule",
+      "confidence": "candidate",
+      "text": "use std::fmt::{self, Display};\n\n// Rejected in your crate: both Display and Vec are foreign.\nimpl<T: Display> Display for Vec<T> {\n    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {\n        write!(f, \"vec\")\n    }\n}\n\n// Typical error: E0117, only traits defined in the current crate can be\n// implemented for arbitrary types. Use a newtype wrapper instead.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "## Associated Types, Projection, and Normalization",
+      "confidence": "candidate",
+      "text": "+-----------------------------------------------------------------------+\n| PROJECTION EXAMPLE                                                    |\n|                                                                       |\n| trait Iterator { type Item; }                                         |\n| impl Iterator for Bytes { type Item = u8; }                           |\n|                                                                       |\n| Goal: <Bytes as Iterator>::Item == ?X                                 |\n|       |                                                               |\n|       v                                                               |\n| select impl Iterator for Bytes                                        |\n|       |                                                               |\n|       v                                                               |\n| normalize ?X = u8                                                     |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

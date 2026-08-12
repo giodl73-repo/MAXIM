@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\03-METRICS-HEALTH-AND-TELEMETRY-DESIGN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Metric Types and Semantics",
+      "headers": [
+        "Type",
+        "Good use",
+        "Frequent mistake"
+      ],
+      "rows": [
+        [
+          "Counter",
+          "requests, failures, bytes, retries",
+          "resetting or treating as current state"
+        ],
+        [
+          "Gauge",
+          "queue depth, in-flight work, open connections",
+          "recording monotonic totals"
+        ],
+        [
+          "Histogram",
+          "latency, payload size, wait time",
+          "choosing buckets after the incident"
+        ],
+        [
+          "Up/down counter",
+          "active sessions or workers",
+          "non-atomic updates that drift"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 135,
+      "heading_context": "## Health Contracts",
+      "headers": [
+        "Probe",
+        "Failure action",
+        "Include dependency checks?"
+      ],
+      "rows": [
+        [
+          "Startup",
+          "continue waiting or fail deployment",
+          "only initialization-critical dependencies"
+        ],
+        [
+          "Liveness",
+          "restart process",
+          "rarely; dependency outage should not restart every client"
+        ],
+        [
+          "Readiness",
+          "remove from routing/admission",
+          "dependencies required to serve this workload"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 156,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "`metrics`, OpenTelemetry metrics, framework-specific instruments"
+        ],
+        [
+          "Runtime",
+          "exporter task scheduling, scrape endpoint, shutdown flush"
+        ],
+        [
+          "Platform",
+          "pull vs push collection, retention, alert evaluation, dashboards"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 178,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Counter",
+          "event total only increases"
+        ],
+        [
+          "Gauge",
+          "current bounded state can rise or fall"
+        ],
+        [
+          "Histogram",
+          "distribution and tail behavior matter"
+        ],
+        [
+          "Liveness check",
+          "restart can repair a stuck process"
+        ],
+        [
+          "Readiness check",
+          "new work should be admitted or withheld"
+        ],
+        [
+          "Startup check",
+          "initialization may legitimately exceed liveness delay"
+        ],
+        [
+          "Trace/log field",
+          "value is high-cardinality or request-specific"
+        ],
+        [
+          "Metric label",
+          "value set is small, stable, and operationally useful"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\07-DISPATCH-TRAIT-OBJECTS-AND-IMPL-TRAIT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 33,
+      "heading_context": "# Dispatch, Trait Objects, and impl Trait",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|              STATIC vs DYNAMIC DISPATCH (TYPICAL RUSTC MODEL)                 |\n+===============================================================================+\n\n  STATIC (monomorphization)              DYNAMIC (trait object)\n  -------------------------              ----------------------\n  fn draw<T: Shape>(s: &T)               fn draw(s: &dyn Shape)\n    compiler stamps a copy per T           ONE function; call goes through vtable\n    draw::<Circle>, draw::<Square>...\n\n  &T  = thin pointer                     &dyn Shape = pointer + vtable metadata\n                                           +----------+----------+\n                                           | data ptr |  vtable  |\n                                           +----------+----------+\n                                                          |\n                                              +-----------v-----------+\n                                              | vtable: area(), draw()|\n                                              | drop, size, align     |\n                                              +-----------------------+\n\n  cost: bigger binary, inlinable,        cost: pointer indirection; usually\n        zero call overhead                     less inlining, smaller binary,\n  use:  hot paths, generic libraries           heterogeneous collections",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 154,
+      "heading_context": "## RPITIT and async fn in traits (recent, now stable)",
+      "confidence": "candidate",
+      "text": "trait Fetch {\n    fn ids(&self) -> impl Iterator<Item = u64>;   // RPITIT (stable since 1.75)\n    async fn get(&self, id: u64) -> String;       // AFIT (stable since 1.75)\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

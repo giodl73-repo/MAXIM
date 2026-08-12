@@ -1,0 +1,242 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\15-STRANGLER-ROLLOUT-ROLLBACK-AND-EXIT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Phase Gates",
+      "headers": [
+        "Phase",
+        "Rust authority",
+        "Required gate"
+      ],
+      "rows": [
+        [
+          "Baseline",
+          "None",
+          "Existing SLOs, defect signatures, corpus, and cost known"
+        ],
+        [
+          "Record/replay",
+          "Offline",
+          "Representative inputs replay with normalized comparison"
+        ],
+        [
+          "Shadow",
+          "None",
+          "No unintended side effects; divergence classified"
+        ],
+        [
+          "Canary",
+          "Small deterministic cohort",
+          "Error/correctness/resource gates and rapid rollback"
+        ],
+        [
+          "Progressive",
+          "Growing cohorts",
+          "Stable trends across time, tenants, targets, and load"
+        ],
+        [
+          "Default",
+          "Most/all eligible traffic",
+          "Support readiness and old-path fallback policy"
+        ],
+        [
+          "Exit",
+          "Rust only",
+          "Old consumers zero, rollback state resolved, bridge/old code removed"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 87,
+      "heading_context": "## Observability Contract",
+      "headers": [
+        "Signal",
+        "Migration dimensions"
+      ],
+      "rows": [
+        [
+          "Request metrics",
+          "Implementation, contract version, target, cohort, result class"
+        ],
+        [
+          "Latency",
+          "Boundary time, core time, queue time, serialization/copy time"
+        ],
+        [
+          "Resources",
+          "CPU, memory, allocation, handles/fds, threads/tasks, native load failures"
+        ],
+        [
+          "Correctness",
+          "Match/divergence counts by normalized category"
+        ],
+        [
+          "Failure",
+          "Stable foreign status, Rust error chain internally, panic/crash signature"
+        ],
+        [
+          "Data",
+          "Write version, lag, reconciliation/backfill checkpoints"
+        ],
+        [
+          "Deployment",
+          "Package/native build ID, toolchain, symbol/source correlation"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 103,
+      "heading_context": "## Rollback Levels",
+      "headers": [
+        "Level",
+        "Mechanism",
+        "Precondition"
+      ],
+      "rows": [
+        [
+          "Traffic rollback",
+          "Router/feature switch sends work to old path",
+          "Old path still deployed and data-compatible"
+        ],
+        [
+          "Package rollback",
+          "Restore prior host/native package",
+          "Loader/cache and schema remain compatible"
+        ],
+        [
+          "Process rollback",
+          "Start old service/image",
+          "Protocol and state compatibility"
+        ],
+        [
+          "Data rollback",
+          "Reverse migration/restore/replay",
+          "Tested recovery, acceptable loss window"
+        ],
+        [
+          "Forward fix",
+          "Patch Rust while keeping traffic bounded",
+          "Safer than reverting incompatible state"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 158,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Rollout/exit evidence"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Compatibility tests cover old/new host and native versions; no consumer relies on Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Leak/double-free/handle telemetry and stress tests are clean through rollback/unload paths."
+        ],
+        [
+          "Panic/unwind",
+          "Panic, foreign exception, callback, and process-crash paths produce bounded failure and actionable correlation."
+        ],
+        [
+          "Lifetime",
+          "Long-lived handles, buffers, streams, subscriptions, and callbacks drain correctly before switch/unload."
+        ],
+        [
+          "Threading",
+          "Race, reentrancy, cancellation, shutdown, and load tests cover every supported host/runtime model."
+        ],
+        [
+          "Target",
+          "Canary includes the actual OS/arch/libc/CRT/runtime/package matrix, not one representative target."
+        ],
+        [
+          "Packaging",
+          "Upgrade and rollback from clean hosts prove artifact selection, loader dependencies, signing, symbols, and retained prior versions."
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 170,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established rollout practice",
+        "Rust migration use"
+      ],
+      "rows": [
+        [
+          "Blue/green",
+          "Old and Rust implementations remain routable"
+        ],
+        [
+          "Dark launch",
+          "Shadow Rust without authority"
+        ],
+        [
+          "Golden master testing",
+          "Record/replay plus semantic normalization"
+        ],
+        [
+          "Database expand/contract",
+          "Preserve binary rollback while state evolves"
+        ],
+        [
+          "VSTS/Azure DevOps release gates",
+          "Automated correctness/SLO/package gates"
+        ],
+        [
+          "Feature flag retirement",
+          "Delete migration routing and old path after evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 196,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Action"
+      ],
+      "rows": [
+        [
+          "Output is deterministic/comparable",
+          "Record/replay then shadow with semantic diff"
+        ],
+        [
+          "Side effects cannot be safely shadowed",
+          "Use dry-run validation or canary directly with bounded cohort"
+        ],
+        [
+          "State changes remain old-readable",
+          "Traffic/package rollback is viable"
+        ],
+        [
+          "State is no longer old-readable",
+          "Prefer forward repair or tested reverse migration"
+        ],
+        [
+          "Native load failure appears",
+          "Stop rollout; validate package/target closure before code diagnosis"
+        ],
+        [
+          "100 percent traffic but old callers remain",
+          "Do not exit; inventory and migrate consumers"
+        ],
+        [
+          "Bridge has become public API",
+          "Declare support/version policy; stop calling it temporary"
+        ]
+      ]
+    }
+  ]
+}

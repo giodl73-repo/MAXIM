@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         PRODUCTION EVIDENCE                                 |\n|                                                                             |\n| users -> requests/jobs -> queues -> Rust process -> dependencies            |\n|          |                |          |               |                      |\n|          v                v          v               v                      |\n|    traces/logs       depth/waits  profiles       downstream SLOs            |\n|                              |                                              |\n|                              v                                              |\n|                    capacity and cost model                                  |\n|                req/core-hour, bytes/req, $/unit                             |\n|                              |                                              |\n|                              v                                              |\n|                  canary -> gate -> rollout/rollback                         |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 144,
+      "heading_context": "## Capacity Curves",
+      "confidence": "candidate",
+      "text": "latency\n   ^\n   |                         /\nSLO|------------------------X  saturation knee\n   |                    ___/\n   |              _____/\n   +---------------------------------> offered load\n                     sustainable capacity",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 187,
+      "heading_context": "## Canary and Rollout",
+      "confidence": "candidate",
+      "text": "offline evidence -> small canary -> guarded expansion -> full rollout\n                          |                  |\n                          +-> auto rollback  +-> compare by version",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

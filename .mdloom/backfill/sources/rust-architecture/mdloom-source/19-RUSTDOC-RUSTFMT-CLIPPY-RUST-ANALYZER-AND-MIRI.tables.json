@@ -1,0 +1,328 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Tool Coupling Map",
+      "headers": [
+        "Tool",
+        "Owns / ships",
+        "Coupling model",
+        "Stable surface",
+        "Typical invocation"
+      ],
+      "rows": [
+        [
+          "rustdoc",
+          "Official docs tool, shipped with toolchain",
+          "rustc front-end consumer: parse, resolve, typeck; doctest harness",
+          "Documented CLI mostly stable; JSON output unstable",
+          "`cargo doc`, `rustdoc`"
+        ],
+        [
+          "rustfmt",
+          "Rustfmt project component",
+          "Mostly syntactic AST formatting via parser/compiler crates",
+          "CLI/config where documented",
+          "`cargo fmt`, `rustfmt`"
+        ],
+        [
+          "clippy",
+          "Clippy project component",
+          "rustc driver with extra lints over HIR/MIR/type info",
+          "Lint names and CLI are user-facing; internals unstable",
+          "`cargo clippy`"
+        ],
+        [
+          "rust-analyzer",
+          "RA project component/editor server",
+          "Reimplements front-end with lazy query engine; shells to Cargo/rustc as needed",
+          "LSP behavior/config where documented",
+          "editor LSP, `rust-analyzer`"
+        ],
+        [
+          "Miri",
+          "Miri project, nightly-oriented",
+          "MIR interpreter extending const-eval machinery",
+          "CLI documented, model evolves",
+          "`cargo +nightly miri test`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 112,
+      "heading_context": "## rustdoc and rustfmt: Documents and Syntax",
+      "headers": [
+        "Tool",
+        "Needs type info?",
+        "Main job",
+        "Common command"
+      ],
+      "rows": [
+        [
+          "rustdoc",
+          "yes, enough for docs and doctests",
+          "Explain public API and validate examples",
+          "`cargo doc --open`"
+        ],
+        [
+          "rustfmt",
+          "no full type check",
+          "Normalize syntax layout",
+          "`cargo fmt`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 142,
+      "heading_context": "## Clippy: A Linting Compiler Driver",
+      "headers": [
+        "Lint layer",
+        "Example",
+        "Decision point"
+      ],
+      "rows": [
+        [
+          "rustc built-in",
+          "unreachable code, unused imports, future-incompat",
+          "Language/compiler correctness and compatibility"
+        ],
+        [
+          "clippy default",
+          "suspicious patterns, needless clones, API misuse",
+          "Practical Rust idiom and bug risk"
+        ],
+        [
+          "clippy pedantic/nursery",
+          "stricter style and evolving ideas",
+          "Team policy, not universal law"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 185,
+      "heading_context": "## rust-analyzer: IDE Engine, Not rustc-as-a-Service",
+      "headers": [
+        "Need",
+        "Why rustc is awkward",
+        "Why RA reimplements"
+      ],
+      "rows": [
+        [
+          "completion after half a token",
+          "batch compiler expects coherent inputs",
+          "error-resilient green/red syntax trees"
+        ],
+        [
+          "goto definition in large workspaces",
+          "full compilation latency is too high",
+          "lazy per-query analysis"
+        ],
+        [
+          "stable editor embedding",
+          "rustc internals are unstable",
+          "LSP is the stable integration surface"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 214,
+      "heading_context": "## Miri: MIR-Level Execution and UB Detection",
+      "headers": [
+        "Miri strength",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "Excellent for unsafe code tests",
+          "Usually nightly-only and toolchain-pinned"
+        ],
+        [
+          "Finds UB native tests may miss",
+          "Not all OS/FFI behavior is modeled"
+        ],
+        [
+          "Uses MIR before backend artifacts",
+          "Does not validate final machine-code optimizer behavior"
+        ],
+        [
+          "Documents aliasing model pressure",
+          "Model can evolve with the language/tool"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 249,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old-world concept",
+        "Rust analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "DocFX / Sandcastle / XML docs",
+          "rustdoc",
+          "Doctests compile and run; docs participate in test discipline"
+        ],
+        [
+          "`dotnet format` / EditorConfig formatting",
+          "rustfmt",
+          "Mostly syntactic; not a semantic analyzer"
+        ],
+        [
+          "Roslyn analyzers / StyleCop / FxCop",
+          "clippy",
+          "Ships toolchain-pinned, implemented as a rustc driver rather than package-local analyzer assemblies"
+        ],
+        [
+          "Roslyn IDE language service",
+          "rust-analyzer",
+          "Rust's IDE engine reimplements analysis instead of sharing a stable compiler API"
+        ],
+        [
+          "ASan / Valgrind / managed runtime verifier",
+          "Miri",
+          "MIR interpreter for Rust UB, not native instrumentation or production runtime"
+        ],
+        [
+          "MSBuild invoking analyzers",
+          "Cargo invoking tools",
+          "Cargo orchestrates; tools own their analysis and diagnostics"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 267,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Tool",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Need API docs or doctest validation?",
+          "rustdoc / `cargo doc`, `cargo test --doc`",
+          "Uses compiler front end and test harness"
+        ],
+        [
+          "Need consistent formatting?",
+          "rustfmt / `cargo fmt`",
+          "Syntax-level formatting policy"
+        ],
+        [
+          "Need idiom and bug-pattern lints?",
+          "clippy / `cargo clippy`",
+          "Deep compiler-driver lints with type information"
+        ],
+        [
+          "Need IDE navigation/completion/refactors?",
+          "rust-analyzer",
+          "LSP server with lazy editor analysis"
+        ],
+        [
+          "Need to test unsafe code for UB?",
+          "Miri / `cargo +nightly miri test`",
+          "MIR interpreter with UB checks"
+        ],
+        [
+          "Need stable machine-readable compiler internals?",
+          "Usually: do not",
+          "rustc internals are private and version-sensitive"
+        ],
+        [
+          "Need exact build graph input for tools?",
+          "`cargo metadata`",
+          "Cargo-owned stable-ish JSON command surface"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 281,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"rustdoc just renders comments.\"",
+          "It uses the compiler front end and compiles/runs doctests."
+        ],
+        [
+          "\"rustfmt is a type-aware refactoring engine.\"",
+          "It is mostly syntactic formatting, not semantic rewriting."
+        ],
+        [
+          "\"clippy is an external grep-like linter.\"",
+          "It is a rustc driver with compiler IR and type information."
+        ],
+        [
+          "\"rust-analyzer calls rustc as a library.\"",
+          "RA reimplements a lazy IDE front end and shells out for Cargo/rustc data where useful."
+        ],
+        [
+          "\"Miri proves my program safe.\"",
+          "Miri executes tests under an interpreter and detects many UB classes; coverage and model limits remain."
+        ],
+        [
+          "\"Tool APIs are stable because commands are stable.\"",
+          "Documented CLIs may be stable; private compiler crates are not."
+        ],
+        [
+          "\"Components are owned by rustup.\"",
+          "rustup installs/selects components; it does not own their analysis semantics."
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 295,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "The rustdoc Book",
+          "Official documentation and doctest behavior"
+        ],
+        [
+          "rustfmt repository and configuration docs",
+          "Formatting model and configuration surface"
+        ],
+        [
+          "The Clippy Book and `rust-lang/rust-clippy`",
+          "Lint groups, commands, and implementation context"
+        ],
+        [
+          "rust-analyzer manual and `dev/architecture.md`",
+          "RA's reimplemented front end and query architecture"
+        ],
+        [
+          "`rust-lang/miri` and rustc-dev-guide const-eval/Miri chapters",
+          "MIR interpretation and UB model context"
+        ],
+        [
+          "rustc-dev-guide on lints, drivers, HIR, MIR, and diagnostics",
+          "Why rustdoc/clippy/Miri are toolchain-sensitive"
+        ],
+        [
+          "Siblings: [00](00-OVERVIEW.md), [02](02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md), [04](04-LEXING-PARSING-AST-AND-DIAGNOSTIC-SPANS.md), [05](05-MACRO-EXPANSION-HYGIENE-AND-NAME-RESOLUTION.md), [09](09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md), [15](15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md), [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md), [20](20-BOOTSTRAP-CI-TESTING-PERF-AND-DISTRIBUTION.md)",
+          "Adjacent implementation and supply-chain layers"
+        ]
+      ]
+    }
+  ]
+}

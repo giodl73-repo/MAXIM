@@ -1,0 +1,504 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\16-CORE-ALLOC-STD-PANIC-AND-PLATFORM-LAYERS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 58,
+      "heading_context": "## Authority Map",
+      "headers": [
+        "Authority",
+        "Owns",
+        "Boundary"
+      ],
+      "rows": [
+        [
+          "Rust Reference / language teams",
+          "`no_std`, panic semantics, language attributes",
+          "Not the private layout of libstd"
+        ],
+        [
+          "rustc",
+          "Compiler hooks, codegen requests, lang-item consumption",
+          "Not the stable public std API"
+        ],
+        [
+          "Cargo",
+          "Profile settings such as `panic = \"abort\"`",
+          "Not allocator implementation"
+        ],
+        [
+          "rustup",
+          "`rust-std` components per toolchain/target",
+          "Not compilation semantics"
+        ],
+        [
+          "libs/libs-api teams",
+          "Stable `core`, `alloc`, and `std` APIs",
+          "Not LLVM lowering"
+        ],
+        [
+          "LLVM/backends",
+          "Machine-code lowering for calls and unwind tables",
+          "Not public library design"
+        ],
+        [
+          "Ecosystem tools",
+          "Embedded templates, allocator crates, docs, Miri checks",
+          "Not compiler/library private contracts"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 74,
+      "heading_context": "## `core`: The Freestanding Base",
+      "headers": [
+        "`core` provides",
+        "Why it can exist without an OS"
+      ],
+      "rows": [
+        [
+          "Primitive traits such as `Copy`, `Drop`, `Sized`, `Deref`, operators",
+          "Compiler-known semantics plus pure code"
+        ],
+        [
+          "`Option`, `Result`, tuples, slices, iterators",
+          "No allocation required"
+        ],
+        [
+          "`fmt` traits and machinery",
+          "Formatting abstraction, not necessarily I/O"
+        ],
+        [
+          "Atomics and pointer utilities where target-supported",
+          "Lower to target instructions or compiler intrinsics"
+        ],
+        [
+          "Panic interfaces used by `no_std`",
+          "Hook point, not the hosted panic runtime"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 104,
+      "heading_context": "## `alloc`: Heap Without Hosted OS",
+      "headers": [
+        "Type family",
+        "Lives in",
+        "Requirement"
+      ],
+      "rows": [
+        [
+          "`Box<T>`",
+          "`alloc`",
+          "Heap allocator"
+        ],
+        [
+          "`Vec<T>` / `String`",
+          "`alloc`",
+          "Growable heap allocation"
+        ],
+        [
+          "`Rc<T>`",
+          "`alloc`",
+          "Heap control block"
+        ],
+        [
+          "`Arc<T>`",
+          "`alloc`",
+          "Heap plus `target_has_atomic = \"ptr\"` support"
+        ],
+        [
+          "`BTreeMap`, `VecDeque`",
+          "`alloc`",
+          "Heap-backed collections"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 124,
+      "heading_context": "## `std`: Hosted Facade and Platform Services",
+      "headers": [
+        "`std` area",
+        "Underlying dependency"
+      ],
+      "rows": [
+        [
+          "`std::fs`",
+          "OS filesystem APIs"
+        ],
+        [
+          "`std::thread`",
+          "OS or platform thread primitives"
+        ],
+        [
+          "`std::net`",
+          "Sockets and platform networking"
+        ],
+        [
+          "`std::process`",
+          "Process creation and handles"
+        ],
+        [
+          "`std::time`",
+          "Platform clocks"
+        ],
+        [
+          "`std::env`",
+          "Process environment and arguments"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 141,
+      "heading_context": "## Lang Items and Compiler Intrinsics: The Coupling Boundary",
+      "headers": [
+        "Mechanism",
+        "Example territory",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "Lang items (`#[lang = \"...\"]`)",
+          "`Sized`, `Copy`, `Drop`, `Deref`, operator traits, panic and box machinery",
+          "Unstable internal contract"
+        ],
+        [
+          "Compiler intrinsics (`#[rustc_intrinsic]`)",
+          "Low-level operations exposed through `core::intrinsics` wrappers",
+          "Mostly unstable; user-facing wrappers may be stable"
+        ],
+        [
+          "`#[rustc_*]` attributes",
+          "Compiler-only annotations in libstd/libcore",
+          "Unstable implementation detail"
+        ],
+        [
+          "Public APIs",
+          "`Option`, `Vec`, `std::fs::File`, `Iterator`",
+          "Stable when marked `#[stable]`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 170,
+      "heading_context": "## Panic Strategy and Panic Handlers",
+      "headers": [
+        "Layer",
+        "Stable?",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "`[profile.*] panic = \"abort\"` or `\"unwind\"`",
+          "Yes",
+          "Cargo profile setting"
+        ],
+        [
+          "`#[panic_handler]` in `no_std`",
+          "Yes",
+          "Required when `std` does not provide one"
+        ],
+        [
+          "`panic_unwind` / `panic_abort` crates",
+          "Internal distribution pieces",
+          "Not a general application API"
+        ],
+        [
+          "Panic lang items and runtime wiring",
+          "Unstable",
+          "rustc/libstd implementation detail"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 185,
+      "heading_context": "## Allocators and Global Allocation",
+      "headers": [
+        "API",
+        "Role",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "`#[global_allocator]`",
+          "Selects the process/global allocator",
+          "Stable"
+        ],
+        [
+          "`GlobalAlloc`",
+          "Trait implemented by custom allocators",
+          "Stable, unsafe contract"
+        ],
+        [
+          "`alloc::alloc`",
+          "Low-level allocation functions",
+          "Stable API with unsafe obligations"
+        ],
+        [
+          "jemalloc/mimalloc crates",
+          "Ecosystem allocator choices",
+          "Crate-level support, not language authority"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 211,
+      "heading_context": "## Concrete Build Skeletons",
+      "headers": [
+        "File-level choice",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "`#![no_std]` in a library",
+          "Do not link the hosted standard library"
+        ],
+        [
+          "No `#![no_main]`",
+          "The crate is an rlib, not a final platform image"
+        ],
+        [
+          "No panic handler",
+          "The final binary supplies one"
+        ],
+        [
+          "No global allocator",
+          "`core` works; `alloc` remains unavailable to the final image until it supplies one"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 250,
+      "heading_context": "## No Managed Runtime, Minimal Startup",
+      "headers": [
+        "Concept",
+        "Rust reality"
+      ],
+      "rows": [
+        [
+          "Garbage collector",
+          "None in the language or std"
+        ],
+        [
+          "JIT",
+          "None in normal Rust execution; rustc emits native code ahead of time"
+        ],
+        [
+          "BCL-style runtime services",
+          "`std` is statically linked library code plus OS calls"
+        ],
+        [
+          "Pre-main runtime",
+          "Minimal setup for args, environment, stack guard/panic integration"
+        ],
+        [
+          "Reflection/metadata runtime",
+          "No CLR-equivalent runtime metadata system"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 264,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust analogue",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "C freestanding vs hosted",
+          "`#![no_std]` vs `std`",
+          "Rust keeps strong language semantics in both modes"
+        ],
+        [
+          "Layered BCL",
+          "`core` -> `alloc` -> `std`",
+          "No managed runtime underneath"
+        ],
+        [
+          "Overriding `malloc` / custom heap",
+          "`#[global_allocator]` + `GlobalAlloc`",
+          "Unsafe trait contract; allocation is library-level"
+        ],
+        [
+          "C++ exceptions unwind stack",
+          "`panic = \"unwind\"`",
+          "Panics are not ordinary recoverable errors"
+        ],
+        [
+          "CLR special-known types",
+          "lang items",
+          "Compiler/library coupling, not user-stable API"
+        ],
+        [
+          "NuGet-installed reference assemblies",
+          "rustup `rust-std` target component",
+          "Precompiled std crates per target"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 279,
+      "heading_context": "## Stability Boundary",
+      "headers": [
+        "Stable surface",
+        "Unstable implementation detail"
+      ],
+      "rows": [
+        [
+          "Public `std`, `core`, `alloc` APIs marked stable",
+          "`std::sys` platform abstraction layout"
+        ],
+        [
+          "`#![no_std]` and `#![no_main]`",
+          "lang item names and wiring"
+        ],
+        [
+          "`#[panic_handler]`",
+          "panic runtime internals and panic lang items"
+        ],
+        [
+          "`#[global_allocator]` and `GlobalAlloc`",
+          "`#[rustc_*]` attributes and compiler-only hooks"
+        ],
+        [
+          "Cargo profile `panic = \"abort\"/\"unwind\"`",
+          "compiler intrinsics as direct user APIs"
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 293,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Write ordinary hosted application code",
+          "`std`"
+        ],
+        [
+          "Target bare metal or a kernel-like environment",
+          "`#![no_std]` with `core`"
+        ],
+        [
+          "Use `Vec` or `String` without `std`",
+          "`extern crate alloc` plus a global allocator"
+        ],
+        [
+          "Minimize binary size and remove unwinding",
+          "`[profile.release] panic = \"abort\"`"
+        ],
+        [
+          "Define panic behavior in `no_std`",
+          "`#[panic_handler]`"
+        ],
+        [
+          "Replace the default allocator",
+          "`#[global_allocator]` and a `GlobalAlloc` implementation or allocator crate"
+        ],
+        [
+          "Understand platform-specific `std` behavior",
+          "Read public `std` docs first; inspect `std::sys` only as implementation context"
+        ],
+        [
+          "Cross-compile with library support",
+          "`rustup target add <target>` and verify target tier/std availability"
+        ]
+      ]
+    },
+    {
+      "id": "table-13",
+      "line": 308,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"rustc owns the standard library.\"",
+          "No. libs/libs-api own the public library API; rustc and std co-evolve."
+        ],
+        [
+          "\"`std` is Rust's runtime.\"",
+          "No. It is a statically linked library facade over `core`, `alloc`, and OS APIs."
+        ],
+        [
+          "\"`no_std` means no Rust standard semantics.\"",
+          "No. You still have `core`, traits, `Option`, `Result`, slices, and iterators."
+        ],
+        [
+          "\"`alloc` requires an operating system.\"",
+          "No. It requires a heap allocator, not necessarily hosted OS services."
+        ],
+        [
+          "\"Lang items are a stable extension point.\"",
+          "No. They are compiler/library implementation details."
+        ],
+        [
+          "\"Panic unwind is just exceptions.\"",
+          "Only mechanically similar in stack unwinding; Rust uses `Result` for expected errors."
+        ],
+        [
+          "\"All targets have `std`.\"",
+          "No. Some targets support only `core` or `core` + `alloc`; target tier matters."
+        ]
+      ]
+    },
+    {
+      "id": "table-14",
+      "line": 322,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Standard library docs: `std`, `core`, `alloc`",
+          "Public stable API surface and module boundaries"
+        ],
+        [
+          "Rust Reference: `no_std`, panic behavior, attributes",
+          "Language-level contract"
+        ],
+        [
+          "Unstable Book: lang items and intrinsics",
+          "Explicit warning that these are not stable user APIs"
+        ],
+        [
+          "rustc-dev-guide: compiler/library boundary and panic implementation",
+          "Internal coupling model"
+        ],
+        [
+          "The Embedonomicon",
+          "Practical `no_std`, panic handler, and embedded startup patterns"
+        ],
+        [
+          "Rustonomicon",
+          "Unsafe allocator and low-level library obligations"
+        ],
+        [
+          "libs team RFCs and API guidelines",
+          "How public library authority evolves"
+        ]
+      ]
+    }
+  ]
+}

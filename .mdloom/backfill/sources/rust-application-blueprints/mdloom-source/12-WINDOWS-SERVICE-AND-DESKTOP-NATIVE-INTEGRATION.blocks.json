@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\12-WINDOWS-SERVICE-AND-DESKTOP-NATIVE-INTEGRATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| WINDOWS HOST AUTHORITIES                                                   |\n| SCM/session; window dispatcher; COM apartment; registry; installer         |\n+============================================================================+\n             | service callbacks                 | UI/native callbacks\n             v                                   v\n       service host                        desktop/native host\n       start/stop/control                  messages/callbacks/UI thread\n             \\                                   /\n              \\                                 /\n               v                               v\n+----------------------------------------------------------------------------+\n| neutral application core: use cases | domain policy | ports                |\n+----------------------------------------------------------------------------+\n             |                                   |\n             v                                   v\n       Windows adapters                    portable adapters\n       Win32/COM/registry/events            store/network/files",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 126,
+      "heading_context": "## Desktop, Win32, and COM Integration",
+      "confidence": "candidate",
+      "text": "UI/message thread\n    |\n    +--> translate event to application command\n    |\n    +<-- render state/result\n    |\n    `--> marshal callbacks/results back to owning thread",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 152,
+      "heading_context": "## Testing and Rollback",
+      "confidence": "candidate",
+      "text": "portable core tests\n   -> Windows adapter unit/contract tests\n   -> service lifecycle tests on Windows\n   -> desktop/COM thread-affinity scenarios\n   -> packaged installer upgrade/repair/uninstall tests",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

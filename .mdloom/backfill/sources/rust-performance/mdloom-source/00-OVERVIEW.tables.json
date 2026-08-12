@@ -1,0 +1,200 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 60,
+      "heading_context": "## Four Questions Before Any Optimization",
+      "headers": [
+        "Question",
+        "Required answer"
+      ],
+      "rows": [
+        [
+          "What outcome matters?",
+          "p99 latency, sustained throughput, RSS, binary size, build time, cloud cost, or another explicit metric"
+        ],
+        [
+          "Under what workload?",
+          "Input distribution, concurrency, data size, warm/cold state, target, and dependency versions"
+        ],
+        [
+          "Compared with what?",
+          "A preserved baseline built and run under the same contract"
+        ],
+        [
+          "How will causality be checked?",
+          "Profile, counter, trace, allocation record, or controlled experiment"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 94,
+      "heading_context": "## Reading Paths",
+      "headers": [
+        "Intent",
+        "Read in order"
+      ],
+      "rows": [
+        [
+          "Diagnose a slow service endpoint",
+          "[01](01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md) -> [03](03-CPU-PROFILING-AND-FLAME-GRAPHS.md) -> [07](07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md) -> [09](09-FILES-NETWORKING-BUFFERING-AND-IO.md) -> [14](14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md)"
+        ],
+        [
+          "Reduce memory or allocator pressure",
+          "[01](01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md) -> [04](04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md) -> [05](05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md) -> [10](10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md)"
+        ],
+        [
+          "Tune a compute kernel",
+          "[01](01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md) -> [03](03-CPU-PROFILING-AND-FLAME-GRAPHS.md) -> [05](05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md) -> [06](06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md)"
+        ],
+        [
+          "Fix slow builds",
+          "[02](02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md) -> [12](12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md)"
+        ],
+        [
+          "Establish regression policy",
+          "[13](13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md) -> [14](14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md) -> [15](15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md)"
+        ],
+        [
+          "Tune final artifacts",
+          "[02](02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md) -> [11](11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md) -> [15](15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 107,
+      "heading_context": "## Evidence Strength",
+      "headers": [
+        "Evidence",
+        "Supports",
+        "Does not support"
+      ],
+      "rows": [
+        [
+          "Compiler Explorer / assembly inspection",
+          "What one compiler emitted for one function and configuration",
+          "End-to-end latency or production capacity"
+        ],
+        [
+          "Microbenchmark",
+          "Cost of a bounded operation under a synthetic harness",
+          "Whole-system impact without an Amdahl analysis"
+        ],
+        [
+          "CPU profile",
+          "Where sampled on-CPU time accumulated",
+          "Off-CPU waits unless the tool records them"
+        ],
+        [
+          "Allocation profile",
+          "Allocation sites and volume in observed paths",
+          "Peak live memory unless lifetime is also measured"
+        ],
+        [
+          "Load test",
+          "Behavior under a modeled request mix",
+          "Real traffic if the model omits skew, retries, or downstream limits"
+        ],
+        [
+          "Production telemetry",
+          "Actual deployed outcomes",
+          "Causality without an experiment or trace"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 150,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior practice",
+        "Rust performance equivalent"
+      ],
+      "rows": [
+        [
+          "Native C/C++ perf lab",
+          "Same OS counters, profilers, linkers, and cache hierarchy; Rust adds ownership and monomorphization-specific questions"
+        ],
+        [
+          "BenchmarkDotNet",
+          "Criterion or iai-callgrind for controlled Rust benchmarks"
+        ],
+        [
+          "ETW + PerfView",
+          "Still valid for Rust processes on Windows when symbols and stacks are available"
+        ],
+        [
+          "MSBuild configuration matrix",
+          "Cargo profiles plus target/toolchain configuration"
+        ],
+        [
+          "CLR allocation/GC investigation",
+          "Native allocation and lifetime investigation; no GC pauses by default, but allocators and refcounts still cost"
+        ],
+        [
+          "VSTS gated performance runs",
+          "Statistical benchmark gates plus production canary evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 182,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "If the question is...",
+        "Start with"
+      ],
+      "rows": [
+        [
+          "\"Did this change improve the product?\"",
+          "[01](01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md) and [14](14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md)"
+        ],
+        [
+          "\"Where is CPU time going?\"",
+          "[03](03-CPU-PROFILING-AND-FLAME-GRAPHS.md)"
+        ],
+        [
+          "\"Why is memory high?\"",
+          "[04](04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md)"
+        ],
+        [
+          "\"Why did a rewrite fail to vectorize?\"",
+          "[05](05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md)"
+        ],
+        [
+          "\"Are abstractions producing bad code?\"",
+          "[06](06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md)"
+        ],
+        [
+          "\"Why are async tails bad?\"",
+          "[07](07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md)"
+        ],
+        [
+          "\"Why does scaling flatten?\"",
+          "[08](08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md)"
+        ],
+        [
+          "\"Is the bottleneck I/O or data movement?\"",
+          "[09](09-FILES-NETWORKING-BUFFERING-AND-IO.md) and [10](10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md)"
+        ],
+        [
+          "\"Should we enable LTO/PGO/BOLT?\"",
+          "[11](11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md)"
+        ],
+        [
+          "\"Why is CI slow?\"",
+          "[12](12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md)"
+        ],
+        [
+          "\"Can this ship?\"",
+          "[15](15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md)"
+        ]
+      ]
+    }
+  ]
+}

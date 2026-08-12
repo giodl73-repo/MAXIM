@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\04-DEPENDENCY-AND-REGISTRY-SUPPLY-CHAIN-SECURITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         CARGO SUPPLY CHAIN                                 |\n+============================================================================+\n| source intent                                                              |\n| Cargo.toml constraints -> registry/git/path identity -> resolver           |\n|         |                   |                         |                    |\n|         v                   v                         v                    |\n| policy review          publisher/source trust       Cargo.lock selection   |\n+----------------------------------------------------------------------------+\n| fetched source -> build.rs/proc macro -> rustc/linker -> artifact          |\n| checksums          host code execution      compiler/native trust          |\n+----------------------------------------------------------------------------+\n| artifact -> SBOM/provenance/signature -> deployment -> advisory response   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## Update Discipline",
+      "confidence": "candidate",
+      "text": "proposed update\n    |\n    +--> lockfile/source diff\n    +--> feature and target diff\n    +--> build-time/unsafe/native delta\n    +--> advisory and policy checks\n    +--> tests/fuzz/evidence affected by change\n    +--> rollback and response owner",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

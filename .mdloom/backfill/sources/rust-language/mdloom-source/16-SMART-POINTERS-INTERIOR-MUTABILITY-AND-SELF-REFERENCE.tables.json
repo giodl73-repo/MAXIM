@@ -1,0 +1,144 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\16-SMART-POINTERS-INTERIOR-MUTABILITY-AND-SELF-REFERENCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 144,
+      "heading_context": "## Interior Mutability: Mutate Through `&T`",
+      "headers": [
+        "Pattern",
+        "Meaning",
+        "Thread"
+      ],
+      "rows": [
+        [
+          "`Rc<RefCell<T>>`",
+          "shared + interior-mutable",
+          "single"
+        ],
+        [
+          "`Arc<Mutex<T>>`",
+          "shared + synchronized-mutable",
+          "multi"
+        ],
+        [
+          "`Arc<RwLock<T>>`",
+          "shared + many-readers/one-writer",
+          "multi"
+        ],
+        [
+          "`Rc<T>` + `Weak<T>`",
+          "shared with back-edges, no cycle leak",
+          "single"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 189,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "`std::unique_ptr` (C++)",
+          "`Box<T>`",
+          "Move-only single owner"
+        ],
+        [
+          "`std::shared_ptr` (C++)",
+          "`Arc<T>` (`Rc` = non-atomic)",
+          "Thread-safety is a type choice"
+        ],
+        [
+          "`std::weak_ptr`",
+          "`Weak<T>`",
+          "Same cycle-breaking role"
+        ],
+        [
+          "GC handles cycles (.NET/Java)",
+          "you break cycles with `Weak`",
+          "Refcounting can't; be deliberate"
+        ],
+        [
+          "`mutable` member (C++)",
+          "`Cell`/`RefCell`",
+          "Interior mutability, but checked"
+        ],
+        [
+          "`readonly` field you cheat past",
+          "`RefCell` (runtime-checked)",
+          "Panics instead of silent UB"
+        ],
+        [
+          "copy-on-write string (C++ SSO era)",
+          "`Cow<str>`",
+          "Explicit, in the type"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 223,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I need...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Heap allocation, single owner",
+          "`Box<T>`"
+        ],
+        [
+          "Recursive type / trait object",
+          "`Box<T>` / `Box<dyn Trait>`"
+        ],
+        [
+          "Shared ownership, one thread",
+          "`Rc<T>`"
+        ],
+        [
+          "Shared ownership, many threads",
+          "`Arc<T>` when `T` is thread-safe ([15](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md))"
+        ],
+        [
+          "Break a reference cycle",
+          "`Weak<T>`"
+        ],
+        [
+          "Mutate a `Copy` value via `&self`",
+          "`Cell<T>`"
+        ],
+        [
+          "Mutate via `&self`, need references",
+          "`RefCell<T>` (runtime-checked)"
+        ],
+        [
+          "Shared + mutable, one thread",
+          "`Rc<RefCell<T>>`"
+        ],
+        [
+          "Shared + mutable, many threads",
+          "`Arc<Mutex<T>>`"
+        ],
+        [
+          "Borrow-or-own return value",
+          "`Cow<'a, B>`"
+        ],
+        [
+          "A graph without pointer soup",
+          "arena: `Vec<T>` + indices"
+        ],
+        [
+          "Build a new sync primitive",
+          "`UnsafeCell<T>` + `unsafe` ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ]
+      ]
+    }
+  ]
+}

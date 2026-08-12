@@ -8,6 +8,7 @@ structure, graduation criteria, public navigation, or reader-facing content.
 | File | Role | Primary tension |
 |---|---|---|
 | `parliament/reference-integrity-auditor.md` | Reference Integrity Auditor | Breadth and synthesis vs. factual precision |
+| `parliament/executable-evidence-auditor.md` | Executable Evidence Auditor | Fluent examples vs. reproducible behavior |
 
 ## Editorial
 
@@ -25,4 +26,6 @@ structure, graduation criteria, public navigation, or reader-facing content.
 
 1. Use the Reader Path Editor when navigation, routes, or guide structure change.
 2. Use the Reference Integrity Auditor when facts, scope, or synthesis change.
-3. Use the Learner Advocate before graduating guides or public-facing bundles.
+3. Use the Executable Evidence Auditor when commands, examples, compatibility
+   boundaries, or graduation evidence change.
+4. Use the Learner Advocate before graduating guides or public-facing bundles.

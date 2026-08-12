@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\05-MACRO-EXPANSION-HYGIENE-AND-NAME-RESOLUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 37,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                      EXPANSION + RESOLUTION LOOP                          |\n|                                                                           |\n|  parsed AST with token-tree macro invocations [04]                        |\n|       |                                                                   |\n|       v                                                                   |\n|  collect invocations: macro_rules!, derive, attr, function-like proc      |\n|       |                                                                   |\n|       v                                                                   |\n|  resolve macro path in module/import/macro namespaces                     |\n|       |                                                                   |\n|       v                                                                   |\n|  expand invocation                                                        |\n|       |-- declarative matcher/transcriber                                 |\n|       |-- proc macro dylib running on HOST via stable proc_macro API      |\n|       v                                                                   |\n|  integrate produced tokens/items into AST                                 |\n|       |                                                                   |\n|       +---- new names/imports/macros? repeat until fixed point --------+  |\n|                                                                        |  |\n|  resolved AST: paths bound, modules/imports known, hygiene applied <---+  |\n|       |                                                                   |\n|       v                                                                   |\n|  HIR lowering and middle-level identity [06]                              |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "## Macro Kinds and Execution Boundary",
+      "confidence": "candidate",
+      "text": "+-------------------+        Cargo builds        +---------------------------+\n| proc-macro crate  | -------------------------> | host dynamic library      |\n+-------------------+                            +---------------------------+\n                                                             |\n                                                             v\n+-------------------+       stable API          +---------------------------+\n| rustc expander    | <------------------------ | proc_macro::TokenStream   |\n+-------------------+                           +---------------------------+\n        |\n        v\n generated tokens integrated into the crate being compiled",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "## Hygiene: Spans Carry Expansion History",
+      "confidence": "candidate",
+      "text": "caller source token                 macro-generated token\n+----------------------+            +----------------------+\n| ident: tmp           |            | ident: tmp           |\n| span: caller ctxt    |            | span: expansion ctxt |\n+----------------------+            +----------------------+\n          |                                      |\n          +------------------+-------------------+\n                             v\n                   resolver compares names plus context,\n                   not spelling alone",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Hygiene: Spans Carry Expansion History",
+      "confidence": "candidate",
+      "text": "macro_rules! make_tmp {\n    () => {{\n        let tmp = 1;\n        tmp\n    }};\n}\n\nfn main() {\n    let tmp = 40;\n    let x = make_tmp!() + tmp; // 41; macro-local `tmp` is distinct\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Name Resolution: Modules, Imports, and Namespaces",
+      "confidence": "candidate",
+      "text": "+-------------------+        +-------------------+        +-------------------+\n|module declarations| -----> | import graph      | -----> | path bindings     |\n|expansion adds defs| <----- | use / glob / pub  |        | DefId/Res records |\n+-------------------+        +-------------------+        +-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 239,
+      "heading_context": "# Cargo visibility into host/target units, including proc macros.",
+      "confidence": "candidate",
+      "text": "pub mod api {\n    pub struct Widget;\n}\n\npub use crate::api::Widget;\n\nmacro_rules! make_widget {\n    () => { Widget };\n}\n\nfn f() -> Widget {\n    make_widget!()\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

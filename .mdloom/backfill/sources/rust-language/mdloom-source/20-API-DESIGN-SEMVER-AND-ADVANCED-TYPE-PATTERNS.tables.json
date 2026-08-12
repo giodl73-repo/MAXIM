@@ -1,0 +1,163 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\20-API-DESIGN-SEMVER-AND-ADVANCED-TYPE-PATTERNS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 58,
+      "heading_context": "## Cargo SemVer: What Breaks",
+      "headers": [
+        "Clearly breaking (MAJOR, or MINOR pre-1.0)",
+        "Usually compatible",
+        "Possibly breaking — investigate downstream interactions"
+      ],
+      "rows": [
+        [
+          "Remove/rename a `pub` item",
+          "Deprecate with `#[deprecated]`",
+          "Add a new public item (name/glob-import collisions)"
+        ],
+        [
+          "Add a required public-trait method",
+          "Add an optional additive feature",
+          "Add a **defaulted** trait method (method ambiguity)"
+        ],
+        [
+          "Add a field to an exhaustively constructible public struct",
+          "Add a variant/field where `#[non_exhaustive]` reserved growth",
+          "Add a public trait impl (inference or method-resolution changes)"
+        ],
+        [
+          "Add/tighten a public generic bound",
+          "Loosen a bound",
+          "Add an inherent method that collides with a trait method"
+        ],
+        [
+          "Change a function signature or make a public type private",
+          "Documentation-only changes",
+          "Change inference, auto-trait, or variance behavior without changing syntax"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 232,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust pattern",
+        "Difference"
+      ],
+      "rows": [
+        [
+          ".NET/NuGet SemVer",
+          "Cargo SemVer",
+          "Same MAJOR.MINOR.PATCH; enforced in resolution"
+        ],
+        [
+          "`[Obsolete]`",
+          "`#[deprecated]`",
+          "Same deprecation signal"
+        ],
+        [
+          "non-sealed vs `sealed` class (C#)",
+          "sealed-trait pattern",
+          "Sealed = \"callable, not implementable\""
+        ],
+        [
+          "primitive obsession -> value objects",
+          "newtype",
+          "Distinct type, zero cost"
+        ],
+        [
+          "fluent builder (C#/Java)",
+          "builder pattern",
+          "Rust lacks named args, so builders are idiomatic"
+        ],
+        [
+          "state machine with runtime checks",
+          "typestate",
+          "Illegal transitions fail to **compile**"
+        ],
+        [
+          "generics + variance (C#)",
+          "HRTBs / variance",
+          "Lifetime-aware; `for<'a>` for closures"
+        ],
+        [
+          "fixed-size arrays / `stackalloc`",
+          "const generics",
+          "Size is a type parameter"
+        ],
+        [
+          "marker/attribute-only types",
+          "`PhantomData<T>`",
+          "Zero-sized type-system marker"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 264,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Let an enum/struct grow without a major bump",
+          "`#[non_exhaustive]`"
+        ],
+        [
+          "Prevent mixing same-underlying-type values",
+          "newtype `struct Id(u64)`"
+        ],
+        [
+          "Validate-on-construct",
+          "newtype + fallible constructor"
+        ],
+        [
+          "Configure a many-optional-field object",
+          "builder pattern"
+        ],
+        [
+          "Make illegal state transitions uncompilable",
+          "typestate + `PhantomData`"
+        ],
+        [
+          "Let others call but not implement a trait",
+          "sealed trait"
+        ],
+        [
+          "Bound a closure over any lifetime",
+          "HRTB `for<'a>`"
+        ],
+        [
+          "An associated type that borrows from `self`",
+          "GAT (1.65+)"
+        ],
+        [
+          "Parameterize a type by a size/number",
+          "const generics (basic: stable)"
+        ],
+        [
+          "Mark an unused type/lifetime parameter",
+          "`PhantomData<T>`"
+        ],
+        [
+          "Keep an item out of the public API",
+          "leave it private / place it in a private module"
+        ],
+        [
+          "Hide a deliberately public item from generated docs only",
+          "`#[doc(hidden)]` (still SemVer-public)"
+        ],
+        [
+          "Check SemVer before release",
+          "`cargo semver-checks`"
+        ]
+      ]
+    }
+  ]
+}

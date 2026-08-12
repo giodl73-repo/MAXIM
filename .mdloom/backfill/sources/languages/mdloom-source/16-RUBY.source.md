@@ -2,7 +2,7 @@
 tags: [backfill]
 ops: [backfill]
 content_tags: [markdown]
-proof_original: "16-RUBY.md"
+mdloom_original: "16-RUBY.md"
 ---
 ---
 maxim_schema: maxim.frontmatter.v1

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\05-STRUCTS-ENUMS-PATTERNS-AND-MATCH.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Structs, Enums, Patterns, and Match",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                      ALGEBRAIC DATA TYPES + PATTERN MATCH                     |\n+===============================================================================+\n\n  PRODUCT (struct) = AND                 SUM (enum) = OR\n  ----------------------                 ---------------\n  struct Point { x: f64, y: f64 }        enum Shape {\n    -> has x AND y                          Circle(f64),               // tuple variant\n  struct Meters(f64);   // newtype          Rect { w: f64, h: f64 },   // struct variant\n  struct Unit;          // zero-size        Dot,                       // unit variant\n                                         }  -> is Circle OR Rect OR Dot\n\n  MATCH = exhaustive eliminator          THE PATTERN TOOLBOX\n  -----------------------------          -------------------\n  match s {                              literal   1   \"s\"   'c'\n    Shape::Circle(r) => ...,             binding   x   ref y  mut z\n    Shape::Rect { w, h } => ...,         wildcard  _   ..\n    Shape::Dot => ...,                   struct    Point { x, y }\n  }  // compiler ERRORS if a case        tuple     (a, b, _)\n     // is missing (exhaustiveness)      or        1 | 2 | 3\n                                         range     0..=9\n                                         guard     n if n > 0",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 76,
+      "heading_context": "## Structs: Three Flavors",
+      "confidence": "candidate",
+      "text": "impl Point {\n    fn origin() -> Self { Point { x: 0.0, y: 0.0 } }   // associated fn (no self)\n    fn dist(&self) -> f64 { (self.x * self.x + self.y * self.y).sqrt() }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 110,
+      "heading_context": "## Match: Exhaustive by Construction",
+      "confidence": "candidate",
+      "text": "fn area(s: &Shape) -> f64 {\n    match s {\n        Shape::Circle(r) => std::f64::consts::PI * r * r,\n        Shape::Rect { w, h } => w * h,\n        Shape::Dot => 0.0,\n    }   // remove any arm -> compile error: non-exhaustive patterns\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 124,
+      "heading_context": "## Match: Exhaustive by Construction",
+      "confidence": "candidate",
+      "text": "match msg {\n    Event::Key(c) if c.is_ascii_digit() => handle_digit(c),\n    Event::Key(c) => handle_char(c),\n    Event::Click { x, y } => handle_click(x, y),\n    _ => {}                                       // catch-all\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

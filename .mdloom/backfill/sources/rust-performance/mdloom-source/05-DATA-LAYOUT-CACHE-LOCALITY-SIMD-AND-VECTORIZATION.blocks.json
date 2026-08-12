@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         DATA TO EXECUTION                                   |\n|                                                                             |\n| domain model -> Rust representation -> bytes/padding/alignment              |\n|                      |                                                      |\n|                      v                                                      |\n| access order -> cache lines -> prefetch/TLB -> scalar or vector operations  |\n|                      |                              |                       |\n|                      +-> working set                 +-> auto-vectorization |\n|                     +-> false sharing              +-> std::arch intrinsics |\n|                                                     +-> portable SIMD(*)    |\n|                                                                             |\n| (*) std::simd is nightly-only under portable_simd in Rust 1.97.1            |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Locality Before SIMD",
+      "confidence": "candidate",
+      "text": "remove work -> improve algorithm -> make access contiguous -> reduce working set\n            -> remove unpredictable branches -> inspect auto-vectorization\n            -> use explicit SIMD only if evidence remains",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## Benchmark Layers",
+      "headers": [
+        "Layer",
+        "Best for",
+        "Main blind spot"
+      ],
+      "rows": [
+        [
+          "Microbenchmark",
+          "Tight function/algorithm cost",
+          "Whole-system interactions"
+        ],
+        [
+          "Component benchmark",
+          "Parser, database adapter, protocol pipeline",
+          "Deployment queues/downstreams"
+        ],
+        [
+          "End-to-end load test",
+          "Capacity and latency SLO",
+          "Root-cause attribution"
+        ],
+        [
+          "Production experiment",
+          "Real traffic and cost",
+          "Control and repeatability"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 123,
+      "heading_context": "## Statistics and Practical Significance",
+      "headers": [
+        "Concept",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Estimate",
+          "Central result for the measured quantity"
+        ],
+        [
+          "Confidence interval",
+          "Uncertainty from samples/model"
+        ],
+        [
+          "Effect size",
+          "Absolute and relative difference"
+        ],
+        [
+          "Noise floor",
+          "Normal host/harness variation"
+        ],
+        [
+          "Practical threshold",
+          "Smallest change worth engineering action"
+        ],
+        [
+          "Multiple comparisons",
+          "Many benchmarks increase false alarms"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 163,
+      "heading_context": "## Baseline Custody",
+      "headers": [
+        "Baseline",
+        "Strength",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "Previous local run",
+          "Fast iteration",
+          "Host drift and accidental deletion"
+        ],
+        [
+          "Main-branch artifact on same host",
+          "Strong A/B comparison",
+          "Requires artifact/build orchestration"
+        ],
+        [
+          "Historical database",
+          "Trends and seasonality",
+          "Hardware/toolchain migrations need segmentation"
+        ],
+        [
+          "Fixed golden number",
+          "Simple gate",
+          "Becomes stale and hardware-specific"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 183,
+      "heading_context": "## Deterministic Cost Models",
+      "headers": [
+        "Strength",
+        "Limitation"
+      ],
+      "rows": [
+        [
+          "Stable instruction-like counts",
+          "Very slow"
+        ],
+        [
+          "Good for small CPU kernels",
+          "Valgrind support is primarily Linux"
+        ],
+        [
+          "Less affected by frequency scaling",
+          "Model is not native elapsed time"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 227,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "BenchmarkDotNet",
+          "Criterion"
+        ],
+        [
+          "PerfView trace after regression",
+          "`perf`/ETW/Instruments profile of benchmark"
+        ],
+        [
+          "VSTS performance gate",
+          "Dedicated Rust benchmark lane with A/B artifacts"
+        ],
+        [
+          "Instruction-count simulator",
+          "Callgrind/iai-callgrind"
+        ],
+        [
+          "Load-test SLO gate",
+          "Same model for Rust service"
+        ],
+        [
+          "Golden performance dashboard",
+          "Versioned benchmark history segmented by environment"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Benchmark/gate"
+      ],
+      "rows": [
+        [
+          "Optimize a tight operation",
+          "Criterion parameterized microbenchmark"
+        ],
+        [
+          "Protect a parser/codec",
+          "Corpus-based component benchmark with allocations"
+        ],
+        [
+          "Protect service SLO",
+          "Load sweep with latency histogram and throughput-at-SLO"
+        ],
+        [
+          "Low-noise instruction regression",
+          "iai-callgrind plus native validation"
+        ],
+        [
+          "PR feedback",
+          "Large-delta smoke gate or warning on ordinary runner"
+        ],
+        [
+          "Block small regressions",
+          "Dedicated stable hardware with interleaved A/B"
+        ],
+        [
+          "Toolchain upgrade",
+          "New segmented baseline; do not compare as ordinary code change"
+        ],
+        [
+          "Flaky result",
+          "Reduce noise or mark inconclusive, never average it into certainty"
+        ]
+      ]
+    }
+  ]
+}

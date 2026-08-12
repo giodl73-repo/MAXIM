@@ -1,0 +1,180 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\02-SAFE-RUST-UNSAFE-OBLIGATIONS-AND-ASSURANCE-OWNERSHIP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## What Safe Rust Does and Does Not Establish",
+      "headers": [
+        "Property",
+        "Safe Rust contribution",
+        "Remaining qualification"
+      ],
+      "rows": [
+        [
+          "Use-after-free and invalid references",
+          "Safe code cannot construct these through sound safe APIs",
+          "Unsound `unsafe`, FFI, compiler defects, or platform faults can violate the premise"
+        ],
+        [
+          "Data races",
+          "Safe Rust prevents data races through `Send`/`Sync` and borrowing",
+          "Deadlock, starvation, races at the application/protocol level remain"
+        ],
+        [
+          "Bounds",
+          "Standard indexing checks bounds; many APIs return `Option`",
+          "Allocation size, integer logic, and algorithmic complexity remain"
+        ],
+        [
+          "Type validity",
+          "Safe constructors preserve type invariants",
+          "Deserialization semantics and unsafe construction still require review"
+        ],
+        [
+          "Confidentiality/integrity",
+          "Types can encode authority and secret handling",
+          "No automatic authorization, encryption, side-channel, or logging guarantee"
+        ],
+        [
+          "Availability",
+          "A panic follows the configured unwind/abort runtime behavior rather than itself being UB",
+          "Panic-driven outage, abort, OOM, unbounded queues, and slow operations remain"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 123,
+      "heading_context": "## Minimize and Inventory the Boundary",
+      "headers": [
+        "Pattern",
+        "Assurance posture"
+      ],
+      "rows": [
+        [
+          "Pure safe application crate",
+          "`forbid(unsafe_code)` where practical; focus on logic, input, and availability"
+        ],
+        [
+          "Safe wrapper over unsafe core",
+          "Tiny internal boundary, invariant-focused API, independent review"
+        ],
+        [
+          "FFI crate",
+          "Explicit ABI/ownership contract, platform matrix, native tests and containment"
+        ],
+        [
+          "Unsafe trait implementation",
+          "Document why every implementer/user invariant holds across threads and drop"
+        ],
+        [
+          "Performance optimization",
+          "Require measured need and a safe reference implementation for differential tests"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 153,
+      "heading_context": "## Failure and Panic Are Part of Soundness",
+      "headers": [
+        "Edge",
+        "Review question"
+      ],
+      "rows": [
+        [
+          "Partial initialization",
+          "Can drop observe an uninitialized field?"
+        ],
+        [
+          "Panic/unwind",
+          "Is an invariant temporarily broken across a possible panic?"
+        ],
+        [
+          "Cancellation",
+          "Can a future be dropped after external state changed but before local commit?"
+        ],
+        [
+          "Re-entrancy",
+          "Can a callback alias or mutate state assumed exclusive?"
+        ],
+        [
+          "OOM/abort",
+          "Does the product claim recovery that the process model cannot provide?"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 163,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust assurance"
+      ],
+      "rows": [
+        [
+          "C/C++ coding standard bans dangerous APIs",
+          "Safe subset enforced by the language, plus reviewed unsafe islands"
+        ],
+        [
+          "`reinterpret_cast` review",
+          "`unsafe` operation with explicit invariant and safe wrapper"
+        ],
+        [
+          "Managed-code P/Invoke boundary",
+          "Rust FFI boundary: native ownership and ABI still manual"
+        ],
+        [
+          "Static analyzer suppressions",
+          "`// SAFETY:` argument plus scoped evidence and owner"
+        ],
+        [
+          "Security champion sign-off",
+          "Named owner per claim class, with re-review triggers"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 191,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Required action"
+      ],
+      "rows": [
+        [
+          "Crate needs no unsafe",
+          "Add `#![forbid(unsafe_code)]` and keep dependency review"
+        ],
+        [
+          "Unsafe proposed for speed",
+          "Require benchmark, safe baseline, invariant document, targeted tests"
+        ],
+        [
+          "Safe wrapper exposes raw ownership",
+          "Redesign until safe callers cannot violate lifetime/free rules"
+        ],
+        [
+          "Dependency contains unsafe",
+          "Identify critical surface, advisories, maintainer posture, and evidence"
+        ],
+        [
+          "Unsafe trait implementation",
+          "Review global thread/aliasing obligations, not only local syntax"
+        ],
+        [
+          "Owner is unavailable",
+          "Block high-risk change or transfer ownership explicitly"
+        ],
+        [
+          "Claim spans code and platform",
+          "Split responsibilities and record shared assumptions"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\06-LOCKFILES-REPRODUCIBILITY-AND-UPDATE-POLICY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## When to Commit `Cargo.lock`",
+      "headers": [
+        "Package type",
+        "Recommended posture",
+        "Why"
+      ],
+      "rows": [
+        [
+          "Application, service, CLI, firmware",
+          "Commit",
+          "The repository owns the shipped graph"
+        ],
+        [
+          "Workspace containing deployable artifacts",
+          "Commit one root lockfile",
+          "CI and products share exact resolution"
+        ],
+        [
+          "Reusable library only",
+          "Often commit for repository CI; downstream still resolves from manifest",
+          "Tests known graph while preserving consumer resolution"
+        ],
+        [
+          "Published library consumer",
+          "Do not assume upstream lock controls your graph",
+          "Registry dependencies are resolved in the consuming graph"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 61,
+      "heading_context": "## Locked, Offline, and Frozen",
+      "headers": [
+        "Flag",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "`--locked`",
+          "Fail if Cargo would change `Cargo.lock`"
+        ],
+        [
+          "`--offline`",
+          "Avoid network access and use locally available registry/git data"
+        ],
+        [
+          "`--frozen`",
+          "Equivalent to passing both `--locked` and `--offline`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 96,
+      "heading_context": "## Update Shapes",
+      "headers": [
+        "Update",
+        "Command shape",
+        "Review focus"
+      ],
+      "rows": [
+        [
+          "All compatible packages",
+          "`cargo update`",
+          "Broad graph and behavior change"
+        ],
+        [
+          "One package",
+          "`cargo update -p name`",
+          "Direct and transitive movement"
+        ],
+        [
+          "Exact selected version",
+          "`cargo update -p name --precise X.Y.Z`",
+          "Emergency pin or controlled rollback"
+        ],
+        [
+          "Manifest range change",
+          "Edit `Cargo.toml`, then update",
+          "New compatibility promise"
+        ],
+        [
+          "Source patch",
+          "`[patch]`, then update",
+          "Fork/source custody and removal date"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 121,
+      "heading_context": "## Reading Lockfile Changes",
+      "headers": [
+        "Diff pattern",
+        "Question"
+      ],
+      "rows": [
+        [
+          "One direct crate, many transitive moves",
+          "Did defaults or version constraints change?"
+        ],
+        [
+          "New duplicate major version",
+          "Is type duplication or binary cost acceptable?"
+        ],
+        [
+          "Registry source becomes git",
+          "Who approved mutable/source-control custody?"
+        ],
+        [
+          "Checksum changes at same name/version",
+          "Stop; registry immutability assumptions need investigation"
+        ],
+        [
+          "Native/proc-macro crate appears",
+          "Did build-time or platform trust expand?"
+        ],
+        [
+          "Package disappears",
+          "Was functionality internalized, feature-disabled, or accidentally removed?"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 173,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar artifact",
+        "Cargo artifact"
+      ],
+      "rows": [
+        [
+          "Package reference range",
+          "`Cargo.toml`"
+        ],
+        [
+          "Restore lock file",
+          "`Cargo.lock`"
+        ],
+        [
+          "Reproducible restore mode",
+          "`--locked`"
+        ],
+        [
+          "Offline feed/cache",
+          "Vendored directory or populated Cargo cache plus `--offline`"
+        ],
+        [
+          "Central dependency servicing",
+          "Planned lockfile update batches"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Repeat CI resolution",
+          "Commit lockfile and run `--locked`"
+        ],
+        [
+          "Prepare disconnected build",
+          "`cargo vendor` or managed cache, then test `--frozen`"
+        ],
+        [
+          "Update one dependency",
+          "`cargo update -p` plus graph diff"
+        ],
+        [
+          "Hold exact emergency version",
+          "`--precise` in lockfile with expiry/removal plan"
+        ],
+        [
+          "Prove bit reproducibility",
+          "Add toolchain, host/native, environment, and artifact comparison controls"
+        ],
+        [
+          "Test library compatibility",
+          "Separate lower-bound/MSRV jobs from locked current CI"
+        ]
+      ]
+    }
+  ]
+}

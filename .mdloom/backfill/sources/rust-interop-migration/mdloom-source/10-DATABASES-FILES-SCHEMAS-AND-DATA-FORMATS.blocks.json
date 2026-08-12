@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\10-DATABASES-FILES-SCHEMAS-AND-DATA-FORMATS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                        DATA BOUNDARY MIGRATION                             |\n+============================================================================+\n|  PRODUCERS                                                                 |\n|  old binary ------------------+                                            |\n|                               +--> VERSIONED CONTRACT --> storage/stream   |\n|  Rust binary -----------------+       schema + semantics                   |\n|                                            |                               |\n|                                            v                               |\n|  CONSUMERS                                                                 |\n|  old binary <----------------- compatible representation                   |\n|  Rust binary <---------------- compatible representation                   |\n|                                                                            |\n|  EXPAND                 MIGRATE/BACKFILL               CONTRACT            |\n|  additive schema  --->  dual-read/write/verify  --->  remove old form      |\n|                                                                            |\n|  rollback is valid only while old readers understand new writes            |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

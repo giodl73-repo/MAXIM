@@ -1,0 +1,152 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\09-PACKAGING-ARTIFACTS-RELEASES-AND-UPGRADES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 52,
+      "heading_context": "## Artifact Set",
+      "headers": [
+        "Artifact",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "Executable/library",
+          "runnable product"
+        ],
+        [
+          "Debug symbols",
+          "postmortem symbolication"
+        ],
+        [
+          "Manifest/checksums",
+          "identity and integrity"
+        ],
+        [
+          "Dependency/license inventory",
+          "legal and vulnerability response"
+        ],
+        [
+          "SBOM/provenance attestation",
+          "supply-chain traceability"
+        ],
+        [
+          "Configuration schema/sample",
+          "deployment contract"
+        ],
+        [
+          "Migrations",
+          "state transition"
+        ],
+        [
+          "Release notes",
+          "operator/user-visible change"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 123,
+      "heading_context": "## Target and Linking Policy",
+      "headers": [
+        "Choice",
+        "Benefit",
+        "Operational consequence"
+      ],
+      "rows": [
+        [
+          "Target-native dynamic linking",
+          "smaller artifact; host integration",
+          "compatible shared libraries required"
+        ],
+        [
+          "Static linking where supported",
+          "simpler deployment envelope",
+          "larger binary; libc/licensing/patch posture"
+        ],
+        [
+          "Linux GNU target",
+          "broad glibc ecosystem",
+          "minimum glibc compatibility matters"
+        ],
+        [
+          "Linux musl target",
+          "static-friendly deployment",
+          "DNS/performance/native dependency differences"
+        ],
+        [
+          "Windows MSVC target",
+          "native Windows ABI/toolchain",
+          "MSVC runtime and PDB handling"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 169,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library/build",
+          "Cargo profiles, feature policy, build metadata, SBOM/sign tools"
+        ],
+        [
+          "Runtime",
+          "rarely involved except runtime-linked assets and compatibility"
+        ],
+        [
+          "Platform",
+          "archive/package/container registry, signature verification, rollout"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 191,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Native archive/package",
+          "host integration and small deployment surface matter"
+        ],
+        [
+          "Container image",
+          "a filesystem/process envelope and registry workflow help"
+        ],
+        [
+          "Static linking",
+          "target supports it and operational/legal tradeoffs are accepted"
+        ],
+        [
+          "Separate symbols",
+          "production binary should be small/stripped but dumps need analysis"
+        ],
+        [
+          "Embedded revision",
+          "running process must map to exact source/evidence"
+        ],
+        [
+          "SBOM + provenance",
+          "supply-chain and incident response require dependency/build trace"
+        ],
+        [
+          "Rollback",
+          "data/protocol compatibility remains reversible"
+        ],
+        [
+          "Roll-forward",
+          "irreversible state transition has already occurred"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\15-SECURITY-RELEASE-GATE-AND-ASSURANCE-CASE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 72,
+      "heading_context": "## 2. Use a Risk-Class Gate Matrix",
+      "headers": [
+        "Gate",
+        "Required claim",
+        "Typical evidence",
+        "Block examples"
+      ],
+      "rows": [
+        [
+          "Threat model",
+          "material assets/boundaries/abuse cases are current",
+          "model, change review, owners",
+          "new privileged flow unmodeled"
+        ],
+        [
+          "Safe/unsafe",
+          "unsafe surface has accountable soundness argument",
+          "inventory, invariant review, Miri/tests",
+          "undocumented unsafe or soundness finding"
+        ],
+        [
+          "Logic/input",
+          "hostile input cannot bypass semantics/authz within scope",
+          "validation design, abuse tests, fuzz corpus",
+          "known authz bypass or unbounded expansion"
+        ],
+        [
+          "Availability",
+          "resource use and recovery meet budgets",
+          "load/failure tests, limits, telemetry",
+          "unbounded queue or retry storm"
+        ],
+        [
+          "Supply/build",
+          "resolved sources and host build code meet policy",
+          "lock/graph review, isolated build logs",
+          "unapproved source/proc macro; mutable build input"
+        ],
+        [
+          "Secrets/crypto",
+          "key/protocol lifecycle meets approved standard",
+          "design review, identity/key policy, rotation test",
+          "embedded secret; nonce/key reuse risk"
+        ],
+        [
+          "FFI/platform",
+          "ABI/native/containment assumptions are validated",
+          "target tests, native SBOM, sandbox tests",
+          "ownership ambiguity; excessive privilege"
+        ],
+        [
+          "Evidence/artifact",
+          "deployed bytes trace to reviewed inputs",
+          "digest, SBOM, provenance, signature",
+          "missing or unverifiable artifact identity"
+        ],
+        [
+          "Response",
+          "owners can detect, patch, rotate, and notify",
+          "runbook/exercise, contact, rollback",
+          "no security contact or viable remediation path"
+        ],
+        [
+          "Compliance/safety",
+          "required scoped obligations are mapped",
+          "approved mapping/case/evidence",
+          "mandatory evidence or assessor gate absent"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 151,
+      "heading_context": "## 5. Handle Exceptions as Expiring Risk Decisions",
+      "headers": [
+        "Exception field",
+        "Required content"
+      ],
+      "rows": [
+        [
+          "Failed/missing criterion",
+          "exact gate and evidence gap"
+        ],
+        [
+          "Exposure",
+          "affected artifacts/environments/users"
+        ],
+        [
+          "Compensating control",
+          "implemented and validated mitigation"
+        ],
+        [
+          "Residual risk",
+          "consequence and likelihood under current assumptions"
+        ],
+        [
+          "Risk acceptor",
+          "named authority independent enough for consequence"
+        ],
+        [
+          "Expiry",
+          "date/event and automatic re-block behavior"
+        ],
+        [
+          "Remediation",
+          "owner, work item, target release"
+        ],
+        [
+          "Monitoring",
+          "signal that detects assumption failure"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 188,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Established release practice",
+        "Assurance-case form"
+      ],
+      "rows": [
+        [
+          "Ship-room checklist",
+          "claim/evidence matrix tied to artifact digest"
+        ],
+        [
+          "Final Security Review",
+          "risk-class gate with explicit residual-risk owner"
+        ],
+        [
+          "Code-signing approval",
+          "signer verifies provenance and exact subject digest"
+        ],
+        [
+          "Go/no-go meeting",
+          "durable PASS/EXCEPTION/BLOCK verdict with rationale"
+        ],
+        [
+          "Post-deploy validation",
+          "digest/policy/telemetry verification and staged rollout"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 220,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Gate condition",
+        "Verdict"
+      ],
+      "rows": [
+        [
+          "Required claim has current sufficient evidence; no blocker",
+          "PASS"
+        ],
+        [
+          "Evidence gap has bounded exposure, validated control, owner, acceptor, expiry",
+          "PASS-WITH-EXCEPTION"
+        ],
+        [
+          "Known exploitable defect, soundness issue, untrusted artifact/build, or unacceptable residual risk",
+          "BLOCK"
+        ],
+        [
+          "Criterion truly outside release scope with documented rationale",
+          "NOT-APPLICABLE-WITH-RATIONALE"
+        ],
+        [
+          "Deployed digest differs from gated subject",
+          "BLOCK/ROLLBACK"
+        ],
+        [
+          "Assumption expires after release",
+          "reopen gate and regenerate affected evidence"
+        ]
+      ]
+    }
+  ]
+}

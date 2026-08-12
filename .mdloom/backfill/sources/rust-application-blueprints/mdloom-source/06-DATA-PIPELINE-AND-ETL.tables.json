@@ -1,0 +1,173 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\06-DATA-PIPELINE-AND-ETL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 82,
+      "heading_context": "## Extraction and Source Identity",
+      "headers": [
+        "Source",
+        "Identity required for repeatability"
+      ],
+      "rows": [
+        [
+          "Database",
+          "snapshot/transaction boundary or monotonic change token"
+        ],
+        [
+          "Object/file store",
+          "object version, checksum, and path/key"
+        ],
+        [
+          "API",
+          "page/cursor semantics plus upstream version where available"
+        ],
+        [
+          "Event log",
+          "topic/stream and partition offsets"
+        ],
+        [
+          "Mutable directory",
+          "enumerated manifest captured before processing"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Transform, Quality, and Rejection",
+      "headers": [
+        "Rule class",
+        "Example outcome"
+      ],
+      "rows": [
+        [
+          "Structural",
+          "reject malformed encoding with source position"
+        ],
+        [
+          "Semantic",
+          "reject or quarantine invalid domain value"
+        ],
+        [
+          "Referential",
+          "defer, join against versioned reference, or reject"
+        ],
+        [
+          "Deduplication",
+          "select by stable business/source key and ordering rule"
+        ],
+        [
+          "Enrichment",
+          "record reference dataset/version"
+        ],
+        [
+          "Privacy/security",
+          "minimize, tokenize, redact, or deny export"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 154,
+      "heading_context": "## Loading and Publication",
+      "headers": [
+        "Destination",
+        "Publication boundary"
+      ],
+      "rows": [
+        [
+          "Relational table",
+          "transaction, partition swap, or version column"
+        ],
+        [
+          "Files/object store",
+          "immutable prefix plus manifest/current pointer"
+        ],
+        [
+          "Search/index",
+          "new index then alias swap"
+        ],
+        [
+          "API-owned system",
+          "idempotent upsert with reconciliation"
+        ],
+        [
+          "Stream",
+          "output offsets plus schema and replay contract"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 181,
+      "heading_context": "## Testing, Reconciliation, and Rollback",
+      "headers": [
+        "Failure/change",
+        "Recovery"
+      ],
+      "rows": [
+        [
+          "Transform defect before publish",
+          "discard staging and rerun"
+        ],
+        [
+          "Defect after versioned publish",
+          "point readers to prior manifest; issue corrected version"
+        ],
+        [
+          "In-place destructive load",
+          "restore/repair from authoritative source and audit trail"
+        ],
+        [
+          "Schema change",
+          "dual-read/dual-write or versioned dataset during window"
+        ],
+        [
+          "Late data",
+          "correction run with explicit supersession"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 211,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Small finite transform",
+          "scheduled/batch [05] plus canonical contract crate"
+        ],
+        [
+          "Large restartable dataset",
+          "manifest, partitions, checkpoint ledger"
+        ],
+        [
+          "Continuous ordered changes",
+          "event-driven [07] with projection semantics"
+        ],
+        [
+          "Reader needs atomic dataset",
+          "immutable version plus manifest/pointer swap"
+        ],
+        [
+          "Late data expected",
+          "event-time watermark and correction policy"
+        ],
+        [
+          "Multiple encodings",
+          "canonical model plus source/destination adapters"
+        ],
+        [
+          "Regulated movement",
+          "explicit field policy, lineage, rejection retention"
+        ]
+      ]
+    }
+  ]
+}

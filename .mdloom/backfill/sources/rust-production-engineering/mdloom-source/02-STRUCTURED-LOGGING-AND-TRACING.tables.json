@@ -1,0 +1,131 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\02-STRUCTURED-LOGGING-AND-TRACING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 57,
+      "heading_context": "## Event and Span Design",
+      "headers": [
+        "Surface",
+        "Use it for",
+        "Avoid"
+      ],
+      "rows": [
+        [
+          "Event",
+          "state transition, decision, failure, notable fact",
+          "per-item noise in hot loops"
+        ],
+        [
+          "Span",
+          "duration and context of one operation",
+          "treating every function call as a span"
+        ],
+        [
+          "Field",
+          "stable query dimension or measured value",
+          "unbounded payloads and secrets"
+        ],
+        [
+          "Message",
+          "concise human explanation",
+          "encoding the only copy of key data"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 151,
+      "heading_context": "## Sampling and Volume",
+      "headers": [
+        "Signal need",
+        "Better mechanism"
+      ],
+      "rows": [
+        [
+          "exact request/error rate",
+          "metric counter"
+        ],
+        [
+          "one failing request path",
+          "trace"
+        ],
+        [
+          "detailed state transition",
+          "structured event"
+        ],
+        [
+          "security audit record",
+          "dedicated durable audit stream"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "`tracing`, `log`, OpenTelemetry SDKs, framework adapters"
+        ],
+        [
+          "Runtime",
+          "span/task propagation, async exporter scheduling, blocking policy"
+        ],
+        [
+          "Platform",
+          "collector, storage, retention, sampling, access control"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 189,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Structured event",
+          "one decision or state transition matters"
+        ],
+        [
+          "Span",
+          "an operation has duration, children, or causal context"
+        ],
+        [
+          "Metric instead",
+          "you need complete aggregation or alerting"
+        ],
+        [
+          "Head sampling",
+          "low overhead and uniform early decision are more important"
+        ],
+        [
+          "Tail sampling",
+          "rare errors/latency outliers must be retained"
+        ],
+        [
+          "Local JSON",
+          "supervisor/agent owns transport and rotation"
+        ],
+        [
+          "Direct exporter",
+          "process can tolerate exporter dependencies and backpressure policy is explicit"
+        ],
+        [
+          "Dedicated audit stream",
+          "records have legal/security retention and integrity requirements"
+        ]
+      ]
+    }
+  ]
+}

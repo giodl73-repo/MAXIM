@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\15-SECURITY-RELEASE-GATE-AND-ASSURANCE-CASE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                       SECURITY RELEASE GATE                                |\n+============================================================================+\n| scope: source + lock + target/features + builder + artifact digest + env   |\n+----------------------------------------------------------------------------+\n| 1 threat claims [01]       5 availability [08]                             |\n| 2 safe/unsafe [02][03]     6 FFI/platform [09]                             |\n| 3 supply/build [04][05]    7 challenge evidence [10][11]                   |\n| 4 secrets/input [06][07]   8 provenance/response/compliance [12][13][14]   |\n+----------------------------------------------------------------------------+\n| evidence current? -> blockers? -> exceptions? -> residual risk acceptable? |\n+----------------------------------------------------------------------------+\n| PASS / PASS-WITH-EXCEPTION / BLOCK / NOT-APPLICABLE-WITH-RATIONALE         |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 62,
+      "heading_context": "## 1. Freeze the Decision Scope",
+      "confidence": "candidate",
+      "text": "same source\n  +-- different feature ------> different attack surface\n  +-- different target -------> different std/native/platform assumptions\n  +-- different builder ------> different provenance\n  +-- different config -------> different security behavior",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 167,
+      "heading_context": "## 6. Stage Rollout and Verify Reality",
+      "confidence": "candidate",
+      "text": "signed digest -> canary -> telemetry/security checks -> staged population\n                    |                 |\n                    +-- rollback -----+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

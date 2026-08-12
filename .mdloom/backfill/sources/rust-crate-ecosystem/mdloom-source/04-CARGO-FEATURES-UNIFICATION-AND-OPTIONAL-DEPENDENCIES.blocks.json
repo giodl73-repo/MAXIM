@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\04-CARGO-FEATURES-UNIFICATION-AND-OPTIONAL-DEPENDENCIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         FEATURE FLOW                                      |\n+===========================================================================+\n| app requests \"json\" ----+                                                 |\n| adapter requests \"std\" -+--> union for package/version/unit boundary      |\n| tests request \"trace\" --+             |                                   |\n|                                       v                                   |\n|                     cfg(feature = \"...\")                                  |\n|                     optional dependency edges                             |\n|                     dependency feature requests                           |\n+===========================================================================+\n| Resolver version changes some unification boundaries, not additivity.     |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

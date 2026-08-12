@@ -1,0 +1,400 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 55,
+      "heading_context": "## Boundary: What rustc Hands to a Backend",
+      "headers": [
+        "Layer",
+        "Authority",
+        "What exists here",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "Language surface",
+          "Rust Reference, RFCs, editions",
+          "Type system, traits, unsafe rules, ABI names",
+          "Contract-ish when documented"
+        ],
+        [
+          "rustc front/middle",
+          "rustc",
+          "HIR, MIR, queries, monomorphized items",
+          "Internal"
+        ],
+        [
+          "Codegen-unit partition",
+          "rustc",
+          "Mono items grouped into CGUs [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)",
+          "Internal policy"
+        ],
+        [
+          "Backend interface",
+          "rustc",
+          "`codegen_backend` callbacks and data structures",
+          "Internal, version-sensitive"
+        ],
+        [
+          "Backend optimizer",
+          "LLVM / Cranelift / GCC projects",
+          "IR, instruction selection, register allocation, object emission",
+          "Owned by backend project"
+        ],
+        [
+          "Final link",
+          "Platform linker",
+          "Relocation, symbol resolution, final image",
+          "OS/toolchain contract [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 89,
+      "heading_context": "## The LLVM Path: Codegen Unit to Object File",
+      "headers": [
+        "Flag",
+        "Scope",
+        "Typical effect"
+      ],
+      "rows": [
+        [
+          "`-C opt-level=0..3,s,z`",
+          "LLVM optimization pipeline",
+          "Compile time vs runtime/code size trade-off"
+        ],
+        [
+          "`-C target-cpu=native`",
+          "CPU model",
+          "Enables instructions available on the build host"
+        ],
+        [
+          "`-C target-feature=+avx2`",
+          "ISA features",
+          "Enables or disables specific backend features"
+        ],
+        [
+          "`--emit=llvm-ir`",
+          "Diagnostic/interop output",
+          "Writes LLVM IR for inspection"
+        ],
+        [
+          "`--emit=asm,obj`",
+          "Backend output kind",
+          "Assembly or object files, target-owned format"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 101,
+      "heading_context": "## Alternative Backends: Cranelift, GCC, and gccrs",
+      "headers": [
+        "Backend",
+        "What it is",
+        "Primary reason to care",
+        "Status"
+      ],
+      "rows": [
+        [
+          "LLVM",
+          "External optimizer/codegen project, bundled and driven by rustc",
+          "Best-supported targets and production performance",
+          "Default"
+        ],
+        [
+          "Cranelift",
+          "Rust-native code generator through `rustc_codegen_cranelift`",
+          "Much faster debug-build iteration, especially when runtime speed is secondary",
+          "Nightly preview component on supported hosts; otherwise build from source"
+        ],
+        [
+          "GCC backend",
+          "`rustc_codegen_gcc`, using libgccjit",
+          "Potential GCC target coverage and GCC optimization stack",
+          "Experimental, not default"
+        ],
+        [
+          "gccrs",
+          "A separate GCC front-end reimplementation of Rust",
+          "Alternative compiler project, not rustc",
+          "Separate from rustc backends"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 154,
+      "heading_context": "## Optimization Context: LTO, PGO, and BOLT",
+      "headers": [
+        "Mechanism",
+        "Rust knob",
+        "Owner of most semantics",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Thin/fat LTO",
+          "`-C lto=thin`, `-C lto=fat`, Cargo profile `lto`",
+          "LLVM plus linker integration",
+          "Cross-CGU/cross-crate inlining; interacts with `codegen-units` [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)"
+        ],
+        [
+          "PGO",
+          "`-C profile-generate`, `-C profile-use`",
+          "LLVM PGO",
+          "Profile-guided block layout, inlining, branch weights"
+        ],
+        [
+          "BOLT",
+          "Not a normal user `-C` codegen flag",
+          "LLVM BOLT project",
+          "Used in rustc's own build/distribution pipeline [20](20-BOOTSTRAP-CI-TESTING-PERF-AND-DISTRIBUTION.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 166,
+      "heading_context": "## Commands and Traces",
+      "headers": [
+        "Question",
+        "Command"
+      ],
+      "rows": [
+        [
+          "Which target CPUs does this backend know?",
+          "`rustc --print target-cpus`"
+        ],
+        [
+          "What LLVM IR did rustc emit?",
+          "`rustc --crate-type=lib --emit=llvm-ir -C opt-level=2 src/lib.rs`"
+        ],
+        [
+          "What assembly or object came out?",
+          "`rustc --crate-type=lib --emit=asm,obj -C opt-level=2 src/lib.rs`"
+        ],
+        [
+          "What happens with host CPU tuning?",
+          "`RUSTFLAGS=\"-C target-cpu=native\" cargo build --release`"
+        ],
+        [
+          "How do I request ThinLTO?",
+          "Set Cargo profile `lto = \"thin\"`, then `cargo build --release`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 208,
+      "heading_context": "## Old world -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust mapping",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "Roslyn emits IL, CLR/RyuJIT lowers at runtime",
+          "rustc emits native objects ahead of time",
+          "Rust has no runtime JIT in normal execution"
+        ],
+        [
+          "clang front end using LLVM",
+          "rustc front/middle end using LLVM",
+          "`rustc:LLVM :: clang:LLVM`; LLVM is not the language compiler"
+        ],
+        [
+          "MSVC LTCG",
+          "`-C lto=thin/fat`",
+          "Same whole-program optimization idea, different ownership and object formats"
+        ],
+        [
+          ".NET tiered PGO / ReadyToRun PGO",
+          "LLVM PGO via `-C profile-generate/use`",
+          "Profile data feeds AOT native optimization"
+        ],
+        [
+          "Choosing RyuJIT vs alternative JIT/AOT backend",
+          "Choosing LLVM vs Cranelift/GCC backend",
+          "Backend choice changes codegen trade-offs, not Rust semantics"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 222,
+      "heading_context": "## Stability and Ownership Boundaries",
+      "headers": [
+        "Thing",
+        "Treat as"
+      ],
+      "rows": [
+        [
+          "`codegen_backend` interface",
+          "Internal rustc implementation detail"
+        ],
+        [
+          "MIR-to-backend lowering",
+          "Internal rustc implementation detail"
+        ],
+        [
+          "LLVM IR emitted by rustc",
+          "Version-sensitive diagnostic/interop artifact"
+        ],
+        [
+          "Bundled LLVM version and patches",
+          "Toolchain-version detail"
+        ],
+        [
+          "Cranelift/GCC backend support",
+          "Evolving/experimental unless documented otherwise"
+        ],
+        [
+          "Documented `-C` flags",
+          "Stable knobs when not `-Z`"
+        ],
+        [
+          "`--emit=llvm-ir,asm,obj` output kinds",
+          "Stable set of requested outputs; file format owned by LLVM/target"
+        ],
+        [
+          "Object file ABI",
+          "Platform/toolchain contract, not rustc's private promise"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 239,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Ship production Rust today",
+          "Default LLVM backend through stable rustc"
+        ],
+        [
+          "Inspect what rustc handed LLVM",
+          "`--emit=llvm-ir` on a small crate or file"
+        ],
+        [
+          "Tune for the deployment CPU",
+          "`-C target-cpu=<cpu>` or `target-cpu=native` when deployment matches build"
+        ],
+        [
+          "Enable cross-crate optimization",
+          "Cargo profile `lto = \"thin\"` or `-C lto=thin`"
+        ],
+        [
+          "Trade compile time for debug iteration",
+          "Evaluate Cranelift on nightly, behind tooling guardrails"
+        ],
+        [
+          "Experiment with GCC infrastructure",
+          "Track `rustc_codegen_gcc`; expect churn"
+        ],
+        [
+          "Debug final symbol/link behavior",
+          "Move to [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md)"
+        ],
+        [
+          "Understand CGU partitioning first",
+          "Read [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 254,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"LLVM is the Rust compiler.\"",
+          "LLVM is the default backend. rustc owns Rust semantics and the middle end."
+        ],
+        [
+          "\"LLVM IR is a stable Rust IR.\"",
+          "It is a version-sensitive backend handoff/debug artifact."
+        ],
+        [
+          "\"Cranelift changes the language.\"",
+          "It changes code generation trade-offs after type checking and MIR."
+        ],
+        [
+          "\"The GCC backend is gccrs.\"",
+          "No. `rustc_codegen_gcc` is a rustc backend; gccrs is a separate GCC front end."
+        ],
+        [
+          "\"LTO is just a linker flag.\"",
+          "It coordinates rustc CGUs, LLVM summaries/bitcode, and linker behavior."
+        ],
+        [
+          "\"BOLT is another `-C` backend option.\"",
+          "BOLT is post-link binary optimization, used notably in rustc's own build pipeline."
+        ],
+        [
+          "\"`target-cpu=native` is portable.\"",
+          "It bakes in host CPU assumptions; use only when deployment hardware matches."
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 268,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: Code generation",
+          "rustc's codegen architecture and backend handoff"
+        ],
+        [
+          "rustc-dev-guide: Backend agnostic codegen",
+          "The internal backend abstraction and what it deliberately does not promise"
+        ],
+        [
+          "rustc-dev-guide: Debugging LLVM",
+          "Reading LLVM IR and diagnosing backend issues"
+        ],
+        [
+          "rustc-dev-guide: LTO",
+          "Thin/fat LTO behavior and codegen-unit interaction"
+        ],
+        [
+          "The rustc book: codegen options, `--emit`, `--print`",
+          "Stable command-line surface for backend-related flags"
+        ],
+        [
+          "`rust-lang/rustc_codegen_cranelift`",
+          "Cranelift backend status and usage notes"
+        ],
+        [
+          "`rust-lang/rustc_codegen_gcc`",
+          "GCC backend status and experimental limitations"
+        ],
+        [
+          "LLVM documentation",
+          "LLVM IR, optimization pipelines, target features, BOLT"
+        ],
+        [
+          "gccrs project documentation",
+          "Separate GCC Rust front-end effort, not a rustc backend"
+        ]
+      ]
+    }
+  ]
+}

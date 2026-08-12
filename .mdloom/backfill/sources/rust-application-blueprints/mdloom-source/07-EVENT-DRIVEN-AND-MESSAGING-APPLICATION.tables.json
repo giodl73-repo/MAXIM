@@ -1,0 +1,143 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\07-EVENT-DRIVEN-AND-MESSAGING-APPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Message Semantics and Authority",
+      "headers": [
+        "Message kind",
+        "Naming",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Command",
+          "imperative: `ReserveInventory`",
+          "receiving capability owner"
+        ],
+        [
+          "Event",
+          "past tense: `InventoryReserved`",
+          "state owner that observed commit"
+        ],
+        [
+          "Query",
+          "request for current view",
+          "view owner"
+        ],
+        [
+          "Integration event",
+          "stable external fact",
+          "publishing bounded-context owner"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 137,
+      "heading_context": "## Ordering, Projections, and Coordination",
+      "headers": [
+        "Need",
+        "Mechanism"
+      ],
+      "rows": [
+        [
+          "Per-entity order",
+          "stable partition key plus producer sequence/revision"
+        ],
+        [
+          "Rebuildable view",
+          "projection from retained events or source snapshots"
+        ],
+        [
+          "Cross-service process",
+          "explicit process manager/saga state"
+        ],
+        [
+          "Request/reply",
+          "correlation, timeout, duplicate and late-reply policy"
+        ],
+        [
+          "Schema change",
+          "tolerant readers, additive evolution, versioned event when meaning changes"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 159,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Test",
+        "Required observation"
+      ],
+      "rows": [
+        [
+          "Serialized fixture",
+          "old/new readers interpret supported versions"
+        ],
+        [
+          "Duplicate event",
+          "projection/effect remains correct"
+        ],
+        [
+          "Reordered events",
+          "rejected, buffered, or reconciled per contract"
+        ],
+        [
+          "Publisher crash",
+          "outbox eventually publishes without lost intent"
+        ],
+        [
+          "Consumer crash",
+          "inbox/effect remains safe"
+        ],
+        [
+          "Replay",
+          "rebuilt state matches reconciliation target"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 203,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "One durable background task",
+          "worker [04], not a domain event network"
+        ],
+        [
+          "Publish state change reliably",
+          "transactional outbox"
+        ],
+        [
+          "Idempotent local projection",
+          "inbox record with effect transaction"
+        ],
+        [
+          "Many independent reactions",
+          "integration event with owned schema"
+        ],
+        [
+          "Cross-service workflow",
+          "process manager with explicit state/timeouts"
+        ],
+        [
+          "Complete audit/rebuild requirement",
+          "retained event log plus snapshots and replay tests"
+        ],
+        [
+          "Simple synchronous dependency",
+          "HTTP/API [03] may be clearer"
+        ]
+      ]
+    }
+  ]
+}

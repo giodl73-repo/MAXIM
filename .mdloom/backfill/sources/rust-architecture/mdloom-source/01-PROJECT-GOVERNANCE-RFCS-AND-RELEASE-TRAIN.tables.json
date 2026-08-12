@@ -1,0 +1,354 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\01-PROJECT-GOVERNANCE-RFCS-AND-RELEASE-TRAIN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 73,
+      "heading_context": "## The Authority Stack",
+      "headers": [
+        "Authority",
+        "Owns",
+        "Does not own"
+      ],
+      "rows": [
+        [
+          "**Leadership Council**",
+          "Project-wide governance, accountability, team structure",
+          "Day-to-day language or compiler design"
+        ],
+        [
+          "**lang team**",
+          "Language design, editions, Reference-facing semantics",
+          "rustc internal architecture"
+        ],
+        [
+          "**types team**",
+          "Type-system design/implementation direction, trait solving collaboration",
+          "Cargo/package policy"
+        ],
+        [
+          "**libs-api team**",
+          "Stable standard-library API surface",
+          "Private std implementation details alone"
+        ],
+        [
+          "**compiler team**",
+          "`rustc`, compiler internals, implementation strategy",
+          "Independent authority to change the language contract"
+        ],
+        [
+          "**Cargo team**",
+          "Cargo UX, resolver, manifests, build orchestration",
+          "`rustc` type checking or LLVM codegen"
+        ],
+        [
+          "**infra/release teams**",
+          "CI, artifacts, channels, release mechanics",
+          "Feature approval outside owning teams"
+        ],
+        [
+          "**devtools teams/projects**",
+          "rustdoc, rustfmt, clippy, rust-analyzer, Miri",
+          "Language design unless routed through RFC/team process"
+        ],
+        [
+          "**Rust Foundation**",
+          "Legal, trademark, funding, sponsorship support",
+          "Designing Rust the language"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 120,
+      "heading_context": "## RFCs, Feature Gates, and Stabilization",
+      "headers": [
+        "Mechanism",
+        "Example",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "Crate feature gate",
+          "`#![feature(let_else)]`",
+          "Nightly only; can change before stabilization"
+        ],
+        [
+          "Compiler `-Z` flag",
+          "`rustc -Z unstable-options`",
+          "Unstable implementation/debug surface"
+        ],
+        [
+          "Standard-library stability attrs",
+          "`#[stable]`, `#[unstable(feature = \"...\")]`, `#[rustc_const_stable]`",
+          "Internal machinery; stable/unstable distinction is public"
+        ],
+        [
+          "Stable CLI/language surface",
+          "`rustc --edition 2021`, stable std APIs",
+          "Public compatibility promise"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 135,
+      "heading_context": "## Release Train and Channels",
+      "headers": [
+        "Channel",
+        "Cadence",
+        "Purpose",
+        "Risk profile"
+      ],
+      "rows": [
+        [
+          "**nightly**",
+          "Every night",
+          "Experimentation, gated features, `-Z` flags",
+          "Unstable; can regress or change"
+        ],
+        [
+          "**beta**",
+          "Six-week stabilization window",
+          "Release candidate for next stable",
+          "Mostly stable; fixes only"
+        ],
+        [
+          "**stable**",
+          "Six-week release cadence",
+          "Production Rust 1.x",
+          "Stability guarantee applies"
+        ],
+        [
+          "**point release**",
+          "As needed",
+          "Critical fix on stable",
+          "Narrow, conservative"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 162,
+      "heading_context": "## Editions: Opt-In Source Evolution",
+      "headers": [
+        "Property",
+        "Edition behavior"
+      ],
+      "rows": [
+        [
+          "Scope",
+          "Per crate, declared in `Cargo.toml`"
+        ],
+        [
+          "Changes",
+          "Source-level parsing/name-resolution/idiom/default changes"
+        ],
+        [
+          "Non-goal",
+          "Not a new compiler line, not Rust 2.0, not a semver break"
+        ],
+        [
+          "Migration",
+          "`cargo fix --edition` applies machine-checkable rewrites"
+        ],
+        [
+          "Interop",
+          "2015/2018/2021/2024 crates link together normally"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 187,
+      "heading_context": "## Compatibility, Crater, and Ecosystem Semver",
+      "headers": [
+        "Layer",
+        "Compatibility mechanism",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Language",
+          "Reference, RFC 1122-style forward-compatibility, editions",
+          "lang/types"
+        ],
+        [
+          "Standard library",
+          "stable/unstable API attributes and docs",
+          "libs-api/libs-impl"
+        ],
+        [
+          "Compiler",
+          "stable CLI and behavior; internals may change",
+          "compiler"
+        ],
+        [
+          "Ecosystem",
+          "crate semver, Cargo resolver, lockfiles",
+          "crate authors/Cargo"
+        ],
+        [
+          "Release quality",
+          "Crater runs, CI, beta soak, point releases",
+          "release/infra + owning teams"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 253,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old world / adjacent model",
+        "Rust analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "C# `LangVersion`",
+          "Cargo `edition = \"2021\"`",
+          "Editions are per-crate and supported by one rustc line"
+        ],
+        [
+          ".NET SDK selected by `global.json`",
+          "rustup toolchain override or `rust-toolchain.toml`",
+          "rustup selects compiler/Cargo/std bundle; Cargo is still the build tool"
+        ],
+        [
+          "TFMs like `net8.0`",
+          "Rust target triples and std availability",
+          "Editions are not target frameworks; targets are platform/codegen choices"
+        ],
+        [
+          "ECMAScript TC39 stages",
+          "RFC -> unstable -> stabilization",
+          "Rust stabilization is tied to toolchain channels and feature gates"
+        ],
+        [
+          "Chrome/Chromium channels",
+          "nightly/beta/stable release train",
+          "Rust has stronger stable source compatibility expectations"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 275,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "What",
+        "When",
+        "Who owns it"
+      ],
+      "rows": [
+        [
+          "Should this change get an RFC?",
+          "RFC PR in `rust-lang/rfcs`",
+          "Broad language/library/Cargo policy change",
+          "Owning team, often lang/libs/Cargo"
+        ],
+        [
+          "Can I use this feature in production?",
+          "Stable channel, no feature gate",
+          "Production builds and libraries",
+          "release + owning teams"
+        ],
+        [
+          "Can I try an experiment?",
+          "Nightly with `#![feature]` or `-Z`",
+          "Prototyping, compiler work, early adoption",
+          "compiler/lang/libs; unstable"
+        ],
+        [
+          "How do I modernize syntax?",
+          "`cargo fix --edition`, then `edition = \"2024\"`",
+          "Opting a crate into a new edition",
+          "lang + Cargo tooling"
+        ],
+        [
+          "Did a compiler change break crates?",
+          "Crater/beta/future-incompat lints",
+          "Pre-release risk assessment",
+          "release/infra/compiler"
+        ],
+        [
+          "Is a dependency compatible?",
+          "Cargo semver and resolver",
+          "Ecosystem dependency selection",
+          "crate authors + Cargo"
+        ],
+        [
+          "Who decides std API stability?",
+          "stabilization report/FCP, stability attrs",
+          "New or changed public std API",
+          "libs-api"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 296,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correct boundary"
+      ],
+      "rows": [
+        [
+          "\"rustc internals define Rust\"",
+          "The Reference/RFCs define the language; rustc implements it"
+        ],
+        [
+          "\"edition 2024 means Rust 2024 compiler\"",
+          "Edition is a per-crate source mode"
+        ],
+        [
+          "\"beta is for experiments\"",
+          "Nightly is for experiments; beta is release soak"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 306,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "`github.com/rust-lang/rfcs`",
+          "RFC text, history, and accepted design records"
+        ],
+        [
+          "**The Rust RFC Book**",
+          "Process, lifecycle, and stabilization conventions"
+        ],
+        [
+          "**RFC 3392**",
+          "Leadership Council governance model replacing the old core team"
+        ],
+        [
+          "**The Rust Edition Guide** — `doc.rust-lang.org/edition-guide`",
+          "Edition semantics and migration guidance"
+        ],
+        [
+          "**Rust Forge release process docs**",
+          "Release train mechanics, beta/stable process, point releases"
+        ],
+        [
+          "**Rust Blog release notes**",
+          "Stable release contents and version history"
+        ],
+        [
+          "**Standard library docs / stability policy**",
+          "Stable vs unstable library API surface"
+        ]
+      ]
+    }
+  ]
+}

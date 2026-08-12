@@ -1,0 +1,217 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 46,
+      "heading_context": "## Establish the Format Contract",
+      "headers": [
+        "Dimension",
+        "Questions"
+      ],
+      "rows": [
+        [
+          "Schema",
+          "Self-describing or predefined? Evolution rules? Unknown fields?"
+        ],
+        [
+          "Validation",
+          "UTF-8, checksums, ranges, canonicalization, duplicate keys?"
+        ],
+        [
+          "Representation",
+          "Text, binary, varint, fixed width, endianness?"
+        ],
+        [
+          "Ownership",
+          "Borrowed views permitted? Must values outlive input buffer?"
+        ],
+        [
+          "Security",
+          "Maximum depth/length, decompression ratio, malformed input behavior?"
+        ],
+        [
+          "Operations",
+          "Full decode, selective fields, random access, streaming?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 72,
+      "heading_context": "## Borrowed vs Owned Parsing",
+      "headers": [
+        "Strategy",
+        "Benefit",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Borrow from input",
+          "Fewer allocations/copies",
+          "Lifetime coupling, buffer retention"
+        ],
+        [
+          "Own each field",
+          "Simple independent lifetime",
+          "Allocations and copies"
+        ],
+        [
+          "Intern/deduplicate",
+          "Shares repeated values",
+          "Lookup, synchronization, retained table"
+        ],
+        [
+          "Arena per batch",
+          "Cheap bulk lifetime",
+          "Batch-scoped ownership and retained peak"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 130,
+      "heading_context": "## Compression Is a Resource Trade",
+      "headers": [
+        "Workload",
+        "Likely choice"
+      ],
+      "rows": [
+        [
+          "CPU-bound, cheap network",
+          "Low compression level or none"
+        ],
+        [
+          "Bandwidth-bound",
+          "More compression may increase end-to-end throughput"
+        ],
+        [
+          "Interactive small messages",
+          "Framing/latency may dominate; avoid tiny independent blocks"
+        ],
+        [
+          "Archival",
+          "Compression ratio and decode compatibility matter more"
+        ],
+        [
+          "Highly parallel service",
+          "Codec CPU and memory per stream can become capacity limit"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 146,
+      "heading_context": "## Copies and Data Movement",
+      "headers": [
+        "Pattern",
+        "Copy source"
+      ],
+      "rows": [
+        [
+          "`read_to_string` then parse bytes",
+          "UTF-8 validation and owned string"
+        ],
+        [
+          "Serialize to `Vec`, then write",
+          "Intermediate output buffer"
+        ],
+        [
+          "`format!` in hot logging path",
+          "Allocation and formatting"
+        ],
+        [
+          "Clone request for task/queue",
+          "Deep payload copy or refcount traffic"
+        ],
+        [
+          "Convert `String` <-> bytes repeatedly",
+          "Validation/ownership transitions"
+        ],
+        [
+          "Transpose AoS/SoA per stage",
+          "Full dataset movement"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 200,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "`Span<byte>` parser",
+          "Borrowed `&[u8]` / `&str` parser"
+        ],
+        [
+          "`System.Text.Json` source generation",
+          "Serde derive monomorphization"
+        ],
+        [
+          "`ArrayPool<byte>`",
+          "Reused `Vec<u8>` or buffer pool with retention limits"
+        ],
+        [
+          "Pipelines / sequence segments",
+          "Incremental parser over chunked buffers"
+        ],
+        [
+          "gzip/Brotli stream",
+          "Rust codec crates over `Read`/`Write` or async adapters"
+        ],
+        [
+          "Protocol buffer generated types",
+          "Rust generated schemas and borrowed/owned choices"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 226,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Start with"
+      ],
+      "rows": [
+        [
+          "Lowest allocation parser",
+          "Borrow from a stable input buffer; measure retention"
+        ],
+        [
+          "Independent long-lived records",
+          "Own fields or copy selected values intentionally"
+        ],
+        [
+          "Huge/streaming input",
+          "Incremental parser with bounded reusable buffer"
+        ],
+        [
+          "Avoid intermediate serialization buffer",
+          "Writer-based encoding"
+        ],
+        [
+          "Network is bottleneck",
+          "Compare codec/level by end-to-end time and CPU cost"
+        ],
+        [
+          "CPU is bottleneck",
+          "Lower compression or optimize parsing/layout"
+        ],
+        [
+          "Need format comparison",
+          "Equalize semantics, validation, schema, and corpus"
+        ],
+        [
+          "Suspected copy overhead",
+          "Allocation profile plus CPU profile and byte accounting"
+        ]
+      ]
+    }
+  ]
+}

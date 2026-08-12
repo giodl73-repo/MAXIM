@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\20-API-DESIGN-SEMVER-AND-ADVANCED-TYPE-PATTERNS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# API Design, SemVer, and Advanced Type Patterns",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                 DESIGN FOR EVOLUTION + ENCODE INVARIANTS IN TYPES             |\n+===============================================================================+\n\n  SEMVER (Cargo)                          EVOLUTION LEVERS\n  --------------                          ----------------\n  MAJOR.MINOR.PATCH                       #[non_exhaustive]  reserve the right to add\n    0.x: MINOR may break (pre-1.0)          enum variants / struct fields / errors\n  breaking: remove/rename pub item,       sealed trait       only YOU may implement it\n    add trait method w/o default,         pub use facade     hide internal module layout\n    change signature, new required bound  private item/mod   keep it outside public API\n\n  TYPE-STATE / SAFETY PATTERNS            ADVANCED TYPE MACHINERY\n  ----------------------------            -----------------------\n  newtype     UserId(u64)  distinct type  HRTB     for<'a> Fn(&'a T)  (any lifetime)\n  builder     fluent, validated ctor      GAT      type Item<'a>;      (stable 1.65)\n  typestate   Conn<Open> vs Conn<Closed>  const generic  Matrix<const N: usize>\n    illegal transitions won't COMPILE     PhantomData<T>  mark unused type params",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## The Newtype Pattern",
+      "confidence": "candidate",
+      "text": "#[derive(Debug)]\npub struct InvalidEmail;\n\npub struct Email(String);                 // cannot be confused with a raw String\n\nimpl Email {\n    pub fn parse(s: &str) -> Result<Self, InvalidEmail> {\n        let Some((local, domain)) = s.split_once('@') else {\n            return Err(InvalidEmail);\n        };\n        if !local.is_empty() && !domain.is_empty() && !domain.contains('@') {\n            Ok(Email(s.to_owned()))\n        } else {\n            Err(InvalidEmail)\n        }\n    }\n}\n// `Email` guarantees this narrow invariant: exactly one '@', with nonempty sides.\n// RFC syntax, normalization, and deliverability require a stronger policy.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 140,
+      "heading_context": "## Typestate: Encode State in the Type",
+      "confidence": "candidate",
+      "text": "struct Open; struct Closed;\nstruct Connection<S> { sock: TcpStream, _state: std::marker::PhantomData<S> }\n\nimpl Connection<Closed> {\n    fn open(self) -> Connection<Open> { /* ... */ }\n}\nimpl Connection<Open> {\n    fn send(&mut self, data: &[u8]) { /* only callable when Open */ }\n    fn close(self) -> Connection<Closed> { /* ... */ }\n}\n// conn.send(..) on a Closed connection -> does not compile",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 165,
+      "heading_context": "## Sealed Traits",
+      "confidence": "candidate",
+      "text": "mod private { pub trait Sealed {} }\npub trait Format: private::Sealed {        // downstream can call, cannot impl\n    fn render(&self) -> String;\n}\nimpl private::Sealed for Json {}\nimpl Format for Json { fn render(&self) -> String { /* ... */ } }",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 191,
+      "heading_context": "### HRTBs — Higher-Ranked Trait Bounds",
+      "confidence": "candidate",
+      "text": "### GATs — Generic Associated Types (stable since Rust 1.65)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 196,
+      "heading_context": "### GATs — Generic Associated Types (stable since Rust 1.65)",
+      "confidence": "candidate",
+      "text": "trait LendingIterator {\n    type Item<'a> where Self: 'a;          // the associated type is generic in 'a\n    fn next(&mut self) -> Option<Self::Item<'_>>;\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

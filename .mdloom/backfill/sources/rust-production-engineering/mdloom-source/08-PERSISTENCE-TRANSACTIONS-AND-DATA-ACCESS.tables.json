@@ -1,0 +1,140 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\08-PERSISTENCE-TRANSACTIONS-AND-DATA-ACCESS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 55,
+      "heading_context": "## Data-System Choices",
+      "headers": [
+        "System",
+        "Strong fit",
+        "Operational cost"
+      ],
+      "rows": [
+        [
+          "Relational database",
+          "multi-record invariants, transactions, rich queries",
+          "schema and connection management"
+        ],
+        [
+          "Key-value/document store",
+          "key-oriented access and flexible records",
+          "application-managed joins/invariants"
+        ],
+        [
+          "Object store",
+          "large immutable blobs",
+          "weak small-update semantics"
+        ],
+        [
+          "Durable log/queue",
+          "ordered events and asynchronous work",
+          "replay, duplication, consumer state"
+        ],
+        [
+          "Embedded database",
+          "single-process/local state",
+          "file lifecycle, locking, replication limits"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 69,
+      "heading_context": "## Transactions and Isolation",
+      "headers": [
+        "Concern",
+        "Question"
+      ],
+      "rows": [
+        [
+          "Atomicity",
+          "Which writes must commit together?"
+        ],
+        [
+          "Isolation",
+          "Which concurrent anomalies are acceptable?"
+        ],
+        [
+          "Durability",
+          "What acknowledgement means data survives which failure?"
+        ],
+        [
+          "Retry",
+          "Can the transaction body run again without duplicate side effects?"
+        ],
+        [
+          "Uncertain commit",
+          "How is outcome discovered after connection loss?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 171,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "SQLx, Diesel, rusqlite, native service SDK, migration tool"
+        ],
+        [
+          "Runtime",
+          "async vs blocking driver, cancellation and pool integration"
+        ],
+        [
+          "Platform",
+          "database service, backups, replication, encryption, failover"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 193,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Database constraint",
+          "invariant can be enforced atomically in storage"
+        ],
+        [
+          "Optimistic concurrency",
+          "conflicts are rare and version checks are natural"
+        ],
+        [
+          "Pessimistic lock",
+          "conflict is expected and lock scope is short/bounded"
+        ],
+        [
+          "Transaction",
+          "multiple state changes form one durable invariant"
+        ],
+        [
+          "Outbox",
+          "durable state and asynchronous publication must not diverge"
+        ],
+        [
+          "Idempotency record",
+          "clients may repeat an operation after uncertain outcome"
+        ],
+        [
+          "Bounded pool",
+          "shared data system needs explicit concurrency admission"
+        ],
+        [
+          "Expand/contract migration",
+          "old and new versions overlap during rollout"
+        ]
+      ]
+    }
+  ]
+}

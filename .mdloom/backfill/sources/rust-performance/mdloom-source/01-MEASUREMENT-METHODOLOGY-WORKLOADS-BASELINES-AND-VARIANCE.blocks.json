@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         COMPARABLE EXPERIMENTS                              |\n|                                                                             |\n|  HYPOTHESIS -> METRIC -> WORKLOAD -> BUILD -> ENVIRONMENT -> RUNS -> TEST   |\n|                   |          |         |          |          |       |      |\n|                   |          |         |          |          |       +-> CI |\n|                   |          |         |          |          +-> variance   |\n|                   |          |         |          +-> CPU/OS/noise          |\n|                   |          |         +-> profile/target/toolchain         |\n|                   |          +-> data/concurrency/warmth                    |\n|                   +-> latency/throughput/RSS/cost/build time                |\n|                                                                             |\n|  BASELINE and CANDIDATE differ by one intended cause                        |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## Workload Contract",
+      "confidence": "candidate",
+      "text": "+-------------------------- WORKLOAD MANIFEST ---------------------------------+\n| input: corpus version, size distribution, compressibility, hot keys          |\n| traffic: arrival process, concurrency, think time, request mix, retries      |\n| state: cold/warm caches, connection reuse, filesystem cache, allocator       |\n| target: CPU model, core count, RAM, OS/kernel, target triple, power policy   |\n| build: rustc -Vv, Cargo.lock, features, profile, RUSTFLAGS, linker           |\n| duration: warm-up, measurement window, repetitions, stop conditions          |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

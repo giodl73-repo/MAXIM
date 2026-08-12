@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         TOOL COUPLING TO RUSTC                            |\n+---------------------------------------------------------------------------+\n| shallow / syntactic                                                       |\n|                                                                           |\n|  rustfmt  -> parser/AST-level formatting                                  |\n|                                                                           |\n| medium / front-end consumer                                               |\n|                                                                           |\n|  rustdoc  -> rustc front end for docs + doctests                          |\n|                                                                           |\n| deep / compiler driver                                                    |\n|                                                                           |\n|  clippy   -> rustc driver with extra lints over HIR/MIR/types             |\n|                                                                           |\n| deep / MIR interpreter                                                    |\n|                                                                           |\n|  Miri     -> MIR/const-eval interpreter for UB detection                  |\n|                                                                           |\n| different architecture                                                    |\n|                                                                           |\n|  rust-analyzer -> reimplements lazy IDE front end; talks LSP              |\n+===========================================================================+\n        |                 |                 |                    |\n        v                 v                 v                    v\n toolchain-pinned   unstable internals   stable CLI surface   Cargo/rustup glue",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 94,
+      "heading_context": "## rustdoc and rustfmt: Documents and Syntax",
+      "confidence": "candidate",
+      "text": "source + doc comments\n        |\n        v\nrustdoc uses rustc front end: parse -> resolve -> typeck\n        |\n        +--> HTML docs\n        +--> doctest crates -> rustc -> test execution [20]\n        +--> JSON output (unstable output format)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 163,
+      "heading_context": "## rust-analyzer: IDE Engine, Not rustc-as-a-Service",
+      "confidence": "candidate",
+      "text": "editor\n  |\n  v\nLSP protocol\n  |\n  v\nrust-analyzer\n  |  lazy salsa-style queries over an error-resilient syntax tree\n  |  own name resolution and type inference for IDE latency\n  |\n  +--> cargo metadata / check command for build graph and diagnostics\n  +--> rustc output when configured for check-on-save",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 202,
+      "heading_context": "## Miri: MIR-Level Execution and UB Detection",
+      "confidence": "candidate",
+      "text": "Rust source -> rustc front end -> MIR [09]\n                              |\n                              v\n                            Miri\n                              |\n        +---------------------+----------------------+\n        | UB checks: provenance, aliasing, alignment |\n        | interpreter result, not native execution   |\n        +--------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

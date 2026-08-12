@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\12-NATIVE-DEPENDENCIES-BUILD-SCRIPTS-AND-SYSTEM-PACKAGES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 74,
+      "heading_context": "## `build.rs` as Executed Code",
+      "headers": [
+        "Directive family",
+        "Purpose"
+      ],
+      "rows": [
+        [
+          "`rerun-if-*`",
+          "Declare inputs that invalidate build-script output"
+        ],
+        [
+          "`rustc-link-*`",
+          "Add native link library/search arguments"
+        ],
+        [
+          "`rustc-cfg` and `rustc-check-cfg`",
+          "Define and validate conditional compilation"
+        ],
+        [
+          "`rustc-env`",
+          "Set compile-time environment values"
+        ],
+        [
+          "`metadata`",
+          "Pass data from a `links` crate to direct dependents"
+        ],
+        [
+          "`warning`",
+          "Surface build diagnostics"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 124,
+      "heading_context": "## System, Vendored, or Prebuilt",
+      "headers": [
+        "Native supply model",
+        "Advantages",
+        "Risks/costs"
+      ],
+      "rows": [
+        [
+          "System package",
+          "Security servicing integrates with OS; smaller Rust build",
+          "Version drift, distro variance, deployment dependency"
+        ],
+        [
+          "Vendored source built by crate",
+          "Consistent source and easier static packaging",
+          "Longer builds, duplicate patch channel, compiler requirements"
+        ],
+        [
+          "Prebuilt binary",
+          "Fast and can simplify proprietary SDK use",
+          "Platform matrix, provenance, ABI, signing, redistribution"
+        ],
+        [
+          "Organization-built artifact",
+          "Controlled flags and patching",
+          "Internal release/retention/support burden"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 153,
+      "heading_context": "## Discovery Tools",
+      "headers": [
+        "Variable/input",
+        "Role"
+      ],
+      "rows": [
+        [
+          "`HOST`",
+          "Triple where build script runs"
+        ],
+        [
+          "`TARGET`",
+          "Triple being produced"
+        ],
+        [
+          "`OUT_DIR`",
+          "Cargo-managed generated output directory"
+        ],
+        [
+          "`CC_<target>` / `AR_<target>`",
+          "Target C compiler/archive selection used by common tooling"
+        ],
+        [
+          "target linker config",
+          "Linker Cargo/rustc uses for target"
+        ],
+        [
+          "sysroot/package roots",
+          "Headers and libraries for target"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 192,
+      "heading_context": "## Native Dependency Review",
+      "headers": [
+        "Evidence",
+        "Example"
+      ],
+      "rows": [
+        [
+          "Link result",
+          "Verbose release build and artifact inspection"
+        ],
+        [
+          "Runtime dependency",
+          "`ldd`, `otool -L`, or Windows dependency tooling, platform-specific"
+        ],
+        [
+          "Source custody",
+          "Native source/archive hash and origin"
+        ],
+        [
+          "ABI compatibility",
+          "Supported native version range and integration tests"
+        ],
+        [
+          "Reproducibility",
+          "Clean image build with declared toolchain/system packages"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 202,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar native integration",
+        "Cargo ecosystem form"
+      ],
+      "rows": [
+        [
+          "MSBuild custom task",
+          "`build.rs` host executable"
+        ],
+        [
+          "C/C++ import library and headers",
+          "`-sys` crate plus link directives"
+        ],
+        [
+          "NuGet package with native assets",
+          "Crate feature selecting bundled/prebuilt native artifacts"
+        ],
+        [
+          "vcpkg/pkg-config discovery",
+          "Same tools called from build scripts"
+        ],
+        [
+          "P/Invoke wrapper",
+          "Raw FFI crate plus safe Rust wrapper"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 228,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Prefer"
+      ],
+      "rows": [
+        [
+          "Distro-integrated security servicing",
+          "System package with explicit version matrix"
+        ],
+        [
+          "Portable static appliance",
+          "Reviewed vendored source or organization-built artifact"
+        ],
+        [
+          "Raw FFI",
+          "Established `-sys` crate with narrow responsibility"
+        ],
+        [
+          "Safe product API",
+          "Safe wrapper behind internal adapter"
+        ],
+        [
+          "Cross compilation",
+          "Explicit target compiler, sysroot, discovery roots, and runner"
+        ],
+        [
+          "Reproducible build",
+          "No network in build script, declared inputs, pinned native toolchain"
+        ]
+      ]
+    }
+  ]
+}

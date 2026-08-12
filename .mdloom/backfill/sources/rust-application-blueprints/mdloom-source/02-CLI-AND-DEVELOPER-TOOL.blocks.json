@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\02-CLI-AND-DEVELOPER-TOOL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| CALLER: person | shell | CI job | editor | another process                 |\n+-------------------------------+--------------------------------------------+\n                                v\n+----------------------------------------------------------------------------+\n| COMMAND CONTRACT                                                           |\n| argv + env + cwd + stdin -> parse -> validate -> dispatch                  |\n+-------------------------------+--------------------------------------------+\n                                v\n+----------------------------------------------------------------------------+\n| APPLICATION USE CASE                                                       |\n| plan -> effect ports -> progress/events -> outcome                         |\n+-------------------+----------------------+---------------------------------+\n                    v                      v\n        filesystem / network / VCS     renderer\n                    |                      |\n                    +----------+-----------+\n                               v\n                  stdout + stderr + exit status",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 160,
+      "heading_context": "## Testing and Rollback",
+      "confidence": "candidate",
+      "text": "parser tests\n    -> application scenario tests\n        -> process tests (argv/env/cwd/streams/status)\n            -> packaged-artifact smoke test",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

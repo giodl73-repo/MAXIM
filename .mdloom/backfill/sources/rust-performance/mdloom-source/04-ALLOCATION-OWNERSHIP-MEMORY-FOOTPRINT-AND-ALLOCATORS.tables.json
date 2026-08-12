@@ -1,0 +1,251 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Separate the Memory Metrics",
+      "headers": [
+        "Metric",
+        "What it tells you",
+        "What it can hide"
+      ],
+      "rows": [
+        [
+          "Allocation count",
+          "Frequency of allocator calls",
+          "Size and lifetime"
+        ],
+        [
+          "Allocated bytes",
+          "Total requested volume over time",
+          "Reuse, deallocation, residency"
+        ],
+        [
+          "Live bytes",
+          "Reachable allocated memory at a point",
+          "Allocator metadata/fragmentation"
+        ],
+        [
+          "Peak live bytes",
+          "Maximum application-owned heap",
+          "OS page cache and mapped files"
+        ],
+        [
+          "RSS / working set",
+          "Resident process pages",
+          "Shared pages and reclaimability"
+        ],
+        [
+          "PSS / private working set",
+          "Better attribution of shared pages where the OS exposes it",
+          "Application object ownership"
+        ],
+        [
+          "Virtual size",
+          "Address space reservations/mappings",
+          "Actual physical memory"
+        ],
+        [
+          "Retained capacity",
+          "Memory collections keep for reuse",
+          "Whether retention is useful"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 78,
+      "heading_context": "## Ownership Shapes Cost",
+      "headers": [
+        "Choice",
+        "Performance benefit",
+        "Performance risk"
+      ],
+      "rows": [
+        [
+          "Borrowed slice/string",
+          "Avoids copy and allocation",
+          "Couples lifetime; may keep a large owner alive"
+        ],
+        [
+          "Move ownership",
+          "Transfers without copying buffer contents",
+          "Can force architecture changes"
+        ],
+        [
+          "`clone()`",
+          "Clear ownership boundary",
+          "May deep-copy large buffers or increment refcounts"
+        ],
+        [
+          "`Arc::clone`",
+          "Cheap payload sharing",
+          "Atomic refcount traffic and shared lifetime"
+        ],
+        [
+          "`Cow`",
+          "Avoids copy on read-mostly paths",
+          "Branching and surprise allocation on mutation"
+        ],
+        [
+          "Arena/bump allocation",
+          "Cheap bulk allocation and teardown",
+          "Coarse lifetime, retained memory, destructor constraints"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 114,
+      "heading_context": "## Collection Capacity and Reuse",
+      "headers": [
+        "Method",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "`with_capacity` / `reserve`",
+          "Grow ahead of time; may over-allocate"
+        ],
+        [
+          "`reserve_exact`",
+          "Requests tighter growth; allocator can still round"
+        ],
+        [
+          "`clear`",
+          "Drops elements, retains allocation"
+        ],
+        [
+          "`shrink_to_fit`",
+          "Requests capacity reduction; may allocate/copy and is not guaranteed exact"
+        ],
+        [
+          "`mem::take`",
+          "Replaces with default and transfers old allocation"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 129,
+      "heading_context": "## Finding Allocation Sites",
+      "headers": [
+        "Platform/tool",
+        "Useful evidence",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "DHAT via Valgrind",
+          "Allocation sites, bytes, lifetimes",
+          "Linux-oriented, high overhead"
+        ],
+        [
+          "heaptrack",
+          "Allocation call stacks and temporary allocations",
+          "Linux; requires symbols"
+        ],
+        [
+          "Valgrind Massif",
+          "Heap-over-time snapshots",
+          "Slow; allocator/accounting model differs"
+        ],
+        [
+          "jemalloc/mimalloc statistics",
+          "Allocator internals and retained pages",
+          "Only when using/configuring that allocator"
+        ],
+        [
+          "Windows WPR/WPA heap profiles",
+          "Native heap events and stacks",
+          "Windows SDK/profile setup and overhead"
+        ],
+        [
+          "Custom counting allocator",
+          "Test-local counts/bytes",
+          "Instrumentation perturbs behavior; global scope"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 201,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar model",
+        "Rust mapping"
+      ],
+      "rows": [
+        [
+          "C++ RAII and `unique_ptr`",
+          "Ownership plus `Drop` and `Box<T>`"
+        ],
+        [
+          "`shared_ptr`",
+          "`Arc<T>` across threads, `Rc<T>` within one thread"
+        ],
+        [
+          "ArrayPool / object pools",
+          "Reused `Vec`/buffer pools, with explicit retention policy"
+        ],
+        [
+          "CLR allocation profiler",
+          "Native allocation profiler; no default managed heap/GC events"
+        ],
+        [
+          "`Span<T>` / `ReadOnlySpan<T>`",
+          "`&mut [T]` / `&[T]` borrowed views"
+        ],
+        [
+          "Arena allocator",
+          "Bump/arena crates with bulk lifetime"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 227,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Observation",
+        "First action"
+      ],
+      "rows": [
+        [
+          "Many short-lived allocations",
+          "Profile sites; reserve/reuse or batch ownership"
+        ],
+        [
+          "Large copies between layers",
+          "Pass ownership or borrowed views; verify lifetime impact"
+        ],
+        [
+          "High steady RSS after a spike",
+          "Inspect retained capacities and allocator arenas"
+        ],
+        [
+          "`Arc` hot in CPU profile",
+          "Reduce clone frequency or sharing scope; check contention separately"
+        ],
+        [
+          "Fragmentation under concurrency",
+          "Compare allocators under the same workload and RSS policy"
+        ],
+        [
+          "Need temporary graph/object allocation",
+          "Evaluate an arena with a matching bulk lifetime"
+        ],
+        [
+          "Need per-collection custom allocation",
+          "Check stable/nightly status; avoid accidental nightly dependency"
+        ],
+        [
+          "Memory regression gate",
+          "Track allocation and peak/steady RSS, not one proxy"
+        ]
+      ]
+    }
+  ]
+}

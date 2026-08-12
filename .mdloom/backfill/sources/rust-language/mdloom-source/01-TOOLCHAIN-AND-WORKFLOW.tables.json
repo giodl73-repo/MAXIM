@@ -1,0 +1,156 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\01-TOOLCHAIN-AND-WORKFLOW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 86,
+      "heading_context": "## Layer 2: cargo — The Build Tool You Live In",
+      "headers": [
+        "Command",
+        "Does"
+      ],
+      "rows": [
+        [
+          "`cargo new app` / `cargo new --lib mylib`",
+          "Scaffold a binary or library crate"
+        ],
+        [
+          "`cargo build` / `cargo build --release`",
+          "Compile (debug vs optimized)"
+        ],
+        [
+          "`cargo run -- <args>`",
+          "Build + run the binary, forwarding args"
+        ],
+        [
+          "`cargo check`",
+          "Type-check **without** codegen — the fast inner loop"
+        ],
+        [
+          "`cargo test`",
+          "Run unit, integration, and doc tests"
+        ],
+        [
+          "`cargo add serde --features derive`",
+          "Edit `Cargo.toml` to add a dependency"
+        ],
+        [
+          "`cargo doc --open`",
+          "Build and open HTML docs for your crate + deps"
+        ],
+        [
+          "`cargo clippy` / `cargo fmt`",
+          "Lint / format"
+        ],
+        [
+          "`cargo tree`",
+          "Print the dependency graph"
+        ],
+        [
+          "`cargo publish`",
+          "Upload to crates.io"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 165,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "You know",
+        "Rust equivalent",
+        "Note"
+      ],
+      "rows": [
+        [
+          "`nvm` / `pyenv` / SDK version switchers",
+          "`rustup`",
+          "Also manages cross-compile targets"
+        ],
+        [
+          "MSBuild / `make` / Gradle",
+          "`cargo build`",
+          "No separate build script for normal cases"
+        ],
+        [
+          "NuGet / npm / pip (package manager)",
+          "`cargo` + crates.io",
+          "Same tool as the build system"
+        ],
+        [
+          "`dotnet build` vs `dotnet run`",
+          "`cargo build` vs `cargo run`",
+          "Near one-to-one"
+        ],
+        [
+          "Roslyn analyzers / ESLint / StyleCop",
+          "`clippy`",
+          "Ships with the toolchain, not bolted on"
+        ],
+        [
+          "`dotnet format` / Prettier / `black`",
+          "`rustfmt`",
+          "Canonical, near-zero config"
+        ],
+        [
+          "OmniSharp / language servers",
+          "`rust-analyzer`",
+          "Official incremental analysis; optional Cargo/Clippy diagnostics"
+        ],
+        [
+          "`packages.lock.json` / `package-lock.json`",
+          "`Cargo.lock`",
+          "Commit for apps, not for libs"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 201,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Command / choice"
+      ],
+      "rows": [
+        [
+          "Fast feedback while editing",
+          "`cargo check` (+ rust-analyzer)"
+        ],
+        [
+          "Run the program",
+          "`cargo run` (debug) / `cargo run --release`"
+        ],
+        [
+          "Add a dependency",
+          "`cargo add <crate> --features ...`"
+        ],
+        [
+          "Pin toolchain for the team",
+          "`rust-toolchain.toml`"
+        ],
+        [
+          "Need an unstable feature or Miri",
+          "`cargo +nightly ...`"
+        ],
+        [
+          "CI gate",
+          "`cargo fmt --check && cargo clippy -- -D warnings && cargo test`"
+        ],
+        [
+          "Cross-compile",
+          "`rustup target add ... && cargo build --target ...`"
+        ],
+        [
+          "Ship an optimized binary",
+          "`cargo build --release`"
+        ],
+        [
+          "Inspect why a dep is present",
+          "`cargo tree -i <crate>`"
+        ]
+      ]
+    }
+  ]
+}

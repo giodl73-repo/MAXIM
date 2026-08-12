@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 63,
+      "heading_context": "## Iterators: Fusion Is an Optimization Result",
+      "headers": [
+        "Form",
+        "Typical strength",
+        "Typical risk"
+      ],
+      "rows": [
+        [
+          "Iterator chain",
+          "Expresses dataflow; enables fusion and specialization",
+          "Harder attribution; accidental allocation via `collect`"
+        ],
+        [
+          "Indexed loop",
+          "Explicit indices and control",
+          "Bounds checks may remain; more error-prone"
+        ],
+        [
+          "Slice `for` loop",
+          "Clear contiguous traversal",
+          "Less compositional"
+        ],
+        [
+          "`collect::<Vec<_>>()` between stages",
+          "Materializes reuse or ownership boundary",
+          "Allocation, copy, larger working set"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 101,
+      "heading_context": "## Static and Dynamic Dispatch",
+      "headers": [
+        "Choice",
+        "Runtime",
+        "Build/artifact",
+        "Best fit"
+      ],
+      "rows": [
+        [
+          "Generic/static dispatch",
+          "Direct/specializable",
+          "More instances, compile time, code size",
+          "Hot reusable algorithms, small type set"
+        ],
+        [
+          "`dyn Trait`",
+          "Indirect call; less optimizer visibility",
+          "Smaller shared implementation possible",
+          "Plugins, heterogeneous values, cold paths"
+        ],
+        [
+          "`fn` pointer",
+          "Indirect callable",
+          "Compact and ABI-like",
+          "Strategy selected at runtime"
+        ],
+        [
+          "Enum dispatch",
+          "Branch then direct variant code",
+          "Closed set, potentially larger enum",
+          "Small known strategy set"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 201,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "C++ templates",
+          "Rust generic monomorphization"
+        ],
+        [
+          "Interface virtual call",
+          "`dyn Trait` vtable dispatch"
+        ],
+        [
+          "Delegate/function pointer",
+          "`fn` pointer or closure traits"
+        ],
+        [
+          "LINQ pipeline",
+          "Iterator adapters, generally eager only when collected"
+        ],
+        [
+          "JIT inlining diagnostics",
+          "AOT assembly/MIR inspection and LTO effects"
+        ],
+        [
+          "Generic sharing in managed runtimes",
+          "Rust normally emits concrete native instances"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 226,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Evidence",
+        "Action"
+      ],
+      "rows": [
+        [
+          "Iterator chain disappears into one loop",
+          "Keep the clearer abstraction"
+        ],
+        [
+          "Intermediate `collect` dominates allocations",
+          "Stream, reuse, or justify materialization"
+        ],
+        [
+          "Bound check is hot and remains",
+          "Restructure iteration/proof; unsafe only as a narrow last step"
+        ],
+        [
+          "Many large generic instances",
+          "Split generic adapter from non-generic core"
+        ],
+        [
+          "Indirect call dominates tiny hot operation",
+          "Compare generic/enum dispatch under real code size"
+        ],
+        [
+          "Binary/instruction cache grows",
+          "Inspect mono items and [11](11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md)"
+        ],
+        [
+          "Need confidence",
+          "Benchmark plus code inspection; neither alone"
+        ]
+      ]
+    }
+  ]
+}

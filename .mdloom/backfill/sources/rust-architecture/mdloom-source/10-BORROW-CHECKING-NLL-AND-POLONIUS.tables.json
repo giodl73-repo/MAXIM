@@ -1,0 +1,392 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\10-BORROW-CHECKING-NLL-AND-POLONIUS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 67,
+      "heading_context": "## What Borrowck Proves",
+      "headers": [
+        "Rule enforced",
+        "Rust meaning",
+        "Typical error"
+      ],
+      "rows": [
+        [
+          "No dangling references",
+          "A reference's region must stay within the referent's valid points",
+          "lifetime errors, E0597 family"
+        ],
+        [
+          "Aliasing XOR mutability",
+          "Shared reads and exclusive writes cannot overlap incompatibly",
+          "E0502, E0499"
+        ],
+        [
+          "No use after move",
+          "A moved place is uninitialized until reinitialized",
+          "E0382"
+        ],
+        [
+          "No move while borrowed",
+          "Ownership transfer cannot invalidate an active loan",
+          "E0505"
+        ],
+        [
+          "Drop safety",
+          "Values are dropped only when initialized and not illegally borrowed",
+          "interacts with [09](09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## NLL Regions Are CFG Point Sets",
+      "headers": [
+        "Model",
+        "Region approximation",
+        "Result"
+      ],
+      "rows": [
+        [
+          "Pre-NLL lexical",
+          "Scope from borrow to block end",
+          "Rejected many sound programs"
+        ],
+        [
+          "NLL",
+          "CFG points where the reference can still be used",
+          "Accepts borrows ending at last use"
+        ],
+        [
+          "Polonius direction",
+          "More location-sensitive loan reasoning",
+          "Intended to accept more sound cases"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 148,
+      "heading_context": "## The MIR Borrowck Pipeline",
+      "headers": [
+        "Stage",
+        "What rustc computes",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Liveness",
+          "Where values and references are still used",
+          "Limits region point-sets to useful points"
+        ],
+        [
+          "Constraint generation",
+          "Outlives constraints from typeck and MIR operations",
+          "Connects types, borrows, and control flow"
+        ],
+        [
+          "Region inference",
+          "Propagates constraints until each region has a point-set",
+          "Decides how long references must be valid"
+        ],
+        [
+          "Loan checking",
+          "Tests each read/write/move/drop against live loans",
+          "Enforces aliasing XOR mutability"
+        ],
+        [
+          "Move tracking",
+          "Dataflow over initialized/uninitialized places",
+          "Catches use-after-move and informs drops"
+        ],
+        [
+          "Diagnostics",
+          "Explains the failed proof in source terms",
+          "Feeds [15](15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 179,
+      "heading_context": "## Loans, Moves, and Two-Phase Borrows",
+      "headers": [
+        "Mechanism",
+        "Purpose",
+        "Example"
+      ],
+      "rows": [
+        [
+          "Shared loan",
+          "Allows reads, blocks conflicting mutation",
+          "`let r = &v;`"
+        ],
+        [
+          "Mutable loan",
+          "Exclusive access once active",
+          "`let r = &mut v;`"
+        ],
+        [
+          "Two-phase borrow",
+          "Permits reservation before evaluating arguments",
+          "`v.push(v.len())`"
+        ],
+        [
+          "Move path",
+          "Tracks ownership transfer at place granularity",
+          "`let y = x; use(x)` is E0382"
+        ],
+        [
+          "Drop interaction",
+          "Keeps destructor paths sound after moves",
+          "drop elaboration in [09](09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 199,
+      "heading_context": "## Diagnostics and Concrete Traces",
+      "headers": [
+        "Diagnostic",
+        "Meaning",
+        "Useful command"
+      ],
+      "rows": [
+        [
+          "E0502",
+          "cannot borrow as mutable because also borrowed as immutable",
+          "`rustc --explain E0502`"
+        ],
+        [
+          "E0499",
+          "cannot borrow as mutable more than once",
+          "`rustc --explain E0499`"
+        ],
+        [
+          "E0382",
+          "use of moved value",
+          "`rustc --explain E0382`"
+        ],
+        [
+          "E0505",
+          "cannot move out because it is borrowed",
+          "`rustc --explain E0505`"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 257,
+      "heading_context": "## Polonius",
+      "headers": [
+        "Point",
+        "Current guidance"
+      ],
+      "rows": [
+        [
+          "Goal",
+          "Accept more sound programs the current NLL analysis rejects"
+        ],
+        [
+          "Interface",
+          "`rustc +nightly --crate-type=lib -Z polonius=next src\\lib.rs` - EXPERIMENTAL/UNSTABLE"
+        ],
+        [
+          "Default?",
+          "No; do not claim it ships as the default checker"
+        ],
+        [
+          "Contract?",
+          "None for internal facts or output"
+        ],
+        [
+          "Strategic meaning",
+          "A research-to-production path for more precise borrow reasoning"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 271,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust borrowck analogue",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "Dataflow liveness",
+          "NLL region point-sets",
+          "The liveness fact is a memory-safety obligation, not just an optimization input"
+        ],
+        [
+          "Advanced static analyzer",
+          "MIR borrowck",
+          "It is part of the compiler's acceptance rule, not an advisory warning"
+        ],
+        [
+          "Cyclone/region systems",
+          "Rust lifetimes and regions",
+          "Rust integrates ownership, moves, traits, and RAII into mainstream code"
+        ],
+        [
+          ".NET/JVM GC safety",
+          "Rust static proof",
+          "No GC is needed to prevent use-after-free in safe Rust"
+        ],
+        [
+          "Race detection tools",
+          "`Send`/`Sync` plus borrowing discipline",
+          "Many data races are ruled out statically before codegen"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 287,
+      "heading_context": "## Stability Boundary",
+      "headers": [
+        "Stable contract",
+        "Internal / experimental"
+      ],
+      "rows": [
+        [
+          "Borrowing and lifetime rules in the language",
+          "Region inference data structures"
+        ],
+        [
+          "Move semantics and drop semantics",
+          "Loan graph/dataflow representation"
+        ],
+        [
+          "The accepted meaning of E0382/E0499/E0502/E0505",
+          "Exact diagnostics wording and span selection"
+        ],
+        [
+          "Non-lexical lifetime behavior as language reality",
+          "MIR point numbering and dumps"
+        ],
+        [
+          "Future compilers may accept more sound programs",
+          "Polonius flags, facts, and algorithms"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 302,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Why did a borrow end before the block ended?",
+          "NLL: the region is a CFG point-set ending at last use",
+          "language + rustc implementation"
+        ],
+        [
+          "Why does `v.push(v.len())` work?",
+          "Two-phase mutable borrow reservation before activation",
+          "rustc implementation of stable rules"
+        ],
+        [
+          "Where do use-after-move errors come from?",
+          "MIR move/init dataflow over places",
+          "rustc"
+        ],
+        [
+          "Is Polonius production behavior?",
+          "No; it is experimental/nightly and version-sensitive",
+          "rustc research/implementation"
+        ],
+        [
+          "Where should I read the formal user contract?",
+          "Rust Reference: references, lifetimes, destructors",
+          "language"
+        ],
+        [
+          "Where should I debug compiler internals?",
+          "rustc-dev-guide and nightly MIR dumps",
+          "rustc, unstable"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 315,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"A lifetime is a lexical scope.\"",
+          "In NLL borrowck, a region is a set of MIR CFG points."
+        ],
+        [
+          "\"Borrowck runs on source text.\"",
+          "It runs on MIR using typeck results and source spans for diagnostics."
+        ],
+        [
+          "\"Polonius is the borrow checker now.\"",
+          "No. It remains experimental and not the default."
+        ],
+        [
+          "\"A diagnostic's exact text is stable.\"",
+          "The rule is stable; wording and span presentation can change."
+        ],
+        [
+          "\"Rust uses hidden runtime checks for this.\"",
+          "Safe Rust's core aliasing/move/reference rules are checked statically."
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 327,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: \"MIR borrowck\"",
+          "The compiler pipeline and `mir_borrowck` framing"
+        ],
+        [
+          "rustc-dev-guide: \"Region inference (NLL)\"",
+          "Regions as point-sets and constraint propagation"
+        ],
+        [
+          "rustc-dev-guide: \"Two-phase borrows\"",
+          "Reservation/activation model"
+        ],
+        [
+          "rustc-dev-guide: \"Polonius\"",
+          "Experimental alternative formulation"
+        ],
+        [
+          "RFC 2094",
+          "Non-Lexical Lifetimes design rationale"
+        ],
+        [
+          "Polonius book and `rust-lang/polonius`",
+          "Datalog/location-sensitive loan model"
+        ],
+        [
+          "The Rust Reference: references and lifetimes",
+          "Stable language-facing rules"
+        ]
+      ]
+    }
+  ]
+}

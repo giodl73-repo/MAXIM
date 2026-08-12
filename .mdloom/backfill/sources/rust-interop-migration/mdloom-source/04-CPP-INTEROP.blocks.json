@@ -1,0 +1,138 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\04-CPP-INTEROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 22,
+      "heading_context": "# C++ Interop",
+      "confidence": "candidate",
+      "text": "C++ is not one portable ABI. Name mangling, exceptions, standard-library types,",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 25,
+      "heading_context": "# C++ Interop",
+      "confidence": "candidate",
+      "text": "C++-aware bridge when one controlled toolchain makes richer types worth the",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         RUST <-> C++ OPTIONS                               |\n+============================================================================+\n|  MOST DURABLE                                                              |\n|                                                                            |\n|  C++ facade -> versioned C ABI -> Rust core                                |\n|      simple contract, broad compiler/language reach                        |\n|                                                                            |\n|  cxx bridge <-> generated C++/Rust glue                                    |\n|      checked shared subset, unique_ptr/shared types, controlled builds     |\n|                                                                            |\n|  autocxx / bindgen + handwritten safety facade                             |\n|      adapt a larger existing header surface                                |\n|                                                                            |\n|  direct C++ ABI guesses / class layout / Rust trait-object vtable          |\n|      DO NOT use as a durable boundary                                      |\n|                                                                            |\n|  MOST TOOLCHAIN-COUPLED                                                    |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "## A `cxx` Bridge",
+      "confidence": "candidate",
+      "text": "#[cxx::bridge]\nmod ffi {\n    unsafe extern \"C++\" {\n        include!(\"legacy/include/parser.h\");\n\n        type Parser;\n        fn new_parser() -> UniquePtr<Parser>;\n        fn parse(self: Pin<&mut Parser>, input: &CxxString) -> Result<u64>;\n    }\n\n    extern \"Rust\" {\n        fn normalize(input: &str) -> String;\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 105,
+      "heading_context": "## C Facade as the Stability Firewall",
+      "confidence": "candidate",
+      "text": "  arbitrary C++ callers\n          |\n          v\n  +-----------------------------------------------------------+\n  | C++ RAII facade: std::string, exceptions, classes         |\n  +-----------------------------------------------------------+\n          |\n          v\n  +-----------------------------------------------------------+\n  | versioned C ABI: opaque handles, ptr+len, status codes    |\n  +-----------------------------------------------------------+\n          |\n          v\n  +-----------------------------------------------------------+\n  | Rust adapter + core: idiomatic Rust stays private         |\n  +-----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 124,
+      "heading_context": "## C Facade as the Stability Firewall",
+      "confidence": "candidate",
+      "text": "This pattern makes the C++ layer replaceable and keeps compiler-specific ABI out",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "ascii_table_candidate",
+      "line": 138,
+      "heading_context": "## Exceptions, Panics, and Destructors",
+      "confidence": "candidate",
+      "text": "- `std::unique_ptr<T>` is destroyed by C++ glue with the correct complete type.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "## Exceptions, Panics, and Destructors",
+      "confidence": "candidate",
+      "text": "- C++ objects borrowed by Rust must outlive every borrow and callback.\n- A destructor that can throw is already hazardous in C++; never allow it to",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "ascii_table_candidate",
+      "line": 183,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- **\"`extern \\\"C++\\\"` means portable C++ ABI.\"** It describes bridge intent;",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "ascii_table_candidate",
+      "line": 185,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- **\"`bindgen` understands all C++ semantics.\"** Generated declarations cannot",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- **\"Move semantics line up automatically.\"** Rust moves and C++ move",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 214,
+      "heading_context": "## Primary Sources",
+      "confidence": "candidate",
+      "text": "- Itanium C++ ABI: https://itanium-cxx-abi.github.io/cxx-abi/",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

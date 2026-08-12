@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/17-SQL.md
 canonical_path: languages/17-SQL.md
-backsource_ids: [proof-backfill:languages:17-sql, git-history:languages:17-sql]
+backsource_ids: [mdloom-backfill:languages:17-sql, git-history:languages:17-sql]
 concepts: [sql]
 root_concepts: [sql]
 index_roles: [guide, root-concept]

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         CARGO HOST/TARGET BUILD                           |\n+---------------------------------------------------------------------------+\n| HOST SIDE: runs during the build                                           |\n|                                                                           |\n|  build.rs source  -> rustc(host) -> build-script exe -> prints cargo::*   |\n|  proc-macro crate -> rustc(host) -> special dylib   -> loaded by rustc    |\n|  cc/pkg-config/vcpkg probes run here                                      |\n+---------------------------------------------------------------------------+\n                  v  stdout directives, env, generated files, macro tokens\n+---------------------------------------------------------------------------+\n| TARGET SIDE: product being built                                           |\n|                                                                           |\n|  lib/bin/test crate -> rustc(target) -> rlib/bin/cdylib/staticlib         |\n|  links to native libraries discovered by host-side build logic            |\n+---------------------------------------------------------------------------+\n                  v  selected by rustup target std/sysroot, see [02]\n+---------------------------------------------------------------------------+\n| EXAMPLE: host=x86_64-pc-windows-msvc, target=wasm32-unknown-unknown       |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## The `links` Key and `-sys` Crates",
+      "confidence": "candidate",
+      "text": "+------------------+       metadata       +-------------------+\n| foo-sys          | -------------------> | higher-level foo  |\n| links = \"foo\"    | DEP_FOO_INCLUDE=...  | safe wrapper      |\n| build.rs probes  |                      | no native probe   |\n+------------------+                      +-------------------+\n          |\n          v\n  one owner of native link decisions in the Cargo graph",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 177,
+      "heading_context": "## Native Tool Discovery and Linker Handoff",
+      "confidence": "candidate",
+      "text": "build.rs(host)\n      |\n      +--> target C compiler / target sysroot / target libraries\n      |\n      +--> cargo::rustc-link-* -> rustc(target) -> platform linker [13]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 199,
+      "heading_context": "## Proc Macros: Host Code Loaded by the Compiler",
+      "confidence": "candidate",
+      "text": "+--------------------+       host dylib       +----------------------------+\n| proc-macro crate   | ---------------------> | rustc compiling target     |\n| #[proc_macro] fn   |                        | expands tokens in [05]     |\n+--------------------+                        +----------------------------+\n          ^                                                |\n          | stable proc_macro API                          v\n          +-------------------- internal bridge ---------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

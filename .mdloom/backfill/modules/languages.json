@@ -7,8 +7,8 @@
   "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
   "frontmatter_scope": {
     "mode": "module-only",
-    "proof_output_default": "omit-frontmatter",
-    "proof_output_option": "allow-frontmatter-for-metadata-views",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
     "required_kind_values": [
       "guide",
       "module-index",
@@ -38,7 +38,7 @@
       "languages/17-SQL.md"
     ]
   },
-  "proof_scope": {
+  "mdloom_scope": {
     "config": "mdloom.toml",
     "include": [
       "languages/*.md"
@@ -47,9 +47,10 @@
       "languages/STATUS.md"
     ]
   },
-  "crop_view": ".crop/views/maxim-languages-source-corpus.json",
+  "crop_view": ".mdcrop/views/maxim-languages-source-corpus.json",
   "distribution": {
-    "pebble_pack": ".mdport/packs/maxim-languages-source-corpus.mdport.json",
+    "mdport_pack": ".mdport/packs/maxim-languages-source-corpus.mdport.json",
+    "mdport_pack_sections": 492,
     "guide_packs": [
       ".mdport/packs/maxim-languages-overview.mdport.json",
       ".mdport/packs/maxim-languages-cheatsheet.mdport.json",
@@ -70,6 +71,26 @@
       ".mdport/packs/maxim-languages-ruby.mdport.json",
       ".mdport/packs/maxim-languages-sql.mdport.json"
     ],
+    "guide_pack_sections": {
+      "languages/00-OVERVIEW.md": 18,
+      "languages/01-CHEATSHEET.md": 31,
+      "languages/02-C.md": 20,
+      "languages/03-CPP.md": 21,
+      "languages/04-JAVA.md": 19,
+      "languages/05-CSHARP.md": 24,
+      "languages/06-PYTHON.md": 68,
+      "languages/07-JAVASCRIPT.md": 24,
+      "languages/08-TYPESCRIPT.md": 24,
+      "languages/09-RUST.md": 20,
+      "languages/10-GO.md": 18,
+      "languages/11-HASKELL.md": 19,
+      "languages/12-FSHARP.md": 21,
+      "languages/13-KOTLIN.md": 18,
+      "languages/14-SWIFT.md": 19,
+      "languages/15-SCALA.md": 20,
+      "languages/16-RUBY.md": 80,
+      "languages/17-SQL.md": 28
+    },
     "fletch_registry": ".fletch/registries/maxim-languages-source-corpus.json"
   },
   "source_custody": {
@@ -78,7 +99,8 @@
     "notes": [
       "Current MAXIM guide paths are not themselves sufficient backsources.",
       "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
-      "All 18 guides are partial: MDLOOM literal backfill and git provenance are recorded, but external/authentic factual backsources are still pending.",
+      "MDLOOM literal backfill is recorded for all 18 guides; Git provenance is recorded for 18 guides and pending for 0.",
+      "All 18 guides remain partial because external/authentic factual backsources are still pending.",
       "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
       "Remaps preserve continuity if guide files move after backfill."
     ]
@@ -269,7 +291,8 @@
     "frontmatter-contract-applied",
     "source-custody-partial",
     "proof-module-clean",
-    "crop-pebble-pack-emitted",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
     "fletch-registry-added"
   ]
 }

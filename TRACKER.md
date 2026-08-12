@@ -15,6 +15,14 @@ Each directory has a `STATUS.md` with its full file list.
 | [`data-science/`](data-science/STATUS.md) | 17 | ✅ |
 | [`mathematics/`](mathematics/STATUS.md) | 24 | ✅ |
 | [`languages/`](languages/STATUS.md) | 19 | ✅ |
+| [`rust-language/`](rust-language/STATUS.md) | 22 | ✅ |
+| [`rust-architecture/`](rust-architecture/STATUS.md) | 22 | ✅ |
+| [`rust-application-blueprints/`](rust-application-blueprints/STATUS.md) | 17 | ✅ |
+| [`rust-production-engineering/`](rust-production-engineering/STATUS.md) | 17 | ✅ |
+| [`rust-crate-ecosystem/`](rust-crate-ecosystem/STATUS.md) | 17 | ✅ |
+| [`rust-interop-migration/`](rust-interop-migration/STATUS.md) | 17 | ✅ |
+| [`rust-security-assurance/`](rust-security-assurance/STATUS.md) | 17 | ✅ |
+| [`rust-performance/`](rust-performance/STATUS.md) | 17 | ✅ |
 | [`query-languages/`](query-languages/STATUS.md) | 13 | ✅ |
 | [`scripting/`](scripting/STATUS.md) | 10 | ✅ |
 | [`os/`](os/STATUS.md) | 8 | ✅ |

@@ -1,0 +1,174 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\05-SCHEDULED-AND-BATCH-JOB.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 84,
+      "heading_context": "## Time, Window, and Overlap Contracts",
+      "headers": [
+        "Question",
+        "Choices"
+      ],
+      "rows": [
+        [
+          "Window basis",
+          "event time, source commit time, or scheduler time"
+        ],
+        [
+          "Boundaries",
+          "usually half-open `[start, end)`"
+        ],
+        [
+          "Time zone",
+          "UTC or named business zone with calendar rules"
+        ],
+        [
+          "Late input",
+          "ignore, next run, correction run, or reopen window"
+        ],
+        [
+          "Overlap",
+          "forbid, queue, replace, or allow disjoint partitions"
+        ],
+        [
+          "Missed run",
+          "catch up all, coalesce, or skip with explicit evidence"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 116,
+      "heading_context": "## Time, Window, and Overlap Contracts",
+      "headers": [
+        "Asset",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Trigger delivery and calendar configuration",
+          "scheduler/operator"
+        ],
+        [
+          "Logical window and completion semantics",
+          "job/application owner"
+        ],
+        [
+          "Run claim, partition state, and audit history",
+          "run-ledger owner"
+        ],
+        [
+          "Source snapshot/version",
+          "source-system owner"
+        ],
+        [
+          "Published result and visibility switch",
+          "destination/job owner"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 134,
+      "heading_context": "## Partitioning, Checkpointing, and Publication",
+      "headers": [
+        "Pattern",
+        "Use when",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "One transaction",
+          "bounded data in one authority",
+          "long locks/resource pressure"
+        ],
+        [
+          "Checkpoint per partition",
+          "restart cost matters",
+          "output must hide partial set"
+        ],
+        [
+          "Append plus manifest",
+          "immutable outputs",
+          "manifest becomes publication authority"
+        ],
+        [
+          "Upsert by run/key",
+          "reruns replace same logical result",
+          "key design must be stable"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 169,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Condition",
+        "Response"
+      ],
+      "rows": [
+        [
+          "No durable effects",
+          "stop and run previous artifact"
+        ],
+        [
+          "Checkpoint-compatible",
+          "previous artifact resumes claimed run"
+        ],
+        [
+          "Output format changed",
+          "keep old reader or publish versioned location"
+        ],
+        [
+          "Partial external effects",
+          "reconcile or complete forward"
+        ],
+        [
+          "Wrong logical window",
+          "correction run; do not erase audit history"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 198,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Short stateless periodic action",
+          "simple scheduled binary with explicit run id"
+        ],
+        [
+          "Restartable large finite set",
+          "partition ledger and checkpoints"
+        ],
+        [
+          "Continuous arrivals",
+          "worker [04], not a pseudo-infinite batch"
+        ],
+        [
+          "Dataset transformation/publication",
+          "ETL [06]"
+        ],
+        [
+          "Multi-stage dependencies",
+          "external orchestrator plus independently rerunnable stages"
+        ],
+        [
+          "Strict single active run",
+          "durable lease/claim, not process-local mutex"
+        ],
+        [
+          "Correct late data",
+          "correction window or versioned republish policy"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,354 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 87,
+      "heading_context": "## What MIR Is",
+      "headers": [
+        "MIR concept",
+        "Shape",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Local",
+          "`_0` return place, `_1..` args, compiler temps",
+          "Gives every value a concrete storage slot"
+        ],
+        [
+          "Place",
+          "local plus projections: field, index, deref, downcast",
+          "The unit of move, borrow, assignment, and drop"
+        ],
+        [
+          "Rvalue",
+          "value-producing expression: use, ref, aggregate, binary op",
+          "Expression complexity is normalized"
+        ],
+        [
+          "Statement",
+          "assignment, storage live/dead, fake reads, etc.",
+          "Side effects short of control transfer"
+        ],
+        [
+          "Terminator",
+          "`goto`, `switchInt`, `call`, `drop`, `assert`, `return`, unwind",
+          "All control flow is explicit"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 121,
+      "heading_context": "## Construction: HIR -> THIR -> MIR",
+      "headers": [
+        "Source construct",
+        "MIR construction effect"
+      ],
+      "rows": [
+        [
+          "`match` / `if let`",
+          "Pattern tests become decision trees and branches, often `switchInt`"
+        ],
+        [
+          "temporaries",
+          "Become locals with explicit storage lifetime markers"
+        ],
+        [
+          "calls and operators",
+          "Become normalized calls or primitive rvalues after type resolution"
+        ],
+        [
+          "early return / `?`",
+          "Becomes explicit branching to return or cleanup paths"
+        ],
+        [
+          "logical scope exit",
+          "Initially records drops that later passes make concrete"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 154,
+      "heading_context": "## Drop Elaboration: Rust RAII Made Concrete",
+      "headers": [
+        "Drop concern",
+        "Rust-specific consequence"
+      ],
+      "rows": [
+        [
+          "Conditional initialization",
+          "A value initialized only on one branch must be dropped only on that branch"
+        ],
+        [
+          "Moves",
+          "Moving a place suppresses the old owner's later drop"
+        ],
+        [
+          "Partial moves",
+          "Fields can have independent initialized state in supported cases"
+        ],
+        [
+          "Panic/unwind",
+          "Cleanup blocks run drops along unwinding edges; panic strategy lives lower, see [16](16-CORE-ALLOC-STD-PANIC-AND-PLATFORM-LAYERS.md)"
+        ],
+        [
+          "Drop glue",
+          "Type-directed destructor paths later feed monomorphization and codegen, see [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 173,
+      "heading_context": "## MIR Transforms and Optimizations",
+      "headers": [
+        "Pass family",
+        "Typical purpose",
+        "Stability caveat"
+      ],
+      "rows": [
+        [
+          "CFG simplification",
+          "Merge blocks, remove unreachable edges, normalize terminators",
+          "Internal pass names/order"
+        ],
+        [
+          "Inlining",
+          "Inline eligible MIR bodies before backend IR",
+          "Heuristics change by release/profile"
+        ],
+        [
+          "Const propagation / value simplification",
+          "Fold known values, simplify branches/asserts",
+          "Conservative; LLVM still does heavy lifting"
+        ],
+        [
+          "Dead code/storage cleanup",
+          "Reduce irrelevant statements and temps",
+          "Often diagnostic/codegen motivated"
+        ],
+        [
+          "Match branch simplification",
+          "Collapse impossible or redundant branches after typing",
+          "Implementation detail"
+        ],
+        [
+          "Validation and borrowck support",
+          "Preserve invariants for [10](10-BORROW-CHECKING-NLL-AND-POLONIUS.md) and diagnostics",
+          "Not a user contract"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 218,
+      "heading_context": "## CTFE and the MIR Interpreter",
+      "headers": [
+        "Term",
+        "Precise role"
+      ],
+      "rows": [
+        [
+          "CTFE",
+          "rustc's in-compiler use of the interpreter to obtain required compile-time values"
+        ],
+        [
+          "Miri engine",
+          "The MIR interpreter architecture rustc uses and the Miri tool extends"
+        ],
+        [
+          "Miri tool",
+          "Ecosystem tool with additional UB checks and a user-facing command surface"
+        ],
+        [
+          "Abstract machine",
+          "Allocation/provenance model for what a compile-time pointer/value means"
+        ],
+        [
+          "Limits",
+          "Const evaluation is bounded and intentionally rejects operations outside const rules"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 239,
+      "heading_context": "## Concrete Trace",
+      "headers": [
+        "Task",
+        "Command"
+      ],
+      "rows": [
+        [
+          "Emit MIR from one file",
+          "`rustc --edition 2021 --crate-type lib --emit=mir src\\lib.rs`"
+        ],
+        [
+          "Dump all MIR stages",
+          "`rustc +nightly --crate-type=lib -Z dump-mir=all src\\lib.rs` - UNSTABLE"
+        ],
+        [
+          "Pretty-print MIR",
+          "`rustc +nightly --crate-type=lib -Z unpretty=mir src\\lib.rs` - UNSTABLE"
+        ],
+        [
+          "See the build invoking rustc",
+          "`cargo build -v`"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 279,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rustc MIR analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "Bound tree -> lowered CFG",
+          "HIR/THIR -> MIR",
+          "MIR still carries Rust ownership/drop facts"
+        ],
+        [
+          "SSA-ish mid-level IR",
+          "MIR locals/places plus explicit CFG",
+          "MIR is not pure SSA; places model storage and moves"
+        ],
+        [
+          "C++ RAII destructor insertion",
+          "Drop elaboration with flags and cleanup edges",
+          "Rust tracks moves/initialization statically and makes drops path-sensitive"
+        ],
+        [
+          "C# constant folding",
+          "CTFE",
+          "CTFE is a real interpreter for allowed Rust, not only algebraic folding"
+        ],
+        [
+          "LLVM IR",
+          "Backend input after rustc lowering",
+          "Too low-level for borrowck and Rust diagnostics"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 295,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Need to understand why borrowck accepts/rejects a path?",
+          "Inspect MIR conceptually, then read [10](10-BORROW-CHECKING-NLL-AND-POLONIUS.md)",
+          "rustc internals"
+        ],
+        [
+          "Need a stable guarantee about drop order?",
+          "Read the Reference destructors/drop scopes",
+          "language"
+        ],
+        [
+          "Need to reduce generated LLVM IR?",
+          "Look at MIR inlining/cleanup only as a clue; tune code/profile/LTO",
+          "rustc/backends"
+        ],
+        [
+          "Need compile-time execution behavior?",
+          "Read const-eval rules; use MIR dumps only for debugging",
+          "language + rustc"
+        ],
+        [
+          "Need to see current MIR?",
+          "`rustc --emit=mir`; nightly `-Z dump-mir` for deeper traces",
+          "rustc, unstable format"
+        ],
+        [
+          "Need build integration?",
+          "Cargo invokes rustc; it does not define MIR",
+          "Cargo"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 308,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"MIR is Rust's IL.\"",
+          "It is an internal rustc IR, not a stable runtime format like IL or JVM bytecode."
+        ],
+        [
+          "\"MIR pass order is documented, so I can depend on it.\"",
+          "No. Pass names, order, and dumps are version-sensitive implementation details."
+        ],
+        [
+          "\"Drop order is an implementation detail.\"",
+          "The user-observable drop semantics are stable; drop elaboration mechanics are internal."
+        ],
+        [
+          "\"CTFE is the same thing as the Miri command.\"",
+          "CTFE is rustc's compile-time use; Miri is an ecosystem tool extending the interpreter with more checks."
+        ],
+        [
+          "\"LLVM should handle this.\"",
+          "LLVM cannot enforce Rust move/drop/borrow semantics because those facts are erased before backend IR."
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 320,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: \"The MIR\"",
+          "MIR concepts, locals, places, rvalues, statements, terminators"
+        ],
+        [
+          "rustc-dev-guide: \"MIR construction\"",
+          "HIR/THIR to MIR build and lowering details"
+        ],
+        [
+          "rustc-dev-guide: \"MIR passes and optimizations\"",
+          "Current pass families and caveats"
+        ],
+        [
+          "rustc-dev-guide: \"Drop elaboration\"",
+          "Drop flags, move paths, conditional drops"
+        ],
+        [
+          "rustc-dev-guide: \"Constant evaluation\" and \"Miri / the interpreter\"",
+          "CTFE and interpreter architecture"
+        ],
+        [
+          "RFC 1211",
+          "Why MIR was introduced"
+        ],
+        [
+          "The Rust Reference: destructors and constant evaluation",
+          "Stable language semantics"
+        ]
+      ]
+    }
+  ]
+}

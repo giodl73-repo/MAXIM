@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         RUSTC TO MACHINE CODE                             |\n|                                                                           |\n|  Rust Reference / language authority                                      |\n|        |                                                                  |\n|        v                                                                  |\n|  rustc front + middle end                                                 |\n|  parse -> HIR -> typeck -> MIR -> mono MIR -> codegen units        [11]   |\n|        |                                                                  |\n|        | internal codegen_backend interface                               |\n|        v                                                                  |\n|  rustc_codegen_llvm     rustc_codegen_cranelift     rustc_codegen_gcc     |\n|  default / bundled      fast debug iteration        libgccjit path        |\n|          v                       v                         v              |\n|  LLVM IR -> LLVM opt -> obj      CLIF -> obj               GCC IR -> obj  |\n|           \\_______________________|__________________________/            |\n|                                   v                                       |\n|                         platform linker                  [13]             |\n|                    exe / dylib / cdylib / staticlib                       |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 70,
+      "heading_context": "## The LLVM Path: Codegen Unit to Object File",
+      "confidence": "candidate",
+      "text": "+------------------+     +------------------+     +-------------------+\n| monomorphized    |     | rustc lowers to  |     | LLVM optimization |\n| MIR in one CGU   | --> | LLVM IR + attrs  | --> | pipeline          |\n+------------------+     +------------------+     +-------------------+\n          |                        |                        |\n          |                        | target datalayout      | -C opt-level\n          |                        | target-cpu/features    | -C target-cpu\n          v                        v                        v\n+-----------------------------------------------------------------------+\n|                         target object file                            |\n|             sections, relocations, symbols, debug info                |\n+-----------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 121,
+      "heading_context": "## Alternative Backends: Cranelift, GCC, and gccrs",
+      "confidence": "candidate",
+      "text": "Same rustc front/middle end\n        |\n        +--> LLVM backend       production default\n        +--> Cranelift backend  fast debug-loop backend\n        +--> GCC backend        experimental GCC/libgccjit path\n\nDifferent project:\n        gccrs = GCC reimplements a Rust front end",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 136,
+      "heading_context": "## Optimization Context: LTO, PGO, and BOLT",
+      "confidence": "candidate",
+      "text": "NORMAL:       crate -> CGUs -> objects -> linker\n\nTHIN LTO:     crate -> LLVM summaries --------+\n              crate -> LLVM summaries ----+   |\n                                           v   v\n                         cross-CGU/cross-crate LLVM import + inline\n                                           |\n                                           v\n                                      final objects\n\nPGO:          instrumented build -> run workload -> profile data\n                         |                         |\n                         +------ profile-use <----+\n\nBOLT:         final linked binary -> post-link layout optimizer",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 34,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    RUST SECURITY ASSURANCE LANDSCAPE                       |\n+============================================================================+\n| CLAIM LAYER                                                                |\n| assets + adversaries + trust boundaries + acceptable residual risk   [01]  |\n+----------------------------------------------------------------------------+\n|                                    |                                       |\n|                                    v                                       |\n+----------------------------------------------------------------------------+\n| ENGINEERING RISK CLASSES                                                   |\n| language-safe code [02] | unsafe/UB [02][03] | dependencies/build [04][05] |\n| secrets/crypto [06]     | input/logic [07]    | availability [08]           |\n| FFI/platform [09]       | response/compliance [13][14]                     |\n+----------------------------------------------------------------------------+\n|                          evidence generation                               |\n|                                    |                                       |\n|                                    v                                       |\n+----------------------------------------------------------------------------+\n| EVIDENCE                                                                   |\n| tests/fuzz [10] | Miri/sanitizers/Loom/formal [11] | provenance/SBOM [12]  |\n+----------------------------------------------------------------------------+\n|                                    |                                       |\n|                                    v                                       |\n+----------------------------------------------------------------------------+\n| DECISION                                                                   |\n| security release gate + exceptions + residual risk + assurance case  [15]  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 86,
+      "heading_context": "## Assurance Is a Chain of Scoped Claims",
+      "confidence": "candidate",
+      "text": "CLAIM\n  \"Untrusted messages cannot cause memory corruption or unbounded work.\"\n    |\n    +--> ASSUMPTIONS\n    |      supported target, sound dependencies, configured limits,\n    |      allocator/runtime/kernel behave within their contracts\n    |\n    +--> ARGUMENT\n    |      safe parser shell + audited unsafe core + bounded state machine\n    |\n    +--> EVIDENCE\n           review, tests, fuzz corpus, Miri job, dependency inventory,\n           release artifact identity, operational limits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 126,
+      "heading_context": "## A Minimal Assurance Loop",
+      "confidence": "candidate",
+      "text": "inventory -> model -> design -> implement -> challenge -> package -> decide\n    ^                                                            |\n    +---------------- incident/advisory feedback -----------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

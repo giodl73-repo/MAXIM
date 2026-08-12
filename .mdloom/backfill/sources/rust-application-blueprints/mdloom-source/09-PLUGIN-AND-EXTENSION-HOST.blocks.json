@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\09-PLUGIN-AND-EXTENSION-HOST.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| host application authority                                                 |\n| policy | lifecycle | resource budgets | extension registry | user consent  |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| extension boundary                                                         |\n| discover -> authenticate -> negotiate version -> grant capabilities        |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| invocation transport                                                       |\n| Rust callback | C ABI | subprocess protocol | Wasm/component               |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| plugin implementation -> allowed effects -> result/events                  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 95,
+      "heading_context": "## Capability and Lifecycle Contract",
+      "confidence": "candidate",
+      "text": "discover candidate\n      |\nverify identity/provenance\n      |\nnegotiate contract version\n      |\ngrant capability handles\n      |\ninitialize -> ready -> invoke -> quiesce -> shutdown\n                  |\n               fault -> quarantine/disable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

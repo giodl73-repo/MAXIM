@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\12-MODULES-CRATES-PACKAGES-AND-VISIBILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Modules, Crates, Packages, and Visibility",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|              PACKAGE > CRATE > MODULE  (three nesting levels)                 |\n+===============================================================================+\n\n  WORKSPACE  (Cargo.toml [workspace])          many packages, shared lock/target\n  +-------------------------------------------------------------------+\n  |  PACKAGE  (one Cargo.toml)                                        |\n  |  +-------------------------------------------------------------+  |\n  |  |  CRATE = compilation unit (rustc compiles ONE crate)        |  |\n  |  |    - lib crate:  src/lib.rs   (0 or 1 per package)          |  |\n  |  |    - bin crate:  src/main.rs, src/bin/*.rs (0..N per pkg)   |  |\n  |  |  +-----------------------------------------------------+    |  |\n  |  |  |  MODULE tree (namespaces inside the crate)          |    |  |\n  |  |  |   crate (root) :: net :: http :: Client             |    |  |\n  |  |  |   mod net { mod http { pub struct Client; } }       |    |  |\n  |  |  +-----------------------------------------------------+    |  |\n  |  +-------------------------------------------------------------+  |\n  +-------------------------------------------------------------------+\n\n  VISIBILITY               PATHS                       BRING INTO SCOPE\n  ----------               -----                       ----------------\n  (default)  private       crate::net::http::Client    use crate::net::http::Client;\n  pub        public         self::sibling               use std::collections::HashMap;\n  pub(crate) crate-wide     super::parent               use x::{A, B, C};\n  pub(super) parent module  ::extern_crate::Item        pub use  (RE-EXPORT)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

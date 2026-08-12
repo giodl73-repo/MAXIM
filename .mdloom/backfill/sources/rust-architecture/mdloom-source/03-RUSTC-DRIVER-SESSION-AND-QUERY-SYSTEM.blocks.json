@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\03-RUSTC-DRIVER-SESSION-AND-QUERY-SYSTEM.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 36,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         ONE RUSTC INVOCATION                              |\n|                                                                           |\n|  CLI: rustc [flags] crate_root.rs                                         |\n|       --crate-type  --edition  --emit  -C  -L  --extern                   |\n|       -Z ... = nightly-only, unstable, internal                           |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  rustc_driver / rustc_interface                                           |\n|  parse args -> create Session -> register lints -> run callbacks          |\n|  Authority: rustc internals; not a stable embedding API                   |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  Session                                                                  |\n|  options · source map · diagnostics emitter · target info · lint config   |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  GlobalCtxt + TyCtxt<'tcx>                                                |\n|  arenas · interners · query tables · dependency graph · type database     |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  DRIVER FORCES TOP-LEVEL WORK                                             |\n|  analysis queries -> MIR/borrowck/typeck as demanded -> codegen queries   |\n|                                                                           |\n|  Some front-end work is still imperative: lex/parse/expand/resolve        |\n|  feed HIR and the query world. See [04] and [05].                         |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  OUTPUTS                                                                  |\n|  metadata (.rmeta) · rlib/staticlib/cdylib · object files · final link    |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 126,
+      "heading_context": "## Driver and Session",
+      "confidence": "candidate",
+      "text": "+---------------------------------------------------------------+\n| rustc_driver                                                  |\n|                                                               |\n|  argv                                                         |\n|   |                                                           |\n|   v                                                           |\n|  Options + callbacks                                          |\n|   |                                                           |\n|   v                                                           |\n|  Session                                                      |\n|   |-- SourceMap: files, byte positions, macro provenance      |\n|   |-- Diagnostics: emitter, codes, suggestions                |\n|   |-- Target: pointer width, ABI, cfg, relocation model       |\n|   |-- Lints/options: edition, crate type, codegen knobs       |\n|   v                                                           |\n|  enter compiler context -> force analysis/codegen             |\n+---------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 182,
+      "heading_context": "## Queries: Demand-Driven Compilation",
+      "confidence": "candidate",
+      "text": "+------------------+        requests         +-------------------+\n| codegen driver   | ----------------------> | optimized_mir(f)  |\n+------------------+                         +-------------------+\n                                                    |\n                                                    v\n                                             +-------------------+\n                                             | mir_built(f)      |\n                                             +-------------------+\n                                                    |\n                           +--> typeck(owner)\n                           |        |\n                           |        v\n                           |    trait/region work\n                           |\n                           +--> type_of(def_id)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "## Dependency Graph and Incremental Compilation",
+      "confidence": "candidate",
+      "text": "+-------------------+     reads      +-------------------+\n| optimized_mir(F)  | -------------> | mir_built(F)      |\n+-------------------+                +-------------------+\n          |                                    |\n          | reads                              | reads\n          v                                    v\n+-------------------+                +-------------------+\n| typeck(F owner)   | -------------> | HIR owner body    |\n+-------------------+                +-------------------+\n          |\n          v\n+-----------------------------------------------------------+\n| DepGraph node fingerprints: reuse if green, recompute red |\n| Internal representation; incremental behavior is rustc    |\n| implementation, not a language contract.                  |\n+-----------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

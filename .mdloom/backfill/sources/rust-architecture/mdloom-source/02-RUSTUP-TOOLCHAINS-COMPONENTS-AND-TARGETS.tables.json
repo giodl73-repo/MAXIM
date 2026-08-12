@@ -1,0 +1,411 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 65,
+      "heading_context": "## The Proxy Boundary",
+      "headers": [
+        "Command typed",
+        "First binary on PATH",
+        "Real work after selection"
+      ],
+      "rows": [
+        [
+          "`rustc main.rs`",
+          "rustup `rustc` proxy",
+          "selected toolchain's `bin/rustc` compiles"
+        ],
+        [
+          "`cargo build`",
+          "rustup `cargo` proxy",
+          "selected toolchain's Cargo builds and invokes rustc"
+        ],
+        [
+          "`rustdoc lib.rs`",
+          "rustup `rustdoc` proxy",
+          "selected rustdoc documents"
+        ],
+        [
+          "`cargo +nightly build`",
+          "rustup `cargo` proxy",
+          "nightly Cargo is selected before execution"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 96,
+      "heading_context": "## Toolchain Names and Selection",
+      "headers": [
+        "Piece",
+        "Example",
+        "Meaning"
+      ],
+      "rows": [
+        [
+          "Channel",
+          "`stable`, `beta`, `nightly`",
+          "Release stream from [01](01-PROJECT-GOVERNANCE-RFCS-AND-RELEASE-TRAIN.md)"
+        ],
+        [
+          "Date",
+          "`nightly-2024-01-01`",
+          "A pinned nightly snapshot"
+        ],
+        [
+          "Version",
+          "`1.75.0`",
+          "A released stable toolchain"
+        ],
+        [
+          "Host triple",
+          "`x86_64-pc-windows-msvc`",
+          "Platform the compiler itself runs on"
+        ],
+        [
+          "Target triple",
+          "`wasm32-unknown-unknown`",
+          "Platform code is compiled for"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 126,
+      "heading_context": "## Channel Manifests and Distribution",
+      "headers": [
+        "Distribution piece",
+        "Role",
+        "Stability caveat"
+      ],
+      "rows": [
+        [
+          "Channel manifest",
+          "Lists available packages, components, targets, hashes",
+          "Internal distribution detail; schema can evolve"
+        ],
+        [
+          "Toolchain archive",
+          "Contains rustc/cargo/std/docs/etc. for a host",
+          "Publicly installed artifact"
+        ],
+        [
+          "Component package",
+          "Optional installable unit like clippy or rust-src",
+          "Availability can vary, especially nightly"
+        ],
+        [
+          "rustup installer",
+          "Reads manifests and installs selected packages",
+          "rustup project owns behavior"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 155,
+      "heading_context": "## Components: What Lives Inside a Toolchain",
+      "headers": [
+        "Component",
+        "What it is",
+        "Typical status"
+      ],
+      "rows": [
+        [
+          "`rustc`",
+          "Reference compiler binary",
+          "Core toolchain"
+        ],
+        [
+          "`cargo`",
+          "Build/package orchestrator",
+          "Core toolchain"
+        ],
+        [
+          "`rust-std`",
+          "Prebuilt standard libraries for host or target",
+          "Host required; extra targets optional"
+        ],
+        [
+          "`rust-docs`",
+          "Local documentation",
+          "Usually default-profile material"
+        ],
+        [
+          "`rustfmt`",
+          "Formatter",
+          "Optional/default component, see [19](19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md)"
+        ],
+        [
+          "`clippy`",
+          "Linter suite",
+          "Optional/default component, see [19](19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md)"
+        ],
+        [
+          "`rust-analyzer`",
+          "Language server",
+          "Optional component, ecosystem tool"
+        ],
+        [
+          "`rust-src`",
+          "Source for std/compiler-adjacent builds",
+          "Needed for some tooling and build-std workflows"
+        ],
+        [
+          "`llvm-tools`",
+          "LLVM utilities shipped with toolchain",
+          "Optional diagnostics/profiling support"
+        ],
+        [
+          "`rustc-dev`",
+          "Compiler development libraries",
+          "Optional; rustc-internal, unstable use cases"
+        ],
+        [
+          "`miri`",
+          "MIR interpreter",
+          "Nightly component, see [19](19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 183,
+      "heading_context": "## Targets, Hosts, and Platform Tiers",
+      "headers": [
+        "Concept",
+        "Example",
+        "Who decides"
+      ],
+      "rows": [
+        [
+          "Host triple",
+          "`x86_64-pc-windows-msvc`",
+          "rustup/rustc installation platform"
+        ],
+        [
+          "Target triple",
+          "`wasm32-unknown-unknown`",
+          "rustc backend/platform definition"
+        ],
+        [
+          "Target std",
+          "`rustup target add wasm32-unknown-unknown`",
+          "release artifacts if prebuilt"
+        ],
+        [
+          "Tier policy",
+          "Tier 1/2/3 support levels",
+          "Rust Project compiler/release policy"
+        ],
+        [
+          "Backend",
+          "LLVM by default; others in [12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md)",
+          "compiler/backend projects"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 255,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old world / adjacent model",
+        "rustup analogue",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "`dotnet` SDK selection + `global.json`",
+          "`rust-toolchain.toml`",
+          "rustup installs/selects; Cargo builds"
+        ],
+        [
+          ".NET SDK band",
+          "Rust toolchain channel/version",
+          "Rust toolchain bundles rustc, Cargo, std, tools"
+        ],
+        [
+          "TFMs/RIDs",
+          "Rust target triples",
+          "Rust editions are separate; targets are platform/codegen choices"
+        ],
+        [
+          "NuGet restore",
+          "`cargo fetch`/Cargo resolver",
+          "rustup does not resolve crates"
+        ],
+        [
+          "pyenv/nvm/asdf shims",
+          "rustup proxies in `~/.cargo/bin`",
+          "Proxies are official Rust distribution path"
+        ],
+        [
+          "Visual Studio workloads",
+          "rustup components",
+          "Components are per-toolchain, manifest-driven"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 280,
+      "heading_context": "## Stability and Internal Boundaries",
+      "headers": [
+        "Surface",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "`+toolchain` syntax",
+          "Documented, stable rustup behavior"
+        ],
+        [
+          "Channel names `stable`, `beta`, `nightly`",
+          "Stable user model, tied to release train"
+        ],
+        [
+          "`rust-toolchain.toml` schema",
+          "Documented project-pinning surface"
+        ],
+        [
+          "Component install commands",
+          "Stable rustup UX; component availability varies"
+        ],
+        [
+          "Nightly component set on a specific date",
+          "Best-effort; can be missing"
+        ],
+        [
+          "Manifest TOML internals",
+          "Distribution detail, version-sensitive"
+        ],
+        [
+          "`rustc-dev`/private compiler crates",
+          "Internal rustc surface, not stable APIs"
+        ],
+        [
+          "`-Z build-std`",
+          "Nightly/unstable Cargo feature"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 305,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "What",
+        "When",
+        "Who owns it"
+      ],
+      "rows": [
+        [
+          "Which compiler am I using?",
+          "`rustc --version` through rustup proxy",
+          "Any build/debug session",
+          "rustup selects; rustc reports"
+        ],
+        [
+          "Pin this repo's toolchain?",
+          "`rust-toolchain.toml`",
+          "CI, onboarding, reproducible builds",
+          "project maintainers + rustup"
+        ],
+        [
+          "Try nightly once?",
+          "`cargo +nightly build`",
+          "One command needs nightly",
+          "rustup proxy"
+        ],
+        [
+          "Make a local directory use nightly?",
+          "`rustup override set nightly`",
+          "Temporary local experiments",
+          "operator local state"
+        ],
+        [
+          "Add WebAssembly target?",
+          "`rustup target add wasm32-unknown-unknown`",
+          "Cross-compiling with prebuilt std",
+          "rustup + release artifacts"
+        ],
+        [
+          "Install formatter/linter?",
+          "`rustup component add rustfmt clippy`",
+          "Developer tool setup",
+          "rustup/devtools"
+        ],
+        [
+          "Use custom std build?",
+          "`-Z build-std` + `rust-src`",
+          "Toolchain/platform work",
+          "Cargo/rustc unstable surface"
+        ],
+        [
+          "Understand target support?",
+          "Platform support tier docs",
+          "Portability/release risk decisions",
+          "compiler/release teams"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 328,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correct boundary"
+      ],
+      "rows": [
+        [
+          "\"Cargo +nightly is a Cargo flag\"",
+          "`+nightly` is parsed by rustup's proxy"
+        ],
+        [
+          "\"target add installs a compiler\"",
+          "It installs target `rust-std`; host compiler already exists"
+        ],
+        [
+          "\"component missing means Rust is broken\"",
+          "Nightly component availability is best-effort"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 338,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "**The rustup Book** — `rust-lang.github.io/rustup`",
+          "Proxies, overrides, toolchains, components, profiles"
+        ],
+        [
+          "`github.com/rust-lang/rustup`",
+          "rustup implementation and issue history"
+        ],
+        [
+          "**Rust Platform Support** — `doc.rust-lang.org/rustc/platform-support.html`",
+          "Target triples and tier policy"
+        ],
+        [
+          "**The rustc Book** — targets chapter",
+          "Target specification and compiler-facing target behavior"
+        ],
+        [
+          "**Rust Forge / release docs**",
+          "How release artifacts and components are produced"
+        ]
+      ]
+    }
+  ]
+}

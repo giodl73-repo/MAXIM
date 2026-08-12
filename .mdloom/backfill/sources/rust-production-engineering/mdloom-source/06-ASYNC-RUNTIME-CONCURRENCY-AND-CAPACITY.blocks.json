@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\06-ASYNC-RUNTIME-CONCURRENCY-AND-CAPACITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                      CONCURRENCY AND CAPACITY                              |\n|                                                                            |\n|  demand --> admission --> bounded queue --> workers/tasks --> dependency   |\n|               |              |                |                |           |\n|               v              v                v                v           |\n|           reject/shed     wait budget      CPU/memory        pool/socket   |\n|                                                                            |\n|  scheduler choices: OS threads | worker pool | async executor | hybrid     |\n|  invariants: bounded work, visible saturation, cancellation, fair sharing  |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Executable Bounded Worker Pool",
+      "confidence": "candidate",
+      "text": "use std::{\n    sync::mpsc::{sync_channel, TrySendError},\n    thread,\n    time::Duration,\n};\n\nfn main() {\n    let (tx, rx) = sync_channel::<u64>(2);\n    let worker = thread::spawn(move || {\n        while let Ok(job) = rx.recv() {\n            thread::sleep(Duration::from_millis(100));\n            println!(\"completed {job}\");\n        }\n    });\n\n    for job in 0..10 {\n        match tx.try_send(job) {\n            Ok(()) => println!(\"accepted {job}\"),\n            Err(TrySendError::Full(job)) => println!(\"shed {job}: queue full\"),\n            Err(TrySendError::Disconnected(job)) => {\n                eprintln!(\"worker unavailable for {job}\");\n                break;\n            }\n        }\n    }\n\n    drop(tx);\n    worker.join().expect(\"worker panicked\");\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "## Structured Concurrency and Task Ownership",
+      "confidence": "candidate",
+      "text": "request scope\n  |\n  +--> child A --+\n  +--> child B --+--> join, cancel siblings on required failure\n  |\n  +--> detached task? only with named process-level owner and supervision",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

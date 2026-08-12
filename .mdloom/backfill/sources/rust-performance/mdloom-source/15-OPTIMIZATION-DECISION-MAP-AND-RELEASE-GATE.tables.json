@@ -1,0 +1,232 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 88,
+      "heading_context": "## Evidence Packet",
+      "headers": [
+        "Field",
+        "Required content"
+      ],
+      "rows": [
+        [
+          "Problem",
+          "User/SLO/capacity/cost/build outcome and owner"
+        ],
+        [
+          "Baseline",
+          "Commit/artifact, toolchain, target, profile, features, environment"
+        ],
+        [
+          "Workload",
+          "Corpus/traffic matrix, warm/cold state, concurrency, duration"
+        ],
+        [
+          "Attribution",
+          "Profile/trace/counter proving the limiting resource"
+        ],
+        [
+          "Change",
+          "Mechanism and why it should affect that resource"
+        ],
+        [
+          "Results",
+          "Absolute and relative metrics, uncertainty, repetitions"
+        ],
+        [
+          "Trade-offs",
+          "Memory, size, compile time, portability, complexity, safety"
+        ],
+        [
+          "Final artifact",
+          "Exact build and symbol identity"
+        ],
+        [
+          "Rollout",
+          "Canary scope, thresholds, owner, rollback artifact"
+        ],
+        [
+          "Disposition",
+          "Ship, hold, revert, or accepted trade with rationale"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Optimization Order",
+      "headers": [
+        "Order",
+        "Change class",
+        "Why"
+      ],
+      "rows": [
+        [
+          "1",
+          "Remove unnecessary work / improve algorithm",
+          "Usually largest and most portable"
+        ],
+        [
+          "2",
+          "Change ownership/data flow to remove copies/queues",
+          "Structural and broadly durable"
+        ],
+        [
+          "3",
+          "Improve batching, locality, and contention",
+          "Mechanism-level but portable"
+        ],
+        [
+          "4",
+          "Tune profiles, LTO, allocator, runtime",
+          "Configuration complexity"
+        ],
+        [
+          "5",
+          "Target-specific SIMD, PGO, BOLT",
+          "Highest custody/portability burden"
+        ],
+        [
+          "6",
+          "Unsafe micro-optimization",
+          "Adds proof and maintenance obligations"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 140,
+      "heading_context": "## Release Gate",
+      "headers": [
+        "Gate",
+        "Pass condition"
+      ],
+      "rows": [
+        [
+          "Correctness",
+          "Existing tests plus optimization-specific invariants pass"
+        ],
+        [
+          "Safety",
+          "No known new unsoundness; unsafe preconditions independently reviewed and challenged"
+        ],
+        [
+          "Performance",
+          "Practical improvement on target workload; no unexplained red gate"
+        ],
+        [
+          "Tails",
+          "p95/p99/timeout policy remains within SLO"
+        ],
+        [
+          "Memory",
+          "Peak/steady RSS and allocation policy acceptable"
+        ],
+        [
+          "Artifact",
+          "Size, startup, symbols, signing, and target compatibility acceptable"
+        ],
+        [
+          "Delivery",
+          "Compile/link/CI cost fits budget"
+        ],
+        [
+          "Stability",
+          "Stable Rust preferred; nightly dependency explicitly approved/pinned"
+        ],
+        [
+          "Operations",
+          "Telemetry, canary, rollback, and on-call ownership ready"
+        ],
+        [
+          "Documentation",
+          "Workload, commands, caveats, and known non-wins recorded"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 231,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust release gate"
+      ],
+      "rows": [
+        [
+          "Perf review board",
+          "Evidence packet and accountable waiver"
+        ],
+        [
+          "VSTS gated check-in",
+          "Benchmark/CI gate with dedicated perf lane"
+        ],
+        [
+          "Flighting/rings",
+          "Canary and guarded expansion"
+        ],
+        [
+          "Native code security review",
+          "Unsafe/FFI/SIMD precondition review"
+        ],
+        [
+          "Symbol server and rollback package",
+          "Exact Rust binary/PDB/DWARF custody"
+        ],
+        [
+          "Configuration matrix",
+          "Cargo profile/features/target/toolchain matrix"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 257,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Decision"
+      ],
+      "rows": [
+        [
+          "No measured problem",
+          "Do not optimize"
+        ],
+        [
+          "Workload not reproducible",
+          "Build the measurement contract first"
+        ],
+        [
+          "No limiting resource identified",
+          "Profile/trace before editing"
+        ],
+        [
+          "Algorithmic fix exists",
+          "Prefer it over codegen tuning"
+        ],
+        [
+          "Small target-specific win",
+          "Weigh fleet coverage and custody cost"
+        ],
+        [
+          "Clear benchmark win, product neutral",
+          "Hold until end-to-end/cost evidence"
+        ],
+        [
+          "Product win, build-time regression",
+          "Compare total delivery/operational value and document waiver"
+        ],
+        [
+          "Canary violates guardrail",
+          "Roll back, preserve evidence, investigate"
+        ],
+        [
+          "All gates pass",
+          "Release with monitoring and retained rollback"
+        ]
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/03-CPP.md
 canonical_path: languages/03-CPP.md
-backsource_ids: [proof-backfill:languages:03-cpp, git-history:languages:03-cpp]
+backsource_ids: [mdloom-backfill:languages:03-cpp, git-history:languages:03-cpp]
 concepts: [cpp]
 root_concepts: [cpp]
 index_roles: [guide, root-concept]

@@ -1,0 +1,198 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\03-RUSTC-DRIVER-SESSION-AND-QUERY-SYSTEM.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 94,
+      "heading_context": "## Invocation Boundary: Cargo Schedules, rustc Compiles",
+      "headers": [
+        "Boundary",
+        "What happens",
+        "Stable surface"
+      ],
+      "rows": [
+        [
+          "`cargo build`",
+          "Reads manifests, resolves features, schedules units",
+          "Cargo CLI and manifest rules"
+        ],
+        [
+          "`rustc ... crate_root.rs`",
+          "Compiles one crate per process",
+          "Documented rustc CLI flags"
+        ],
+        [
+          "`--crate-type`",
+          "Chooses lib/bin/rlib/dylib/staticlib/cdylib/proc-macro shape",
+          "Stable flag"
+        ],
+        [
+          "`--edition`",
+          "Selects edition-gated surface syntax and name rules",
+          "Stable flag"
+        ],
+        [
+          "`--emit`",
+          "Selects outputs such as metadata, link, obj, asm, llvm-ir",
+          "Stable flag, output details vary"
+        ],
+        [
+          "`-C ...`",
+          "Codegen options: opt level, debuginfo, target CPU, LTO",
+          "Stable flag family"
+        ],
+        [
+          "`-L`, `--extern`",
+          "Supplies search paths and upstream crate metadata",
+          "Stable flag family"
+        ],
+        [
+          "`-Z ...`",
+          "Compiler debugging and internal controls",
+          "Nightly-only, unstable"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 160,
+      "heading_context": "## GlobalCtxt, TyCtxt<'tcx>, and Interned Identity",
+      "headers": [
+        "Object",
+        "Owns",
+        "Mental model",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "`Session`",
+          "Options, source map, diagnostics, target services",
+          "Compilation options plus service locator",
+          "Internal"
+        ],
+        [
+          "`GlobalCtxt`",
+          "Arenas, query caches, interners, dep graph",
+          "The backing store for compiler-wide state",
+          "Internal"
+        ],
+        [
+          "`TyCtxt<'tcx>`",
+          "Typed handle into interned/queryable compiler data",
+          "Roslyn `Compilation` plus semantic database, but private",
+          "Internal"
+        ],
+        [
+          "Interners",
+          "Types, constants, generic args/substs, symbols",
+          "Canonical identity and structural sharing",
+          "Internal"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 277,
+      "heading_context": "## Old world -> New world",
+      "headers": [
+        "Old world / universal model",
+        "Rust implementation analogue",
+        "Where the analogy breaks"
+      ],
+      "rows": [
+        [
+          "`csc.exe` main",
+          "`rustc_driver`",
+          "Rustc's driver crates are private, not a stable compiler SDK"
+        ],
+        [
+          "Roslyn `ParseOptions` / `CompilationOptions`",
+          "`Session` options plus target configuration",
+          "`Session` also owns diagnostics/source services"
+        ],
+        [
+          "Roslyn `Compilation` / `SemanticModel`",
+          "`TyCtxt<'tcx>` as central queryable DB",
+          "`TyCtxt` is unstable `rustc_private`, not a public API"
+        ],
+        [
+          "Roslyn red-green reuse",
+          "DepGraph red-green incremental marking",
+          "Rustc red/green applies to query results, not public syntax nodes"
+        ],
+        [
+          "Excel recalculation / build graph",
+          "Demand-driven memoized queries",
+          "Query keys and providers are compiler internals"
+        ],
+        [
+          "MSBuild project graph",
+          "Cargo unit graph [18]",
+          "Cargo schedules crates; rustc compiles one crate at a time"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 294,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Use / inspect",
+        "When",
+        "Who owns it"
+      ],
+      "rows": [
+        [
+          "What command compiled this crate?",
+          "`cargo build -v`",
+          "Reconstruct flags, externs, cfgs",
+          "Cargo invokes; rustc consumes"
+        ],
+        [
+          "Compile one crate manually",
+          "`rustc [flags] crate_root.rs`",
+          "Reduce Cargo effects",
+          "rustc CLI"
+        ],
+        [
+          "Emit metadata or link output",
+          "`--emit=metadata,link`",
+          "Artifact experiments [13]",
+          "rustc CLI"
+        ],
+        [
+          "Tune codegen",
+          "`-C opt-level=...`, `-C debuginfo=...`",
+          "Backend/perf settings [11][13]",
+          "rustc / backend"
+        ],
+        [
+          "Inspect HIR/query-adjacent internals",
+          "`rustc +nightly -Z unpretty=...`",
+          "Debug compiler behavior",
+          "rustc internals, unstable"
+        ],
+        [
+          "Embed rustc as a tool",
+          "Avoid unless pinned to nightly",
+          "Clippy/rustdoc/Miri-style tools [19]",
+          "rustc_private, unstable"
+        ],
+        [
+          "Reason about reuse",
+          "DepGraph / incremental docs [14]",
+          "Build performance diagnosis",
+          "rustc internals"
+        ],
+        [
+          "Decide language meaning",
+          "Rust Reference / RFCs [01]",
+          "Stability and compatibility questions",
+          "lang team, not query names"
+        ]
+      ]
+    }
+  ]
+}

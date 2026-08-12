@@ -1,0 +1,154 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\05-DOTNET-CSHARP-INTEROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 148,
+      "heading_context": "## Strings, Errors, and Callbacks",
+      "headers": [
+        "Concern",
+        "Recommended contract"
+      ],
+      "rows": [
+        [
+          "Input text",
+          "UTF-8 pointer plus byte length; C# uses explicit UTF-8 encoding or custom marshaller"
+        ],
+        [
+          "Output text",
+          "Caller buffer/two-call sizing, or Rust-owned buffer plus Rust free"
+        ],
+        [
+          "Ordinary error",
+          "Stable status code plus copied structured/detail data"
+        ],
+        [
+          "Managed surface",
+          "Translate status to exception, result type, or domain response"
+        ],
+        [
+          "Rust panic",
+          "Catch/map where unwind is enabled; reserve a terminal status and log correlation"
+        ],
+        [
+          "Callback",
+          "Function pointer plus context; pin delegate lifetime and define callback thread"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 181,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        ".NET boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "P/Invoke a C/system ABI with exact calling convention and blittable layout; never marshal Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Use `SafeHandle`/Rust free for Rust objects and buffers; do not free Rust memory with `Marshal.FreeHGlobal` unless contractually allocated that way."
+        ],
+        [
+          "Panic/unwind",
+          "Map Rust panic to status; catch managed exceptions before reverse P/Invoke returns."
+        ],
+        [
+          "Lifetime",
+          "Pin spans only for call duration; root delegates/context for callback lifetime; use `SafeHandle` for native ownership."
+        ],
+        [
+          "Threading",
+          "State callback thread, synchronization-context behavior, reentrancy, and whether handles are thread-safe."
+        ],
+        [
+          "Target",
+          "Validate RID, architecture, OS, CRT/libc, .NET runtime, trimming, and NativeAOT combinations."
+        ],
+        [
+          "Packaging",
+          "Put native assets in correct RID folders; test resolver, signing, symbols, servicing, and dependency closure."
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 193,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        ".NET prior art",
+        "Rust interop mapping"
+      ],
+      "rows": [
+        [
+          "COM callable wrapper / RCW",
+          "Managed projection around a foreign lifetime contract"
+        ],
+        [
+          "`SafeHandle`",
+          "Canonical owner of an opaque Rust handle"
+        ],
+        [
+          "HRESULT",
+          "Stable native status translated to managed exception/result"
+        ],
+        [
+          "`Span<T>`",
+          "Call-scoped pointer-plus-length view"
+        ],
+        [
+          "`CancellationToken`",
+          "Explicit cancel handle/flag or message; not an implicit Rust future cancellation contract"
+        ],
+        [
+          "NuGet RID asset",
+          "Native target artifact selected by restore/publish"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 219,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Native resource lifetime",
+          "`SafeHandle` calling a Rust release export"
+        ],
+        [
+          "Blittable hot-path input",
+          "`ReadOnlySpan<T>` pinned for the call"
+        ],
+        [
+          "Text",
+          "Explicit UTF-8 pointer plus byte length"
+        ],
+        [
+          "Ordinary failure",
+          "Status code/structured detail, translated by managed wrapper"
+        ],
+        [
+          "Managed callback",
+          "Rooted delegate or supported unmanaged function pointer plus context"
+        ],
+        [
+          "Multi-platform delivery",
+          "NuGet RID native assets with publish-mode tests"
+        ],
+        [
+          "Maximum isolation/rollback",
+          "Separate Rust service instead of P/Invoke"
+        ]
+      ]
+    }
+  ]
+}

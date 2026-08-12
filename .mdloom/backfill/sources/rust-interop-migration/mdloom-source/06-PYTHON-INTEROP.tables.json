@@ -1,0 +1,182 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\06-PYTHON-INTEROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 81,
+      "heading_context": "## Select the Integration Form",
+      "headers": [
+        "Form",
+        "Use when",
+        "Trade"
+      ],
+      "rows": [
+        [
+          "PyO3 native extension",
+          "Idiomatic CPython module/classes",
+          "CPython and wheel matrix coupling"
+        ],
+        [
+          "`ctypes`/`cffi` over C ABI",
+          "Existing stable native C library or alternate Python implementations",
+          "More manual projection; simpler core contract"
+        ],
+        [
+          "Separate service/process",
+          "Failure isolation, independent scale/rollout",
+          "Serialization and operations"
+        ],
+        [
+          "WebAssembly in Python host",
+          "Sandboxing/portability is proven for workload",
+          "Runtime and WASI/component support"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 116,
+      "heading_context": "## Values, Buffers, and Ownership",
+      "headers": [
+        "Python surface",
+        "Rust adapter posture"
+      ],
+      "rows": [
+        [
+          "`bytes`",
+          "Borrow for a bounded call or copy before releasing interpreter protection"
+        ],
+        [
+          "`bytearray`/buffer",
+          "Respect mutability, contiguity, format, and export lifetime"
+        ],
+        [
+          "`str`",
+          "Convert with explicit Unicode/UTF-8 semantics"
+        ],
+        [
+          "Python class wrapping Rust state",
+          "PyO3 class owns Rust fields or an opaque owner"
+        ],
+        [
+          "Iterator/generator",
+          "Make state, error, and cancellation/drop behavior explicit"
+        ],
+        [
+          "Exception",
+          "Map a Rust error enum/context to a stable Python exception hierarchy"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 149,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Python boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Use supported CPython/PyO3 ABI or a C ABI; `abi3` only for covered APIs; never expose Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Python owns Python objects; Rust owns Rust allocations; expose owner-side destructors for C ABI buffers/handles."
+        ],
+        [
+          "Panic/unwind",
+          "Convert Rust panic/error to Python exception or terminal error; no unwind crosses CPython frames."
+        ],
+        [
+          "Lifetime",
+          "Bind borrowed Python data to GIL/guard scope; copy before detached work unless ownership is explicit."
+        ],
+        [
+          "Threading",
+          "State interpreter-lock, worker-thread attachment, callback thread, reentrancy, and finalization rules."
+        ],
+        [
+          "Target",
+          "Test Python versions, implementation, OS, architecture, libc policy, and debug/release constraints claimed."
+        ],
+        [
+          "Packaging",
+          "Build/tag/audit wheels correctly; include dependent native libraries legally and test clean imports."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 161,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Python/native prior art",
+        "Rust migration mapping"
+      ],
+      "rows": [
+        [
+          "CPython C extension",
+          "PyO3 supplies a safer projection over the same runtime boundary"
+        ],
+        [
+          "NumPy buffer view",
+          "Borrowed pointer/shape/stride contract with explicit export lifetime"
+        ],
+        [
+          "Cython wrapper",
+          "Host adapter that should remain separate from core domain code"
+        ],
+        [
+          "GIL release around C work",
+          "Detach Python while host-neutral Rust work executes"
+        ],
+        [
+          "Wheel platform tag",
+          "Declared native compatibility envelope"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 188,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Idiomatic CPython package",
+          "PyO3 plus maturin"
+        ],
+        [
+          "Fewer CPython-version wheels",
+          "`abi3`, after verifying API constraints"
+        ],
+        [
+          "Multi-language native core",
+          "C ABI core plus thin Python adapter"
+        ],
+        [
+          "CPU-heavy operation",
+          "Convert/copy needed inputs, release interpreter lock, compute"
+        ],
+        [
+          "Large borrowed buffer",
+          "Buffer protocol only with explicit contiguity/lifetime rules"
+        ],
+        [
+          "Failure isolation and easy rollback",
+          "Separate process/service"
+        ],
+        [
+          "Reproducible distribution",
+          "CI wheel matrix plus clean-environment import tests"
+        ]
+      ]
+    }
+  ]
+}

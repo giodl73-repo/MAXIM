@@ -1,0 +1,140 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\05-PROCESS-LIFECYCLE-SIGNALS-AND-GRACEFUL-SHUTDOWN.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 56,
+      "heading_context": "## Startup Contract",
+      "headers": [
+        "Phase",
+        "Allowed work",
+        "Failure behavior"
+      ],
+      "rows": [
+        [
+          "Parse/validate",
+          "local config and arguments",
+          "diagnostic + non-zero exit"
+        ],
+        [
+          "Acquire identity",
+          "credential/token bootstrap",
+          "bounded retry or fail"
+        ],
+        [
+          "Verify dependencies",
+          "only required startup capabilities",
+          "fail or enter explicit degraded mode"
+        ],
+        [
+          "Initialize state",
+          "pools, caches, migrations by policy",
+          "never silently partial"
+        ],
+        [
+          "Bind/admit",
+          "listeners or queue leases",
+          "readiness only after success"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 171,
+      "heading_context": "## Cancellation Is a Protocol",
+      "headers": [
+        "Work class",
+        "Shutdown policy"
+      ],
+      "rows": [
+        [
+          "Idempotent read",
+          "cancel or finish within budget"
+        ],
+        [
+          "Transactional local update",
+          "commit atomically or roll back"
+        ],
+        [
+          "Non-idempotent remote call",
+          "track idempotency key and reconcile outcome"
+        ],
+        [
+          "Telemetry export",
+          "best effort with a short explicit budget"
+        ],
+        [
+          "Lease/lock ownership",
+          "release when possible; rely on expiry/fencing for crashes"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 181,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "atomics/channels, cancellation token, signal adapter, server drain API"
+        ],
+        [
+          "Runtime",
+          "task cancellation, join sets, timer/deadline implementation"
+        ],
+        [
+          "Platform",
+          "SIGTERM, Windows service controls, grace period, restart policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 205,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Clean startup failure",
+          "required invariant cannot be established"
+        ],
+        [
+          "Degraded readiness",
+          "process is healthy but cannot safely accept some/all work"
+        ],
+        [
+          "Shared cancellation token",
+          "many cooperative tasks need one stop signal"
+        ],
+        [
+          "Bounded drain",
+          "in-flight work can preserve user-visible outcomes"
+        ],
+        [
+          "Immediate abort",
+          "continuing risks corruption or the supervisor deadline is exhausted"
+        ],
+        [
+          "Lease expiry/fencing",
+          "crash-safe ownership cannot depend on graceful cleanup"
+        ],
+        [
+          "Runtime signal API",
+          "application already commits to that runtime"
+        ],
+        [
+          "Platform service adapter",
+          "supervisor uses controls other than ordinary console signals"
+        ]
+      ]
+    }
+  ]
+}

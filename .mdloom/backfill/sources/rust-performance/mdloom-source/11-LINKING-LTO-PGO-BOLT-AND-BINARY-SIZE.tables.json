@@ -1,0 +1,184 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 47,
+      "heading_context": "## Linkers and Link Time",
+      "headers": [
+        "Target family",
+        "Common linkers/tools",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Linux GNU",
+          "GNU ld, gold, lld, mold",
+          "Availability and flags vary by distribution"
+        ],
+        [
+          "Windows MSVC",
+          "`link.exe` or lld-link-compatible paths",
+          "PDB generation and Visual C++ environment matter"
+        ],
+        [
+          "macOS",
+          "Apple `ld` via toolchain",
+          "dSYM and platform SDK contracts"
+        ],
+        [
+          "musl/cross targets",
+          "target-specific linker",
+          "Static linking and native dependencies change size"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 68,
+      "heading_context": "## LTO: Cross-Unit Visibility",
+      "headers": [
+        "Setting",
+        "Optimization scope",
+        "Build cost",
+        "Typical use"
+      ],
+      "rows": [
+        [
+          "`lto = \"off\"`",
+          "No LTO",
+          "Lowest link cost",
+          "Explicitly disable even local Thin LTO"
+        ],
+        [
+          "`lto = false`",
+          "Cargo/rustc may perform thin local LTO across CGUs within a crate when applicable",
+          "Low",
+          "Cargo default policy; not identical to `\"off\"`"
+        ],
+        [
+          "Thin LTO",
+          "Scalable cross-unit summaries and selected importing",
+          "Moderate",
+          "Strong release default candidate"
+        ],
+        [
+          "Fat LTO",
+          "Broad whole-program LLVM optimization",
+          "Highest CPU/memory/link time",
+          "Maximum-performance experiment"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 180,
+      "heading_context": "## Binary Size",
+      "headers": [
+        "Metric",
+        "Why track it"
+      ],
+      "rows": [
+        [
+          "Unstripped binary",
+          "Build/debug artifact cost"
+        ],
+        [
+          "Stripped binary",
+          "Deployment/download footprint"
+        ],
+        [
+          "Compressed package",
+          "Distribution bandwidth"
+        ],
+        [
+          "Mapped code/data pages",
+          "Startup and steady working set"
+        ],
+        [
+          "Symbols/PDB/dSYM",
+          "Diagnostic storage, not shipped process pages"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 227,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "LTCG / whole-program optimization",
+          "Cargo/rustc LTO"
+        ],
+        [
+          "Visual C++/.NET Native PGO",
+          "rustc LLVM instrumentation PGO"
+        ],
+        [
+          "Profile-based code layout",
+          "BOLT where target/toolchain supports it"
+        ],
+        [
+          "`/DEBUG` plus symbol server",
+          "DWARF/PDB/dSYM custody separate from stripped ship artifact"
+        ],
+        [
+          "IL trimming / native size analysis",
+          "Cargo feature/dependency review plus native symbol/section analysis"
+        ],
+        [
+          "Faster MSVC/link.exe alternatives",
+          "Target-compatible lld/mold experiments"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 252,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Goal",
+        "First experiment"
+      ],
+      "rows": [
+        [
+          "Better release runtime with moderate build cost",
+          "Thin LTO"
+        ],
+        [
+          "Maximum single-binary runtime",
+          "Compare fat LTO and CGU settings under release budget"
+        ],
+        [
+          "Stable hot production workload",
+          "PGO with a versioned representative training suite"
+        ],
+        [
+          "Remaining front-end/layout stalls on supported ELF target",
+          "Evaluate BOLT after PGO/LTO"
+        ],
+        [
+          "Faster links",
+          "Compare target-compatible linker without changing runtime claims"
+        ],
+        [
+          "Smaller deployment",
+          "Size profile, dependency/features audit, size opt-level, LTO, abort/strip policy"
+        ],
+        [
+          "Preserve diagnosis",
+          "Optimized symbolized build, archive symbols, then package/strip"
+        ],
+        [
+          "Ship decision",
+          "Apply [15](15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md) to final artifact"
+        ]
+      ]
+    }
+  ]
+}

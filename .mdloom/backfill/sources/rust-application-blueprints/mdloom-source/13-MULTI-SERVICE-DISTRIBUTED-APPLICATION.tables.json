@@ -1,0 +1,153 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\13-MULTI-SERVICE-DISTRIBUTED-APPLICATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 83,
+      "heading_context": "## Service and Data Boundaries",
+      "headers": [
+        "Boundary test",
+        "Strong signal"
+      ],
+      "rows": [
+        [
+          "Data",
+          "one service is the sole mutation authority"
+        ],
+        [
+          "Lifecycle",
+          "service can deploy/roll back without coordinated code release"
+        ],
+        [
+          "Failure",
+          "outage is contained and callers have a defined degraded behavior"
+        ],
+        [
+          "Scale",
+          "workload shape differs materially"
+        ],
+        [
+          "Security",
+          "separate identity/capability boundary is required"
+        ],
+        [
+          "Team",
+          "owner can operate and evolve the contract"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 106,
+      "heading_context": "## Failure, Consistency, and Coordination",
+      "headers": [
+        "Mechanism",
+        "Use",
+        "Constraint"
+      ],
+      "rows": [
+        [
+          "Deadline",
+          "bound end-to-end waiting",
+          "propagate remaining budget"
+        ],
+        [
+          "Retry",
+          "transient idempotent attempt",
+          "bounded, jittered, non-multiplying"
+        ],
+        [
+          "Circuit/load shedding",
+          "protect capacity",
+          "define degraded result"
+        ],
+        [
+          "Outbox/event",
+          "asynchronous fact propagation",
+          "duplicates and lag"
+        ],
+        [
+          "Saga/process manager",
+          "long-running coordination",
+          "compensation is domain action"
+        ],
+        [
+          "Cache/projection",
+          "local availability/latency",
+          "staleness and invalidation policy"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 155,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Surface",
+        "Rule"
+      ],
+      "rows": [
+        [
+          "API",
+          "additive/tolerant window or versioned endpoint"
+        ],
+        [
+          "Event",
+          "consumers first, producers second; retain old readers"
+        ],
+        [
+          "Database",
+          "expand/contract within owning service"
+        ],
+        [
+          "Workflow",
+          "persisted state interpretable by old/new coordinator"
+        ],
+        [
+          "Deployment",
+          "one service can revert without reverting unrelated services"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 185,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "One team/data owner/deployment",
+          "modular monolith or HTTP service [03]"
+        ],
+        [
+          "Independent data and release authority",
+          "separate service"
+        ],
+        [
+          "Fresh cross-service decision",
+          "synchronous API with deadline and failure policy"
+        ],
+        [
+          "Locally available derived fact",
+          "event-fed projection [07]"
+        ],
+        [
+          "Long cross-service workflow",
+          "explicit process manager"
+        ],
+        [
+          "Shared code convenience only",
+          "avoid service split; use crate/module"
+        ],
+        [
+          "Coordinated releases everywhere",
+          "merge boundary or fix contract independence"
+        ]
+      ]
+    }
+  ]
+}

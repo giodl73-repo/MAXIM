@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\07-NODEJS-JAVASCRIPT-INTEROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                   JAVASCRIPT HOST -> RUST OPTIONS                          |\n+============================================================================+\n|  JavaScript / TypeScript API                                               |\n|  objects | Buffer/TypedArray | Promise | Error | AbortSignal               |\n|      |                                                                     |\n|      v                                                                     |\n|  OPTION A - NODE-API ADDON                                                 |\n|  napi-rs; native threads/OS APIs; npm prebuild matrix                      |\n|                                                                            |\n|  OPTION B - WEBASSEMBLY MODULE                                             |\n|  wasm-bindgen/component host; sandbox target; JS glue + wasm artifact      |\n|      |                                                                     |\n|      v                                                                     |\n|  RUST ADAPTER -> HOST-NEUTRAL RUST CORE                                    |\n|  convert/copy/borrow -> schedule -> map error/panic -> settle/callback     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## A Native Addon with `napi-rs`",
+      "confidence": "candidate",
+      "text": "use napi::bindgen_prelude::*;\nuse napi_derive::napi;\n\npub struct CountTask {\n    bytes: Vec<u8>,\n}\n\nimpl Task for CountTask {\n    type Output = u32;\n    type JsValue = u32;\n\n    fn compute(&mut self) -> Result<Self::Output> {\n        Ok(self.bytes.iter().filter(|&&b| b == b'\\n').count() as u32)\n    }\n\n    fn resolve(&mut self, _env: Env, output: Self::Output) -> Result<Self::JsValue> {\n        Ok(output)\n    }\n}\n\n#[napi]\npub fn count_records_async(input: Buffer) -> AsyncTask<CountTask> {\n    AsyncTask::new(CountTask { bytes: input.to_vec() })\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Event Loop, Workers, and Callbacks",
+      "confidence": "candidate",
+      "text": "  JS event-loop thread\n      |\n      +-- quick native call ----------> return value\n      |\n      +-- schedule Rust work ---------> worker/runtime\n                                          |\n                                          v\n                                      completion\n                                          |\n                                          v\n                              settle Promise on JS-safe path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

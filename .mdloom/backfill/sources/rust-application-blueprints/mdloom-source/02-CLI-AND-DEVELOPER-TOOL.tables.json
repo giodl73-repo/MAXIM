@@ -1,0 +1,173 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\02-CLI-AND-DEVELOPER-TOOL.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 94,
+      "heading_context": "## Command and Stream Contracts",
+      "headers": [
+        "Surface",
+        "Stable policy"
+      ],
+      "rows": [
+        [
+          "Arguments",
+          "names, defaults, conflicts, deprecations, non-interactive form"
+        ],
+        [
+          "`stdout`",
+          "requested data or machine-readable result"
+        ],
+        [
+          "`stderr`",
+          "diagnostics, progress, warnings"
+        ],
+        [
+          "Exit status",
+          "small documented taxonomy; zero means contract success"
+        ],
+        [
+          "`stdin`",
+          "explicit data mode; never surprise an interactive terminal"
+        ],
+        [
+          "CWD",
+          "define whether paths are relative to invocation or discovered root"
+        ],
+        [
+          "Environment",
+          "documented precedence and secret-redaction behavior"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 129,
+      "heading_context": "## Execution and Operational Boundaries",
+      "headers": [
+        "Surface",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Command vocabulary and compatibility",
+          "CLI/application owner"
+        ],
+        [
+          "Domain mutation and validation",
+          "application owner"
+        ],
+        [
+          "Filesystem/network protocol fidelity",
+          "adapter owner"
+        ],
+        [
+          "Packaging and distribution",
+          "release owner"
+        ],
+        [
+          "Invocation retry and secret injection",
+          "caller/CI owner unless delegated explicitly"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 137,
+      "heading_context": "## Execution and Operational Boundaries",
+      "headers": [
+        "Operation",
+        "Preferred boundary"
+      ],
+      "rows": [
+        [
+          "Inspect/plan",
+          "side-effect-free result suitable for `--dry-run`"
+        ],
+        [
+          "Mutate one file",
+          "write temporary sibling, flush as required, rename"
+        ],
+        [
+          "Mutate many files",
+          "explicit plan plus journal or recoverable staging area"
+        ],
+        [
+          "Remote request",
+          "timeout and idempotency semantics"
+        ],
+        [
+          "Long run",
+          "progress events, cancellation points, resumable state if valuable"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 181,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Surface",
+        "Requirement"
+      ],
+      "rows": [
+        [
+          "Binary",
+          "retain previous signed/published artifact where distribution permits"
+        ],
+        [
+          "Output/data",
+          "new version must not leave old version unable to read or recover"
+        ],
+        [
+          "Config",
+          "support a deprecation window before removing keys"
+        ],
+        [
+          "Script contract",
+          "add aliases or compatibility mode before breaking automation"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 206,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Human-only exploratory command",
+          "readable default output plus precise status"
+        ],
+        [
+          "CI/script consumption",
+          "non-interactive mode and versioned structured output"
+        ],
+        [
+          "Destructive mutation",
+          "plan/apply, explicit confirmation only in human mode"
+        ],
+        [
+          "Many subcommands",
+          "command modules calling shared application use cases"
+        ],
+        [
+          "Reuse by another program",
+          "extract library [08], do not shell out by default"
+        ],
+        [
+          "Hours-long durable work",
+          "scheduled/batch [05] or worker [04] with a thin CLI trigger"
+        ],
+        [
+          "OS-specific integration",
+          "neutral core plus Windows/native adapter [12]"
+        ]
+      ]
+    }
+  ]
+}

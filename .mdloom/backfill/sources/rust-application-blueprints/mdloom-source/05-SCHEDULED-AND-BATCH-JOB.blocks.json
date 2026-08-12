@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\05-SCHEDULED-AND-BATCH-JOB.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| scheduler authority: desired time | calendar | trigger identity            |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| job shell: validate config -> claim run -> choose window/partitions        |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| read inputs -> process bounded units -> checkpoint -> publish result       |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                  source authority       destination authority\n                       |                      |\n                       +-----------+----------+\n                                   v\n                     run ledger + metrics + final status",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 93,
+      "heading_context": "## Time, Window, and Overlap Contracts",
+      "confidence": "candidate",
+      "text": "trigger T\n   |\n   v\nderive logical window W\n   |\n   v\nclaim (job, W) in run ledger\n   | already complete -> report existing result\n   | active conflict  -> apply overlap policy\n   ` claimed          -> execute/checkpoint/publish",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

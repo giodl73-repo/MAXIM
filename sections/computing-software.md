@@ -1,6 +1,6 @@
 # Computing & Software
 
-20 directories · The full modern software engineering stack — from bare metal to the human-interaction layer
+28 directories · The full modern software engineering stack — from bare metal to the human-interaction layer
 
 ---
 
@@ -19,6 +19,18 @@
  │  reference cards │                 │  (28 files — the master engineering track)│
  └──────────────────┘                 └──────────────────────┬───────────────────┘
          │                                                   │
+ ┌──────────────────┐  ┌──────────────────┐                  │
+ │ rust-language/   │  │rust-architecture/│                  │
+ │ full feature map │  │ rustc · Cargo    │                  │
+ │ APIs · patterns  │  │ std · toolchain  │                  │
+ └──────────────────┘  └──────────────────┘                  │
+         │                    │                               │
+ ┌───────────────────────────────────────────────────────────┐│
+ │ RUST APPLIED STACK                                        ││
+ │ crates · blueprints · production · interop · security     ││
+ │ performance                                               ││
+ └───────────────────────────────────────────────────────────┘│
+         │                                                    │
  ┌──────────────────┐                                       │
  │   scripting/     │                                       ▼
  │  Bash/PS/Batch   │            INTELLIGENCE LAYER
@@ -60,6 +72,14 @@
 | [`ai-engineering/`](../ai-engineering/00-OVERVIEW.md) | LLM architecture (Transformer internals, tokenization, attention), RAG pipelines, fine-tuning, RLHF, alignment, major model families, eval harnesses | [`01-LLM-CONCEPTS.md`](../ai-engineering/01-LLM-CONCEPTS.md) — tokens through model families | `data-science/` for ML pipeline; `computing/` for serving infra |
 | [`data-science/`](../data-science/01-NUMPY.md) | NumPy/Pandas/Polars, SQL-Python integration, classical ML pipeline (sklearn to XGBoost), statistical foundations, experiment design | [`01-NUMPY.md`](../data-science/01-NUMPY.md) — array model and broadcasting semantics | `query-languages/` for SQL side; `ai-engineering/` for deep learning |
 | [`languages/`](../languages/00-OVERVIEW.md) | 16 languages surveyed across 10 axes (type systems, equality, null handling, error model, collections, closures). C# as home base throughout | [`00-OVERVIEW.md`](../languages/00-OVERVIEW.md) — type system taxonomy and language genealogy | `scripting/` for shell-tier languages; `computing/` for ecosystem context |
+| [`rust-language/`](../rust-language/00-OVERVIEW.md) | Rust as a complete working language: ownership, borrowing, traits, dispatch, macros, async, concurrency, unsafe, Cargo-facing configuration, testing, and API evolution | [`00-OVERVIEW.md`](../rust-language/00-OVERVIEW.md) — language landscape and reading paths | `languages/09-RUST.md` for the compact card; `rust-architecture/` for implementation internals |
+| [`rust-architecture/`](../rust-architecture/00-OVERVIEW.md) | Rust implementation architecture: project governance, rustup, rustc phases and queries, borrow checking, code generation, artifacts, std, Cargo, analysis tools, bootstrap, testing, and distribution | [`00-OVERVIEW.md`](../rust-architecture/00-OVERVIEW.md) — end-to-end implementation map | `compilers/` for general compiler theory; `rust-language/` for user-visible semantics |
+| [`rust-crate-ecosystem/`](../rust-crate-ecosystem/00-OVERVIEW.md) | Crate discovery, evaluation, Cargo features, workspaces, registries, supply-chain policy, licensing, stewardship, platform support, and removal | [`00-OVERVIEW.md`](../rust-crate-ecosystem/00-OVERVIEW.md) — evidence-first ecosystem map | `rust-language/` for APIs; `rust-security-assurance/` for dependency trust |
+| [`rust-application-blueprints/`](../rust-application-blueprints/00-OVERVIEW.md) | Neutral application shapes for CLIs, services, workers, jobs, pipelines, messaging, libraries, plugins, Wasm, embedded, Windows, and distributed systems | [`00-OVERVIEW.md`](../rust-application-blueprints/00-OVERVIEW.md) — blueprint selection map | `rust-production-engineering/` for operations; `rust-interop-migration/` for estate boundaries |
+| [`rust-production-engineering/`](../rust-production-engineering/00-OVERVIEW.md) | Configuration, observability, lifecycle, resilience, persistence, packaging, hosting, CI/CD, recovery, incidents, SLOs, and release gates | [`00-OVERVIEW.md`](../rust-production-engineering/00-OVERVIEW.md) — production operating loop | `rust-application-blueprints/` for application shape; `rust-performance/` for capacity |
+| [`rust-interop-migration/`](../rust-interop-migration/00-OVERVIEW.md) | Migration and durable boundaries across C, C++, .NET, Python, Node.js, JVM, COM/WinRT, data, services, callbacks, packaging, and rollout | [`00-OVERVIEW.md`](../rust-interop-migration/00-OVERVIEW.md) — boundary and migration ladder | `rust-language/17-UNSAFE-RUST-FFI-AND-ABI.md`; `rust-application-blueprints/` |
+| [`rust-security-assurance/`](../rust-security-assurance/00-OVERVIEW.md) | Threat models, unsafe obligations, memory validity, supply-chain/build trust, hostile input, availability, FFI, fuzzing, provenance, response, and assurance cases | [`00-OVERVIEW.md`](../rust-security-assurance/00-OVERVIEW.md) — assurance lifecycle | `cryptography/` for primitives; `rust-crate-ecosystem/` for dependency governance |
+| [`rust-performance/`](../rust-performance/00-OVERVIEW.md) | Measurement, profiles, CPU and memory analysis, data layout, async/concurrency, I/O, serialization, linking, compile time, benchmarks, and production cost | [`00-OVERVIEW.md`](../rust-performance/00-OVERVIEW.md) — evidence and optimization map | `rust-architecture/` for compiler mechanisms; `rust-production-engineering/` for capacity |
 | [`query-languages/`](../query-languages/00-OVERVIEW.md) | SQL fundamentals through engine-specific dialects: T-SQL, PostgreSQL, MySQL, SQLite, KQL (Azure Monitor), DuckDB, analytical SQL (window functions, CTEs) | [`00-OVERVIEW.md`](../query-languages/00-OVERVIEW.md) — query language landscape | `data-science/` for Python-SQL integration; `computing/` for DB ops |
 | [`scripting/`](../scripting/00-OVERVIEW.md) | Shell-tier languages: Bash, PowerShell, Batch, Zsh, Fish, AWK, sed, Perl. Landscape, POSIX spectrum, 8-language × 12-topic cheatsheet | [`00-OVERVIEW.md`](../scripting/00-OVERVIEW.md) — genealogy and POSIX spectrum | `os/` for kernel interfaces; `languages/` for where scripting fits |
 | [`os/`](../os/00-OVERVIEW.md) | Linux/Windows/macOS internals: kernel architecture, process/thread model, virtual memory, file systems, IPC, system calls, scheduling | [`01-CHEATSHEET.md`](../os/01-CHEATSHEET.md) — Linux kernel model and userland | `computing/` for containers-on-OS; `languages/` for runtime models |
@@ -82,8 +102,12 @@
 ## Paths
 
 ### General software engineering ramp
-`os/` → `languages/` → `scripting/` → `computing/`
+`os/` → `languages/` → `rust-language/` → `rust-architecture/` → `rust-crate-ecosystem/` → `rust-application-blueprints/` → `rust-production-engineering/`
 *Ground yourself in the runtime substrate, then the language landscape, then automation, then the full modern stack — this is the order competence compounds.*
+
+### Rust assurance and optimization branches
+`rust-interop-migration/` · `rust-security-assurance/` · `rust-performance/`
+*Apply these across crate selection, blueprint design, and production operation rather than treating them as final-stage audits.*
 
 ### Data and ML engineering
 `query-languages/` → `data-science/` → `ai-engineering/`

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\12-ARTIFACT-PROVENANCE-SBOMS-SIGNING-AND-REPRODUCIBLE-EVIDENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                      ARTIFACT EVIDENCE CHAIN                               |\n+============================================================================+\n| source digest + lockfile + build recipe + toolchain/native inputs          |\n|        |                                                                   |\n|        v                                                                   |\n| isolated builder identity ----> artifact bytes ----> SHA-256 digest         |\n|        |                            |                 |                     |\n|        +--> provenance attestation  +--> SBOM         +--> signature        |\n|                                                   \\                         |\n| independent rebuild ------------------------------> compare/verify          |\n+----------------------------------------------------------------------------+\n| deployment policy verifies identity, digest, predicates, and environment   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

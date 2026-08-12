@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\08-JVM-INTEROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                       JVM HOST -> RUST CORE                                |\n+============================================================================+\n|  Java / Kotlin API                                                         |\n|  records | ByteBuffer | AutoCloseable handle | exception | future          |\n|      |                                                                     |\n|      v                                                                     |\n|  OPTION A - JNI ADAPTER                                                    |\n|  native methods, JNIEnv, jni crate/generated glue                         |\n|                                                                            |\n|  OPTION B - FFM API ADAPTER                                                |\n|  Linker, MemorySegment, Arena; modern JDK-specific surface                 |\n|      |                                                                     |\n|      v                                                                     |\n|  VERSIONED C ABI -> RUST ADAPTER -> HOST-NEUTRAL RUST CORE                 |\n|                                                                            |\n|  PACKAGE: JAR/module + per-OS/arch native library + extraction/load policy |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 65,
+      "heading_context": "## JNI Shape",
+      "confidence": "candidate",
+      "text": "use jni::{\n    objects::{JByteArray, JClass},\n    sys::jlong,\n    JNIEnv,\n};\n\n#[unsafe(no_mangle)]\npub extern \"system\" fn Java_com_maxim_Parser_countRecords<'local>(\n    mut env: JNIEnv<'local>,\n    _class: JClass<'local>,\n    input: JByteArray<'local>,\n) -> jlong {\n    let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {\n        let bytes = env.convert_byte_array(&input)?;\n        Ok::<jlong, jni::errors::Error>(\n            bytes.iter().filter(|&&b| b == b'\\n').count() as jlong\n        )\n    }));\n    match result {\n        Ok(Ok(value)) => value,\n        _ => {\n            let _ = env.throw_new(\"java/lang/IllegalStateException\", \"native failure\");\n            0\n        }\n    }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

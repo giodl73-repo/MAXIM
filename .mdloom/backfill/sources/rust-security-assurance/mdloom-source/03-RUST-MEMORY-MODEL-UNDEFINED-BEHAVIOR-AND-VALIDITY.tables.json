@@ -1,0 +1,186 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\03-RUST-MEMORY-MODEL-UNDEFINED-BEHAVIOR-AND-VALIDITY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 58,
+      "heading_context": "## Validity Is Type-Specific",
+      "headers": [
+        "Type/value",
+        "Validity condition"
+      ],
+      "rows": [
+        [
+          "`bool`",
+          "only the defined `false`/`true` representations"
+        ],
+        [
+          "`char`",
+          "valid Unicode scalar value"
+        ],
+        [
+          "reference `&T` / `&mut T`",
+          "non-null, aligned, dereferenceable for required extent, valid pointee, correct aliasing/lifetime"
+        ],
+        [
+          "`NonZeroU32`",
+          "not zero"
+        ],
+        [
+          "enum",
+          "a valid discriminant and valid active payload"
+        ],
+        [
+          "function pointer",
+          "valid function address with compatible ABI/signature"
+        ],
+        [
+          "integer",
+          "every bit pattern is generally a valid integer value of that width"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 129,
+      "heading_context": "## Aliasing and Interior Mutability",
+      "headers": [
+        "Need",
+        "Correct mechanism",
+        "Wrong shortcut"
+      ],
+      "rows": [
+        [
+          "Single-thread checked interior mutation",
+          "`Cell` / `RefCell`",
+          "cast `&T` to `&mut T`"
+        ],
+        [
+          "Cross-thread mutation",
+          "`Mutex`, `RwLock`, atomics",
+          "unsynchronized raw writes"
+        ],
+        [
+          "Shared immutable view",
+          "`&T`",
+          "mutate behind it without `UnsafeCell`"
+        ],
+        [
+          "Unique mutation",
+          "`&mut T`",
+          "keep hidden aliases that are later used"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 160,
+      "heading_context": "## An Unsafe Review Worksheet",
+      "headers": [
+        "Question",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Is each pointer derived from a live allocation with permitted provenance?",
+          "construction trace and API contract"
+        ],
+        [
+          "Is every access in bounds and aligned for its type?",
+          "arithmetic proof, checked lengths, tests"
+        ],
+        [
+          "Is the pointee initialized and valid for `T`?",
+          "constructor/state invariant"
+        ],
+        [
+          "Are aliasing and interior mutation legal?",
+          "ownership diagram, `UnsafeCell` placement"
+        ],
+        [
+          "Can panic, drop, cancellation, or re-entry break the invariant?",
+          "failure-path review and tests"
+        ],
+        [
+          "Is cross-thread access synchronized?",
+          "memory-order argument and Loom/TSan where supported"
+        ],
+        [
+          "Are ABI/layout assumptions target-specific and tested?",
+          "`repr` contract and target matrix"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 172,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C/C++ habit",
+        "Rust requirement"
+      ],
+      "rows": [
+        [
+          "\"Non-null pointer is usable\"",
+          "provenance, bounds, alignment, lifetime, validity, and alias permission"
+        ],
+        [
+          "Placement construction",
+          "`MaybeUninit` with explicit partial-init/drop accounting"
+        ],
+        [
+          "Type punning through casts/unions",
+          "only operations permitted by Rust validity and layout rules"
+        ],
+        [
+          "`volatile` for concurrency",
+          "atomics and synchronization; volatile is for externally observable I/O semantics"
+        ],
+        [
+          "Sanitizer-clean means defined",
+          "dynamic evidence covers executed paths, not universal validity"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 202,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Preferred action"
+      ],
+      "rows": [
+        [
+          "Need initialized fixed array",
+          "`std::array::from_fn` or safe construction"
+        ],
+        [
+          "Need partial initialization internally",
+          "`MaybeUninit` with explicit initialized-count cleanup"
+        ],
+        [
+          "Need read of packed/unaligned bytes",
+          "byte parsing or `read_unaligned` with all other obligations met"
+        ],
+        [
+          "Need shared mutation",
+          "safe `Cell`/lock/atomic abstraction"
+        ],
+        [
+          "Need pointer-to-integer round trip",
+          "avoid; use supported strict-provenance APIs and target-specific validation"
+        ],
+        [
+          "Need lock-free structure",
+          "established crate or expert review plus Loom/sanitizer evidence"
+        ],
+        [
+          "Unsure whether a bit pattern is valid",
+          "do not construct `T`; consult official type and Reference contracts"
+        ]
+      ]
+    }
+  ]
+}

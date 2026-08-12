@@ -1,0 +1,123 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\04-BORROWING-REFERENCES-AND-LIFETIMES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 170,
+      "heading_context": "## Variance at the User Level",
+      "headers": [
+        "Type",
+        "Variance in its lifetime",
+        "Plain-English rule"
+      ],
+      "rows": [
+        [
+          "`&'a T`",
+          "covariant in `'a` and `T`",
+          "a longer-lived ref can be used where a shorter one is expected"
+        ],
+        [
+          "`&'a mut T`",
+          "covariant in `'a`, **invariant** in `T`",
+          "you cannot substitute the pointee type"
+        ],
+        [
+          "`Cell<T>`, `RefCell<T>`",
+          "invariant in `T`",
+          "interior mutability blocks variance"
+        ],
+        [
+          "`fn(T) -> U`",
+          "contravariant in `T`, covariant in `U`",
+          "function subtyping"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 186,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C++ / .NET",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "`const T&` (read) vs `T&` (write)",
+          "`&T` vs `&mut T`",
+          "Rust enforces exclusivity globally, not by convention"
+        ],
+        [
+          "dangling reference / use-after-free",
+          "safe references cannot outlive the referent",
+          "Raw pointers may dangle, but dereferencing or reborrowing them requires `unsafe`"
+        ],
+        [
+          "iterator invalidation (mutate while iterating)",
+          "compile error",
+          "The `&v` borrow blocks the `&mut v` push"
+        ],
+        [
+          "`std::span` / `ArraySegment<T>` (borrowed view)",
+          "`&[T]` slice",
+          "Lifetime-checked, cannot outlive backing store"
+        ],
+        [
+          "pointer lifetime \"documented in comments\"",
+          "`'a` in the type",
+          "Machine-checked, not prose"
+        ],
+        [
+          "`ref`/`out` parameters (.NET)",
+          "`&mut` parameters",
+          "One exclusive borrow at a time"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 218,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Read a value without owning it",
+          "`&T`"
+        ],
+        [
+          "Mutate a value in place, caller keeps it",
+          "`&mut T` (exclusive)"
+        ],
+        [
+          "Return a reference tied to an input",
+          "add `'a` linking input and output"
+        ],
+        [
+          "Store a borrow in a struct",
+          "give the struct a lifetime param `struct S<'a>`"
+        ],
+        [
+          "A borrow \"won't die\" though it should",
+          "check for a stored/returned reference; consider owning the data"
+        ],
+        [
+          "Need shared mutable access",
+          "interior mutability, not `&mut` aliasing ([16](16-SMART-POINTERS-INTERIOR-MUTABILITY-AND-SELF-REFERENCE.md))"
+        ],
+        [
+          "Hand data to a detached `thread::spawn`",
+          "ensure `'static` (own it or `Arc` it) ([15](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md))"
+        ],
+        [
+          "Borrow locals in fork-join threads",
+          "`std::thread::scope` ([15](15-THREADS-SEND-SYNC-LOCKS-AND-ATOMICS.md))"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\06-DATA-PIPELINE-AND-ETL.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| source authorities: database | files | object store | API | event log      |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| EXTRACT: snapshot/version -> decode -> preserve source identity            |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| TRANSFORM: normalize -> validate -> enrich -> partition -> reconcile       |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| LOAD/PUBLISH: stage -> verify -> manifest/swap -> expose                   |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                destination data        lineage + run ledger",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 118,
+      "heading_context": "## Transform, Quality, and Rejection",
+      "confidence": "candidate",
+      "text": "decoded record\n      |\n      +--> valid ------> canonical transform ------> accepted partition\n      |\n      `--> invalid ----> rejection record\n                         {source id, rule id, safe detail, run id}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

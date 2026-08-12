@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\10-WEBASSEMBLY-AND-COMPONENT-APPLICATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| Rust source -> target/toolchain -> core Wasm module or component artifact  |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| host runtime                                                               |\n| instantiate | validate imports | allocate resources | invoke | interrupt   |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                host capabilities       component/module exports\n          clock/files/network/random           |\n                       +-----------+------------+\n                                   v\n                         result + state + telemetry",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 134,
+      "heading_context": "## Testing and Rollback",
+      "confidence": "candidate",
+      "text": "native rules-core tests\n      -> binding/interface fixture tests\n      -> exact runtime instantiation tests\n      -> capability-denial and resource-limit tests\n      -> packaged browser/host smoke tests",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

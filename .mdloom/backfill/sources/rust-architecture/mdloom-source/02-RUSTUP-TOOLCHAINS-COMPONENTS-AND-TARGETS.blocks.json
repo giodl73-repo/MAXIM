@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\02-RUSTUP-TOOLCHAINS-COMPONENTS-AND-TARGETS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                              RUSTUP LAYER                                 |\n|                                                                           |\n|  PATH                                                                     |\n|  ~/.cargo/bin/rustc  ~/.cargo/bin/cargo  ~/.cargo/bin/rustdoc             |\n|  Windows: %USERPROFILE%\\.cargo\\bin\\rustc.exe, cargo.exe, rustdoc.exe      |\n|                 |                                                         |\n|                 v                                                         |\n|  RUSTUP PROXIES / SHIMS                                                   |\n|  parse +toolchain · read env/overrides/files · select active toolchain    |\n+---------------------------------------------------------------------------+\n                  | execs real binary\n                  v\n+---------------------------------------------------------------------------+\n|  INSTALLED TOOLCHAINS                                                     |\n|  ~/.rustup/toolchains/stable-x86_64-pc-windows-msvc/bin/rustc             |\n|  ~/.rustup/toolchains/nightly-2024-01-01-x86_64-unknown-linux-gnu/bin/... |\n|  ~/.rustup/toolchains/1.75.0-aarch64-apple-darwin/bin/...                 |\n+---------------------------------------------------------------------------+\n                  | contain components\n                  v\n+---------------------------------------------------------------------------+\n|  COMPONENTS + TARGETS                                                     |\n|  rustc · cargo · rust-std(host) · rust-docs · clippy · rustfmt · RA       |\n|  extra target std: wasm32-unknown-unknown, aarch64-apple-darwin, ...      |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 88,
+      "heading_context": "## The Proxy Boundary",
+      "confidence": "candidate",
+      "text": "The `+toolchain` syntax is implemented by the proxies, not by Cargo as a build-system feature. `rustc +nightly --version` and `cargo +1.75.0 test` are the same selection mechanism applied to different proxied tools.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 169,
+      "heading_context": "## Components: What Lives Inside a Toolchain",
+      "confidence": "candidate",
+      "text": "profile=minimal:   rustc + cargo + rust-std(host)\nprofile=default:   minimal + docs + common tools such as clippy/rustfmt\nprofile=complete:  all available components for that toolchain/host",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 191,
+      "heading_context": "## Targets, Hosts, and Platform Tiers",
+      "confidence": "candidate",
+      "text": "+-------------------------------+       +-------------------------------+\n| HOST TOOLCHAIN                |       | TARGET ARTIFACTS              |\n| runs on Windows MSVC          |       | compile for wasm32            |\n| rustc.exe, cargo.exe          | ----> | libcore/liballoc maybe std    |\n+-------------------------------+       +-------------------------------+\n        compiler executes here                   output runs there",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

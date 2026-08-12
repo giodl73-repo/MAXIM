@@ -1,0 +1,151 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\04-ASYNC-WORKER-AND-QUEUE-CONSUMER.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 80,
+      "heading_context": "## Delivery Semantics",
+      "headers": [
+        "Strategy",
+        "Completion point",
+        "Cost"
+      ],
+      "rows": [
+        [
+          "Ack before work",
+          "broker forgets before effects",
+          "loss on crash; rarely acceptable"
+        ],
+        [
+          "Ack after work",
+          "effects complete before ack",
+          "redelivery can duplicate effects"
+        ],
+        [
+          "Transactional consume/effect",
+          "broker and state share transaction authority",
+          "strong but infrastructure-specific"
+        ],
+        [
+          "Inbox/idempotency",
+          "record message identity with effects",
+          "storage and retention policy required"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 107,
+      "heading_context": "## Concurrency, Ordering, and Failure",
+      "headers": [
+        "Concern",
+        "Explicit decision"
+      ],
+      "rows": [
+        [
+          "Concurrency",
+          "global and per-key limits"
+        ],
+        [
+          "Ordering",
+          "none, per partition/key, or total within a bounded stream"
+        ],
+        [
+          "Lease",
+          "renewal ownership and maximum processing time"
+        ],
+        [
+          "Retry",
+          "retryable taxonomy, delay, attempt/time budget"
+        ],
+        [
+          "Poison input",
+          "quarantine destination and inspection/redrive authority"
+        ],
+        [
+          "Backpressure",
+          "pause receives before memory or dependency saturation"
+        ],
+        [
+          "Shutdown",
+          "stop receive, renew active leases if needed, drain, release safely"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 146,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Test",
+        "Proves"
+      ],
+      "rows": [
+        [
+          "Same message twice",
+          "duplicate handling is semantically stable"
+        ],
+        [
+          "Crash after effect/before ack",
+          "redelivery does not corrupt state"
+        ],
+        [
+          "Dependency timeout",
+          "retry classification and deadline behavior"
+        ],
+        [
+          "Poison payload",
+          "quarantine path preserves evidence"
+        ],
+        [
+          "Shutdown under load",
+          "no new admission; unfinished work is safe"
+        ],
+        [
+          "Old/new payloads",
+          "compatibility during producer/consumer skew"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 188,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Fast idempotent operation",
+          "ack after effect, bounded retries"
+        ],
+        [
+          "Durable local mutation",
+          "inbox/idempotency in same store transaction"
+        ],
+        [
+          "Non-idempotent remote effect",
+          "remote idempotency key or explicit reconciliation"
+        ],
+        [
+          "Long work beyond lease",
+          "lease renewal, chunk/checkpoint, or scheduled job [05]"
+        ],
+        [
+          "Ordered key stream",
+          "partition by key and serialize per key"
+        ],
+        [
+          "High fan-out domain facts",
+          "event-driven blueprint [07]"
+        ],
+        [
+          "Request needs later work",
+          "HTTP [03] returns durable job identity"
+        ]
+      ]
+    }
+  ]
+}

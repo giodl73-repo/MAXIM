@@ -1,0 +1,279 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 70,
+      "heading_context": "## Manifests, Registries, and Dependency Requirements",
+      "headers": [
+        "Manifest area",
+        "Cargo meaning",
+        "Authority boundary"
+      ],
+      "rows": [
+        [
+          "`[package]`",
+          "This package's identity, edition, version, metadata",
+          "Cargo manifest contract"
+        ],
+        [
+          "`[dependencies]`",
+          "Target dependencies for normal builds",
+          "Cargo resolver input"
+        ],
+        [
+          "`[dev-dependencies]`",
+          "Tests, examples, benches",
+          "Cargo resolver input, boundary-sensitive under resolver v2/v3"
+        ],
+        [
+          "`[build-dependencies]`",
+          "Host-side build script dependencies",
+          "Cargo host unit input, see [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md)"
+        ],
+        [
+          "`[features]`",
+          "Additive named switches and optional deps",
+          "Cargo feature unification contract"
+        ],
+        [
+          "`[patch]` / `[source]` / registries",
+          "Override or redirect package source",
+          "Cargo registry/source contract"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 138,
+      "heading_context": "## Resolution, Lockfiles, and Workspaces",
+      "headers": [
+        "Workspace feature",
+        "What it does",
+        "Old-world shape"
+      ],
+      "rows": [
+        [
+          "`members`",
+          "Names packages participating in one workspace",
+          "Solution projects"
+        ],
+        [
+          "`Cargo.lock` at root",
+          "Records the unified resolved graph",
+          "`packages.lock.json` at repo root"
+        ],
+        [
+          "shared `target/`",
+          "Reuses build artifacts across members",
+          "Common output/intermediate tree"
+        ],
+        [
+          "`[workspace.dependencies]`",
+          "Centralizes versions, inherited by members",
+          "`Directory.Packages.props` / central package management"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 188,
+      "heading_context": "## Features, Units, Profiles, and Scheduling",
+      "headers": [
+        "Unit dimension",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "package",
+          "`serde`, `route-engine`, `api`"
+        ],
+        [
+          "target",
+          "lib, bin, test, bench, example, build script, proc macro"
+        ],
+        [
+          "profile",
+          "dev, release, test, bench; `opt-level`, debug, LTO, codegen-units, panic"
+        ],
+        [
+          "features",
+          "the unified feature set for this package in this boundary"
+        ],
+        [
+          "platform side",
+          "host or target"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 288,
+      "heading_context": "## Old World -> New World",
+      "headers": [
+        "Old-world concept",
+        "Cargo-side analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "MSBuild + NuGet",
+          "Cargo fused build graph, restore, lockfile, and invocation planner",
+          "Less XML extensibility; more convention and manifest structure"
+        ],
+        [
+          "NuGet binding redirects / one version wins",
+          "Multiple SemVer-incompatible crate versions can coexist",
+          "Isolation is solved at compile/link identity, not runtime binding policy"
+        ],
+        [
+          "`packages.lock.json` / npm lockfile",
+          "`Cargo.lock`",
+          "Cargo owns exact resolved graph and checksums"
+        ],
+        [
+          "MSBuild solution / npm workspaces",
+          "Cargo workspace",
+          "One lockfile and shared target directory by default"
+        ],
+        [
+          "Conditional compilation / build configurations",
+          "Cargo features + profiles",
+          "Features are additive and unioned; profiles are build-mode policy"
+        ],
+        [
+          "MSBuild incremental up-to-date check",
+          "Cargo fingerprints",
+          "Cargo unit freshness is distinct from rustc incremental and external caches"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 305,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Use / answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Who compiles Rust?",
+          "`rustc`, invoked by Cargo",
+          "rustc"
+        ],
+        [
+          "Who resolves dependency versions?",
+          "Cargo resolver",
+          "Cargo"
+        ],
+        [
+          "Where is the exact resolved graph?",
+          "`Cargo.lock`",
+          "Cargo stable format"
+        ],
+        [
+          "Can two major versions coexist?",
+          "Yes, if SemVer-incompatible",
+          "Cargo resolver behavior"
+        ],
+        [
+          "Why did a feature turn on?",
+          "Feature unification; inspect `cargo tree -f \"{p} {f}\"`",
+          "Cargo"
+        ],
+        [
+          "Why did a crate rebuild?",
+          "Fingerprint changed; use `cargo build -v` and build script output",
+          "Cargo implementation detail"
+        ],
+        [
+          "Where do profiles affect codegen?",
+          "Cargo passes flags to rustc; see [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)",
+          "Cargo + rustc"
+        ],
+        [
+          "Can I depend on `target/.fingerprint/` layout?",
+          "No",
+          "Cargo internal"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 320,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"Cargo compiles my code.\"",
+          "Cargo orchestrates; `rustc` compiles."
+        ],
+        [
+          "\"crates.io is Cargo.\"",
+          "crates.io is the default registry service; Cargo is the client/orchestrator and supports alternatives."
+        ],
+        [
+          "\"SemVer means one global version.\"",
+          "Cargo can compile multiple incompatible versions side by side."
+        ],
+        [
+          "\"Features are configurations.\"",
+          "Features are additive and unioned, not exclusive modes."
+        ],
+        [
+          "\"Resolver v2 removed feature unification.\"",
+          "It narrowed some host/target/dev unification, but features still unify within boundaries."
+        ],
+        [
+          "\"Resolver v3 changes feature unification again.\"",
+          "It keeps resolver-v2 feature boundaries and adds MSRV-aware version fallback."
+        ],
+        [
+          "\"Cargo incremental is rustc incremental.\"",
+          "Cargo fingerprints skip whole units; rustc incremental reuses compiler work inside a crate; sccache is a third layer."
+        ],
+        [
+          "\"Cargo.lock is just advisory.\"",
+          "For applications it is the reproducibility source of truth."
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 335,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "The Cargo Book: manifest, dependency resolution, features, workspaces, profiles, build cache",
+          "Stable user contract for Cargo behavior"
+        ],
+        [
+          "Cargo contributor docs: `rust-lang/cargo` `ARCHITECTURE.md`, \"How Cargo works\"",
+          "Implementation map for units, resolver, and scheduling"
+        ],
+        [
+          "Cargo SemVer compatibility chapter",
+          "How Cargo interprets compatibility promises"
+        ],
+        [
+          "RFCs and Cargo documentation for resolver v2/features",
+          "Feature unification boundary changes"
+        ],
+        [
+          "[00](00-OVERVIEW.md), [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md), [19](19-RUSTDOC-RUSTFMT-CLIPPY-RUST-ANALYZER-AND-MIRI.md)",
+          "Sibling guides around Cargo, build-time code, and tools"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\05-DOTNET-CSHARP-INTEROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    .NET HOST -> RUST NATIVE CORE                           |\n+============================================================================+\n|  C# API                                                                    |\n|  Span/Memory | SafeHandle | exceptions/Result object | Task                |\n|      |                                                                     |\n|      v                                                                     |\n|  GENERATED MARSHAL STUB                                                    |\n|  [LibraryImport] / PInvoke source generation                               |\n|      |                                                                     |\n|      v                                                                     |\n|  VERSIONED C ABI                                                           |\n|  fixed-width scalars | ptr+len | opaque handles | status | callbacks       |\n|      |                                                                     |\n|      v                                                                     |\n|  RUST ADAPTER -> RUST CORE                                                 |\n|  validate -> borrow/copy -> execute -> translate error/panic               |\n|                                                                            |\n|  PACKAGE: NuGet                                                            |\n|  lib/netX managed assembly + runtimes/<rid>/native/<library>               |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 130,
+      "heading_context": "## Own Native Resources with `SafeHandle`",
+      "confidence": "candidate",
+      "text": "  Rust: parser_new -> opaque pointer\n                   |\n                   v\n  C#: SafeParserHandle\n      owns pointer, prevents premature collection during calls\n                   |\n                   v\n  SafeHandle.ReleaseHandle -> Rust parser_free",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

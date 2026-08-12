@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\11-MIRI-SANITIZERS-LOOM-MODEL-CHECKING-AND-TARGETED-FORMAL-METHODS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         TARGETED EVIDENCE LADDER                           |\n+============================================================================+\n| source/property specification                                              |\n|      |                                                                     |\n|      +--> Miri: Rust UB on interpreted paths                               |\n|      +--> ASan/MSan/TSan/etc.: native instrumented paths                   |\n|      +--> Loom: bounded thread/atomic schedules                            |\n|      +--> model checker: bounded states/traces                             |\n|      +--> deductive/bounded verifier: stated assertions under model        |\n|                                                                            |\n| result + scope + assumptions + counterexample/proof obligation -> case     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 140,
+      "heading_context": "## Model Checking and Formal Methods",
+      "confidence": "candidate",
+      "text": "product claim\n   |\n   +--> protocol/state property ----> TLA+/PlusCal or similar model\n   +--> unsafe function contract ---> bounded verifier / deductive tool\n   +--> arithmetic/memory invariant -> proof-oriented Rust tool\n   +--> crypto construction --------> specialized protocol/crypto analysis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

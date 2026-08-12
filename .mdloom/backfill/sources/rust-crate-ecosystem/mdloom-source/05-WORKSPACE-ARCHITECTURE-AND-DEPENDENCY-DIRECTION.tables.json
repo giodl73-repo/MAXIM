@@ -1,0 +1,184 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\05-WORKSPACE-ARCHITECTURE-AND-DEPENDENCY-DIRECTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 103,
+      "heading_context": "## Choosing Crate Boundaries",
+      "headers": [
+        "Boundary reason",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Different dependency direction",
+          "Domain must not import adapter stack"
+        ],
+        [
+          "Different target/profile",
+          "`no_std` core versus `std` integration"
+        ],
+        [
+          "Different release/publication unit",
+          "Stable public API versus internal app"
+        ],
+        [
+          "Different build trust",
+          "Proc macro/build tool isolated from runtime library"
+        ],
+        [
+          "Different ownership/review",
+          "Security-sensitive parser with named owners"
+        ],
+        [
+          "Replaceable backend",
+          "Adapter implements a stable port"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 130,
+      "heading_context": "## Direction Before Reuse",
+      "headers": [
+        "Smell",
+        "Better shape"
+      ],
+      "rows": [
+        [
+          "`common` imports database, HTTP, config, and domain types",
+          "Split stable primitives from adapters"
+        ],
+        [
+          "Domain takes concrete client from an SDK crate",
+          "Define a narrow domain port; adapter owns SDK"
+        ],
+        [
+          "All crates depend on one giant prelude",
+          "Explicit imports and purpose-specific types"
+        ],
+        [
+          "Facade re-exports every dependency",
+          "Re-export only intentional public contract"
+        ],
+        [
+          "Test helpers force production dependencies",
+          "Dev-only support crate or local test module"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 182,
+      "heading_context": "## Architecture Evidence",
+      "headers": [
+        "From layer",
+        "May depend on",
+        "Must not depend on"
+      ],
+      "rows": [
+        [
+          "primitives",
+          "`core`, selected leaf crates",
+          "domain, adapters, apps"
+        ],
+        [
+          "domain",
+          "primitives",
+          "adapters, runtimes, apps"
+        ],
+        [
+          "application",
+          "domain, primitives",
+          "concrete infrastructure unless intentionally coupled"
+        ],
+        [
+          "adapters",
+          "domain ports, vendor SDKs",
+          "apps"
+        ],
+        [
+          "apps",
+          "all composition layers",
+          "N/A; app is composition root"
+        ],
+        [
+          "tools",
+          "tool libraries and metadata",
+          "Runtime crates unless intentionally shared"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 198,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar architecture unit",
+        "Cargo workspace unit"
+      ],
+      "rows": [
+        [
+          "Solution/repository",
+          "Workspace"
+        ],
+        [
+          "Project/assembly",
+          "Package with one or more crate targets"
+        ],
+        [
+          "Internal namespace/module",
+          "Rust module; not a separate package"
+        ],
+        [
+          "Interface project",
+          "Domain port/types crate"
+        ],
+        [
+          "Infrastructure project",
+          "Adapter crate"
+        ],
+        [
+          "Directory-wide package policy",
+          "`[workspace.dependencies]`, inherited fields/lints"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 226,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Boundary"
+      ],
+      "rows": [
+        [
+          "Hide implementation inside one package",
+          "Module"
+        ],
+        [
+          "Enforce compile-time dependency direction",
+          "Separate crate"
+        ],
+        [
+          "Support `no_std` core and `std` adapters",
+          "Separate crates with inward flow"
+        ],
+        [
+          "Swap infrastructure",
+          "Domain port plus adapter crate"
+        ],
+        [
+          "Share versions/lints/metadata",
+          "Workspace inheritance"
+        ],
+        [
+          "Publish stable API but keep apps internal",
+          "Public library package plus `publish = false` app packages"
+        ]
+      ]
+    }
+  ]
+}

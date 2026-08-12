@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 38,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                    THE RUST IMPLEMENTATION ECOSYSTEM                      |\n|                                                                           |\n|  SPEC / GOVERNANCE          [01]                                          |\n|  Rust Reference · RFCs · editions · release channels · compat promises    |\n|  Authority: project teams + lang/libs. NOT rustc internals.               |\n+---------------------------------------------------------------------------+\n             | documents stable rules/evolution; rustc implements them\n             v\n+---------------------------------------------------------------------------+\n|  TOOLCHAIN MANAGEMENT       [02]  rustup                                  |\n|  proxies (rustc/cargo shims) · channels · components · target libs        |\n|  Authority: rustup project. Installs, does not compile.                   |\n+---------------------------------------------------------------------------+\n             | selects a toolchain; hands control to cargo/rustc\n             v\n+---------------------------------------------------------------------------+\n|  BUILD ORCHESTRATION        [17][18]  cargo                               |\n|  manifests · resolver · lockfile · units · build scripts · features       |\n|  Authority: Cargo. Plans and schedules; invokes rustc per crate.          |\n+---------------------------------------------------------------------------+\n             | one rustc invocation per crate (compilation unit)\n             v\n+===========================================================================+\n|  THE COMPILER: rustc          Authority: rustc (implementation detail)    |\n|                                                                           |\n|  driver/session/query [03]                                                |\n|     |                                                                     |\n|     v                                                                     |\n|  lex/parse/AST [04] -> macro expand + resolve [05] -> HIR [06]            |\n|     -> type/infer [07] -> trait solve [08] -> MIR build [09]              |\n|     -> borrowck [10] -> MIR optimize [09] -> mono/CGUs [11]               |\n|     -> backend [12]                                                       |\n|     -> artifacts/metadata/link [13]                                       |\n|                                                                           |\n|  cross-cutting: incremental [14] · diagnostics [15]                       |\n+---------------------------------------------------------------------------+\n             | links against\n             v\n+---------------------------------------------------------------------------+\n|  STANDARD LIBRARY           [16]  core / alloc / std                      |\n|  Authority: libs teams. Stable API surface; internals version-sensitive.  |\n+---------------------------------------------------------------------------+\n             | analyzed / documented / linted / interpreted by\n             v\n+---------------------------------------------------------------------------+\n|  ECOSYSTEM TOOLS            [19]  rustdoc · rustfmt · clippy · RA · Miri  |\n|  SUPPLY CHAIN               [20]  bootstrap · CI · crater · rustc-perf    |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 153,
+      "heading_context": "## A Single Trace: `cargo build` on a Two-Crate Project",
+      "confidence": "candidate",
+      "text": "$ cargo build\n  |\n  | (rustup proxy on PATH resolves the active toolchain)      [02]\n  v\ncargo reads Cargo.toml + Cargo.lock, builds the unit graph    [17]\n  | resolves features, decides host vs target units           [18]\n  v\nfor each crate, in dependency order:\n  cargo spawns:  rustc --edition 2021 --crate-type lib ...    [03]\n    |\n    v\n  rustc: parse -> expand macros -> resolve names              [04][05]\n         lower to HIR -> typeck -> trait select               [06][07][08]\n         build MIR -> borrow-check -> optimize for codegen    [09][10]\n         monomorphize -> partition into codegen units         [11]\n         hand each CGU to LLVM -> object code                 [12]\n         emit rlib (objects + rmeta metadata)                 [13]\n  |\n  v\nrustc drives the final platform link for the unit Cargo scheduled [13]\n  | records fingerprints for next-time freshness              [14][17]\n  v\ntarget/debug/<bin>",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

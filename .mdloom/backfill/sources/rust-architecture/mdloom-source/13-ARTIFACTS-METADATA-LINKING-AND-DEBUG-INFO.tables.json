@@ -1,0 +1,479 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 67,
+      "heading_context": "## Crate Types and Who Consumes Them",
+      "headers": [
+        "`--crate-type`",
+        "Produced artifact",
+        "Who consumes it",
+        "Stability story"
+      ],
+      "rows": [
+        [
+          "`bin`",
+          "Executable",
+          "OS loader / user",
+          "Native platform artifact"
+        ],
+        [
+          "`lib`",
+          "Compiler-selected Rust library, currently usually `rlib`",
+          "Rust dependents",
+          "Stable spelling, selected format is rustc choice"
+        ],
+        [
+          "`rlib`",
+          "Rust static library: object files plus `.rmeta`",
+          "rustc compiling downstream crates",
+          "Existence stable; internal layout unstable"
+        ],
+        [
+          "`dylib`",
+          "Rust dynamic library using Rust ABI",
+          "Rust crates built with matching compiler",
+          "Rust ABI unstable/version-locked"
+        ],
+        [
+          "`staticlib`",
+          "Native static archive containing Rust code and dependencies",
+          "C/C++/other native linkers in a later final link",
+          "Platform archive container; exported ABI depends on the source declarations"
+        ],
+        [
+          "`cdylib`",
+          "Native shared library intended for non-Rust hosts",
+          "C ABI hosts, plugins, wasm embedders",
+          "Platform shared-library container; only explicit FFI exports have a C-compatible ABI"
+        ],
+        [
+          "`proc-macro`",
+          "Special host dynamic library",
+          "rustc loads it while compiling another crate",
+          "Host toolchain artifact; see [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 96,
+      "heading_context": "## Crate Types and Who Consumes Them",
+      "headers": [
+        "Concern",
+        "Required discipline"
+      ],
+      "rows": [
+        [
+          "Exported function ABI",
+          "`pub extern \"C\" fn` and an exported symbol such as `#[unsafe(no_mangle)]` in edition 2024"
+        ],
+        [
+          "Data layout",
+          "FFI-safe scalars/pointers and `#[repr(C)]` aggregates; no Rust-owned `String`, `Vec`, trait object, or unwritten enum layout"
+        ],
+        [
+          "Ownership",
+          "Document who allocates, frees, and retains each pointer; pair constructors with matching Rust-side destructors"
+        ],
+        [
+          "Panic/unwind",
+          "Do not let ordinary Rust unwinding cross a non-unwind FFI boundary; catch, abort, or deliberately use a supported unwind ABI"
+        ],
+        [
+          "Versioning",
+          "Version the exported API and honor the platform ABI independently of the Rust compiler version"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 108,
+      "heading_context": "## rmeta: Metadata Is the Rust Dependency Interface",
+      "headers": [
+        "Metadata carries",
+        "Why downstream rustc needs it"
+      ],
+      "rows": [
+        [
+          "DefIds and DefPathHashes",
+          "Stable identity across sessions; see [06](06-HIR-LOWERING-AND-MIDDLE-LEVEL-IDENTITY.md)"
+        ],
+        [
+          "Types, generics, trait impls",
+          "Type-check uses of dependency APIs"
+        ],
+        [
+          "MIR for generic and inlineable functions",
+          "Monomorphization and inlining in downstream crates [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)"
+        ],
+        [
+          "Exported symbols and linkage data",
+          "Later artifact and link decisions"
+        ],
+        [
+          "Dependency and feature information",
+          "Coherence, crate disambiguation, and rebuild logic"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 135,
+      "heading_context": "## Rust ABI, C ABI, and Distribution Reality",
+      "headers": [
+        "Boundary",
+        "Use",
+        "Contract"
+      ],
+      "rows": [
+        [
+          "Rust source crate",
+          "Normal library distribution",
+          "Semver plus Cargo resolver; compiled by consumer"
+        ],
+        [
+          "`rlib` between crates",
+          "Build artifact inside one toolchain",
+          "rustc-version-locked"
+        ],
+        [
+          "`dylib` Rust ABI",
+          "Rust dynamic link within matching compiler world",
+          "Unstable Rust ABI"
+        ],
+        [
+          "`extern \"C\"`",
+          "FFI declarations",
+          "C ABI owned by platform/toolchain"
+        ],
+        [
+          "`staticlib` / `cdylib`",
+          "Native library distribution",
+          "Platform object/shared-library conventions"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 177,
+      "heading_context": "## Linking: rustc Delegates to the Platform Toolchain",
+      "headers": [
+        "Mechanism",
+        "Layer",
+        "Use"
+      ],
+      "rows": [
+        [
+          "`-L native=...`",
+          "rustc/link",
+          "Add native library search path"
+        ],
+        [
+          "`-l static=foo`, `-l dylib=foo`",
+          "rustc/link",
+          "Request native library"
+        ],
+        [
+          "`#[link(name = \"foo\")]`",
+          "Rust source",
+          "Attach native link requirement to extern block/module"
+        ],
+        [
+          "Cargo `links` key",
+          "Cargo/build script",
+          "Declare one crate owns a native library link name [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md)"
+        ],
+        [
+          "`-C linker=...`",
+          "rustc codegen/link option",
+          "Select linker executable"
+        ],
+        [
+          "`-C link-arg=...`",
+          "rustc codegen/link option",
+          "Pass one raw argument to linker"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 190,
+      "heading_context": "## Debug Info: DWARF, PDB, and Source Spans",
+      "headers": [
+        "Target family",
+        "Debug format",
+        "Rust knob",
+        "Reader/tooling"
+      ],
+      "rows": [
+        [
+          "ELF Linux",
+          "DWARF",
+          "`-C debuginfo=1/2`, `-g`",
+          "gdb, lldb, perf tooling"
+        ],
+        [
+          "Mach-O macOS",
+          "DWARF/dSYM",
+          "`-C debuginfo`, `-C split-debuginfo`",
+          "lldb, dsymutil ecosystem"
+        ],
+        [
+          "MSVC Windows",
+          "PDB",
+          "`-C debuginfo`, `-C split-debuginfo` where supported",
+          "Visual Studio, WinDbg, debuggers"
+        ],
+        [
+          "Any target",
+          "Stripped symbols/debug",
+          "`-C strip=symbols` or `-C strip=debuginfo`",
+          "Deployment-size control"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 216,
+      "heading_context": "## Commands and Traces",
+      "headers": [
+        "Goal",
+        "Command"
+      ],
+      "rows": [
+        [
+          "Emit a cdylib container and metadata",
+          "`rustc --crate-type=cdylib --emit=link,metadata src/lib.rs`"
+        ],
+        [
+          "See Cargo's rustc invocations and link-affecting flags",
+          "`cargo build -v`"
+        ],
+        [
+          "Print rustc's actual platform-linker argument vector",
+          "`rustc --print link-args src/main.rs`"
+        ],
+        [
+          "Inspect an rlib archive",
+          "`ar t libfoo.rlib` or `llvm-ar t libfoo.rlib`"
+        ],
+        [
+          "Request full debug info",
+          "`rustc -C debuginfo=2 src/main.rs` or `cargo build` in dev profile"
+        ],
+        [
+          "Override linker",
+          "`RUSTFLAGS=\"-C linker=lld\" cargo build`"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 253,
+      "heading_context": "## Old world -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust mapping",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "`.lib` / `.a` static library",
+          "`rlib` superficially resembles an archive",
+          "`rlib` also carries rustc metadata and is not stable across toolchains"
+        ],
+        [
+          ".NET assembly metadata",
+          "`.rmeta` is the Rust compile-time metadata analog",
+          ".NET metadata is a stable runtime/loader contract; rmeta is rustc-private"
+        ],
+        [
+          "P/Invoke to native DLL",
+          "`cdylib`/`staticlib` plus `extern \"C\"`",
+          "This is the stable binary boundary Rust intentionally exposes"
+        ],
+        [
+          "PDB debugging",
+          "Rust MSVC target PDBs",
+          "Same debug-info family, native code instead of managed IL"
+        ],
+        [
+          "MSBuild item/link settings",
+          "Cargo + rustc link flags/build scripts",
+          "Cargo plans; rustc invokes the platform linker"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 267,
+      "heading_context": "## Stability and Ownership Boundaries",
+      "headers": [
+        "Thing",
+        "Treat as"
+      ],
+      "rows": [
+        [
+          "Existence of `rlib`, `dylib`, `staticlib`, `cdylib`, `bin`, `proc-macro` crate types",
+          "Stable rustc surface"
+        ],
+        [
+          "`--emit` output kinds",
+          "Stable rustc surface"
+        ],
+        [
+          "`.rmeta` serialized format",
+          "rustc internal, version-locked"
+        ],
+        [
+          "`rlib` archive member layout",
+          "rustc internal"
+        ],
+        [
+          "Rust `dylib` ABI",
+          "Unstable Rust ABI, compiler-version-sensitive"
+        ],
+        [
+          "`extern \"C\"` ABI",
+          "Platform/toolchain ABI contract"
+        ],
+        [
+          "Object files, archives, shared libraries",
+          "Platform/linker-owned formats"
+        ],
+        [
+          "DWARF/PDB",
+          "Platform/debugger ecosystem formats, emitted by rustc/backend"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 284,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Build an ordinary Rust dependency",
+          "`rlib` through Cargo's default flow"
+        ],
+        [
+          "Start dependents before dependency codegen finishes",
+          "Cargo pipelining via metadata emission"
+        ],
+        [
+          "Ship a plugin or native shared library",
+          "`cdylib` plus `extern \"C\"` API"
+        ],
+        [
+          "Embed Rust into a C/C++ program statically",
+          "`staticlib` plus C ABI declarations"
+        ],
+        [
+          "Build a Rust dynamic library for Rust consumers only",
+          "`dylib`, but only inside one coherent toolchain world"
+        ],
+        [
+          "Debug on Windows/MSVC",
+          "`-C debuginfo=2` and PDB-aware debugger"
+        ],
+        [
+          "Debug on Linux/macOS",
+          "DWARF through gdb/lldb, possibly `rust-gdb`/`rust-lldb`"
+        ],
+        [
+          "Diagnose native link failure",
+          "`cargo build -v`, inspect `-L`, `-l`, `#[link]`, build scripts"
+        ],
+        [
+          "Understand backend object emission first",
+          "Read [12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 300,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"An rlib is just a C static library.\"",
+          "It is an archive-like file plus Rust metadata, for rustc consumption."
+        ],
+        [
+          "\"rmeta is like stable .NET metadata.\"",
+          "It is the analog, not the contract. It is rustc-private and version-locked."
+        ],
+        [
+          "\"Rust has a stable ABI because it makes dylibs.\"",
+          "Rust `dylib` exists, but the Rust ABI is unstable. Use C ABI for stable binary boundaries."
+        ],
+        [
+          "\"Cargo links everything itself.\"",
+          "Cargo schedules; rustc drives final links for `bin`/`dylib`/`cdylib`, while `staticlib` is archived for a later consumer link."
+        ],
+        [
+          "\"The C runtime comes from Rust.\"",
+          "It comes from the target platform/toolchain."
+        ],
+        [
+          "\"PDB means managed code.\"",
+          "PDB is a debug-info container used by native MSVC Rust targets too."
+        ],
+        [
+          "\"If `--emit=llvm-ir` works, LLVM IR is the artifact contract.\"",
+          "It is an output kind, but the IR content is LLVM/rustc-version-sensitive."
+        ]
+      ]
+    },
+    {
+      "id": "table-12",
+      "line": 314,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: Crate metadata / rmeta",
+          "What metadata exists and how downstream rustc uses it"
+        ],
+        [
+          "rustc-dev-guide: Linking",
+          "rustc's link orchestration and native library handling"
+        ],
+        [
+          "rustc-dev-guide: Debugging support / debuginfo",
+          "DWARF/PDB generation and debugging model"
+        ],
+        [
+          "The rustc book: `--crate-type`, `--emit`",
+          "Stable command-line artifact controls"
+        ],
+        [
+          "The rustc book: codegen/link options, debuginfo",
+          "`-C linker`, `-C link-arg`, `-C debuginfo`, `-C strip`"
+        ],
+        [
+          "The Rust Reference: linkage, `extern`, ABI",
+          "Language-level FFI and ABI spelling"
+        ],
+        [
+          "The Cargo Book: build scripts and `links`",
+          "Native library discovery and Cargo link coordination"
+        ]
+      ]
+    }
+  ]
+}

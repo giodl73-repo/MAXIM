@@ -1,0 +1,146 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\08-REUSABLE-LIBRARY-AND-SDK.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 94,
+      "heading_context": "## Public API and Authority",
+      "headers": [
+        "Surface",
+        "Compatibility pressure"
+      ],
+      "rows": [
+        [
+          "Public type/field",
+          "construction and pattern matching by consumers"
+        ],
+        [
+          "Trait",
+          "implementors outside the crate; adding required items can break"
+        ],
+        [
+          "Error enum",
+          "exhaustive matches can freeze variants"
+        ],
+        [
+          "Generic bound",
+          "affects inference, monomorphization, and accepted types"
+        ],
+        [
+          "Feature",
+          "participates additively in dependency resolution"
+        ],
+        [
+          "Re-export",
+          "makes another crate's name/version part of the facade"
+        ],
+        [
+          "Serialization",
+          "becomes a durable/wire contract when persisted or transmitted"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 122,
+      "heading_context": "## Features, Async, and Dependencies",
+      "headers": [
+        "Rule",
+        "Reason"
+      ],
+      "rows": [
+        [
+          "Features are additive",
+          "Cargo may unify them across the graph"
+        ],
+        [
+          "Defaults should be useful but modest",
+          "consumers can opt out of weight"
+        ],
+        [
+          "Optional dependencies remain implementation details where possible",
+          "avoids exposing graph choices"
+        ],
+        [
+          "Never start a global runtime implicitly",
+          "consumer owns process execution"
+        ],
+        [
+          "Accept caller-provided clients/executors where boundary matters",
+          "improves policy control and tests"
+        ],
+        [
+          "Expose timeout/cancellation control or document caller ownership",
+          "futures can be dropped at any await point"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 173,
+      "heading_context": "## Evidence, Release, and Rollback",
+      "headers": [
+        "Change",
+        "Release implication"
+      ],
+      "rows": [
+        [
+          "Internal fix",
+          "patch if documented behavior remains"
+        ],
+        [
+          "Add compatible API",
+          "minor under common SemVer practice"
+        ],
+        [
+          "Break public contract/MSRV policy",
+          "major or documented pre-1.0 policy"
+        ],
+        [
+          "Wire behavior change",
+          "coordinate with service/schema compatibility, not SemVer alone"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 192,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Reuse only inside one application",
+          "internal crate with repository policy"
+        ],
+        [
+          "Broad external reuse",
+          "narrow facade, SemVer/MSRV policy, examples and contract tests"
+        ],
+        [
+          "Common values across clients",
+          "small types crate if it reduces real dependency pressure"
+        ],
+        [
+          "Multiple transports",
+          "port plus optional adapter crates"
+        ],
+        [
+          "Consumer extension",
+          "traits only at genuine capability seams"
+        ],
+        [
+          "Process isolation or untrusted code",
+          "plugin [09] or Wasm [10], not ordinary callbacks"
+        ],
+        [
+          "CLI plus reusable engine",
+          "library here, thin CLI [02]"
+        ]
+      ]
+    }
+  ]
+}

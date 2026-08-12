@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\20-BOOTSTRAP-CI-TESTING-PERF-AND-DISTRIBUTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|              RUSTC SELF-HOSTING + QUALITY + DISTRIBUTION                  |\n|                                                                           |\n|  BOOTSTRAP: build the compiler with a compiler                            |\n|                                                                           |\n|  stage0: downloaded beta rustc + std/library                              |\n|      | compiles in-tree compiler crates                                   |\n|      v                                                                    |\n|  stage1: rustc built by stage0                                            |\n|      | good for most contributor build/test cycles                        |\n|      v                                                                    |\n|  stage2: rustc built by stage1                                            |\n|      | self-hosted candidate for distribution                             |\n|      v                                                                    |\n|  stage3: optional rebuild by stage2                                       |\n|      | checks reproducibility / determinism: stage2 ~= stage3             |\n+---------------------------------------------------------------------------+\n|  CI / RELEASE FUNNEL                                                       |\n|                                                                           |\n|  PR -> x.py check/test -> try build -> bors full CI -> merge               |\n|       |                 |                                                  |\n|       |                 +-> rustc-perf: compile-time / memory evidence     |\n|       |                                                                  |\n|       +-> crater: ecosystem compile/test regression runs                  |\n|                                                                           |\n|  merged main / beta / stable branch                                       |\n|       | scheduled nightly job or controlled release promotion             |\n|       v                                                                   |\n|  dist artifacts -> signed channel manifests -> static.rust-lang.org        |\n|       |                                                                   |\n|       v                                                                   |\n|  rustup installs toolchains                                                |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 98,
+      "heading_context": "## Bootstrap Stages: What Is Built By What",
+      "confidence": "candidate",
+      "text": "+---------+       +---------+       +---------+       +---------+\n| stage0  | ----> | stage1  | ----> | stage2  | ----> | stage3  |\n| beta    |       | built   |       | built   |       | built   |\n| rustc + |       | by      |       | by      |       | by      |\n| std/lib |       | stage0  |       | stage1  |       | stage2  |\n+---------+       +---------+       +---------+       +---------+\n   seed            fast dev          shippable         compare",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 128,
+      "heading_context": "## `x.py` Is the Compiler Build Orchestrator, Not Cargo",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------+\n| ./x.py / ./x                                                     |\n|  Python entry point -> Rust bootstrap binary                     |\n+------------------------------------------------------------------+\n        | reads config.toml / bootstrap.toml\n        v\n+------------------------------------------------------------------+\n| bootstrap plan                                                   |\n|  LLVM: build bundled LLVM or use system LLVM                     |\n|  rustc: stage0 -> stage1 -> stage2                               |\n|  library/: core/alloc/std for host + targets ([16])              |\n|  tools: cargo, rustdoc, clippy, rustfmt, etc. ([19])             |\n|  dist: rust-installer tarballs + manifests                       |\n+------------------------------------------------------------------+\n        |\n        v\n+------------------------------------------------------------------+\n| Cargo invocations, compiler invocations, test harnesses          |\n+------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 210,
+      "heading_context": "## Performance and Ecosystem Regression: Two Orthogonal Farms",
+      "confidence": "candidate",
+      "text": "          +--------------------+          +----------------------+\nPR -----> | @rust-timer queue  | -------> | rustc-perf dashboard |\n          | compile-time/mem   |          | regression deltas    |\n          +--------------------+          +----------------------+\n\n          +--------------------+          +----------------------+\nchange -> | crater fleet       | -------> | ecosystem failures   |\n          | check/build/test   |          | hours/days of data   |\n          +--------------------+          +----------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 239,
+      "heading_context": "## Release Distribution Funnel",
+      "confidence": "candidate",
+      "text": "+------------------+     +------------------+     +-------------------+\n| merged/channel   | --> | scheduled or     | --> | rust-installer    |\n| release revision |     | release builders |     | dist components   |\n+------------------+     +------------------+     +-------------------+\n                                  | PGO / BOLT optimized rustc builds\n                                  v\n                         +-------------------+\n                         | channel manifests |\n                         |nightly/beta/stable|\n                         +-------------------+\n                                  |\n                                  v\n                         +-------------------+\n                         | static.rust-lang. |\n                         | org CDN/feed      |\n                         +-------------------+\n                                  |\n                                  v\n                         +-------------------+\n                         | rustup install /  |\n                         | update / override |\n                         +-------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

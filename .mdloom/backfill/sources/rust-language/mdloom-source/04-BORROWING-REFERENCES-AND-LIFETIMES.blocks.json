@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\04-BORROWING-REFERENCES-AND-LIFETIMES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "# Borrowing, References, and Lifetimes",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                      BORROWING: ALIASING XOR MUTATION                         |\n+===============================================================================+\n\n   SHARED &T  (read)                    EXCLUSIVE &mut T  (read+write)\n   +-----------------------------+      +-----------------------------+\n   |  &v  &v  &v ... &v          |      |          &mut v             |\n   |  any number of readers      |      |  exactly ONE, no other      |\n   |  no writer may coexist      |      |  borrow may coexist         |\n   +-----------------------------+      +-----------------------------+\n\n   THE INVARIANT                        NLL: a borrow lives from FIRST use\n   -------------                        to LAST use, not to end of scope\n   data race needs: 2 accesses,         +---------------------------------+\n   >=1 write, no sync                   | let mut v = ...;                |\n   the &T-xor-&mut-T rule forbids       | let r = &v;   <- borrow starts  |\n   exactly that pattern -> no data      | use(r);       <- LAST use = end |\n   races EVEN across threads (15)       | v.push(1);    <- OK now         |\n                                        +---------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

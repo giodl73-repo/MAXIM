@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\02-BINDINGS-TYPES-AND-INFERENCE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Bindings, Types, and Inference",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                       THE PRIMITIVE / BINDING LAYER                           |\n+===============================================================================+\n\n  BINDINGS                         SCALARS\n  --------                         -------\n  let x = 5;         immutable     i8 i16 i32 i64 i128 isize   (signed)\n  let mut x = 5;     mutable       u8 u16 u32 u64 u128 usize   (unsigned)\n  let x: i64 = 5;    annotated     f32 f64                     (IEEE-754)\n  let x = x + 1;     SHADOWING     bool  (true/false, 1 byte, NOT 0/1)\n                     (new binding) char  (Unicode scalar, 4 bytes, NOT a byte)\n\n  COMPOUND                         SPECIAL\n  --------                         -------\n  (i32, &str, f64)   tuple         ()   unit    \"no meaningful value\"\n  [i32; 4]           array         !    never   \"this never returns\"\n  &[i32]  &str       slice ref\n\n  INFERENCE                        CONVERSIONS\n  ---------                        -----------\n  local + bidirectional            as        explicit numeric cast (lossy OK)\n  flows forward AND backward        From/Into value conversion (lossless)\n  needs a witness eventually        deref/unsize coercion (implicit, limited)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## The Two Special Types: `()` and `!`",
+      "confidence": "candidate",
+      "text": "  meaningful value.\" Functions with no `-> T` return `()`; a `;` turns an",
+      "notes": [
+        "detected from arrows or box-drawing glyphs"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 143,
+      "heading_context": "## The Two Special Types: `()` and `!`",
+      "confidence": "candidate",
+      "text": "let n: i32 = match parse(s) {\n    Ok(v) => v,\n    Err(_) => return,   // `return` has type ! , coerces to i32\n};",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 215,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- **Shadowing vs mutation.** `let x = x + 1` is a new binding; `x = x + 1`",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

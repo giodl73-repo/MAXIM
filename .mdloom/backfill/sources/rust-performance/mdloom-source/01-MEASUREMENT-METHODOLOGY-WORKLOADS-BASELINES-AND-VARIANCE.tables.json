@@ -1,0 +1,233 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 48,
+      "heading_context": "## Define the Operational Metric",
+      "headers": [
+        "Objective",
+        "Useful metrics",
+        "Typical failure"
+      ],
+      "rows": [
+        [
+          "Interactive request",
+          "p50, p95, p99, timeout rate",
+          "Reporting only mean latency"
+        ],
+        [
+          "Batch pipeline",
+          "records/s, elapsed time, CPU-hours",
+          "Ignoring startup or skewed partitions"
+        ],
+        [
+          "Service capacity",
+          "max sustainable throughput at an SLO",
+          "Driving overload and calling queue growth \"capacity\""
+        ],
+        [
+          "Memory",
+          "peak RSS/working set, steady RSS, allocation rate, live bytes",
+          "Treating allocated bytes as resident memory"
+        ],
+        [
+          "Artifact",
+          "compressed/uncompressed binary size, startup page faults",
+          "Reporting file size without symbols/strip policy"
+        ],
+        [
+          "Developer flow",
+          "clean build, incremental edit-build, test critical path",
+          "Mixing clean and warm-cache builds"
+        ],
+        [
+          "Cost",
+          "requests per core-hour, bytes per request, currency per workload",
+          "Comparing different VM or pricing conditions"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 105,
+      "heading_context": "## Baselines and Experimental Design",
+      "headers": [
+        "Design",
+        "Strength",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "Before/after once",
+          "Fast smoke test",
+          "Confounds drift with change"
+        ],
+        [
+          "Repeated A then repeated B",
+          "Estimates within-group variance",
+          "Time trend can bias groups"
+        ],
+        [
+          "Interleaved A/B",
+          "Controls many time trends",
+          "Requires reliable artifact switching"
+        ],
+        [
+          "Paired input trials",
+          "Controls input difficulty",
+          "Pairing must remain intact in analysis"
+        ],
+        [
+          "Production canary",
+          "High external validity",
+          "More uncontrolled variables; needs guardrails"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 140,
+      "heading_context": "## Variance and Statistical Claims",
+      "headers": [
+        "Symptom",
+        "Likely source",
+        "Response"
+      ],
+      "rows": [
+        [
+          "Bimodal latency",
+          "CPU migration, cache state, periodic work, two request classes",
+          "Segment by class; inspect traces"
+        ],
+        [
+          "Long right tail",
+          "queueing, lock convoy, I/O retries, allocator growth",
+          "Measure off-CPU time and concurrency"
+        ],
+        [
+          "Gradual drift",
+          "thermal/frequency changes, background jobs, leak/cache growth",
+          "Interleave runs; extend observation"
+        ],
+        [
+          "High run-to-run spread",
+          "noisy host, small effect, insufficient duration",
+          "Isolate host; increase work/sample"
+        ],
+        [
+          "Stable microbench, unstable service",
+          "omitted subsystem or traffic interaction",
+          "Add end-to-end workload"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 182,
+      "heading_context": "## Runtime vs Compile-Time Matrices",
+      "headers": [
+        "Matrix",
+        "Baseline state",
+        "Candidate state"
+      ],
+      "rows": [
+        [
+          "Runtime",
+          "Same binary profile, workload, host contract",
+          "One code or build change"
+        ],
+        [
+          "Clean build",
+          "Empty `target`, dependencies fetched",
+          "Same cache/fetch state"
+        ],
+        [
+          "Incremental build",
+          "Same prior build plus scripted edit",
+          "Same prior build plus same edit"
+        ],
+        [
+          "CI duration",
+          "Same runner class and cache-key policy",
+          "One graph/cache/tool change"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 194,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust workflow"
+      ],
+      "rows": [
+        [
+          "BenchmarkDotNet job/config",
+          "Criterion benchmark group and Cargo profile"
+        ],
+        [
+          "Perf lab immutable image",
+          "Pinned toolchain, lockfile, target, and host image"
+        ],
+        [
+          "ETW experiment manifest",
+          "Workload/build/environment record plus trace"
+        ],
+        [
+          "A/B service flight",
+          "Rust artifact canary under the same routing policy"
+        ],
+        [
+          "MSBuild clean/incremental timings",
+          "Cargo clean build vs scripted incremental edit"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 221,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Measurement design"
+      ],
+      "rows": [
+        [
+          "Small local operation",
+          "Criterion microbenchmark with `black_box` and preserved baseline"
+        ],
+        [
+          "CPU-bound pipeline",
+          "Fixed corpus, hardware counters, elapsed time, CPU time"
+        ],
+        [
+          "Concurrent service",
+          "Load sweep, latency histogram, throughput at SLO, resource saturation"
+        ],
+        [
+          "Memory reduction",
+          "Allocation profile plus peak/steady RSS under a lifetime-representative workload"
+        ],
+        [
+          "Startup optimization",
+          "Cold process and cold/warm cache cases reported separately"
+        ],
+        [
+          "Build optimization",
+          "Clean and scripted incremental scenarios, each with cache state declared"
+        ],
+        [
+          "Noisy or small effect",
+          "Interleaved paired A/B runs; gate on the effect estimate, uncertainty, and practical threshold"
+        ],
+        [
+          "Release decision",
+          "Feed workload coverage and uncertainty into [15](15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md)"
+        ]
+      ]
+    }
+  ]
+}

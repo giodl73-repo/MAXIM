@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\12-OWNERSHIP-ALLOCATION-ERRORS-AND-UNWINDING-ACROSS-BOUNDARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    BOUNDARY VALUE LIFE CYCLE                               |\n+============================================================================+\n|  CREATE / BORROW                                                           |\n|      |                                                                     |\n|      v                                                                     |\n|  USE under declared validity + aliasing + thread rules                     |\n|      |                                                                     |\n|      v                                                                     |\n|  TERMINAL PATH: success -> return value                                    |\n|  TERMINAL PATH: ordinary error -> translate status                         |\n|  TERMINAL PATH: panic/exception/crash -> contain at boundary               |\n|      |                                                                     |\n|      v                                                                     |\n|  RELEASE ON OWNING SIDE                                                    |\n|  caller buffer | Rust free export | C++ destructor | SafeHandle | Release  |\n|                                                                            |\n|  forbidden: wrong-side free; unwind through unsupported foreign frames     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 104,
+      "heading_context": "## Caller-Allocated Output",
+      "confidence": "candidate",
+      "text": "  call 1: output=NULL, capacity=0 -> required=N\n  caller allocates N bytes in its own heap\n  call 2: output=buffer, capacity=N -> written=N",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                          CARGO'S AUTHORITY                                |\n|                                                                           |\n| Inputs: Cargo.toml + Cargo.lock + workspace + profiles + CLI flags        |\n|                                                                           |\n|  manifests -> resolver -> concrete package graph / Cargo.lock             |\n|       |            |                         |                            |\n|       v            v                         v                            |\n|  unit graph -> scheduler -> rustc invocations                             |\n|                                      |                                    |\n|                                      v                                    |\n|                       target artifacts + fingerprints                     |\n+===========================================================================+\n        |                     |                       |\n        v                     v                       v\n crates.io/default       alternative registries      git/path deps\n separate service        supported by Cargo          local or remote source",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 115,
+      "heading_context": "## Resolution, Lockfiles, and Workspaces",
+      "confidence": "candidate",
+      "text": "+-------------------+        +-------------------+\n| app               |        | Cargo can resolve |\n| foo = \"1\"         | -----> | foo v1.8.0        |\n| bar = \"2\"         |        | bar v2.1.0        |\n+-------------------+        |   -> foo v2.4.0   |\n                             +-------------------+\n\nSame name, different major versions: separate crate identities, both compile.\nSame SemVer line: resolver tries to unify to one concrete version.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 219,
+      "heading_context": "## Fingerprints and Freshness",
+      "confidence": "candidate",
+      "text": "+----------------------+        +--------------------------+\n| Cargo fingerprint    | -----> | skip or invoke rustc     |\n| target/.fingerprint/ |        | whole unit freshness     |\n+----------------------+        +--------------------------+\n          |\n          | distinct from\n          v\n+----------------------+        +--------------------------+\n| rustc incremental    | -----> | reuse query/codegen work |\n| target/.../incr.     |        | inside one crate         |\n+----------------------+        +--------------------------+\n          |\n          | distinct from\n          v\n+----------------------+        +--------------------------+\n| sccache/cache tool   | -----> | reuse compiler outputs   |\n| external layer       |        | across invocations       |\n+----------------------+        +--------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

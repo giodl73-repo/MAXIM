@@ -1,0 +1,137 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\04-ERRORS-PANICS-CRASHES-AND-DIAGNOSTICS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 50,
+      "heading_context": "## Error Taxonomy and Context",
+      "headers": [
+        "Category",
+        "Typical action",
+        "Examples"
+      ],
+      "rows": [
+        [
+          "Invalid request",
+          "reject; no retry without change",
+          "malformed input, failed precondition"
+        ],
+        [
+          "Resource absent",
+          "domain-specific response",
+          "missing record, deleted object"
+        ],
+        [
+          "Contention",
+          "bounded retry or conflict response",
+          "optimistic version mismatch"
+        ],
+        [
+          "Dependency transient",
+          "retry within budget or degrade",
+          "timeout, reset, temporary overload"
+        ],
+        [
+          "Dependency permanent",
+          "fail fast; operator action",
+          "authentication failure, schema mismatch"
+        ],
+        [
+          "Internal defect",
+          "stop unsafe operation; alert",
+          "impossible state, violated invariant"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 157,
+      "heading_context": "## Crash Artifacts",
+      "headers": [
+        "Platform capability",
+        "Useful artifact"
+      ],
+      "rows": [
+        [
+          "Unix-like host",
+          "core dump, journal/stderr, executable, debug symbols, maps"
+        ],
+        [
+          "Windows",
+          "minidump/full dump, Windows Event Log, PDB, executable"
+        ],
+        [
+          "Container platform",
+          "termination reason, previous logs, node events, dump volume"
+        ],
+        [
+          "Any platform",
+          "release ID, source revision, dependency lockfile, config fingerprint"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 171,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "domain enums, `thiserror`, report/context crates, panic hook"
+        ],
+        [
+          "Runtime",
+          "task panic propagation and join behavior; runtime-specific supervision"
+        ],
+        [
+          "Platform",
+          "exit interpretation, restart policy, dump capture, symbol service"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 195,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Domain error enum",
+          "callers need stable programmatic distinctions"
+        ],
+        [
+          "Opaque report with context",
+          "application boundary needs rich operator evidence"
+        ],
+        [
+          "Panic",
+          "internal invariant is broken and continuing locally is unsafe"
+        ],
+        [
+          "`catch_unwind`",
+          "a narrow unwind boundary can restore invariants and isolation"
+        ],
+        [
+          "`panic = \"abort\"`",
+          "process replacement is the policy and unwind is unnecessary"
+        ],
+        [
+          "Core/minidump",
+          "native state or impossible crash needs postmortem analysis"
+        ],
+        [
+          "Clean non-zero exit",
+          "startup/configuration failure is known and reportable"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\05-BUILD-SCRIPTS-PROC-MACROS-COMPILERS-AND-BUILD-TRUST.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 53,
+      "heading_context": "## Host Code: Build Scripts and Proc Macros",
+      "headers": [
+        "Unit",
+        "How it executes",
+        "Typical authority"
+      ],
+      "rows": [
+        [
+          "`build.rs`",
+          "Cargo compiles and runs a host executable",
+          "read env/files, run tools, write `OUT_DIR`, emit Cargo directives; OS policy may allow more"
+        ],
+        [
+          "Proc macro",
+          "rustc loads/executes host-side macro code during expansion",
+          "inspect/generate tokens; process still inherits host access allowed by OS"
+        ],
+        [
+          "Build dependency",
+          "linked into build script or proc macro",
+          "same effective host privilege as its caller"
+        ],
+        [
+          "Native generator",
+          "spawned by build script",
+          "arbitrary behavior within runner controls"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 110,
+      "heading_context": "## Isolate the Build",
+      "headers": [
+        "Control",
+        "Security value",
+        "Limit"
+      ],
+      "rows": [
+        [
+          "Ephemeral runner",
+          "reduces persistence",
+          "base image or control plane may be compromised"
+        ],
+        [
+          "No secrets during compile",
+          "prevents simple exfiltration",
+          "signing/deploy stage must remain separate"
+        ],
+        [
+          "Network restriction",
+          "limits downloads/exfiltration",
+          "preloaded malicious input still executes"
+        ],
+        [
+          "Read-only source",
+          "blocks source rewriting",
+          "generated outputs and artifact tampering remain possible"
+        ],
+        [
+          "Pinned toolchain image",
+          "improves repeatability",
+          "image provenance and patching still matter"
+        ],
+        [
+          "Independent rebuild",
+          "detects some nondeterminism/tampering",
+          "matching compromised builders can collude"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 148,
+      "heading_context": "## Compiler Trust and Diverse Evidence",
+      "headers": [
+        "Claim",
+        "Useful evidence"
+      ],
+      "rows": [
+        [
+          "Approved Rust toolchain was selected",
+          "rustup/toolchain file, `rustc -vV`, image digest"
+        ],
+        [
+          "No undeclared source fetch occurred during build",
+          "offline success plus enforced network telemetry/policy"
+        ],
+        [
+          "Build-time code set is known",
+          "Cargo metadata, proc-macro/custom-build inventory"
+        ],
+        [
+          "Artifact came from this build",
+          "cryptographic digest and provenance statement"
+        ],
+        [
+          "Builder could not sign arbitrary output",
+          "separate signing policy and identity logs"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 158,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust build equivalent"
+      ],
+      "rows": [
+        [
+          "MSBuild custom task / pre-build event",
+          "`build.rs` host executable"
+        ],
+        [
+          "Roslyn Source Generator",
+          "procedural macro loaded during compilation"
+        ],
+        [
+          "NuGet install script risk",
+          "build dependency and macro execution risk"
+        ],
+        [
+          "Hermetic C/C++ toolchain image",
+          "pinned rustup/rustc/Cargo plus native linker/sysroot image"
+        ],
+        [
+          "Release-signing pipeline",
+          "separate digest-verifying signer after isolated build"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 186,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "New proc macro or build script",
+          "Review as host-executed code and update threat model"
+        ],
+        [
+          "Release build",
+          "Use ephemeral least-privilege runner with no production secret"
+        ],
+        [
+          "Toolchain selection",
+          "Pin an approved exact version/image and record `rustc -vV`"
+        ],
+        [
+          "Restricted-network claim",
+          "Enforce at OS/runtime layer; use `--offline` as supporting evidence"
+        ],
+        [
+          "Signing",
+          "Sign the verified digest in a separate authority boundary"
+        ],
+        [
+          "High-consequence artifact",
+          "Add independent rebuild or diverse verification where practical"
+        ],
+        [
+          "Build needs native compiler",
+          "Pin sysroot/linker/library identities and target matrix"
+        ]
+      ]
+    }
+  ]
+}

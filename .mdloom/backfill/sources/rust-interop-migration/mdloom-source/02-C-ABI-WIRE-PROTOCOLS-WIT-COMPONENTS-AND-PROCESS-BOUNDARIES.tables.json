@@ -1,0 +1,234 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\02-C-ABI-WIRE-PROTOCOLS-WIT-COMPONENTS-AND-PROCESS-BOUNDARIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 104,
+      "heading_context": "## Wire Protocols and Process Boundaries",
+      "headers": [
+        "Protocol form",
+        "Good fit",
+        "Watch"
+      ],
+      "rows": [
+        [
+          "HTTP/JSON",
+          "Broad reach, debuggability, moderate throughput",
+          "Schema looseness, text cost, retries"
+        ],
+        [
+          "gRPC/protobuf",
+          "Typed service contracts, streaming, generated clients",
+          "Compatibility discipline, proxies, deadlines"
+        ],
+        [
+          "Domain event stream",
+          "Asynchronous replacement and replay",
+          "Ordering, idempotency, schema registry"
+        ],
+        [
+          "Local named pipe/Unix socket",
+          "Same-host isolation with lower exposure",
+          "Platform differences, lifecycle, permissions"
+        ],
+        [
+          "Custom binary protocol",
+          "Proven throughput/latency need",
+          "Framing, versioning, tooling, security"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 141,
+      "heading_context": "## Decision Matrix",
+      "headers": [
+        "Criterion",
+        "Process/protocol",
+        "WIT/component",
+        "C ABI",
+        "Host bridge"
+      ],
+      "rows": [
+        [
+          "Crash isolation",
+          "Strong",
+          "Sandbox/runtime dependent",
+          "None",
+          "None"
+        ],
+        [
+          "Allocator isolation",
+          "Strong",
+          "Strong across canonical values/resources",
+          "Manual",
+          "Manual/runtime-specific"
+        ],
+        [
+          "Per-call overhead",
+          "Highest",
+          "Medium",
+          "Lowest",
+          "Low to medium"
+        ],
+        [
+          "Language reach",
+          "Broad",
+          "Growing",
+          "Broad",
+          "One host family"
+        ],
+        [
+          "Target portability",
+          "Protocol dependent",
+          "Runtime dependent",
+          "Rebuild/test per target",
+          "Host/toolchain dependent"
+        ],
+        [
+          "Rich host ergonomics",
+          "Generated client",
+          "Generated bindings",
+          "Manual wrappers",
+          "Best"
+        ],
+        [
+          "Independent deployment",
+          "Yes",
+          "Often",
+          "Usually coupled",
+          "Coupled"
+        ],
+        [
+          "Rollback routing",
+          "Strong",
+          "Host-controlled",
+          "Loader/feature switch",
+          "Host-controlled"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 168,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Process/protocol",
+        "WIT/component",
+        "C ABI/host bridge"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Wire schema, not machine ABI",
+          "Canonical ABI mediated by runtime",
+          "Exact calling convention and layout; never Rust ABI or trait objects"
+        ],
+        [
+          "Allocator",
+          "Isolated; bytes copied/streamed",
+          "Runtime/resource ownership",
+          "Matched allocate/free or caller buffers"
+        ],
+        [
+          "Panic/unwind",
+          "Convert to process error/crash signal",
+          "Trap/error mapping",
+          "Catch/translate; never cross ordinary FFI"
+        ],
+        [
+          "Lifetime",
+          "Request/message/resource lifetime",
+          "Resource handle contract",
+          "Borrow duration or opaque handle release"
+        ],
+        [
+          "Threading",
+          "Concurrent requests, ordering, backpressure",
+          "Host/runtime scheduling",
+          "Affinity, reentrancy, callback thread"
+        ],
+        [
+          "Target",
+          "Transport and server deployment matrix",
+          "Runtime/WASI/architecture matrix",
+          "OS/arch/libc/CRT/toolchain matrix"
+        ],
+        [
+          "Packaging",
+          "Service/image plus schema/client",
+          "Component plus runtime/config",
+          "Native artifact plus host package and loader rules"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 180,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar boundary",
+        "Modern migration reading"
+      ],
+      "rows": [
+        [
+          "RPC/IDL",
+          "Protocol or WIT schema is canonical; generated stubs are replaceable"
+        ],
+        [
+          "Shared library API",
+          "C ABI facade plus opaque handles"
+        ],
+        [
+          "AppDomain/process isolation",
+          "Sidecar/service seam with explicit failure and deployment"
+        ],
+        [
+          "COM interface versioning",
+          "Capability/version negotiation rather than exposing implementation layout"
+        ],
+        [
+          "Plugin sandbox",
+          "Component runtime with explicit imports/exports and capabilities"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 206,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Independent rollout, failure isolation, easy routing rollback",
+          "Process plus versioned protocol"
+        ],
+        [
+          "Sandboxed portable component and supported host runtime",
+          "WIT/component model"
+        ],
+        [
+          "Tight in-process latency and broad native reach",
+          "C ABI with opaque handles"
+        ],
+        [
+          "Best ergonomics in one managed/scripting runtime",
+          "Host bridge over a narrow universal core"
+        ],
+        [
+          "Shared rich Rust types between separately built binaries",
+          "Do not; compile together or redesign the boundary"
+        ],
+        [
+          "Extensible plugin function table",
+          "Versioned `repr(C)` table with size/version fields, never a Rust trait object"
+        ]
+      ]
+    }
+  ]
+}

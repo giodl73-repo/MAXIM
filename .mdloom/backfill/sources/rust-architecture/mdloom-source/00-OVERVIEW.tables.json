@@ -1,0 +1,128 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\00-OVERVIEW.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 100,
+      "heading_context": "## The Three Boundaries That Organize Everything",
+      "headers": [
+        "Boundary",
+        "Left side (contract)",
+        "Right side (implementation)"
+      ],
+      "rows": [
+        [
+          "**Language vs compiler**",
+          "Reference, accepted RFCs, editions, compatibility policy — documented stable behavior and evolution",
+          "`rustc` phases, IRs, query keys — one way to realize it"
+        ],
+        [
+          "**Stable vs internal**",
+          "`#[stable]` std API, CLI flags without `-Z`, `--emit` kinds",
+          "HIR/MIR shapes, `rmeta` layout, `-Z` flags, pass ordering"
+        ],
+        [
+          "**rustc/Cargo vs ecosystem**",
+          "`rustc` (codegen), `cargo` (build graph) owned by the project",
+          "rustdoc/clippy/RA/Miri build *on* private compiler crates"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 198,
+      "heading_context": "## Reading Paths",
+      "headers": [
+        "You want to understand…",
+        "Read, in order"
+      ],
+      "rows": [
+        [
+          "**How a build actually runs**",
+          "02 → 17 → 18 → 03 → 13 → 14"
+        ],
+        [
+          "**How the compiler thinks**",
+          "03 → 04 → 05 → 06 → 07 → 08 → 09 → 10"
+        ],
+        [
+          "**Why Rust catches memory bugs**",
+          "07 → 09 → 10 (→ 08 for trait obligations)"
+        ],
+        [
+          "**How code becomes machine code**",
+          "09 → 11 → 12 → 13"
+        ],
+        [
+          "**The language process, not the code**",
+          "01 → 02 → 20"
+        ],
+        [
+          "**The tools around the compiler**",
+          "19 → 15 → 16"
+        ],
+        [
+          "**The std library layering**",
+          "16 → 06 → 11 (lang items feed codegen)"
+        ],
+        [
+          "**Shipping and quality-gating rustc itself**",
+          "20 → 14 → 15"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 213,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Answer",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "\"Is this behavior guaranteed?\"",
+          "Check the owning stable surface: Reference/compatibility policy, stable library docs, or documented Cargo/rustc CLI",
+          "owning project team"
+        ],
+        [
+          "\"Which Rust version am I on?\"",
+          "`rustc --version`; managed by rustup",
+          "rustup"
+        ],
+        [
+          "\"Who decides what compiles?\"",
+          "rustc implements the documented language contract; project process resolves gaps",
+          "rustc / lang"
+        ],
+        [
+          "\"Who decides build order?\"",
+          "Cargo's unit graph",
+          "Cargo"
+        ],
+        [
+          "\"Is HIR/MIR/`rmeta` stable?\"",
+          "No — internal, version-sensitive",
+          "rustc"
+        ],
+        [
+          "\"Where does GC live?\"",
+          "Nowhere; no runtime GC exists",
+          "language design"
+        ],
+        [
+          "\"Can I call rustc as a library?\"",
+          "Only via unstable `rustc_private`; RA doesn't",
+          "rustc"
+        ],
+        [
+          "\"What's an edition?\"",
+          "Opt-in surface change, same compiler",
+          "lang / 01"
+        ]
+      ]
+    }
+  ]
+}

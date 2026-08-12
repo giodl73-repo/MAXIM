@@ -1,0 +1,205 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\13-PROC-MACROS-CODE-GENERATION-AND-TOOL-DEPENDENCIES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 85,
+      "heading_context": "## Procedural Macros",
+      "headers": [
+        "Proc-macro concern",
+        "Review question"
+      ],
+      "rows": [
+        [
+          "Token handling",
+          "Does it preserve spans and produce actionable diagnostics?"
+        ],
+        [
+          "API stability",
+          "Is generated public code part of the downstream SemVer surface?"
+        ],
+        [
+          "Compiler/MSRV",
+          "Which stable compiler range is tested?"
+        ],
+        [
+          "Performance",
+          "Does expansion dominate clean/incremental builds?"
+        ],
+        [
+          "Security",
+          "What source/config/environment does the macro read?"
+        ],
+        [
+          "Debuggability",
+          "Can users inspect or reason about generated code?"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 122,
+      "heading_context": "## Build-Time Code Generation",
+      "headers": [
+        "Model",
+        "Location",
+        "Prefer when",
+        "Main risk"
+      ],
+      "rows": [
+        [
+          "Generate in `OUT_DIR`",
+          "Build output",
+          "Input/tool are available and deterministic",
+          "Harder review/debug, host execution every build"
+        ],
+        [
+          "Commit generated source",
+          "Repository",
+          "Reviewability and downstream simplicity matter",
+          "Drift between source schema and output"
+        ],
+        [
+          "Generate release artifact",
+          "Packaging pipeline",
+          "Consumers should not run generator",
+          "Release process becomes authority"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 142,
+      "heading_context": "## Tool Dependencies and `xtask`",
+      "headers": [
+        "Pattern",
+        "Example",
+        "Tradeoff"
+      ],
+      "rows": [
+        [
+          "Workspace tool package",
+          "`tools/xtask`",
+          "Versioned with repo, normal Cargo graph"
+        ],
+        [
+          "Pinned external binary install",
+          "`cargo install tool --version X --locked`",
+          "Bootstrap and binary cache needed"
+        ],
+        [
+          "Toolchain component",
+          "rustfmt/clippy",
+          "Coupled to selected Rust toolchain"
+        ],
+        [
+          "Container/dev image",
+          "Preinstalled tool versions",
+          "Image becomes reproducibility boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 173,
+      "heading_context": "## Inspecting and Testing Generated Behavior",
+      "headers": [
+        "Test",
+        "What it proves"
+      ],
+      "rows": [
+        [
+          "Parser/unit test",
+          "Transformation logic on explicit inputs"
+        ],
+        [
+          "Snapshot test",
+          "Generated shape remains reviewed; requires intentional updates"
+        ],
+        [
+          "Compile-pass test",
+          "Generated code compiles under named toolchain"
+        ],
+        [
+          "Compile-fail test",
+          "Diagnostics and invalid inputs behave as intended"
+        ],
+        [
+          "Re-run determinism",
+          "Same inputs/tool produce same normalized output"
+        ],
+        [
+          "Cross-target check",
+          "Generated code respects target cfg and API availability"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 204,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Familiar mechanism",
+        "Rust mechanism"
+      ],
+      "rows": [
+        [
+          "Compiler annotation processor",
+          "Procedural macro"
+        ],
+        [
+          "Source generator",
+          "Proc macro or generator CLI/build script"
+        ],
+        [
+          "MSBuild task/target",
+          "`build.rs` or `xtask`"
+        ],
+        [
+          "T4/codegen template",
+          "Committed or `OUT_DIR` generation"
+        ],
+        [
+          "Build-only NuGet package",
+          "Build dependency or tool package"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 229,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Prefer"
+      ],
+      "rows": [
+        [
+          "Derive boilerplate from Rust syntax",
+          "Small proc macro with compile tests"
+        ],
+        [
+          "Generate from external schema",
+          "Explicit generator with pinned inputs/tool"
+        ],
+        [
+          "Maximize consumer transparency",
+          "Commit generated source or publish generated artifact"
+        ],
+        [
+          "Keep build logic maintainable",
+          "`xtask` for workflows; `build.rs` only for package build needs"
+        ],
+        [
+          "Reduce host trust",
+          "Avoid network, credentials, and opaque generators during build"
+        ],
+        [
+          "Support multiple targets",
+          "Cross-target compile tests for emitted code"
+        ]
+      ]
+    }
+  ]
+}

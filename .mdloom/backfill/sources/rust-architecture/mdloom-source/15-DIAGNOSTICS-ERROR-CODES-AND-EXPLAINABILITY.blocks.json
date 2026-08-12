@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\15-DIAGNOSTICS-ERROR-CODES-AND-EXPLAINABILITY.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                    RUSTC DIAGNOSTIC PIPELINE                              |\n|                                                                           |\n|  parse/expand/typeck/MIR/borrowck/codegen/lints                           |\n|        |                                                                  |\n|        v                                                                  |\n|  Diagnostic: level + code + primary Span + secondary spans                |\n|        |       labels + notes/help + structured Suggestions               |\n|        v                                                                  |\n|  Session emitter  <---- SourceMap: files, byte offsets, line/column       |\n|        |                                                                  |\n|        +--> human: color, carets, labels, help                            |\n|        +--> JSON: Cargo, rust-analyzer, IDEs, CI systems                  |\n|        +--> short: compact terminal output                                |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 84,
+      "heading_context": "## Structured Suggestions and Applicability",
+      "confidence": "candidate",
+      "text": "+-------------------+       +-----------------------+\n| Diagnostic help   | ----> | Suggestion            |\n| \"try .to_string\"  |       | span: byte range      |\n+-------------------+       | replacement: text     |\n                            | applicability: enum  |\n                            +-----------------------+\n                                      |\n                                      v\n                         cargo fix / rustfix applies only\n                         safe MachineApplicable edits",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 133,
+      "heading_context": "## Lints, Levels, and Compatibility Pressure",
+      "confidence": "candidate",
+      "text": "+----------------+     attributes      +----------------------+\n| source crate   | ------------------> | #[allow(dead_code)]  |\n+----------------+                     +----------------------+\n       |          CLI flags                         |\n       +-------> -A/-W/-D/-F lint-name              |\n       |                                            v\n       |          Cargo manifest             +--------------+\n       +-------> [lints] table ------------> | lint levels  |\n                                             +--------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 200,
+      "heading_context": "## A Concrete Diagnostic Trace",
+      "confidence": "candidate",
+      "text": "$ rustc main.rs\nerror[E0308]: mismatched types\n --> main.rs:2:21\n  |\n2 |     let s: String = \"hello\";\n  |            ------   ^^^^^^^ expected `String`, found `&str`\n  |            |\n  |            expected due to this\n  |\nhelp: try using a conversion method\n  |\n2 |     let s: String = \"hello\".to_string();\n  |                            ++++++++++++\n\n$ rustc --explain E0308\n# prints the extended Error Codes Index entry\n\n$ rustc -D warnings main.rs\n# promotes warnings to errors for this invocation\n\n#[allow(dead_code)]\nfn intentionally_unused() {}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

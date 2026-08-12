@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "INPUT BYTES\n    |\n    +-> framing -> validation -> parse/decode -> domain transform\n    |      |            |             |                 |\n    |      |            |             +-> borrow/own    +-> copy/allocate\n    |      |            +-> UTF-8 / schema / limits\n    |      +-> incremental state over reusable read buffers\n    |\n    +-> result -> encode/serialize -> compress -> frame -> OUTPUT BYTES\n\ncost = scanning + branches + allocation + copies + compression + I/O",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 124,
+      "heading_context": "## Compression Is a Resource Trade",
+      "confidence": "candidate",
+      "text": "uncompressed bytes --compress--> fewer I/O bytes\n        |                            |\n        +-> more CPU/latency         +-> less network/storage time",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

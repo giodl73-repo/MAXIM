@@ -1,0 +1,272 @@
+{
+  "schema_version": "maxim.mdloom-backfill.module.v1",
+  "module_id": "rust-performance",
+  "status": "first-pass-complete",
+  "current_root": "rust-performance",
+  "source_store": ".mdloom/backfill/sources/rust-performance",
+  "frontmatter_contract": ".mdloom/backfill/frontmatter-contract.md",
+  "frontmatter_scope": {
+    "mode": "module-only",
+    "mdloom_output_default": "omit-frontmatter",
+    "mdloom_output_option": "allow-frontmatter-for-metadata-views",
+    "required_kind_values": [
+      "guide",
+      "module-index",
+      "section-index",
+      "concept-index",
+      "source-record",
+      "generated-pack"
+    ],
+    "first_pass": [
+      "rust-performance/00-OVERVIEW.md",
+      "rust-performance/01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md",
+      "rust-performance/02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md",
+      "rust-performance/03-CPU-PROFILING-AND-FLAME-GRAPHS.md",
+      "rust-performance/04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md",
+      "rust-performance/05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md",
+      "rust-performance/06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md",
+      "rust-performance/07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md",
+      "rust-performance/08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md",
+      "rust-performance/09-FILES-NETWORKING-BUFFERING-AND-IO.md",
+      "rust-performance/10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md",
+      "rust-performance/11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md",
+      "rust-performance/12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md",
+      "rust-performance/13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md",
+      "rust-performance/14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md",
+      "rust-performance/15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md"
+    ]
+  },
+  "mdloom_scope": {
+    "config": "mdloom.toml",
+    "include": [
+      "rust-performance/*.md"
+    ],
+    "exclude": [
+      "rust-performance/STATUS.md"
+    ]
+  },
+  "crop_view": ".mdcrop/views/maxim-rust-performance-source-corpus.json",
+  "distribution": {
+    "mdport_pack": ".mdport/packs/maxim-rust-performance-source-corpus.mdport.json",
+    "mdport_pack_sections": 280,
+    "guide_packs": [
+      ".mdport/packs/maxim-rust-performance-overview.mdport.json",
+      ".mdport/packs/maxim-rust-performance-measurement-methodology-workloads-baselines-and-variance.mdport.json",
+      ".mdport/packs/maxim-rust-performance-cargo-profiles-rustc-options-debug-and-release-behavior.mdport.json",
+      ".mdport/packs/maxim-rust-performance-cpu-profiling-and-flame-graphs.mdport.json",
+      ".mdport/packs/maxim-rust-performance-allocation-ownership-memory-footprint-and-allocators.mdport.json",
+      ".mdport/packs/maxim-rust-performance-data-layout-cache-locality-simd-and-vectorization.mdport.json",
+      ".mdport/packs/maxim-rust-performance-iterators-generics-dispatch-inlining-and-codegen.mdport.json",
+      ".mdport/packs/maxim-rust-performance-async-runtime-scheduling-tasks-and-latency.mdport.json",
+      ".mdport/packs/maxim-rust-performance-threads-synchronization-atomics-and-contention.mdport.json",
+      ".mdport/packs/maxim-rust-performance-files-networking-buffering-and-io.mdport.json",
+      ".mdport/packs/maxim-rust-performance-parsing-serialization-compression-and-data-movement.mdport.json",
+      ".mdport/packs/maxim-rust-performance-linking-lto-pgo-bolt-and-binary-size.mdport.json",
+      ".mdport/packs/maxim-rust-performance-compile-time-performance-workspaces-incremental-builds-and-ci-caches.mdport.json",
+      ".mdport/packs/maxim-rust-performance-benchmarking-statistics-criterion-and-regression-gates.mdport.json",
+      ".mdport/packs/maxim-rust-performance-production-profiling-telemetry-capacity-and-cost.mdport.json",
+      ".mdport/packs/maxim-rust-performance-optimization-decision-map-and-release-gate.mdport.json"
+    ],
+    "guide_pack_sections": {
+      "rust-performance/00-OVERVIEW.md": 15,
+      "rust-performance/01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md": 17,
+      "rust-performance/02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md": 21,
+      "rust-performance/03-CPU-PROFILING-AND-FLAME-GRAPHS.md": 19,
+      "rust-performance/04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md": 15,
+      "rust-performance/05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md": 17,
+      "rust-performance/06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md": 17,
+      "rust-performance/07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md": 17,
+      "rust-performance/08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md": 16,
+      "rust-performance/09-FILES-NETWORKING-BUFFERING-AND-IO.md": 17,
+      "rust-performance/10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md": 17,
+      "rust-performance/11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md": 22,
+      "rust-performance/12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md": 20,
+      "rust-performance/13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md": 15,
+      "rust-performance/14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md": 16,
+      "rust-performance/15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md": 19
+    },
+    "fletch_registry": ".fletch/registries/maxim-rust-performance-source-corpus.json"
+  },
+  "source_custody": {
+    "policy": "Each guide must map to an authentic backsource record before pack publication.",
+    "default_state": "partial",
+    "notes": [
+      "Current MAXIM guide paths are not themselves sufficient backsources.",
+      "Backsources can be source notes, cited originals, generated proof artifacts, or reviewed provenance records.",
+      "MDLOOM literal backfill is recorded for all 16 guides; Git provenance is recorded for 0 guides and pending for 16.",
+      "All 16 guides remain partial because external/authentic factual backsources are still pending.",
+      "MDLOOM structured sidecars capture markdown tables plus candidate ASCII tables, charts, and diagrams for quality search/indexing.",
+      "Remaps preserve continuity if guide files move after backfill."
+    ]
+  },
+  "remap": [
+    {
+      "source_id": "mdloom-backfill:rust-performance:00-overview",
+      "source_record": ".mdloom/backfill/sources/rust-performance/00-overview.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/00-OVERVIEW.source.md",
+      "current_paths": [
+        "rust-performance/00-OVERVIEW.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:01-measurement-methodology-workloads-baselines-and-variance",
+      "source_record": ".mdloom/backfill/sources/rust-performance/01-measurement-methodology-workloads-baselines-and-variance.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.source.md",
+      "current_paths": [
+        "rust-performance/01-MEASUREMENT-METHODOLOGY-WORKLOADS-BASELINES-AND-VARIANCE.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:02-cargo-profiles-rustc-options-debug-and-release-behavior",
+      "source_record": ".mdloom/backfill/sources/rust-performance/02-cargo-profiles-rustc-options-debug-and-release-behavior.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.source.md",
+      "current_paths": [
+        "rust-performance/02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:03-cpu-profiling-and-flame-graphs",
+      "source_record": ".mdloom/backfill/sources/rust-performance/03-cpu-profiling-and-flame-graphs.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/03-CPU-PROFILING-AND-FLAME-GRAPHS.source.md",
+      "current_paths": [
+        "rust-performance/03-CPU-PROFILING-AND-FLAME-GRAPHS.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:04-allocation-ownership-memory-footprint-and-allocators",
+      "source_record": ".mdloom/backfill/sources/rust-performance/04-allocation-ownership-memory-footprint-and-allocators.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.source.md",
+      "current_paths": [
+        "rust-performance/04-ALLOCATION-OWNERSHIP-MEMORY-FOOTPRINT-AND-ALLOCATORS.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:05-data-layout-cache-locality-simd-and-vectorization",
+      "source_record": ".mdloom/backfill/sources/rust-performance/05-data-layout-cache-locality-simd-and-vectorization.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.source.md",
+      "current_paths": [
+        "rust-performance/05-DATA-LAYOUT-CACHE-LOCALITY-SIMD-AND-VECTORIZATION.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:06-iterators-generics-dispatch-inlining-and-codegen",
+      "source_record": ".mdloom/backfill/sources/rust-performance/06-iterators-generics-dispatch-inlining-and-codegen.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.source.md",
+      "current_paths": [
+        "rust-performance/06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:07-async-runtime-scheduling-tasks-and-latency",
+      "source_record": ".mdloom/backfill/sources/rust-performance/07-async-runtime-scheduling-tasks-and-latency.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.source.md",
+      "current_paths": [
+        "rust-performance/07-ASYNC-RUNTIME-SCHEDULING-TASKS-AND-LATENCY.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:08-threads-synchronization-atomics-and-contention",
+      "source_record": ".mdloom/backfill/sources/rust-performance/08-threads-synchronization-atomics-and-contention.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.source.md",
+      "current_paths": [
+        "rust-performance/08-THREADS-SYNCHRONIZATION-ATOMICS-AND-CONTENTION.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:09-files-networking-buffering-and-io",
+      "source_record": ".mdloom/backfill/sources/rust-performance/09-files-networking-buffering-and-io.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/09-FILES-NETWORKING-BUFFERING-AND-IO.source.md",
+      "current_paths": [
+        "rust-performance/09-FILES-NETWORKING-BUFFERING-AND-IO.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:10-parsing-serialization-compression-and-data-movement",
+      "source_record": ".mdloom/backfill/sources/rust-performance/10-parsing-serialization-compression-and-data-movement.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.source.md",
+      "current_paths": [
+        "rust-performance/10-PARSING-SERIALIZATION-COMPRESSION-AND-DATA-MOVEMENT.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:11-linking-lto-pgo-bolt-and-binary-size",
+      "source_record": ".mdloom/backfill/sources/rust-performance/11-linking-lto-pgo-bolt-and-binary-size.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.source.md",
+      "current_paths": [
+        "rust-performance/11-LINKING-LTO-PGO-BOLT-AND-BINARY-SIZE.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:12-compile-time-performance-workspaces-incremental-builds-and-ci-caches",
+      "source_record": ".mdloom/backfill/sources/rust-performance/12-compile-time-performance-workspaces-incremental-builds-and-ci-caches.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.source.md",
+      "current_paths": [
+        "rust-performance/12-COMPILE-TIME-PERFORMANCE-WORKSPACES-INCREMENTAL-BUILDS-AND-CI-CACHES.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:13-benchmarking-statistics-criterion-and-regression-gates",
+      "source_record": ".mdloom/backfill/sources/rust-performance/13-benchmarking-statistics-criterion-and-regression-gates.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.source.md",
+      "current_paths": [
+        "rust-performance/13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:14-production-profiling-telemetry-capacity-and-cost",
+      "source_record": ".mdloom/backfill/sources/rust-performance/14-production-profiling-telemetry-capacity-and-cost.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.source.md",
+      "current_paths": [
+        "rust-performance/14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    },
+    {
+      "source_id": "mdloom-backfill:rust-performance:15-optimization-decision-map-and-release-gate",
+      "source_record": ".mdloom/backfill/sources/rust-performance/15-optimization-decision-map-and-release-gate.source-record.md",
+      "generated_source": ".mdloom/backfill/sources/rust-performance/mdloom-source/15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.source.md",
+      "current_paths": [
+        "rust-performance/15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md"
+      ],
+      "custody_status": "partial",
+      "remap_status": "current-paths-recorded"
+    }
+  ],
+  "gates": [
+    "frontmatter-contract-applied",
+    "source-custody-partial",
+    "proof-module-clean",
+    "crop-views-added",
+    "full-proof-mdport-packs-emitted",
+    "fletch-registry-added"
+  ]
+}

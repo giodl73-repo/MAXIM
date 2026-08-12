@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\02-SAFE-RUST-UNSAFE-OBLIGATIONS-AND-ASSURANCE-OWNERSHIP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                        ASSURANCE OWNERSHIP STACK                           |\n+============================================================================+\n| PRODUCT OWNER: assets, authorization, abuse resistance, availability       |\n+----------------------------------------------------------------------------+\n| SAFE-API OWNER: API makes invalid states/operations hard or impossible     |\n+----------------------------------------------------------------------------+\n| UNSAFE OWNER: proves validity, aliasing, lifetime, concurrency invariants  |\n+----------------------------------------------------------------------------+\n| DEPENDENCY OWNER: selects versions/features; monitors soundness/advisories |\n+----------------------------------------------------------------------------+\n| BUILD/PLATFORM OWNER: toolchain, native code, runner, OS, deployment       |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 71,
+      "heading_context": "## Unsafe Is a Universal Obligation",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                      UNSAFE PROOF OBLIGATION                               |\n+============================================================================+\n| safe caller inputs                                                         |\n|        |                                                                   |\n|        v                                                                   |\n| establish preconditions: length, alignment, provenance, initialization,    |\n| aliasing, lifetime, thread access, ABI, and panic/cancellation behavior    |\n|        |                                                                   |\n|        v                                                                   |\n| perform the smallest required unsafe operation                             |\n|        |                                                                   |\n|        v                                                                   |\n| restore postconditions: valid safe values, unambiguous ownership, and      |\n| invariants preserved on success, error, panic, cancellation, and drop      |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\16-CORE-ALLOC-STD-PANIC-AND-PLATFORM-LAYERS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 34,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         RUST LIBRARY LAYERS                               |\n|                                                                           |\n|  #![no_std]                                                               |\n|  core: primitives, traits, Option/Result, slices, iterators               |\n|        no heap or OS; base of each viable Rust sysroot                    |\n|                 | requires a global allocator                             |\n|                 v                                                         |\n|  alloc: Box, Vec, String, Rc; Arc requires pointer-width atomics          |\n|        heap allocation, but no hosted OS services                         |\n|                 | requires hosted platform services                       |\n|                 v                                                         |\n|  std: re-exports core + alloc; files, threads, net, time, process         |\n|       facade over platform shims and OS-backed services                   |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 90,
+      "heading_context": "## `alloc`: Heap Without Hosted OS",
+      "confidence": "candidate",
+      "text": "+--------------------+       +------------------------+\n| no_std crate       | ----> | extern crate alloc     |\n+--------------------+       +------------------------+\n          |                             |\n          | requires                    v\n          |                   Box / Vec / String / Rc\n          v\n+--------------------+\n| #[global_allocator]|\n| GlobalAlloc impl   |\n+--------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 156,
+      "heading_context": "## Panic Strategy and Panic Handlers",
+      "confidence": "candidate",
+      "text": "panic!(...) in user code\n        |\n        v\n+-------------------------+\n| panic handler/runtime   |\n+-------------------------+\n     |                 |\n     v                 v\npanic = \"unwind\"     panic = \"abort\"\nrun destructors       terminate process/image\nneeds unwind tables   smaller, no unwinding path",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 177,
+      "heading_context": "## Panic Strategy and Panic Handlers",
+      "confidence": "candidate",
+      "text": "Unwinding resembles C++ exception unwinding in the narrow sense that destructors run while stack frames are unwound. It is not meant to replace `Result` for expected errors. See [09](09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md) for MIR cleanup paths and [13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md) for linking/unwind artifacts.",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\01-BLUEPRINT-CONTRACT-ANATOMY-AND-CROSS-CUTTING-CONCERNS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| INITIATOR CONTRACT                                                         |\n| args / request / delivery / schedule / callback / interrupt                |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| ENTRYPOINT SHELL                                                           |\n| parse | authenticate | admit | correlate | bound concurrency | stop/drain  |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| APPLICATION CONTRACT                                                       |\n| use cases | domain invariants | ports | typed errors | completion meaning  |\n+---------------------+-----------------------------+------------------------+\n                      v                             v\n+-----------------------------------+  +-------------------------------------+\n| EFFECT ADAPTERS                   |  | CROSS-CUTTING POLICY                |\n| store | network | clock | broker  |  | config | telemetry | security       |\n| filesystem | OS | hardware        |  | idempotency | schema | recovery     |\n+---------------------+-------------+  +------------------+------------------+\n                      +-------------------------------+\n                                                      v\n                                      observable result + durable effects",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 67,
+      "heading_context": "## The Five Contract Layers",
+      "confidence": "candidate",
+      "text": "pub trait ReservationStore {\n    fn load(&self, id: ReservationId) -> Result<Option<Reservation>, StoreError>;\n    fn commit(\n        &self,\n        expected: Revision,\n        value: &Reservation,\n    ) -> Result<Revision, StoreError>;\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 114,
+      "heading_context": "## Concrete Workspace Boundary",
+      "confidence": "candidate",
+      "text": "entrypoint ---> application ---> domain\n     |\n     +--------> adapter --------> external system\n                     |\n                     `----------> application port",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 145,
+      "heading_context": "## Cross-Cutting Concerns as Explicit Policy",
+      "confidence": "candidate",
+      "text": "load raw config\n      |\n      v\nparse + validate ----invalid----> fail before admission\n      |\n      v\nconstruct typed Settings\n      |\n      +----> entrypoint lifecycle\n      +----> adapter constructors\n      `----> redacted diagnostic summary",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 175,
+      "heading_context": "## Completion, Retry, and Idempotency",
+      "confidence": "candidate",
+      "text": "attempt(identity)\n    |\n    +--> no prior result --> execute --> record result --> return\n    |\n    `--> prior result ----> return same semantic result",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

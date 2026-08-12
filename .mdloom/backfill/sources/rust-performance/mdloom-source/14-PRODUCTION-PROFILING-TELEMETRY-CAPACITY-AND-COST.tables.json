@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\14-PRODUCTION-PROFILING-TELEMETRY-CAPACITY-AND-COST.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 49,
+      "heading_context": "## Telemetry Layers",
+      "headers": [
+        "Layer",
+        "Core signals"
+      ],
+      "rows": [
+        [
+          "User/SLO",
+          "success, latency distribution, freshness, deadline misses"
+        ],
+        [
+          "Request/job",
+          "route/type, size class, result, queue time, service time"
+        ],
+        [
+          "Runtime",
+          "task/worker queues, thread utilization, lock waits, allocations"
+        ],
+        [
+          "Process",
+          "CPU, RSS/working set, faults, handles/FDs, network/disk bytes"
+        ],
+        [
+          "Host/container",
+          "quota, throttling, steal time, NUMA, disk/network limits"
+        ],
+        [
+          "Dependency",
+          "downstream latency, retries, errors, pool saturation"
+        ],
+        [
+          "Cost",
+          "instance-hours, egress/storage, requests or records per resource unit"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 68,
+      "heading_context": "## Instrumentation Without Cardinality Collapse",
+      "headers": [
+        "Good metric dimension",
+        "Risky metric dimension"
+      ],
+      "rows": [
+        [
+          "route template",
+          "raw URL"
+        ],
+        [
+          "status class",
+          "full error message"
+        ],
+        [
+          "bounded size bucket",
+          "exact object ID"
+        ],
+        [
+          "deployment version",
+          "request correlation ID"
+        ],
+        [
+          "operation name",
+          "arbitrary SQL/query text"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 170,
+      "heading_context": "## Cost Efficiency",
+      "headers": [
+        "Metric",
+        "Formula"
+      ],
+      "rows": [
+        [
+          "Requests per core-hour",
+          "completed requests / allocated core-hours"
+        ],
+        [
+          "CPU time per record",
+          "process CPU seconds / records"
+        ],
+        [
+          "Memory density",
+          "concurrent useful work / GiB"
+        ],
+        [
+          "Network efficiency",
+          "payload bytes / transferred bytes"
+        ],
+        [
+          "Cost per million operations",
+          "total attributable cost / operations * 1,000,000"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 201,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust production practice"
+      ],
+      "rows": [
+        [
+          "ETW + PerfView",
+          "Same native stack/wait analysis with Rust PDBs"
+        ],
+        [
+          "Application Insights",
+          "Rust OpenTelemetry/exporter or SDK integration"
+        ],
+        [
+          "CLR counters",
+          "Process/runtime-specific metrics; no default GC/JIT counters"
+        ],
+        [
+          "Capacity lab",
+          "Load sweep to SLO saturation knee"
+        ],
+        [
+          "Azure flighting",
+          "Version-labeled canary with guardrails"
+        ],
+        [
+          "Cost per transaction",
+          "Requests/records per core-hour and total cloud cost"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 227,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Evidence"
+      ],
+      "rows": [
+        [
+          "Detect user-visible regression",
+          "SLO latency/error distributions by deployment version"
+        ],
+        [
+          "Explain latency",
+          "Trace queue, service, downstream, and write phases"
+        ],
+        [
+          "Explain CPU",
+          "Low-overhead sampled profile with exact symbols"
+        ],
+        [
+          "Explain memory",
+          "RSS plus allocation/live/retention evidence"
+        ],
+        [
+          "Set capacity",
+          "Load sweep to SLO knee with recovery behavior"
+        ],
+        [
+          "Set autoscaling",
+          "Saturation/queue signal with known lead time, not CPU alone"
+        ],
+        [
+          "Prove cost win",
+          "Same SLO/workload, total resource and cloud cost per unit"
+        ],
+        [
+          "Roll out optimization",
+          "Canary with predeclared guardrails and rollback"
+        ]
+      ]
+    }
+  ]
+}

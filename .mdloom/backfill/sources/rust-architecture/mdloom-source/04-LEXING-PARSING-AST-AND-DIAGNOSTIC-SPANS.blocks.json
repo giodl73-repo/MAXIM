@@ -1,0 +1,72 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\04-LEXING-PARSING-AST-AND-DIAGNOSTIC-SPANS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 35,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         RUSTC FRONT-END INPUT                             |\n|                                                                           |\n|  files / stdin / virtual macro output                                     |\n|       |                                                                   |\n|       v                                                                   |\n|  SourceMap: source files -> byte positions -> Span lo/hi + SyntaxContext  |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  rustc_lexer                                                              |\n|  raw tokens: identifiers, literals, punctuation, comments/whitespace      |\n|  low-level shared crate; not a stability contract                         |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  rustc_parse token stream                                                 |\n|  spans attached · symbols interned · delimiters grouped as token trees    |\n|  macro boundary currency: TokenTree / TokenStream                         |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  hand-written parser                                                      |\n|  recursive descent + expression precedence machinery + error recovery     |\n+---------------------------------------------------------------------------+\n             |\n             v\n+---------------------------------------------------------------------------+\n|  rustc_ast                                                                |\n|  faithful syntactic tree, before resolution and HIR lowering              |\n|  feeds macro expansion/name resolution [05], then HIR [06]                |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 87,
+      "heading_context": "## SourceMap and Span: Bytes Plus Provenance",
+      "confidence": "candidate",
+      "text": "+--------------------------+         +------------------------------+\n| SourceFile               |         | Span                         |\n| name: src/main.rs        |         | lo: byte offset              |\n| text: fn main() { ... }  | <------ | hi: byte offset              |\n| line table               |         | ctxt: SyntaxContext          |\n+--------------------------+         +------------------------------+\n                                                |\n                                                v\n                                      +------------------------------+\n                                      | Diagnostic label / suggestion|\n                                      | Macro backtrace / call site  |\n                                      +------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 122,
+      "heading_context": "## Two-Stage Lexing and Symbol Interning",
+      "confidence": "candidate",
+      "text": "+---------------------+       +-----------------------+       +----------------------+\n| bytes               | ----> | rustc_lexer           | ----> | rustc_parse tokens   |\n| UTF-8 source text   |       | raw token kinds       |       | spans + interned ids |\n+---------------------+       +-----------------------+       +----------------------+\n                                                                   |\n                                                                   v\n                                                         +----------------------+\n                                                         | Symbol interner      |\n                                                         | identifier strings   |\n                                                         | compact comparison   |\n                                                         +----------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 162,
+      "heading_context": "## Token Trees and the Macro Boundary",
+      "confidence": "candidate",
+      "text": "macro invocation source\n        |\n        v\n+-------------------+      grouped as       +----------------------+\n| tokens with spans | --------------------> | token trees          |\n+-------------------+                       | ( ... ), { ... }, [] |\n        |                                   +----------------------+\n        |                                           |\n        v                                           v\n parser sees ordinary syntax                 proc macro sees TokenStream\n when not in macro position                  not rustc_ast nodes",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 209,
+      "heading_context": "## Concrete Trace: AST Dumps, Expansion Dumps, and Spans",
+      "confidence": "candidate",
+      "text": "// src/main.rs\nmacro_rules! wrap {\n    ($e:expr) => {{ Some($e) }};\n}\n\nfn main() {\n    let x = wrap!(1 + 2);\n    let y: i32 = \"not an int\";\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 221,
+      "heading_context": "## Concrete Trace: AST Dumps, Expansion Dumps, and Spans",
+      "confidence": "candidate",
+      "text": "# Nightly/unstable: AST before macro expansion is fully lowered.\nrustc +nightly -Z unpretty=ast-tree src/main.rs\n\n# Nightly/unstable: expanded source-like view after macro expansion.\nrustc +nightly -Z unpretty=expanded src/main.rs\n\n# Stable: normal diagnostics carry spans.\nrustc src/main.rs\nerror[E0308]: mismatched types\n --> src/main.rs:7:18\n  |\n7 |     let y: i32 = \"not an int\";\n  |            ---   ^^^^^^^^^^^^ expected `i32`, found `&str`\n  |            |\n  |            expected due to this",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

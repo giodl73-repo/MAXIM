@@ -1,0 +1,191 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\13-ASYNC-THREADING-CALLBACKS-AND-CANCELLATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 112,
+      "heading_context": "## Runtime Ownership",
+      "headers": [
+        "Pattern",
+        "Use",
+        "Hazard"
+      ],
+      "rows": [
+        [
+          "Host owns threads; Rust call is synchronous",
+          "Short bounded native work",
+          "Blocking host thread"
+        ],
+        [
+          "Rust owns dedicated worker pool",
+          "CPU/native jobs from many hosts",
+          "Shutdown, oversubscription"
+        ],
+        [
+          "Rust owns async runtime",
+          "Network/I/O-heavy Rust component",
+          "Nested runtime/blocking, lifecycle"
+        ],
+        [
+          "Host executor calls Rust poll/step API",
+          "Tight host scheduling control",
+          "More adapter complexity"
+        ],
+        [
+          "Separate service",
+          "Independent scheduler and scale",
+          "Protocol/distributed failures"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 145,
+      "heading_context": "## Cancellation and Side Effects",
+      "headers": [
+        "Operation",
+        "Cancellation design"
+      ],
+      "rows": [
+        [
+          "Pure compute",
+          "Cooperative flag; discard partial result"
+        ],
+        [
+          "Idempotent remote request",
+          "Deadline plus idempotency key"
+        ],
+        [
+          "File replace",
+          "Complete temp write or delete temp; publish atomically"
+        ],
+        [
+          "Database transaction",
+          "Roll back before terminal cancellation where possible"
+        ],
+        [
+          "Stream",
+          "Define partial delivery and resume token"
+        ],
+        [
+          "External side effect",
+          "Record operation identity and reconciliation state"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 156,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "Async/thread rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Callback tables/functions use explicit C/system ABI; futures and trait objects never cross as durable ABI."
+        ],
+        [
+          "Allocator",
+          "Callback/context/operation owners release on a defined terminal path; no worker frees host memory with Rust allocator."
+        ],
+        [
+          "Panic/unwind",
+          "Catch/map Rust panics; catch host exceptions in callback adapters; completion still follows terminal-state policy."
+        ],
+        [
+          "Lifetime",
+          "Retain inputs, callbacks, contexts, runtime, and operation handles until completion/cancel teardown is finished."
+        ],
+        [
+          "Threading",
+          "Specify affinity, `Send`/`Sync` assumptions, executor, reentrancy, lock policy, and unload/shutdown races."
+        ],
+        [
+          "Target",
+          "Test scheduler/runtime behavior and callback ABI on each OS/arch/runtime; include single-threaded hosts and apartment models."
+        ],
+        [
+          "Packaging",
+          "Runtime libraries/features, thread permissions, native dependencies, and host integration glue ship as a coherent version."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 168,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior async model",
+        "Rust migration reading"
+      ],
+      "rows": [
+        [
+          "I/O completion ports / reactor",
+          "Event source wakes executor task"
+        ],
+        [
+          ".NET `Task` + `CancellationToken`",
+          "Host projection over explicit Rust operation and cancel token"
+        ],
+        [
+          "Java `CompletableFuture`",
+          "Exactly-once terminal completion marshaled through attached JVM context"
+        ],
+        [
+          "JS Promise + `AbortSignal`",
+          "Promise is result projection; AbortSignal is explicit cancellation request"
+        ],
+        [
+          "COM connection point",
+          "Callback subscription with retain/unadvise and apartment rules"
+        ],
+        [
+          "C completion callback",
+          "Function pointer plus context and exact lifetime/thread contract"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 196,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Pattern"
+      ],
+      "rows": [
+        [
+          "Short bounded native work",
+          "Synchronous call"
+        ],
+        [
+          "CPU-heavy host request",
+          "Worker pool plus host-safe completion"
+        ],
+        [
+          "Rust network engine",
+          "Long-lived Rust runtime owned by component/process"
+        ],
+        [
+          "Host main-thread callback",
+          "Queue through host dispatcher"
+        ],
+        [
+          "Cancellation",
+          "Explicit operation handle/token with documented checkpoints"
+        ],
+        [
+          "Callback state",
+          "Retained context released after terminal completion/unsubscribe"
+        ],
+        [
+          "Complex scheduler mismatch",
+          "Process/service boundary"
+        ]
+      ]
+    }
+  ]
+}

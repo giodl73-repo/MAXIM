@@ -1,0 +1,194 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\12-TESTING-STAGING-FAULT-INJECTION-AND-RECOVERY.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 54,
+      "heading_context": "## Test Portfolio",
+      "headers": [
+        "Test class",
+        "Best at",
+        "Blind spot"
+      ],
+      "rows": [
+        [
+          "Unit",
+          "deterministic state transitions",
+          "real adapters and timing"
+        ],
+        [
+          "Property/model",
+          "broad invariant exploration",
+          "environment integration"
+        ],
+        [
+          "Integration",
+          "driver, protocol, schema behavior",
+          "fleet-scale dynamics"
+        ],
+        [
+          "Contract",
+          "producer/consumer compatibility",
+          "implementation capacity"
+        ],
+        [
+          "Deployment smoke",
+          "package, config, identity, health",
+          "long-tail failures"
+        ],
+        [
+          "Load/soak",
+          "saturation, leaks, tails",
+          "logical rare states unless modeled"
+        ],
+        [
+          "Fault injection",
+          "containment and recovery paths",
+          "unknown unmodeled faults"
+        ],
+        [
+          "Restore drill",
+          "RPO/RTO and backup usability",
+          "normal serving behavior"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 139,
+      "heading_context": "## Safe Fault Injection",
+      "headers": [
+        "Control",
+        "Requirement"
+      ],
+      "rows": [
+        [
+          "Scope",
+          "exact service, cohort, dependency, and time window"
+        ],
+        [
+          "Abort condition",
+          "automatic stop on user-impact or safety signal"
+        ],
+        [
+          "Observability",
+          "fault marker appears in traces/metrics/events"
+        ],
+        [
+          "Ownership",
+          "named conductor and affected on-call owner"
+        ],
+        [
+          "Recovery",
+          "tested reversal before injection"
+        ],
+        [
+          "Data safety",
+          "no destructive production experiment without explicit approval"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Load, Soak, and Recovery",
+      "headers": [
+        "Exercise",
+        "Measure"
+      ],
+      "rows": [
+        [
+          "Step load",
+          "knee where latency/queueing accelerates"
+        ],
+        [
+          "Spike",
+          "admission and shedding behavior"
+        ],
+        [
+          "Soak",
+          "leaks, fragmentation, cache growth, rotation"
+        ],
+        [
+          "Dependency slowdown",
+          "deadline propagation and pool saturation"
+        ],
+        [
+          "Instance loss",
+          "redistribution and capacity margin"
+        ],
+        [
+          "Restore",
+          "recoverable point, elapsed time, validation"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 179,
+      "heading_context": "## Library, Runtime, and Platform Choices",
+      "headers": [
+        "Layer",
+        "Choices and boundary"
+      ],
+      "rows": [
+        [
+          "Library",
+          "built-in test harness, proptest/quickcheck, mock/test adapters, fuzzing"
+        ],
+        [
+          "Runtime",
+          "deterministic time, task tests, scheduler-specific diagnostics"
+        ],
+        [
+          "Platform",
+          "ephemeral environments, network proxies, chaos tools, snapshot/restore"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 202,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Use",
+        "When"
+      ],
+      "rows": [
+        [
+          "Unit test",
+          "local deterministic rule can fail"
+        ],
+        [
+          "Property/model test",
+          "an invariant spans many input/state combinations"
+        ],
+        [
+          "Integration test",
+          "concrete protocol, driver, or schema behavior matters"
+        ],
+        [
+          "Staging smoke",
+          "package/config/identity/deployment shape needs proof"
+        ],
+        [
+          "Load test",
+          "capacity and tail behavior are release risks"
+        ],
+        [
+          "Fault injection",
+          "containment or recovery claim is otherwise untested"
+        ],
+        [
+          "Soak test",
+          "time-dependent growth, leaks, or rotation matter"
+        ],
+        [
+          "Restore drill",
+          "backups and RTO/RPO are operational promises"
+        ]
+      ]
+    }
+  ]
+}

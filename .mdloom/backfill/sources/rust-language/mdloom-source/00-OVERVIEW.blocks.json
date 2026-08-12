@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 38,
+      "heading_context": "# Rust — The Language Landscape",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                         RUST, THE WHOLE STACK                                 |\n+===============================================================================+\n\n   TOOLCHAIN  (01)          rustup -> cargo -> rustc/LLVM -> binary\n   -----------              rustfmt, clippy, rust-analyzer, rustdoc\n        |\n        v\n   CORE TYPE LAYER  (02, 03, 04, 05)\n   +-------------------------------------------------------------------+\n   |  bindings/inference (02)                                          |\n   |  OWNERSHIP: one owner, move-by-default, Drop = RAII (03)          |\n   |  BORROWING: &T aliasing XOR &mut T mutation, lifetimes (04)       |\n   |  ADTs: struct + enum + exhaustive match (05)                      |\n   +-------------------------------------------------------------------+\n        |\n        v\n   ABSTRACTION LAYER  (06, 07, 08)\n   +-------------------------------------------------------------------+\n   |  TRAITS = shared behavior + generic bounds (06)                   |\n   |  static dispatch (monomorphization) vs dyn (07)                   |\n   |  closures as anonymous trait impls: Fn/FnMut/FnOnce (08)          |\n   +-------------------------------------------------------------------+\n        |\n        v\n   STANDARD-LIBRARY LAYER  (09, 10, 11)\n   +-------------------------------------------------------------------+\n   |  collections + Iterator (09)   strings/UTF-8 (10)                 |\n   |  Result/Option/panic = error model (11)                           |\n   +-------------------------------------------------------------------+\n        |\n        v\n   PROGRAM STRUCTURE  (12, 13, 18)\n   +-------------------------------------------------------------------+\n   |  modules/crates/packages/workspaces (12)                          |\n   |  macros + proc-macros + derive (13)                               |\n   |  const eval, cfg, features, editions, MSRV (18)                   |\n   +-------------------------------------------------------------------+\n        |\n        v\n   CONCURRENCY + RUNTIME  (14, 15, 16)\n   +-------------------------------------------------------------------+\n   |  async/Future/Pin (14)   threads/Send/Sync/atomics (15)           |\n   |  Box/Rc/Arc + Cell/RefCell interior mutability (16)               |\n   +-------------------------------------------------------------------+\n        |\n        v\n   ESCAPE HATCH + POLISH  (17, 19, 20)\n   +-------------------------------------------------------------------+\n   |  unsafe/FFI/ABI (17)   testing/docs/fuzz/bench (19)               |\n   |  API design, semver, advanced type patterns (20)                  |\n   +-------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 135,
+      "heading_context": "## Reading Paths",
+      "confidence": "candidate",
+      "text": "  PATH A  \"I need to stop fighting the borrow checker\"\n  ------  03 -> 04 -> 16 -> 08\n          (ownership, borrowing, smart pointers, closures capture)\n\n  PATH B  \"I'm designing a library others will depend on\"\n  ------  06 -> 07 -> 12 -> 20 -> 11\n          (traits, dispatch, module/API layout, semver, error types)\n\n  PATH C  \"I'm writing a concurrent / async service\"\n  ------  15 -> 14 -> 16 -> 11\n          (threads/Send/Sync first, THEN async, sharing, errors)\n\n  PATH D  \"I'm doing systems / FFI / embedded\"\n  ------  02 -> 03 -> 04 -> 17 -> 18 -> 15\n          (layout, ownership, borrowing, unsafe/FFI, cfg/no_std, atomics)\n\n  PATH E  \"I know the ideas, I want fluency\"\n  ------  01 -> 09 -> 05 -> 10 -> 19\n          (workflow, iterators, pattern matching, text, testing)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

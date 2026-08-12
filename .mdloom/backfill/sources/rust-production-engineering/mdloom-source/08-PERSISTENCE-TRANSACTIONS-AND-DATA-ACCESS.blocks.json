@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-production-engineering\\08-PERSISTENCE-TRANSACTIONS-AND-DATA-ACCESS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         DATA ACCESS PATH                                   |\n|                                                                            |\n| request --> validate --> acquire bounded client/connection                 |\n|                              |                                             |\n|                              v                                             |\n|                   begin transaction / operation                            |\n|                              |                                             |\n|                     read --> decide --> write                              |\n|                              |                                             |\n|                 commit + outbox/dedup record                               |\n|                      | success        | uncertain                          |\n|                      v                v                                    |\n|                 return outcome    reconcile by stable key                  |\n|                                                                            |\n| schema/migrations evolve compatibility around every deployed version       |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

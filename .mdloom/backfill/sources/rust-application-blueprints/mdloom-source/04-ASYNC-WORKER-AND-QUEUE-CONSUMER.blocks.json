@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\04-ASYNC-WORKER-AND-QUEUE-CONSUMER.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n| broker authority: delivery identity | lease | order | redelivery           |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| consumer shell                                                             |\n| receive -> decode -> classify -> admit -> establish attempt context        |\n+-----------------------------------+----------------------------------------+\n                                    v\n+----------------------------------------------------------------------------+\n| application handler -> idempotency/inbox -> effects -> outcome             |\n+----------------------+----------------------+------------------------------+\n                       v                      v\n                 durable store          external service\n                       |                      |\n                       +-----------+----------+\n                                   v\n                 ack | retry/release | quarantine/dead-letter",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 87,
+      "heading_context": "## Delivery Semantics",
+      "confidence": "candidate",
+      "text": "delivery D\n   |\n   v\nbegin state transaction\n   |\n   +--> D already complete --> commit/no-op --> ack\n   |\n   `--> apply effects + record D complete\n             |\n             v\n          commit --> ack",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 117,
+      "heading_context": "## Concurrency, Ordering, and Failure",
+      "confidence": "candidate",
+      "text": "receive loop ----> bounded channel ----> N handlers\n     |                                      |\n     +-- pause when full                    +-- report outcome\n     |                                      |\nshutdown: stop receive -> drain until deadline -> release unfinished",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

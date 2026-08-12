@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\01-ESTATE-DISCOVERY-MIGRATION-ECONOMICS-AND-BOUNDARY-SELECTION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                   FROM ESTATE MAP TO FIRST RUST SLICE                      |\n+============================================================================+\n|  INVENTORY                                                                 |\n|  callers -> binaries -> libraries -> runtimes -> data -> deployment        |\n|      |                                                                     |\n|      v                                                                     |\n|  TRACE REAL COUPLING                                                       |\n|  call graph | ownership | callback | thread | schema | loader | operator   |\n|      |                                                                     |\n|      v                                                                     |\n|  SCORE CANDIDATE SEAMS                                                     |\n|  value + pain + isolation + testability + reversibility                    |\n|       minus change rate + data gravity + fan-out + target/package burden   |\n|      |                                                                     |\n|      v                                                                     |\n|  SELECT BOUNDARY                                                           |\n|  process/protocol | WIT/component | C ABI | runtime-specific adapter       |\n|      |                                                                     |\n|      v                                                                     |\n|  DEFINE PROOF                                                              |\n|  compatibility matrix + shadow evidence + rollback drill + exit criteria   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 77,
+      "heading_context": "## Draw Three Graphs",
+      "confidence": "candidate",
+      "text": "  CALL GRAPH                 OWNERSHIP GRAPH             DEPLOYMENT GRAPH\n\n  UI -> API -> engine       host owns request           package A\n              -> codec      engine borrows bytes           |\n                           codec returns buffer             +-> native DLL\n                                                           +-> config/schema\n\n  Shows fan-out             Shows free/retain risk       Shows rollback unit",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

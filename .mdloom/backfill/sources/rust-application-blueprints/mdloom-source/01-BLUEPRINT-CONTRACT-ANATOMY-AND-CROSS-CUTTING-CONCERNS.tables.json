@@ -1,0 +1,257 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\01-BLUEPRINT-CONTRACT-ANATOMY-AND-CROSS-CUTTING-CONCERNS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 57,
+      "heading_context": "## The Five Contract Layers",
+      "headers": [
+        "Layer",
+        "Owns",
+        "Must not silently own"
+      ],
+      "rows": [
+        [
+          "Initiator",
+          "invocation identity and input envelope",
+          "domain mutation policy"
+        ],
+        [
+          "Entrypoint",
+          "admission, decoding, lifecycle, process result",
+          "durable truth"
+        ],
+        [
+          "Application",
+          "use-case ordering and domain invariants",
+          "framework types"
+        ],
+        [
+          "Port",
+          "capability needed from an external authority",
+          "vendor configuration"
+        ],
+        [
+          "Adapter",
+          "protocol, client, serialization, retry mechanics",
+          "business meaning"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 128,
+      "heading_context": "## Cross-Cutting Concerns as Explicit Policy",
+      "headers": [
+        "Concern",
+        "Contract question",
+        "Failure if implicit"
+      ],
+      "rows": [
+        [
+          "Config",
+          "precedence, validation, reload, secret redaction?",
+          "different instances run different policy"
+        ],
+        [
+          "Errors",
+          "which failures are reject, retry, conflict, or defect?",
+          "entrypoints invent inconsistent behavior"
+        ],
+        [
+          "Time",
+          "wall clock or monotonic duration; who supplies it?",
+          "tests flake and expiry rules drift"
+        ],
+        [
+          "Identity",
+          "invocation, causation, correlation, idempotency?",
+          "retries duplicate effects"
+        ],
+        [
+          "Telemetry",
+          "stable event names and required fields?",
+          "dashboards couple to prose logs"
+        ],
+        [
+          "Shutdown",
+          "stop admission, cancel, drain, checkpoint, timeout?",
+          "deploy loses or duplicates work"
+        ],
+        [
+          "Security",
+          "who authenticates and who authorizes?",
+          "adapters become policy authorities"
+        ],
+        [
+          "Evolution",
+          "supported readers/writers and migration order?",
+          "rollback crosses an incompatible boundary"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 166,
+      "heading_context": "## Completion, Retry, and Idempotency",
+      "headers": [
+        "Blueprint",
+        "Completion fact"
+      ],
+      "rows": [
+        [
+          "CLI",
+          "process exits after requested effect is durable or explicitly queued"
+        ],
+        [
+          "HTTP",
+          "response contract is committed; later work is separately identified"
+        ],
+        [
+          "Worker",
+          "delivery is acknowledged only after the chosen completion point"
+        ],
+        [
+          "Batch/ETL",
+          "run ledger and published output agree"
+        ],
+        [
+          "Library",
+          "returned value/error satisfies documented postconditions"
+        ],
+        [
+          "Device",
+          "state transition is applied or safely rejected"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 190,
+      "heading_context": "## Ownership and Authority Ledger",
+      "headers": [
+        "Asset/decision",
+        "Single authority",
+        "Readers",
+        "Recovery authority"
+      ],
+      "rows": [
+        [
+          "Domain invariant",
+          "domain/application owner",
+          "all entrypoints",
+          "application owner"
+        ],
+        [
+          "API/message schema",
+          "producer or protocol owner",
+          "consumers",
+          "compatibility owner"
+        ],
+        [
+          "Database record",
+          "named service/application",
+          "reports, projections",
+          "same owner or documented operator"
+        ],
+        [
+          "Retry policy",
+          "layer owning semantic repeatability and remaining deadline",
+          "operators",
+          "entrypoint/application owner"
+        ],
+        [
+          "Credentials",
+          "deployment platform",
+          "adapter",
+          "platform operator"
+        ],
+        [
+          "Runbook",
+          "deployable owner",
+          "operators",
+          "incident commander"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 226,
+      "heading_context": "## Testing and Rollback Contract",
+      "headers": [
+        "Change",
+        "Safe rollback condition"
+      ],
+      "rows": [
+        [
+          "Code only",
+          "previous artifact accepts current config and data"
+        ],
+        [
+          "Config",
+          "previous and current parsers accept the reverted form"
+        ],
+        [
+          "Database",
+          "old code works during expand/contract window"
+        ],
+        [
+          "Message",
+          "old consumer accepts messages emitted during rollout"
+        ],
+        [
+          "External effect",
+          "compensating or reconciliation path exists"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 253,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Decision",
+        "Prefer",
+        "When"
+      ],
+      "rows": [
+        [
+          "Separate crate",
+          "independent policy, compatibility, or test boundary",
+          "change must be reviewable without adapter details"
+        ],
+        [
+          "Internal module",
+          "implementation decomposition",
+          "no independent ownership or versioning exists"
+        ],
+        [
+          "Trait port",
+          "multiple implementations or test substitute at a real authority boundary",
+          "capability matters more than concrete client"
+        ],
+        [
+          "Concrete dependency",
+          "one stable implementation, no substitution need",
+          "abstraction would only rename the client"
+        ],
+        [
+          "Typed config",
+          "always at composition boundary",
+          "invalid combinations must fail before work"
+        ],
+        [
+          "Idempotency record",
+          "retries can repeat durable effects",
+          "identity and retention can be defined"
+        ],
+        [
+          "Forward repair",
+          "effects or schemas are irreversible",
+          "binary rollback cannot restore truth"
+        ]
+      ]
+    }
+  ]
+}

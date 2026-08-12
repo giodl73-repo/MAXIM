@@ -1,0 +1,220 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\02-CARGO-PROFILES-RUSTC-OPTIONS-DEBUG-AND-RELEASE-BEHAVIOR.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 51,
+      "heading_context": "## Dev and Release Are Policy Bundles",
+      "headers": [
+        "Dimension",
+        "Dev intent",
+        "Release intent",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "Optimization",
+          "Fast compilation, low/no optimization",
+          "Runtime optimization",
+          "Changes code shape dramatically"
+        ],
+        [
+          "Debug assertions",
+          "Usually enabled",
+          "Usually disabled",
+          "May retain validation branches"
+        ],
+        [
+          "Overflow checks",
+          "Usually enabled",
+          "Usually disabled unless configured",
+          "Integer behavior differs where overflow is possible"
+        ],
+        [
+          "Debug info",
+          "Useful for debugging",
+          "Often reduced/absent unless requested",
+          "Profiles need symbols for good stacks"
+        ],
+        [
+          "Incremental",
+          "Commonly enabled",
+          "Commonly disabled",
+          "Build time and CGU reuse trade-offs"
+        ],
+        [
+          "Codegen units",
+          "More parallelism",
+          "Fewer units than dev",
+          "Compile time vs optimization scope"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 109,
+      "heading_context": "## Stable rustc Codegen Options",
+      "headers": [
+        "Goal",
+        "Cargo/profile control",
+        "Direct rustc equivalent or note"
+      ],
+      "rows": [
+        [
+          "Optimization level",
+          "`opt-level`",
+          "`-C opt-level=...`"
+        ],
+        [
+          "Debug information",
+          "`debug`",
+          "`-C debuginfo=...`"
+        ],
+        [
+          "Codegen partitioning",
+          "`codegen-units`",
+          "`-C codegen-units=N`"
+        ],
+        [
+          "LTO",
+          "`lto`",
+          "`-C lto=...`"
+        ],
+        [
+          "Panic strategy",
+          "`panic`",
+          "`-C panic=abort|unwind`"
+        ],
+        [
+          "Overflow checks",
+          "`overflow-checks`",
+          "`-C overflow-checks=yes|no`"
+        ],
+        [
+          "Target tuning",
+          "Cargo config or `RUSTFLAGS`",
+          "`-C target-cpu=...`, `-C target-feature=...`"
+        ],
+        [
+          "Frame pointers",
+          "Cargo config or `RUSTFLAGS`",
+          "`-C force-frame-pointers=yes`"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 164,
+      "heading_context": "## Target, Features, and Build Identity",
+      "headers": [
+        "Input",
+        "Example consequence"
+      ],
+      "rows": [
+        [
+          "Target triple",
+          "ABI, object format, unwind model, available instructions"
+        ],
+        [
+          "Cargo features",
+          "Different dependency/code paths; features are part of workload identity"
+        ],
+        [
+          "`target-cpu`/features",
+          "Vector width and instruction selection"
+        ],
+        [
+          "Linker",
+          "Link time, identical-code folding, debug format, binary layout"
+        ],
+        [
+          "Panic strategy",
+          "Unwind tables and cleanup behavior"
+        ],
+        [
+          "LTO",
+          "Cross-unit optimization and link cost"
+        ],
+        [
+          "Toolchain version",
+          "LLVM and optimizer changes"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "Debug/Release solution configurations",
+          "Cargo `dev`/`release` profiles"
+        ],
+        [
+          "Custom MSBuild configuration",
+          "Named profile with `inherits`"
+        ],
+        [
+          "`/O2`, `/DEBUG`, `/GL`, LTCG",
+          "`opt-level`, `debug`, `lto`, codegen-unit controls"
+        ],
+        [
+          "RyuJIT tiering knobs",
+          "No default JIT; AOT codegen and link policy decide final code"
+        ],
+        [
+          "ReadyToRun/native AOT target matrix",
+          "Rust target triples plus CPU feature policy"
+        ],
+        [
+          "Symbol server/PDB retention",
+          "Preserve PDB/DWARF/dSYM separately from stripped binaries"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 229,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Fast edit-build loop",
+          "`dev` profile; tune dependencies selectively"
+        ],
+        [
+          "Representative runtime benchmark",
+          "`release` or a named release-derived profile"
+        ],
+        [
+          "Profile optimized code",
+          "release-derived `profiling` with `debug = 1`, symbols retained"
+        ],
+        [
+          "Small portable binary",
+          "Measure `opt-level = \"s\"`/`\"z\"`, LTO, panic abort, and stripping"
+        ],
+        [
+          "Fleet-specific maximum throughput",
+          "Evaluate pinned target CPU/features on the oldest supported fleet CPU"
+        ],
+        [
+          "Investigate codegen internals",
+          "Pinned nightly `-Z` only for diagnostics; do not ship the dependency casually"
+        ],
+        [
+          "Reproduce a result",
+          "Save profile, lockfile, features, target, flags, linker, and `rustc -Vv`"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\06-ITERATORS-GENERICS-DISPATCH-INLINING-AND-CODEGEN.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         ABSTRACTION TO MACHINE CODE                         |\n|                                                                             |\n| source                                                                      |\n|  iterators + closures + generics + traits                                   |\n|                |                                                            |\n|                v                                                            |\n| MIR optimization -> monomorphized instances -> codegen units -> backend     |\n|                |                  |                 |                       |\n|                |                  |                 +-> inlining/LTO        |\n|                |                  +-> code size / compile time              |\n|                +-> bounds-check and adapter simplification                  |\n|                                                                             |\n| alternate: dyn Trait / fn pointer -> indirect call -> less specialization   |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 92,
+      "heading_context": "## Static and Dynamic Dispatch",
+      "confidence": "candidate",
+      "text": "generic T: Trait             &dyn Trait / Box<dyn Trait>\n       |                              |\n       v                              v\nmonomorphize per type          fat pointer + vtable call\n       |                              |\ndirect call/inlining           indirect call, type erased",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 115,
+      "heading_context": "## Monomorphization and Code Size",
+      "confidence": "candidate",
+      "text": "parse<T1>  parse<T2>  parse<T3> ... -> distinct mono items\n              |\n              +-> compile time\n              +-> instruction-cache pressure\n              +-> binary size",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

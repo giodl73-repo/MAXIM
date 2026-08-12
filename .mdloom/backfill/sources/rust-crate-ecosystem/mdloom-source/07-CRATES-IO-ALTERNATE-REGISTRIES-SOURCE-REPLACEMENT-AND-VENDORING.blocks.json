@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-crate-ecosystem\\07-CRATES-IO-ALTERNATE-REGISTRIES-SOURCE-REPLACEMENT-AND-VENDORING.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         CARGO SOURCE CHOICES                              |\n+===========================================================================+\n|                                                                           |\n| Cargo.toml dependency                                                     |\n|      |                                                                    |\n|      +-> crates.io registry --------+                                     |\n|      +-> alternate registry --------+--> resolver --> Cargo.lock           |\n|      +-> git repository ------------+                                     |\n|      +-> path dependency -----------+                                     |\n|                                                                           |\n| Operational overlays:                                                     |\n|   source replacement = mirror an existing source                          |\n|   cargo vendor       = directory source for locked packages               |\n|   [patch]            = replace package candidate during resolution         |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 120,
+      "heading_context": "# .cargo/config.toml",
+      "confidence": "candidate",
+      "text": "source replacement:\n  crates.io serde 1.0.X -> mirrored crates.io serde 1.0.X\n\n[patch]:\n  crates.io serde candidate -> reviewed fork/revision for this graph",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

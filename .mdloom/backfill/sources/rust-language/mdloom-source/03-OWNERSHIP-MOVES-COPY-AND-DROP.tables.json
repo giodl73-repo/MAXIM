@@ -1,0 +1,101 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\03-OWNERSHIP-MOVES-COPY-AND-DROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 158,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C++ / .NET",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "RAII destructors (C++)",
+          "`Drop`",
+          "Ordered on normal exit/unwinding; moves prevent double-drop"
+        ],
+        [
+          "`std::move` + move ctor",
+          "move is the *default*; source is statically dead",
+          "No \"moved-from valid but unspecified\" state — it is unusable"
+        ],
+        [
+          "copy constructor (implicit)",
+          "`Clone` (explicit `.clone()`)",
+          "Never implicit; cost is visible"
+        ],
+        [
+          "trivially copyable / POD",
+          "`Copy`",
+          "Same idea; opt-in derive"
+        ],
+        [
+          "`IDisposable` + `using` (.NET)",
+          "`Drop` at scope end",
+          "No `using` block needed; deterministic"
+        ],
+        [
+          "GC finalizers (nondeterministic)",
+          "scope-based `Drop` (no GC)",
+          "Predictable on normal exit/unwinding; aborts and leaks can skip it"
+        ],
+        [
+          "`std::unique_ptr` ownership",
+          "plain owned `T` / `Box<T>`",
+          "Ownership is language-level, not a wrapper"
+        ],
+        [
+          "use-after-move bug (compiles in C++)",
+          "use-after-move is a compile error",
+          "Whole bug class eliminated"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 195,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Do"
+      ],
+      "rows": [
+        [
+          "Pass a value but keep using it",
+          "Borrow it: `&x` / `&mut x` ([04](04-BORROWING-REFERENCES-AND-LIFETIMES.md))"
+        ],
+        [
+          "Need two independent owners",
+          "`x.clone()` (deliberately)"
+        ],
+        [
+          "Small POD you want value semantics",
+          "derive `#[derive(Copy, Clone)]`"
+        ],
+        [
+          "Release a resource at scope end",
+          "Let `Drop` run, or implement it for a wrapper"
+        ],
+        [
+          "Drop something early",
+          "`std::mem::drop(x)`"
+        ],
+        [
+          "Take a field out of `&mut self`",
+          "`std::mem::take` / `replace` / `Option::take`"
+        ],
+        [
+          "Hand ownership to C, skip the destructor",
+          "`std::mem::forget` / `ManuallyDrop` ([17](17-UNSAFE-RUST-FFI-AND-ABI.md))"
+        ],
+        [
+          "Move one field, keep the rest",
+          "partial move (compiler tracks it)"
+        ]
+      ]
+    }
+  ]
+}

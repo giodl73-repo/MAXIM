@@ -1,0 +1,210 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\04-LEXING-PARSING-AST-AND-DIAGNOSTIC-SPANS.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 102,
+      "heading_context": "## SourceMap and Span: Bytes Plus Provenance",
+      "headers": [
+        "Span carries",
+        "Why it matters",
+        "Authority"
+      ],
+      "rows": [
+        [
+          "Byte range",
+          "Exact label placement, edits, suggestions",
+          "rustc implementation"
+        ],
+        [
+          "Source file mapping",
+          "Line/column display and multi-file diagnostics",
+          "rustc implementation"
+        ],
+        [
+          "`SyntaxContext`",
+          "Macro hygiene and expansion provenance [05]",
+          "rustc implementation"
+        ],
+        [
+          "Diagnostic labels",
+          "Primary/secondary spans, machine-applicable fixes [15]",
+          "rustc implementation"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 155,
+      "heading_context": "## Token Trees and the Macro Boundary",
+      "headers": [
+        "Representation",
+        "Used by",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "Internal rustc tokens",
+          "Parser, resolver, expander",
+          "Internal"
+        ],
+        [
+          "Internal token trees",
+          "Macro expansion machinery",
+          "Internal"
+        ],
+        [
+          "`proc_macro::TokenStream`",
+          "Stable procedural macro API",
+          "Stable public API"
+        ],
+        [
+          "`proc_macro2::TokenStream`",
+          "Ecosystem compatibility layer",
+          "Ecosystem crate, not rustc"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 188,
+      "heading_context": "## Parser, AST, and Recovery",
+      "headers": [
+        "Area",
+        "rustc choice",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Parser architecture",
+          "Hand-written recursive descent",
+          "Direct control over diagnostics and recovery"
+        ],
+        [
+          "Expressions",
+          "Precedence/Pratt-style machinery",
+          "Parses Rust operator structure without grammar explosion"
+        ],
+        [
+          "Output",
+          "`rustc_ast`",
+          "Faithful surface tree, before resolution/desugaring"
+        ],
+        [
+          "Recovery",
+          "Insert error nodes, skip to synchronizing tokens, suggest fixes",
+          "More errors per run; heuristics are internal"
+        ],
+        [
+          "Next form",
+          "HIR [06]",
+          "Resolved, lowered, more compiler-friendly identity"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 248,
+      "heading_context": "## Old world -> New world",
+      "headers": [
+        "Old world / familiar model",
+        "Rust analogue",
+        "Important difference"
+      ],
+      "rows": [
+        [
+          "Roslyn `SourceText`",
+          "rustc `SourceMap` file contents",
+          "Rustc's map is private compiler state"
+        ],
+        [
+          "Roslyn `TextSpan` / `Location`",
+          "rustc `Span`",
+          "Rust spans also carry macro hygiene context"
+        ],
+        [
+          "Roslyn syntax trees",
+          "`rustc_ast`",
+          "Rust AST is internal; no stable compiler API"
+        ],
+        [
+          "Roslyn hand-written parser",
+          "rustc hand-written recursive-descent parser",
+          "Same production bias: diagnostics over generated grammar purity"
+        ],
+        [
+          "C# preprocessor tokens",
+          "Rust tokens",
+          "Rust token trees feed real hygienic macros, not just conditional text"
+        ],
+        [
+          "Lisp reader forms",
+          "Rust token trees",
+          "Similar grouped-token currency, but with Rust spans and hygiene"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 266,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Look at",
+        "When",
+        "Who owns it"
+      ],
+      "rows": [
+        [
+          "What syntax is legal Rust?",
+          "Rust Reference grammar and tokens",
+          "Language-contract questions",
+          "lang team / Reference"
+        ],
+        [
+          "Where did this diagnostic point?",
+          "Span labels in compiler output",
+          "User-facing error analysis [15]",
+          "rustc diagnostics"
+        ],
+        [
+          "What did rustc parse?",
+          "`rustc +nightly -Z unpretty=ast-tree`",
+          "Debugging a specific compiler",
+          "rustc internals, unstable"
+        ],
+        [
+          "What did macros expand to?",
+          "`rustc +nightly -Z unpretty=expanded` or `cargo expand`",
+          "Debugging generated code [05]",
+          "`-Z` rustc / ecosystem tool"
+        ],
+        [
+          "What API do proc macros receive?",
+          "`proc_macro::TokenStream`",
+          "Writing stable proc macros [18]",
+          "standard library / proc_macro"
+        ],
+        [
+          "What token API can tools reuse?",
+          "`rustc_lexer` with version pinning",
+          "rustfmt/RA-style tooling [19]",
+          "rustc source, unstable"
+        ],
+        [
+          "Why does parsing differ by edition?",
+          "Edition rules [01]",
+          "Keywords/path syntax surprises",
+          "lang / rustc parser"
+        ],
+        [
+          "Where does semantic identity begin?",
+          "HIR lowering [06]",
+          "After AST/resolution boundary",
+          "rustc internals"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-security-assurance\\09-FFI-NATIVE-LIBRARIES-KERNELS-AND-SANDBOX-BOUNDARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                           CONTAINMENT STACK                                |\n+============================================================================+\n| safe Rust API                                                              |\n+------------------------- sound wrapper ------------------------------------+\n| unsafe Rust + FFI declarations + marshaling                                |\n+------------------------- ABI boundary -------------------------------------+\n| C/C++/assembly library + allocator + language runtime                      |\n+------------------------- syscall boundary ---------------------------------+\n| kernel + drivers + namespaces/job/sandbox policy                           |\n+------------------------- virtualization boundary --------------------------+\n| hypervisor/firmware/hardware                                                |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 98,
+      "heading_context": "## Callbacks, Re-Entrancy, and Unwinding",
+      "confidence": "candidate",
+      "text": "Rust holds invariant temporarily\n      |\n      +--> calls native\n              |\n              +--> callback re-enters Rust\n                         |\n                         +--> observes broken invariant  [BUG]",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

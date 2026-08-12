@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\09-MIR-CONSTRUCTION-TRANSFORMS-AND-INTERPRETATION.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+===========================================================================+\n|                         MIR IN THE RUSTC PIPELINE                         |\n|                                                                           |\n|  HIR + typeck results                                                     |\n|      [06] lowering identity, [07] types/regions/obligations               |\n+---------------------------------------------------------------------------+\n|             |                                                             |\n|             v                                                             |\n|  THIR - typed high-level expression tree                                  |\n|             |                                                             |\n|             v                                                             |\n|  MIR build - locals, places, rvalues, blocks, terminators                 |\n|             +--> borrowck input [10]      +--> CTFE interpreter           |\n|             |    flow-sensitive loans     |    const/static/len/const fn  |\n|             |                             |                               |\n|             +--> MIR transforms/opts      +--> compile-time constants     |\n|             |                                                             |\n|             v                                                             |\n|  mono + codegen units [11] -> backend IR / LLVM / other backends [12]     |\n+===========================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 67,
+      "heading_context": "## What MIR Is",
+      "confidence": "candidate",
+      "text": "+-----------------------+\n| fn body               |\n|  locals: _0, _1, ...  |\n+-----------+-----------+\n            |\n            v\n+-----------------------+      +-----------------------+\n| bb0                   | ---> | bb1                   |\n|  statements           |      |  statements           |\n|  terminator           |      |  terminator           |\n+-----------+-----------+      +-----------+-----------+\n            |                              |\n            v                              v\n+-----------------------+      +-----------------------+\n| bb2                   |      | cleanup / unwind edge |\n|  ...                  |      |  drop then resume     |\n+-----------------------+      +-----------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 109,
+      "heading_context": "## Construction: HIR -> THIR -> MIR",
+      "confidence": "candidate",
+      "text": "+------------------+      +------------------+      +------------------+\n| typed HIR        | ---> | THIR             | ---> | MIR build        |\n| item identity    |      | typed expr tree  |      | blocks/locals    |\n| typeck tables    |      | pattern structure|      | explicit control |\n+------------------+      +------------------+      +------------------+\n                                   |                         |\n                                   v                         v\n                           match decision tree        `switchInt` / edges\n                           overloaded ops resolved    calls / drops / temps",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 143,
+      "heading_context": "## Drop Elaboration: Rust RAII Made Concrete",
+      "confidence": "candidate",
+      "text": "+---------------------+      +---------------------+      +------------------+\n| logical MIR         | ---> | move/init analysis  | ---> | elaborated MIR   |\n| \"drop x here\"       |      | is place initialized|      | if flag: drop x  |\n| cleanup edges       |      | on this path?       |      | update flags     |\n+----------+----------+      +----------+----------+      +---------+--------+\n           |                            |                           |\n           v                            v                           v\n  source-level RAII             conditional moves             concrete cleanup",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 182,
+      "heading_context": "## MIR Transforms and Optimizations",
+      "confidence": "candidate",
+      "text": "MIR build\n   |\n   +--> analysis-prep MIR ---------------> borrowck [10]\n   |\n   +--> optimized MIR -------------------> mono/codegen [11][12]\n           simplify cfg, inline, fold, clean",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 205,
+      "heading_context": "## CTFE and the MIR Interpreter",
+      "confidence": "candidate",
+      "text": "+----------------------+        +-----------------------------+\n| const context        | -----> | MIR interpreter             |\n| const/static/len     |        | abstract allocations        |\n| const fn invocation  |        | provenance-aware pointers   |\n+----------------------+        | checked operations          |\n                                +-----------------------------+\n                                               |\n                                               v\n          in-compiler CTFE result                         standalone Miri tool\n          feeds type/layout/codegen                       extra UB diagnostics",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 260,
+      "heading_context": "## Concrete Trace",
+      "confidence": "candidate",
+      "text": "bb0: switchInt(_1) -> [0: bb2, otherwise: bb1]\n\nbb1: _0 = Add(const 10_i32, const 1_i32)\n     goto -> bb3\n\nbb2: _0 = Sub(const 10_i32, const 1_i32)\n     goto -> bb3\n\nbb3: return",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

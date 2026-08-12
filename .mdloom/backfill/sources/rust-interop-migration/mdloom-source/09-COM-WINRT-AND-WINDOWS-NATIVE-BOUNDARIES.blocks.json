@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\09-COM-WINRT-AND-WINDOWS-NATIVE-BOUNDARIES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 30,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                       WINDOWS-NATIVE BOUNDARIES                            |\n+============================================================================+\n|  UNIVERSAL CORE CONTRACT                                                   |\n|  process/protocol or versioned C ABI around Rust core                      |\n|      |                                                                     |\n|      v                                                                     |\n|  PROJECTION A - WIN32 C/SYSTEM ABI                                         |\n|  handles, BOOL, HRESULT, windows crate                                     |\n|                                                                            |\n|  PROJECTION B - COM: IUnknown, GUID, vtable, AddRef/Release, apartment     |\n|  PROJECTION C - WINRT: metadata, HSTRING, async, capabilities              |\n|      |                                                                     |\n|      v                                                                     |\n|  WINDOWS TARGET/PACKAGE                                                    |\n|  MSVC/GNU choice | x64/arm64 | DLL search | registration | MSIX/signing    |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 91,
+      "heading_context": "## COM Contract",
+      "confidence": "candidate",
+      "text": "  interface pointer\n       |\n       v\n  +--------------------------------------------------------+\n  | vtable                                                 |\n  | QueryInterface -> discover IID/interface               |\n  | AddRef         -> increment owner count                |\n  | Release        -> decrement; destroy at zero           |\n  | methods        -> HRESULT plus ABI parameters          |\n  +--------------------------------------------------------+\n\n  identity + interface versioning + reference counting + apartment rules",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 189,
+      "heading_context": "## Common Confusion Points",
+      "confidence": "candidate",
+      "text": "- **\"COM is just a C++ class ABI.\"** It is a specified interface ABI with",
+      "notes": [
+        "detected from ASCII table borders or pipe-aligned rows"
+      ]
+    }
+  ]
+}

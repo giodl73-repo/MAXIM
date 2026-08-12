@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\18-CONST-STATICS-CFG-FEATURES-AND-EDITIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "# Const, Statics, cfg, Features, and Editions",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                   COMPILE-TIME CONFIGURATION LAYERS                           |\n+===============================================================================+\n\n  COMPILE-TIME VALUES              CONDITIONAL COMPILATION\n  ------------------              -----------------------\n  const NAME: T = expr;           #[cfg(test)]              only in `cargo test`\n    value item; no unique identity #[cfg(target_os=\"linux\")] per-OS code\n  static S: T = expr;             #[cfg(feature=\"tls\")]     per Cargo feature\n    single address, 'static       cfg!(...) macro           compile-time bool value\n\n  LAZY / RUNTIME INIT             FEATURES (Cargo.toml)      EDITIONS\n  -------------------             ---------------------      --------\n  OnceLock / LazyLock (std)       [features]                 2015 2018 2021 2024\n    thread-safe one-time init       tls = [\"dep:openssl\"]    opt-in surface changes,\n  (once_cell crate historically)  ADDITIVE only; a feature   same compiler; per-crate\n                                    must never remove API     edition = \"2024\"\n  TARGETS                                                    MSRV\n  -------                                                    ----\n  rustup target add ...           rust-version = \"1.74\"  (Cargo checks it)\n  --target x86_64-...             the oldest compiler you promise to support",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

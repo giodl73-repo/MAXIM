@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                    RUST APPLICATION BLUEPRINTS                             |\n|----------------------------------------------------------------------------|\n| CALLER-FACING: CLI [02]; HTTP/API [03]; reusable library/SDK [08]          |\n| DURABLE WORK: worker [04]; scheduled [05]; ETL [06]; messaging [07]        |\n| MULTI-AUTHORITY: distributed application [13]                              |\n|----------------------------------------------------------------------------|\n| SHARED CONTRACT [01]                                                       |\n| use cases | domain policy | ports | config | errors | telemetry | shutdown |\n|----------------------------------------------------------------------------|\n| SPECIAL EXECUTION BOUNDARIES                                               |\n| plugin host [09] | Wasm/component [10] | embedded [11] | Windows [12]      |\n|----------------------------------------------------------------------------|\n| REPOSITORY + LIFECYCLE                                                     |\n| monorepo/multi-workspace [14] | selection, evolution, exit criteria [15]   |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 69,
+      "heading_context": "## The Axes That Select a Blueprint",
+      "confidence": "candidate",
+      "text": "What starts the work?\n  human/shell    caller code    request    time/message    host/device\n       |              |            |            |              |\n      CLI          library        HTTP       batch/worker    plugin/device\n                                    |\n                       independent authority needed?\n                              /             \\\n                            yes              no\n                             |                |\n                        distributed      one deployable",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\07-DISPATCH-TRAIT-OBJECTS-AND-IMPL-TRAIT.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 187,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "C++ templates",
+          "generics / monomorphization",
+          "Same codegen model; bounds are checked at definition"
+        ],
+        [
+          "C++ `virtual` methods",
+          "`dyn Trait` (vtable)",
+          "Opt-in per use, not per-class default"
+        ],
+        [
+          "Java/C# interface reference",
+          "`&dyn Trait` / `Box<dyn Trait>`",
+          "Explicit `dyn`; fat pointer, not header vtable"
+        ],
+        [
+          "C# `where T:` generics (JIT-specialized for value types)",
+          "monomorphization",
+          "Rust always monomorphizes; no boxing surprise"
+        ],
+        [
+          "Returning an interface",
+          "`-> impl Trait` (static) or `-> Box<dyn Trait>` (dynamic)",
+          "Choose cost explicitly"
+        ],
+        [
+          "`Func<>`/lambda return",
+          "`-> impl Fn(...)`",
+          "Names the unnameable closure type"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 218,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Hot path, one or few types, want inlining",
+          "generics (static dispatch)"
+        ],
+        [
+          "Heterogeneous collection of trait impls",
+          "`Vec<Box<dyn Trait>>`"
+        ],
+        [
+          "Runtime-selected implementations compiled in one Rust build",
+          "`dyn Trait`"
+        ],
+        [
+          "Dynamic-library/plugin ABI across compiler builds",
+          "explicit C ABI or a stable-ABI framework; not `dyn Trait`"
+        ],
+        [
+          "Return a closure or iterator",
+          "`-> impl Trait` (RPIT)"
+        ],
+        [
+          "Different concrete return types per branch",
+          "`-> Box<dyn Trait>`"
+        ],
+        [
+          "Trait method returning an iterator/future",
+          "RPITIT / `async fn` (stable 1.75+)"
+        ],
+        [
+          "Share one hidden type across functions",
+          "`Box<dyn>` on stable; TAIT only on nightly"
+        ],
+        [
+          "Keep a trait usable as `dyn`",
+          "avoid generic methods / `-> Self`; use `where Self: Sized`"
+        ]
+      ]
+    }
+  ]
+}

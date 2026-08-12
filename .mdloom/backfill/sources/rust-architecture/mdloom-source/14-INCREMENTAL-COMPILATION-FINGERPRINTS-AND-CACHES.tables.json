@@ -1,0 +1,404 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\14-INCREMENTAL-COMPILATION-FINGERPRINTS-AND-CACHES.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 61,
+      "heading_context": "## Cargo Freshness vs rustc Incremental Reuse",
+      "headers": [
+        "Layer",
+        "Unit of decision",
+        "State it tracks",
+        "Typical question"
+      ],
+      "rows": [
+        [
+          "Cargo",
+          "Package target / crate unit / feature-profile combination",
+          "Manifest, lockfile, source mtimes/hashes, build script outputs, env, rustc flags",
+          "\"Do I invoke rustc for this unit?\""
+        ],
+        [
+          "rustc",
+          "Query node and codegen work product inside one crate",
+          "DepGraph edges, fingerprints, serialized query results, CGU objects",
+          "\"Inside this crate, what can I avoid recomputing?\""
+        ],
+        [
+          "sccache-like tools",
+          "Whole compiler invocation",
+          "Command line plus input content hash",
+          "\"Have I seen exactly this compile before?\""
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 108,
+      "heading_context": "## The Red-Green Algorithm",
+      "headers": [
+        "Color",
+        "Meaning",
+        "Consequence"
+      ],
+      "rows": [
+        [
+          "Green",
+          "rustc can prove the value is unchanged",
+          "Reuse cached result or work product"
+        ],
+        [
+          "Red",
+          "Some observed input changed in a value-changing way",
+          "Recompute and propagate invalidation"
+        ],
+        [
+          "Unknown",
+          "Not yet validated this session",
+          "Walk dependencies until green/red is known"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 120,
+      "heading_context": "## Fingerprints, Stable Hashing, and Identity",
+      "headers": [
+        "Mechanism",
+        "Role",
+        "Caveat"
+      ],
+      "rows": [
+        [
+          "Fingerprint",
+          "Usually a 128-bit hash of an input or query result",
+          "Internal representation, not a public hash API"
+        ],
+        [
+          "ICH",
+          "Incremental compilation hash used to compare values across sessions",
+          "Debuggable with nightly verification flags only"
+        ],
+        [
+          "Stable hasher",
+          "Makes hashes independent of incidental in-memory addresses",
+          "rustc-internal implementation"
+        ],
+        [
+          "DefPathHash",
+          "Stable identity for definitions across sessions [06](06-HIR-LOWERING-AND-MIDDLE-LEVEL-IDENTITY.md)",
+          "Stable enough for rustc's cache, not a language contract"
+        ],
+        [
+          "Input fingerprints",
+          "Source text, command-line relevant options, dependency metadata, target config",
+          "Changes can invalidate widely"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 156,
+      "heading_context": "## Work Products and the On-Disk Cache",
+      "headers": [
+        "Cached thing",
+        "Why it matters",
+        "Link"
+      ],
+      "rows": [
+        [
+          "Query results",
+          "Avoid rerunning typeck/MIR/trait-related computations when green",
+          "[03](03-RUSTC-DRIVER-SESSION-AND-QUERY-SYSTEM.md)"
+        ],
+        [
+          "DepGraph edges",
+          "Know what must be validated before reuse",
+          "This guide"
+        ],
+        [
+          "CGU work products",
+          "Skip backend/LLVM for unchanged codegen units",
+          "[11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md), [12](12-BACKENDS-LLVM-CRANELIFT-GCC-AND-MACHINE-CODE.md)"
+        ],
+        [
+          "Metadata dependencies",
+          "Detect cross-crate interface changes",
+          "[13](13-ARTIFACTS-METADATA-LINKING-AND-DEBUG-INFO.md)"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 171,
+      "heading_context": "## Limits of Reuse",
+      "headers": [
+        "Limit",
+        "Practical effect"
+      ],
+      "rows": [
+        [
+          "Compiler version changes",
+          "Cache is version-tagged and discarded on mismatch"
+        ],
+        [
+          "Relevant flags/profile/target changes",
+          "New session configuration invalidates affected nodes"
+        ],
+        [
+          "Dependency metadata changes",
+          "Public API changes can invalidate downstream crates broadly"
+        ],
+        [
+          "Not every query is cacheable",
+          "Some computations are always rerun or only tracked for dependencies"
+        ],
+        [
+          "Macro expansion/build script/proc macro effects",
+          "Generated tokens or env-derived output can dirty large regions [18](18-CARGO-BUILD-SCRIPTS-PROC-MACROS-AND-NATIVE-TOOLS.md)"
+        ],
+        [
+          "Release profile defaults",
+          "Cargo enables incremental for dev/debug by default, disables it for release by default"
+        ]
+      ]
+    },
+    {
+      "id": "table-6",
+      "line": 197,
+      "heading_context": "## Commands and Traces",
+      "headers": [
+        "Goal",
+        "Command"
+      ],
+      "rows": [
+        [
+          "Force Cargo dev incremental on",
+          "`CARGO_INCREMENTAL=1 cargo build`"
+        ],
+        [
+          "Force it off for comparison",
+          "`CARGO_INCREMENTAL=0 cargo build`"
+        ],
+        [
+          "Inspect Cargo-level scheduling",
+          "`cargo build --timings`"
+        ],
+        [
+          "Use rustc incremental directly",
+          "`rustc -C incremental=./inc src/lib.rs`"
+        ],
+        [
+          "Nightly verify ICH behavior",
+          "`-Z incremental-verify-ich` (UNSTABLE)"
+        ],
+        [
+          "Nightly self-profile rustc",
+          "`-Z self-profile` (UNSTABLE)"
+        ]
+      ]
+    },
+    {
+      "id": "table-7",
+      "line": 227,
+      "heading_context": "## Old world -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust mapping",
+        "Difference that matters"
+      ],
+      "rows": [
+        [
+          "Roslyn red-green trees",
+          "rustc red-green dep graph",
+          "Same lineage of identity-plus-reuse thinking, but rustc applies it to query results, not just syntax trees"
+        ],
+        [
+          "MSBuild timestamp incremental",
+          "Cargo freshness",
+          "Cargo is coarser than rustc, but still build-graph-level"
+        ],
+        [
+          "Bazel/make task graph",
+          "rustc DepGraph inside one compiler process",
+          "Task graph is at query granularity, not project target granularity"
+        ],
+        [
+          "ccache/sccache",
+          "Whole invocation cache layer",
+          "Separate third layer; rustc incremental is inside an invocation"
+        ],
+        [
+          "PDB/source-server rebuild intuition",
+          "Fingerprints as content identity",
+          "rustc trusts hashes and dependency edges, not only file mtimes"
+        ]
+      ]
+    },
+    {
+      "id": "table-8",
+      "line": 241,
+      "heading_context": "## Stability and Ownership Boundaries",
+      "headers": [
+        "Thing",
+        "Treat as"
+      ],
+      "rows": [
+        [
+          "Correct rebuild behavior",
+          "Observable stable expectation"
+        ],
+        [
+          "`-C incremental=<dir>`",
+          "Stable rustc knob"
+        ],
+        [
+          "`CARGO_INCREMENTAL`",
+          "Stable Cargo environment control"
+        ],
+        [
+          "Cargo profile `incremental` setting",
+          "Stable Cargo configuration surface"
+        ],
+        [
+          "Dep-node kinds, edge layout, fingerprint scheme",
+          "rustc internal"
+        ],
+        [
+          "On-disk incremental cache format",
+          "rustc internal, version-sensitive"
+        ],
+        [
+          "Work-product filenames/layout",
+          "rustc internal"
+        ],
+        [
+          "`-Z incremental-verify-ich`, `-Z self-profile`",
+          "Nightly unstable introspection"
+        ]
+      ]
+    },
+    {
+      "id": "table-9",
+      "line": 258,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "I want to...",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Speed normal debug edit/build loops",
+          "Leave Cargo dev incremental enabled"
+        ],
+        [
+          "Compare clean vs incremental behavior",
+          "`cargo clean`, then `CARGO_INCREMENTAL=0/1 cargo build`"
+        ],
+        [
+          "See crate-level scheduling bottlenecks",
+          "`cargo build --timings` and read [17](17-CARGO-RESOLUTION-WORKSPACES-AND-FINGERPRINTING.md)"
+        ],
+        [
+          "Investigate rustc internal reuse",
+          "Nightly `-Z self-profile` / incremental verification, not production tooling"
+        ],
+        [
+          "Improve incremental codegen reuse",
+          "Understand CGU partitioning in [11](11-MONOMORPHIZATION-CODEGEN-UNITS-AND-VTABLES.md)"
+        ],
+        [
+          "Maximize release runtime performance",
+          "Consider fewer CGUs, LTO, PGO; do not assume incremental helps"
+        ],
+        [
+          "Share build results across machines",
+          "Use sccache-like invocation caching, separate from rustc incremental"
+        ],
+        [
+          "Delete suspicious cache state",
+          "Remove `target\\debug\\incremental` or run `cargo clean`"
+        ]
+      ]
+    },
+    {
+      "id": "table-10",
+      "line": 273,
+      "heading_context": "## Common Confusion Points",
+      "headers": [
+        "Confusion",
+        "Correction"
+      ],
+      "rows": [
+        [
+          "\"Cargo incremental and rustc incremental are the same thing.\"",
+          "Cargo decides whether to invoke rustc; rustc reuses internal query/codegen work once invoked."
+        ],
+        [
+          "\"Green means no upstream file changed.\"",
+          "Green means the query value is proven unchanged, possibly after validating changed inputs."
+        ],
+        [
+          "\"Fingerprints are stable public IDs.\"",
+          "They are rustc-internal cache keys, not an API."
+        ],
+        [
+          "\"The incremental cache is portable.\"",
+          "It is version-, flag-, and target-sensitive; treat it as disposable."
+        ],
+        [
+          "\"Release builds cannot use incremental.\"",
+          "They can be configured to, but Cargo defaults it off for release."
+        ],
+        [
+          "\"More codegen units are always better.\"",
+          "More CGUs can improve reuse/parallelism but may reduce optimization visibility."
+        ],
+        [
+          "\"sccache replaces rustc incremental.\"",
+          "It operates at whole-invocation granularity; rustc incremental operates inside a crate compilation."
+        ]
+      ]
+    },
+    {
+      "id": "table-11",
+      "line": 287,
+      "heading_context": "## Primary Sources",
+      "headers": [
+        "Source",
+        "Use it for"
+      ],
+      "rows": [
+        [
+          "rustc-dev-guide: Incremental compilation",
+          "High-level model and implementation orientation"
+        ],
+        [
+          "rustc-dev-guide: Incremental compilation in detail",
+          "Red-green marking, dep graph, fingerprints, work products"
+        ],
+        [
+          "rustc-dev-guide: Queries",
+          "Why demand-driven queries make the DepGraph possible"
+        ],
+        [
+          "rustc-dev-guide: Salsa-style overview",
+          "Conceptual lineage for query-based incremental computation"
+        ],
+        [
+          "rustc-dev-guide: Debugging and testing incremental",
+          "`-Z` verification and compiler-development diagnostics"
+        ],
+        [
+          "The rustc book: `-C incremental`",
+          "Stable direct rustc knob"
+        ],
+        [
+          "The Cargo Book: build cache, profiles, freshness",
+          "Cargo-level fingerprints and profile defaults"
+        ]
+      ]
+    }
+  ]
+}

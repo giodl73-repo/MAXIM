@@ -1,0 +1,156 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\09-FILES-NETWORKING-BUFFERING-AND-IO.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 66,
+      "heading_context": "## Small Calls vs Buffered Calls",
+      "headers": [
+        "Pattern",
+        "Benefit",
+        "Risk"
+      ],
+      "rows": [
+        [
+          "`BufReader`/`BufWriter`",
+          "Amortizes syscalls, supports incremental processing",
+          "Extra copy and buffer memory"
+        ],
+        [
+          "`read_to_end` / `read_to_string`",
+          "Simple, often efficient for bounded input",
+          "Unbounded memory and delayed processing"
+        ],
+        [
+          "Reused caller buffer",
+          "Controls allocation and lifetime",
+          "More plumbing"
+        ],
+        [
+          "Memory mapping",
+          "Demand paging, random access, fewer explicit reads",
+          "Page faults, lifetime/truncation hazards, platform differences"
+        ],
+        [
+          "Vectored I/O",
+          "One call for several buffers",
+          "OS may partially support; still handle partial writes"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 130,
+      "heading_context": "## Networking and Backpressure",
+      "headers": [
+        "Layer",
+        "Performance question"
+      ],
+      "rows": [
+        [
+          "Application framing",
+          "Are messages copied, scanned, or reassembled repeatedly?"
+        ],
+        [
+          "Socket calls",
+          "Are writes tiny? Are reads sized to actual traffic?"
+        ],
+        [
+          "TCP",
+          "Is latency from RTT, Nagle/delayed ACK interaction, congestion, retransmit?"
+        ],
+        [
+          "TLS",
+          "Handshake reuse, record sizing, encryption CPU, certificate path"
+        ],
+        [
+          "Runtime",
+          "Are tasks woken efficiently and bounded?"
+        ],
+        [
+          "Downstream",
+          "Is the peer applying backpressure or timing out?"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 194,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Prior art",
+        "Rust"
+      ],
+      "rows": [
+        [
+          "`Stream`, `BufferedStream`, `BinaryReader`",
+          "`Read`/`Write`, `BufReader`/`BufWriter`"
+        ],
+        [
+          "Scatter/gather I/O",
+          "`IoSlice` / vectored I/O"
+        ],
+        [
+          "IOCP/epoll",
+          "Async runtime reactor/driver"
+        ],
+        [
+          "`MemoryMappedFile`",
+          "`memmap2` or direct platform APIs"
+        ],
+        [
+          "ETW disk/TCP traces",
+          "Same OS-level tracing for Rust native processes"
+        ],
+        [
+          "Azure throughput/SKU tuning",
+          "Same limits; Rust changes application overhead, not platform quotas"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 219,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Workload",
+        "Start with"
+      ],
+      "rows": [
+        [
+          "Many small file reads",
+          "`BufReader`, reused buffer, syscall/profile evidence"
+        ],
+        [
+          "Bounded file consumed once",
+          "`read_to_end` if memory budget is explicit"
+        ],
+        [
+          "Large random-access immutable file",
+          "Evaluate memory mapping and page-fault behavior"
+        ],
+        [
+          "Many small writes",
+          "`BufWriter`, batching, or vectored writes"
+        ],
+        [
+          "Durable journal",
+          "Explicit flush + file/directory sync protocol; benchmark durability"
+        ],
+        [
+          "High-concurrency sockets",
+          "Async runtime with bounded per-peer work"
+        ],
+        [
+          "Low-latency small TCP messages",
+          "Measure `TCP_NODELAY`, batching, and RTT together"
+        ],
+        [
+          "Suspected I/O bottleneck",
+          "Trace syscalls/waits before optimizing parser code"
+        ]
+      ]
+    }
+  ]
+}

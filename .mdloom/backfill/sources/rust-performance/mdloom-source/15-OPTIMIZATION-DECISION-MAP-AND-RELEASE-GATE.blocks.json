@@ -1,0 +1,39 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\15-OPTIMIZATION-DECISION-MAP-AND-RELEASE-GATE.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 28,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         OPTIMIZATION DECISION                               |\n|                                                                             |\n| problem/SLO -> reproduce -> measure baseline -> profile limiting resource   |\n|                                                    |                        |\n|                              no clear cause? <------+                       |\n|                                  | stop / improve evidence                  |\n|                                  v                                          |\n| choose lowest-risk mechanism -> implement -> verify correctness             |\n|                                  |                                          |\n|                                  v                                          |\n| A/B workload matrix: runtime + memory + build + size + platform             |\n|                                  |                                          |\n|                   no material win? -> revert/record                         |\n|                                  |                                          |\n|                                  v                                          |\n| final artifact -> canary -> guardrails -> release or rollback               |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 51,
+      "heading_context": "## Decision Map",
+      "confidence": "candidate",
+      "text": "START\n  |\n  v\nIs there a measured user, capacity, cost, or delivery problem?\n  | no -> do not optimize; record folklore as unproven\n  |\n yes\n  v\nIs the workload and baseline reproducible?\n  | no -> fix methodology [01]\n  |\n yes\n  v\nWhat resource limits the outcome?\n  |\n  +-> CPU [03] -> layout/SIMD [05] or codegen [06]\n  +-> allocation/RSS [04]\n  +-> async queue/wait [07]\n  +-> lock/cache coherence [08]\n  +-> file/network I/O [09]\n  +-> parse/copy/compress [10]\n  +-> final code layout/size [11]\n  +-> compile/link/CI [12]\n  |\n  v\nCan a simpler algorithm, ownership, batching, or boundary change solve it?\n  | yes -> prefer it\n  | no  -> consider lower-level tuning\n  v\nBenchmark [13] -> production canary [14] -> RELEASE GATE",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 217,
+      "heading_context": "## Rollback Design",
+      "confidence": "candidate",
+      "text": "release N baseline artifact -------------------------------+\n                                                           |\nrelease N+1 optimized -> canary -> expand -> regression? --+-> restore N\n                              |\n                              +-> preserve traces/results for diagnosis",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

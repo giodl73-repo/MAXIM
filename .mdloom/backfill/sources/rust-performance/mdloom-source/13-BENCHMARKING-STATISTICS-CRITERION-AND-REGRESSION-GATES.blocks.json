@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-performance\\13-BENCHMARKING-STATISTICS-CRITERION-AND-REGRESSION-GATES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+=============================================================================+\n|                         BENCHMARK TO GATE                                   |\n|                                                                             |\n| operation/workload -> harness -> repeated samples -> statistical estimate   |\n|          |              |              |                  |                 |\n|          |              |              +-> variance/outliers                |\n|          |              +-> black_box, warm-up, batching                    |\n|          +-> input distributions and sizes                                  |\n|                                                            |                |\n| baseline artifact/result <---------------- comparison ------+               |\n|                                                            |                |\n|                                           practical threshold + uncertainty |\n|                                                            |                |\n|                                      pass / warn / investigate / block      |\n+=============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 194,
+      "heading_context": "## CI Gate Design",
+      "confidence": "candidate",
+      "text": "fast PR tier:\n  correctness + a few low-noise mechanism benchmarks -> warn/block large deltas\n\ncontrolled perf tier:\n  dedicated host + baseline/candidate A/B + full benchmark matrix\n\nproduction tier:\n  canary + SLO/cost guardrails",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

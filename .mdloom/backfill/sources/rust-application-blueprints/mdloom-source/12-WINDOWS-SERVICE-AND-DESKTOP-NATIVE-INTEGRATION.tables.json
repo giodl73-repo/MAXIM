@@ -1,0 +1,146 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-application-blueprints\\12-WINDOWS-SERVICE-AND-DESKTOP-NATIVE-INTEGRATION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 105,
+      "heading_context": "## Service Lifecycle",
+      "headers": [
+        "Service concern",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "Installation/account/start mode",
+          "installer/operator"
+        ],
+        [
+          "SCM status/control",
+          "service host"
+        ],
+        [
+          "Domain work",
+          "application core"
+        ],
+        [
+          "Recovery actions",
+          "SCM/operator policy plus idempotent application startup"
+        ],
+        [
+          "Credentials/ACLs",
+          "deployment/security authority"
+        ],
+        [
+          "Logs/events",
+          "application telemetry contract plus Windows adapter"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 136,
+      "heading_context": "## Desktop, Win32, and COM Integration",
+      "headers": [
+        "Boundary",
+        "Explicit rule"
+      ],
+      "rows": [
+        [
+          "Window dispatcher",
+          "thread affinity and non-blocking handlers"
+        ],
+        [
+          "COM",
+          "apartment initialization, interface lifetime, marshaling"
+        ],
+        [
+          "Native handles",
+          "owning wrapper, close semantics, invalid/null cases"
+        ],
+        [
+          "Strings",
+          "UTF-16 conversion and invalid input policy"
+        ],
+        [
+          "Callbacks",
+          "lifetime, reentrancy, panic containment"
+        ],
+        [
+          "Registry/files",
+          "hive/path, virtualization, ACL, transaction/recovery"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 173,
+      "heading_context": "## Testing and Rollback",
+      "headers": [
+        "Change",
+        "Rollback requirement"
+      ],
+      "rows": [
+        [
+          "Service binary",
+          "stop/drain, replace, restart under same compatible config"
+        ],
+        [
+          "IPC contract",
+          "old/new service and desktop versions interoperate during window"
+        ],
+        [
+          "COM registration",
+          "side-by-side or atomic registration repair plan"
+        ],
+        [
+          "Registry/state",
+          "old version reads current schema or migration is forward-repaired"
+        ],
+        [
+          "Installer",
+          "previous package retained; upgrade/uninstall custom actions reversible"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 200,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Choose"
+      ],
+      "rows": [
+        [
+          "Background machine-wide process",
+          "service host plus neutral application core"
+        ],
+        [
+          "Interactive per-user UI",
+          "desktop host; communicate with service via explicit IPC"
+        ],
+        [
+          "Native API call",
+          "narrow adapter with owning handle types"
+        ],
+        [
+          "COM integration",
+          "apartment-aware adapter and thread-affinity tests"
+        ],
+        [
+          "Cross-platform behavior",
+          "portable core plus target-specific adapter crates"
+        ],
+        [
+          "Simple scheduled maintenance",
+          "scheduled job [05] may be preferable to a service"
+        ],
+        [
+          "Upgrade with state",
+          "installer plus expand/contract state and IPC compatibility"
+        ]
+      ]
+    }
+  ]
+}

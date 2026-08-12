@@ -1,0 +1,135 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\11-ERRORS-RESULT-OPTION-AND-PANIC.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 118,
+      "heading_context": "## Custom Error Types",
+      "headers": [
+        "Crate",
+        "For",
+        "What it does"
+      ],
+      "rows": [
+        [
+          "**thiserror**",
+          "**libraries**",
+          "derive macro that generates `Error`/`Display`/`From` for your enum"
+        ],
+        [
+          "**anyhow**",
+          "**applications / binaries**",
+          "one dynamic `anyhow::Error` (boxed `dyn Error`) + `.context()`"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 172,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "Old world",
+        "Rust",
+        "Difference"
+      ],
+      "rows": [
+        [
+          "Exceptions (`throw`/`catch`)",
+          "`Result<T, E>` + `?`",
+          "Errors are values in the signature; propagation is explicit"
+        ],
+        [
+          "Checked exceptions (Java)",
+          "`Result` in the return type",
+          "Same \"declared failure,\" without the ceremony"
+        ],
+        [
+          "`Nullable<T>` / null",
+          "`Option<T>`",
+          "No null deref; handling forced"
+        ],
+        [
+          "`TryParse` out-param (.NET)",
+          "`Result` / `Option` return",
+          "Failure is the return value"
+        ],
+        [
+          "`try { } catch (A \\| B)`",
+          "`match err { A => .., B => .. }`",
+          "Pattern-match error variants"
+        ],
+        [
+          "exception `.InnerException` chain",
+          "`source()` / anyhow `.context()`",
+          "Explicit cause chain"
+        ],
+        [
+          "`Debug.Assert`",
+          "`assert!` / `debug_assert!`",
+          "Panics; for invariants, not user errors"
+        ],
+        [
+          "unhandled exception crash",
+          "unhandled `Result` = compile warning; `unwrap()` panic",
+          "Compiler nudges you to handle"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 208,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Situation",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Value might be absent (no reason)",
+          "`Option<T>`"
+        ],
+        [
+          "Operation might fail (with reason)",
+          "`Result<T, E>`"
+        ],
+        [
+          "Propagate failure to caller",
+          "`?`"
+        ],
+        [
+          "Handle Ok/Err differently here",
+          "`match` / `if let`"
+        ],
+        [
+          "Provide a default on absence/failure",
+          "`unwrap_or` / `unwrap_or_else` / `unwrap_or_default`"
+        ],
+        [
+          "Convert `Option` <-> `Result`",
+          "`ok_or` / `.ok()`"
+        ],
+        [
+          "Define a library error type",
+          "`thiserror` derive"
+        ],
+        [
+          "Handle errors in an app/binary",
+          "`anyhow::Result` + `.context()`"
+        ],
+        [
+          "No-dependency dynamic error",
+          "`Box<dyn Error + Send + Sync>`"
+        ],
+        [
+          "Signal a broken invariant / bug",
+          "`panic!` / `assert!` / `expect`"
+        ],
+        [
+          "Catch a panic at an FFI/test edge",
+          "`std::panic::catch_unwind` (not as flow control)"
+        ]
+      ]
+    }
+  ]
+}

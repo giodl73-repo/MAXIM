@@ -1,0 +1,185 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\04-CPP-INTEROP.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 54,
+      "heading_context": "## Choose the Bridge Shape",
+      "headers": [
+        "Situation",
+        "Preferred shape"
+      ],
+      "rows": [
+        [
+          "Public SDK or multiple compiler families",
+          "C facade with opaque handles"
+        ],
+        [
+          "One product build controls Rust and C++ toolchains",
+          "`cxx` bridge"
+        ],
+        [
+          "Large C++ API must be consumed with selective automation",
+          "`autocxx`, then narrow wrappers"
+        ],
+        [
+          "Plain C subset in headers",
+          "`bindgen` plus safe Rust facade"
+        ],
+        [
+          "Template-heavy/header-only library",
+          "C++ wrapper translation unit that instantiates a stable narrow API"
+        ],
+        [
+          "Cross-process opportunity exists",
+          "Protocol boundary instead of in-process C++ ABI"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 146,
+      "heading_context": "## Build and Link Topology",
+      "headers": [
+        "Layer",
+        "Typical tool"
+      ],
+      "rows": [
+        [
+          "Compile generated/handwritten C++ glue",
+          "Cargo `cc` crate or outer CMake/MSBuild"
+        ],
+        [
+          "Generate bridge",
+          "`cxx-build`, `autocxx-build`, or `bindgen`"
+        ],
+        [
+          "Outer native graph",
+          "CMake, Meson, Bazel, MSBuild, or Cargo"
+        ],
+        [
+          "Artifact",
+          "Rust `staticlib`/`cdylib`, C++ static/shared library"
+        ],
+        [
+          "ABI verification",
+          "Export scan, header compile tests, per-target integration executable"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 160,
+      "heading_context": "## Boundary Hazard Register",
+      "headers": [
+        "Hazard",
+        "C++ boundary rule"
+      ],
+      "rows": [
+        [
+          "ABI",
+          "Treat C++ ABI as compiler/platform-specific; use C ABI or generated checked glue; never export Rust ABI or trait objects."
+        ],
+        [
+          "Allocator",
+          "Destroy C++ objects in C++; destroy Rust objects in Rust; avoid passing owning `std::string`/`vector` or `Vec` across unmatched runtimes."
+        ],
+        [
+          "Panic/unwind",
+          "Catch C++ exceptions before Rust and Rust panics before C++; use explicit error mapping."
+        ],
+        [
+          "Lifetime",
+          "Encode unique/shared/borrowed semantics in wrapper types; pin when address stability is required."
+        ],
+        [
+          "Threading",
+          "Document object thread safety, callback reentrancy, and destruction thread; C++ types do not become `Send`/`Sync` automatically."
+        ],
+        [
+          "Target",
+          "Pin compiler family/version, standard library, architecture, CRT, exception model, and flags."
+        ],
+        [
+          "Packaging",
+          "Ship bridge library, dependent runtime libraries, headers, debug symbols, and loader metadata as one tested closure."
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 172,
+      "heading_context": "## Old World -> New World Bridge",
+      "headers": [
+        "C++ concept",
+        "Rust interop reading"
+      ],
+      "rows": [
+        [
+          "PIMPL",
+          "Opaque handle keeps implementation layout private"
+        ],
+        [
+          "RAII",
+          "`Drop` and `UniquePtr` encode deterministic destruction on the owning side"
+        ],
+        [
+          "`std::span`",
+          "Pointer-plus-length borrow with explicit call lifetime"
+        ],
+        [
+          "`std::expected` / error code",
+          "Rust `Result`, translated at the bridge"
+        ],
+        [
+          "Template instantiation firewall",
+          "C++ wrapper TU exposes concrete operations to Rust"
+        ],
+        [
+          "COM interface",
+          "Versioned function surface, but do not substitute a Rust trait-object vtable"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 198,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Need",
+        "Use"
+      ],
+      "rows": [
+        [
+          "Long-lived multi-toolchain SDK",
+          "C ABI plus C++ RAII facade"
+        ],
+        [
+          "Controlled monorepo with rich Rust/C++ calls",
+          "`cxx`"
+        ],
+        [
+          "Consume a broad existing C++ API",
+          "`autocxx` selectively, with handwritten boundary wrappers"
+        ],
+        [
+          "Consume plain C declarations in C++ headers",
+          "`bindgen`"
+        ],
+        [
+          "Call template-heavy library",
+          "Instantiate concrete C++ wrapper functions"
+        ],
+        [
+          "Pass ownership",
+          "`UniquePtr`/opaque handle with owner-side destructor"
+        ],
+        [
+          "Translate failure",
+          "`Result`/status/`std::expected`; no cross-boundary unwind"
+        ]
+      ]
+    }
+  ]
+}

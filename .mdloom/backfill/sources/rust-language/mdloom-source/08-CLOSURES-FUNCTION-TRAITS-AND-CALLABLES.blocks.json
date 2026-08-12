@@ -1,0 +1,17 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-language\\08-CLOSURES-FUNCTION-TRAITS-AND-CALLABLES.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 31,
+      "heading_context": "# Closures, Function Traits, and Callables",
+      "confidence": "candidate",
+      "text": "+===============================================================================+\n|                    CLOSURES = CAPTURED ENVIRONMENT + CALL TRAIT               |\n+===============================================================================+\n\n  CAPTURE MODES (compiler picks the least it needs)\n  -------------------------------------------------\n  reads a var          -> captures &T        (shared borrow)\n  mutates a var        -> captures &mut T     (exclusive borrow)\n  moves/consumes a var -> captures T          (by value)\n  `move` keyword       -> force capture-by-value for ALL captures\n\n  THE THREE CALL TRAITS (a hierarchy)\n  -----------------------------------\n        FnOnce   call by value; MAY move from captures         (super-trait)\n          ^\n          |  every Fn is FnMut is FnOnce\n        FnMut    mutates captures; callable many times, needs &mut self\n          ^\n          |\n        Fn       callable many times via &self; no move-out required\n\n  +-------------+---------------+------------------+-------------------------+\n  | trait       | self receiver | can call...      | closure body...         |\n  +-------------+---------------+------------------+-------------------------+\n  | Fn          | &self         | repeatedly       | does not move from env  |\n  | FnMut       | &mut self     | repeatedly       | mutates captures        |\n  | FnOnce      | self          | once via bound   | may move from captures  |\n  +-------------+---------------+------------------+-------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

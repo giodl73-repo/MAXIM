@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-interop-migration\\03-C-INTEROP.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 29,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+============================================================================+\n|                         RUST <-> C BOUNDARY                                |\n+============================================================================+\n|  C header / ABI contract                                                   |\n|  scalars | ptr+len | repr(C) records | opaque handles | callbacks          |\n|      |                                                                     |\n|      v                                                                     |\n|  DIRECTION A - C CALLS RUST                                                |\n|  cdylib/staticlib; cbindgen/manual header; controlled exports              |\n|                                                                            |\n|  DIRECTION B - RUST CALLS C                                                |\n|  extern declarations; bindgen/manual declarations; native link inputs      |\n|      |                                                                     |\n|      v                                                                     |\n|  BOUNDARY ADAPTER                                                          |\n|  validate pointers -> copy/borrow -> Rust core -> translate error/panic    |\n|      |                                                                     |\n|      v                                                                     |\n|  RUST CORE                                                                 |\n|  String/Vec/enums/traits/async stay behind the adapter                     |\n+============================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 169,
+      "heading_context": "## Calling C from Rust",
+      "confidence": "candidate",
+      "text": "use std::ffi::{c_char, c_int, CString};\n\n#[link(name = \"legacy\")]\nunsafe extern \"C\" {\n    fn legacy_open(path: *const c_char) -> c_int;\n}\n\npub fn open(path: &str) -> Result<(), i32> {\n    let path = CString::new(path).map_err(|_| -1)?;\n    let rc = unsafe { legacy_open(path.as_ptr()) };\n    if rc == 0 { Ok(()) } else { Err(rc) }\n}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

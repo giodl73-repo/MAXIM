@@ -1,0 +1,247 @@
+{
+  "schema_version": "1",
+  "source_markdown": "rust-architecture\\05-MACRO-EXPANSION-HYGIENE-AND-NAME-RESOLUTION.md",
+  "tables": [
+    {
+      "id": "table-1",
+      "line": 78,
+      "heading_context": "## Macro Kinds and Execution Boundary",
+      "headers": [
+        "Macro kind",
+        "Input / output",
+        "Runs where",
+        "Stability"
+      ],
+      "rows": [
+        [
+          "`macro_rules!`",
+          "Token trees matched by patterns and transcribed to tokens",
+          "Inside rustc expander",
+          "Stable language feature"
+        ],
+        [
+          "`macro` 2.0",
+          "Newer declarative macro form",
+          "Inside rustc expander",
+          "Unstable"
+        ],
+        [
+          "`#[derive(...)]` proc macro",
+          "Item tokens -> generated item tokens",
+          "Host dylib loaded by compiler bridge",
+          "Stable form + stable `proc_macro` API"
+        ],
+        [
+          "Attribute proc macro",
+          "Annotated item tokens -> replacement tokens",
+          "Host dylib",
+          "Stable form + stable `proc_macro` API"
+        ],
+        [
+          "Function-like proc macro",
+          "`name!(tokens)` -> tokens",
+          "Host dylib",
+          "Stable form + stable `proc_macro` API"
+        ],
+        [
+          "Proc-macro bridge/server",
+          "Connects rustc internals to proc-macro crate",
+          "rustc implementation",
+          "Internal, version-sensitive"
+        ]
+      ]
+    },
+    {
+      "id": "table-2",
+      "line": 160,
+      "heading_context": "## Name Resolution: Modules, Imports, and Namespaces",
+      "headers": [
+        "Resolver concern",
+        "What rustc must decide",
+        "Notes"
+      ],
+      "rows": [
+        [
+          "Module tree",
+          "Which `mod` items and files define modules",
+          "Edition/path rules affect interpretation [01]"
+        ],
+        [
+          "Imports",
+          "`use`, glob imports, re-exports, `pub use`",
+          "Ambiguity and visibility checked here"
+        ],
+        [
+          "Paths",
+          "`crate::`, `self::`, `super::`, extern prelude names",
+          "2018+ uniform path rules matter"
+        ],
+        [
+          "Macros",
+          "Which macro definition an invocation names",
+          "Interleaved with expansion"
+        ],
+        [
+          "Namespaces",
+          "Type, value, and macro namespaces",
+          "Same spelling can occupy distinct namespaces"
+        ],
+        [
+          "Visibility",
+          "`pub`, `pub(crate)`, restricted visibility",
+          "Determines reachable API surface"
+        ]
+      ]
+    },
+    {
+      "id": "table-3",
+      "line": 190,
+      "heading_context": "## Import and Visibility Model",
+      "headers": [
+        "Syntax",
+        "Meaning",
+        "Common use"
+      ],
+      "rows": [
+        [
+          "`crate::x`",
+          "Absolute path from current crate root",
+          "Stable internal absolute paths"
+        ],
+        [
+          "`self::x`",
+          "Current module",
+          "Disambiguating local module members"
+        ],
+        [
+          "`super::x`",
+          "Parent module",
+          "Sibling module access"
+        ],
+        [
+          "`use a::b`",
+          "Import a binding into scope",
+          "Local naming convenience"
+        ],
+        [
+          "`pub use a::b`",
+          "Re-export a binding",
+          "Public API shaping"
+        ],
+        [
+          "`pub(crate)`",
+          "Visible throughout current crate",
+          "Internal crate-wide API"
+        ],
+        [
+          "`pub(in path)`",
+          "Visible within a restricted module subtree",
+          "Deliberate encapsulation"
+        ]
+      ]
+    },
+    {
+      "id": "table-4",
+      "line": 264,
+      "heading_context": "## Old world -> New world",
+      "headers": [
+        "Old world / universal model",
+        "Rust analogue",
+        "Why it matters"
+      ],
+      "rows": [
+        [
+          "C/C++ preprocessor macros",
+          "Rust declarative macros",
+          "Rust tokens carry hygiene; accidental capture is controlled"
+        ],
+        [
+          "Roslyn Source Generators",
+          "Rust procedural macros",
+          "Compile-time code component emits code into compilation"
+        ],
+        [
+          "Compiler plugin that sees syntax",
+          "Proc macro over `TokenStream`",
+          "Stable API is tokens, not rustc AST/HIR"
+        ],
+        [
+          "Lexical scope resolver",
+          "`rustc_resolve`",
+          "Modules/imports/re-exports are explicit binding graph work"
+        ],
+        [
+          "Type/value namespace split",
+          "Rust type/value/macro namespaces",
+          "Same spelling can denote different categories"
+        ],
+        [
+          "Build host vs target tools",
+          "Proc macros/build scripts [18]",
+          "Macro code runs on the host, not the final target"
+        ]
+      ]
+    },
+    {
+      "id": "table-5",
+      "line": 282,
+      "heading_context": "## Decision Cheat Sheet",
+      "headers": [
+        "Question",
+        "Use / inspect",
+        "When",
+        "Who owns it"
+      ],
+      "rows": [
+        [
+          "Need simple syntactic generation",
+          "`macro_rules!`",
+          "Pattern-to-token expansion without code execution",
+          "Rust language / rustc expander"
+        ],
+        [
+          "Need derive/attribute/function-like code generation",
+          "Procedural macro crate",
+          "Generated impls, DSLs, annotations",
+          "`proc_macro` stable API + Cargo host build"
+        ],
+        [
+          "Need to see expanded code",
+          "`cargo expand`",
+          "Day-to-day debugging",
+          "Ecosystem tool"
+        ],
+        [
+          "Need rustc's own expanded view",
+          "`rustc +nightly -Z unpretty=expanded`",
+          "Compiler investigation",
+          "rustc internal, unstable"
+        ],
+        [
+          "Need avoid item path capture",
+          "`$crate` or explicit paths",
+          "Exported declarative macros",
+          "Rust macro semantics"
+        ],
+        [
+          "Need shape public API",
+          "`pub use`, visibility modifiers",
+          "Re-export and facade design",
+          "Rust Reference / resolver"
+        ],
+        [
+          "Need know where a path points",
+          "Name resolution docs / compiler diagnostics",
+          "Ambiguity, shadowing, import failures",
+          "rustc resolver"
+        ],
+        [
+          "Need stable compiler integration",
+          "`proc_macro::TokenStream` only",
+          "Proc macro authoring",
+          "standard library proc_macro"
+        ]
+      ]
+    }
+  ]
+}
