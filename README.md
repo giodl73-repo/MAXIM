@@ -92,6 +92,10 @@ MAXIM-ready when it can say what concepts must be researched, what mechanism is
 being compared, and which old-world/new-world bridge would keep the scenario
 legible.
 
+The [reuse boundary](docs/adoption/reuse-boundary.md) defines this advisory
+grounding contract, certification and source-custody limits, attribution rules,
+and the required downstream adoption record.
+
 ---
 
 ## Review System
