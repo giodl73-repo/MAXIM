@@ -96,6 +96,22 @@ The [reuse boundary](docs/adoption/reuse-boundary.md) defines this advisory
 grounding contract, certification and source-custody limits, attribution rules,
 and the required downstream adoption record.
 
+### MDCROP corpus-view adoption
+
+MAXIM is a downstream consumer of MDCROP's bounded 0.2.0 CLI contract. Its
+tracked `.mdcrop/views` recipes use `mdcrop.view.v1` to define source-custody
+slices, and the consumer-owned proof runs two representative recipes through
+the real sibling provider:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\check-mdcrop-adoption.ps1
+```
+
+The immutable provider record is
+[`docs/dependencies/mdcrop.json`](docs/dependencies/mdcrop.json). Generated view
+recipes are adoption evidence, not a transfer of MAXIM's editorial semantics
+into MDCROP.
+
 ---
 
 ## Review System

@@ -1,0 +1,37 @@
+{
+  "schema": "maxim.dependency.v1",
+  "provider": {
+    "repository": "https://github.com/giodl73-repo/MDCROP",
+    "version": "0.2.0",
+    "revision": "608687af64f1a4fd3571044fab41b8cdaca20c08"
+  },
+  "contract": {
+    "transport": "mdcrop CLI",
+    "commands": [
+      "view --inspect"
+    ],
+    "inputSchemas": [
+      "mdcrop.view.v1"
+    ],
+    "outputSchemas": [
+      "mdcrop.view-inspect.v1"
+    ]
+  },
+  "usage": {
+    "viewStore": ".mdcrop/views",
+    "minimumTrackedViewCount": 2725
+  },
+  "consumerProof": {
+    "command": "powershell -ExecutionPolicy Bypass -File tools/check-mdcrop-adoption.ps1",
+    "views": [
+      {
+        "path": ".mdcrop/views/maxim-abstract-algebra-overview.json",
+        "expectedSupportedSourceCount": 1
+      },
+      {
+        "path": ".mdcrop/views/maxim-abstract-algebra-source-corpus.json",
+        "expectedSupportedSourceCount": 11
+      }
+    ]
+  }
+}
