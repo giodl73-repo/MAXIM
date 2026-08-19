@@ -21,6 +21,15 @@
   Start with what you have. Work toward what you can build.
 ```
 
+### Copying and the license
+
+This chapter teaches preservation and encourages attributed noncommercial
+copying, translation, and adaptation under the repository's CC BY-NC 4.0
+content license. A printer, publisher, seller, or other commercial distributor
+must obtain separate written permission from Gio Della-Libera. That permission
+can support paid production and broad distribution without separating the
+author from the commercial use of the work.
+
 ---
 
 ## The hierarchy of copying

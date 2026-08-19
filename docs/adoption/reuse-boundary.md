@@ -23,9 +23,10 @@ A downstream repository may reuse:
 - validated MDPORT/CROP/FLETCH packs after a module has completed source-custody
   backfill and explicit publication.
 
-Content reuse remains subject to MAXIM's CC BY-SA 4.0 license and attribution.
-Consumers must identify the guide or future published pack they used rather
-than citing "MAXIM" as an undifferentiated authority.
+Content reuse remains subject to MAXIM's CC BY-NC 4.0 license and attribution.
+Commercial reuse requires separate written permission. Consumers must identify
+the guide or future published pack they used rather than citing "MAXIM" as an
+undifferentiated authority.
 
 ## Evidence limits
 

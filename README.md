@@ -135,4 +135,14 @@ Written in February 2026 with AI assistance. The author directed structure, styl
 
 ## License
 
-Content is licensed under [CC BY-SA 4.0](LICENSE.md) — copy, translate, and redistribute freely. The most durable backup is the number of copies in the number of hands in the number of places. Make more.
+MAXIM uses [split licensing](LICENSE.md):
+
+- encyclopedia content is CC BY-NC 4.0, allowing attributed noncommercial
+  copying, translation, and adaptation;
+- software and executable scripts are MIT licensed; and
+- commercial use of the encyclopedia content requires separate written
+  permission from Gio Della-Libera.
+
+Versions previously distributed under CC BY-SA 4.0 remain available under
+that license. The most durable backup is the number of copies in the number of
+hands in the number of places. Make more.

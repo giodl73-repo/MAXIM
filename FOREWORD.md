@@ -28,7 +28,7 @@ The name is MAXIM — a short statement expressing a general truth. It is also t
 
 This library was written in February 2026 with AI assistance. The author directed the structure, the style, the audience, and the scope. The AI did the heavy lifting of composition across 217 directories and 2,178 files. Every guide was then reviewed, tagged for issues, and revised until clean. The result is neither purely human-written nor purely machine-generated — it is a collaboration, and it is better than either party could have produced alone.
 
-The physical volumes are printed on acid-free paper rated to last five hundred years. The binding is Smyth-sewn — thread holds the signatures together even if the adhesive fails. Three archival sets exist in separate locations. The digital source is public and freely licensed under CC BY-SA 4.0, so that anyone can copy, translate, and redistribute the content without permission or payment.
+The physical volumes are printed on acid-free paper rated to last five hundred years. The binding is Smyth-sewn — thread holds the signatures together even if the adhesive fails. Three archival sets exist in separate locations. The digital source is public and licensed under CC BY-NC 4.0, so anyone can copy, translate, and redistribute the content with attribution for noncommercial purposes. Commercial use requires separate written permission.
 
 The most durable backup is not the paper or the binding. It is the number of copies in the number of hands in the number of places. Make more.
 

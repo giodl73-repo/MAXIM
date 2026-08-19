@@ -1,42 +1,64 @@
-# License
+# MAXIM licenses
 
-## Content
+MAXIM uses separate licenses for content and software.
 
-The text, diagrams, and structure of the MAXIM Encyclopedia are released under the **Creative Commons Attribution-ShareAlike 4.0 International** license (CC BY-SA 4.0).
+## Encyclopedia content
 
-You are free to:
+Copyright (c) 2026 Gio Della-Libera.
 
-- **Copy** — reproduce any part of this work by any means
-- **Share** — distribute copies to anyone, anywhere
-- **Adapt** — remix, transform, and build upon this work
-- **Sell** — use this work commercially
+Unless a file states otherwise, the original text, diagrams, structure, and
+other encyclopedia content are licensed under the
+[Creative Commons Attribution-NonCommercial 4.0 International License][cc]
+(CC BY-NC 4.0).
 
-Under these terms:
+You may copy, share, translate, and adapt the content with attribution for
+noncommercial purposes. Commercial use is not granted by this license and
+requires separate written permission from Gio Della-Libera.
 
-- **Attribution** — credit "MAXIM Encyclopedia" and link to the source
-- **ShareAlike** — distribute adaptations under the same or compatible license
+For attribution, use:
 
-Full license text: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+> MAXIM Encyclopedia, by Gio Della-Libera,
+> https://github.com/giodl73-repo/MAXIM
 
-## The MAXIM Mark
+Versions previously distributed under CC BY-SA 4.0 remain available under
+that license. This change governs content distributed from this version
+forward.
 
-The 12-ray radial mark and the name "MAXIM" as applied to this encyclopedia are reserved. You may reproduce the mark when distributing unmodified copies of this work. You may not use the mark on derivative works or unrelated projects without written permission.
+## Software
 
-## Why CC BY-SA
+Copyright (c) 2026 Gio Della-Libera.
 
-Chapter 10 of Volume 0 (*Copying These Books*) says it plainly:
+Source code and executable scripts in this repository are licensed under the
+MIT License:
 
-> *These books will not last forever.*
-> *Paper decays. Ink fades. Flood, fire, and time destroy.*
-> *The most important thing you can do with these books*
-> *is make more copies of them.*
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-A restrictive license would contradict the purpose of this library. CC BY-SA ensures that anyone — including survivors who find these volumes — can copy, translate, and redistribute without legal barrier, while ShareAlike ensures that improvements remain available to everyone.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Third-Party Content
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-This work may reference or describe third-party standards, specifications, and tools. Such references are for educational purposes. All trademarks belong to their respective owners.
+## The MAXIM mark
 
----
+The 12-ray radial mark and the name "MAXIM" as applied to this encyclopedia
+are reserved. You may reproduce the mark when distributing unmodified copies
+of this work. You may not use the mark on derivative works or unrelated
+projects without written permission.
 
-Copyright 2026. All content CC BY-SA 4.0 unless otherwise noted.
+## Third-party material
+
+Third-party material, standards, specifications, tools, dependencies, and
+trademarks remain subject to their own terms.
+
+[cc]: https://creativecommons.org/licenses/by-nc/4.0/legalcode

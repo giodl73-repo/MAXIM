@@ -42,7 +42,10 @@ PDFs generated from Markdown source via MkDocs. Print-ready PDFs submitted to bi
 
 ## License
 
-Content released under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). See LICENSE.md for full terms.
+Content released under Creative Commons Attribution-NonCommercial 4.0
+International (CC BY-NC 4.0). Commercial use requires separate written
+permission. Software and executable scripts are MIT licensed. See LICENSE.md
+for full terms.
 
 ---
 
