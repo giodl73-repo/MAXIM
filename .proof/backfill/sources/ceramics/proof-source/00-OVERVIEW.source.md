@@ -1,0 +1,300 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "00-OVERVIEW.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:ceramics:overview
+kind: guide
+module: ceramics
+section: ceramics
+title: Ceramics - Overview: Clay to Ceramic: Earth, Fire, and Form
+status: source-custody
+source_custody: partial
+current_path: ceramics/00-OVERVIEW.md
+canonical_path: ceramics/00-OVERVIEW.md
+backsource_ids: [proof-backfill:ceramics:00-overview, git-history:ceramics:00-overview]
+concepts: [overview]
+root_concepts: [overview]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Ceramics — Overview: Clay to Ceramic: Earth, Fire, and Form
+
+## Engineering Entry Point
+
+If you come from metallurgy or materials science, the most useful orienting fact is this: **ceramics are irreversible, metals are not.**
+
+```
+METALLURGY (reversible)          CERAMICS (irreversible)
+========================         ========================
+Metal → melt → cast → solid      Clay → fire → ceramic (done)
+Solid → remelt → recast          Cannot remelt; no equivalent of
+                                  recast cycle
+Failure mode: ductile plastic    Failure mode: brittle fracture
+  deformation before fracture      with little warning
+Phase transitions: TTT curves     Phase transitions: dehydroxylation,
+  govern solid-state transforms    quartz inversion, vitrification
+  → reversible microstructure      → irreversible (each step one-way)
+Sintering: powder metallurgy      Sintering: the primary densification
+  (optional; reversible at         mechanism; glass phase fills pores
+  sufficient temp)                 permanently
+```
+
+This irreversibility is load-bearing for everything that follows: why ceramics survive as archaeological evidence for millennia (you cannot "un-fire" a pot), why glaze defects cannot be repaired by remelting, and why the kiln schedule is the most consequential decision in the production process.
+
+## The Big Picture
+
+Ceramics is the oldest synthetic material. The transformation is irreversible: clay minerals + heat → ceramic. Unlike metals, you cannot remelt and recast. This permanence makes ceramic the primary evidence of human civilization for the last 20,000 years.
+
+```
+THE CERAMIC SUPPLY CHAIN
+=========================
+
+RAW MATERIALS
+ Kaolin / ball clay / fire clay
+ Feldspar (flux) + silica (quartz)
+ Colorant oxides (Fe, Co, Cu, Mn, Cr, Ti)
+       |
+       v
+CLAY BODY PREPARATION
+ Blunging (wet mixing)
+ Filter pressing / de-airing
+ Pugmill extrusion
+ Wedging / aging
+       |
+       v
+    FORMING
+ Hand building (pinch, coil, slab)
+ Wheel throwing
+ Slip casting (plaster molds)
+ Jiggering / jolly (industrial)
+ RAM press / isostatic pressing
+       |
+       v
+  DRYING (greenware → leather-hard → bone-dry)
+ Free water evaporates; ~5-10% shrinkage
+       |
+       v
+BISQUE FIRING (~1,000°C)
+ Structural water driven off; clay permanently transformed
+ Fragile but porous; accepts glaze well
+       |
+       v
+GLAZING
+ Dip / pour / spray / brush
+ 1-2mm wet thickness
+       |
+       v
+GLAZE FIRING (1,000–1,400°C depending on body type)
+ Glaze melts, flows, bonds to body
+ Further vitrification of clay body
+       |
+       v
+DECORATION (optional third firing)
+ Overglaze enamels: 750–900°C
+ Decals: 750–820°C
+ Lusters: 600–700°C
+       |
+       v
+FINISHED CERAMIC
+```
+
+---
+
+## The Three Ceramic Families
+
+```
+FIRING TEMPERATURE AND CLAY BODY COMPARISON
+=============================================
+
+              EARTHENWARE        STONEWARE         PORCELAIN
+              ===========        =========         =========
+Temperature:  1,000–1,200°C     1,200–1,300°C     1,260–1,400°C
+Cone range:   06 to 2           4 to 10           6 to 14
+
+Clay body:    Iron-rich clay;    Gray/brown clay;  Kaolin + feldspar
+              red/orange/buff    buff/tan/speckle  + quartz/silica;
+              after firing                         pure white
+
+Porosity:     Porous (must       Low porosity;     Non-porous;
+              be glazed for      semi-vitrified    fully vitrified
+              liquid use)        (vitrified)       translucent thin
+
+Strength:     Lower; chips       Strong; chip-     Strong; brittle
+              easily             resistant
+
+Uses:         Terracotta,        Most functional   Fine tableware,
+              majolica,          ware, stoneware   electrical insul.,
+              tiles, bricks      jugs, crocks       dental, technical
+
+Examples:     Greek pottery,     German Rhineland  Meissen, Jingdezhen,
+              Delftware,         salt-glaze,       Wedgwood bone china,
+              Faience,           American art      Royal Doulton
+              Terra cotta pots   pottery
+```
+
+---
+
+## The Key Chemistry
+
+The phase transformation sequence maps directly onto materials science phase diagram thinking. If you know eutectic diagrams and TTT (Time-Temperature-Transformation) curves, the ceramic firing schedule is the same framework applied to an irreversible system: instead of suppressing a phase transition (TTT curve, quench to martensite), you drive the sequence to completion in a controlled schedule.
+
+```
+CLAY MINERAL → CERAMIC: PHASE TRANSFORMATIONS
+===============================================
+
+Starting material: Kaolinite Al₂Si₂O₅(OH)₄
+
+STAGE 1 (~100–200°C): Free water evaporates
+ Piece shrinks; clay particles compress
+
+STAGE 2 (~500–600°C): Dehydroxylation
+ Al₂Si₂O₅(OH)₄ → Al₂O₃·2SiO₂ (metakaolinite) + 2H₂O
+ Structural hydroxyl groups driven off as water vapor
+ IRREVERSIBLE — cannot re-wet and rework the clay
+ Clay body permanently set
+
+STAGE 3 (573°C): Quartz inversion
+ α-quartz ⇌ β-quartz: 2% volume change (both heating and cooling)
+ Rapid cooling through 573°C can crack ware (thermal shock)
+ Must control cooling rate through this point
+
+STAGE 4 (~900–1,000°C): Sintering begins
+ Flux oxides (feldspar → K₂O, Na₂O, CaO) begin to melt
+ Glass phase forms, starts filling pores
+
+STAGE 5 (above 1,050°C): Mullite formation
+ 3Al₂O₃·2SiO₂: needle-like crystals grow in glass matrix
+ Primary strengthening phase of fired ceramics
+ More mullite + glass → stronger, denser ceramic
+
+STAGE 6 (full maturation): Vitrification
+ Glass phase fills remaining pores
+ Body becomes dense, non-porous (stoneware / porcelain)
+ Earthenware fired below this point → remains porous
+```
+
+---
+
+## Colorant Chemistry
+
+```
+COLORANT OXIDES IN CERAMICS
+============================
+
+Oxide        Oxidation firing      Reduction firing     Notes
+=====        ================      ================     =====
+Iron (Fe)    Tans, ambers, browns  Greens (celadon),    Most important;
+ Fe₂O₃/FeO  red-orange (terra-    blue-green, gray,    1-15% covers
+             cotta); black (high%) tenmoku black        wide spectrum
+
+Cobalt (Co)  Blue (all ranges)     Blue (stable)        Strongest colorant;
+ CoO         0.2% = strong blue    not atmosphere-      0.5% = vivid blue
+             2-5% = deep/black     sensitive            Very stable
+
+Copper (Cu)  Turquoise, green      Copper red!          Most atmosphere-
+ CuO         (oxidized Cu²⁺)       sang de boeuf,       sensitive; stunning
+                                   flambe, peach        when reduced
+
+Manganese    Purple, brown         Brown                Combines well with
+ MnO₂        warm black            warm black           cobalt for black
+
+Chrome       Stable green          Green                + Tin → pink/coral
+ Cr₂O₃       (all conditions)                          + Lead → brilliant red
+
+Titanium     Opaque ivory;         Rutile texture       TiO₂: opacifier;
+ TiO₂        rutile crystals       warm tones          with iron = rutile
+
+Tin (Sn)     White opaque          White opaque         Primary traditional
+ SnO₂        (opacifier)                                opacifier for tin glaze
+```
+
+---
+
+## Industrial vs Studio vs Art
+
+```
+THREE SECTORS
+==============
+
+INDUSTRIAL                   STUDIO                    ART CERAMICS
+==========                   ======                    ============
+Mass production              Individual/small-batch    Unique sculpture
+Meissen, Wedgwood,           handmade                 or exhibition piece
+Royal Doulton, Villeroy      Bernard Leach,           Peter Voulkos,
+& Boch, IKEA tableware       Hamada, Rie, Coper       Grayson Perry
+
+Economies of scale           Higher unit cost         Gallery pricing
+Strict QC tolerances         Accepted variation       Provenance premium
+CAD molds, RAM press,        Wheel + hand             Hand + concept
+jiggering                    building
+
+Division of labor:           One person through        Artist concept
+thrower → handler            most/all stages          fabrication
+→ decorator → kiln
+
+Market: commodity            Market: $50-500/piece     Market: $500-$500K+
+Price competition            Craft fairs, Etsy,        Auction, gallery
+                             studio sales
+```
+
+---
+
+## Cultural Significance
+
+| Period | Innovation | Significance |
+|--------|-----------|--------------|
+| ~20,000 BCE | Fired pottery (Xianrendong Cave, China) | Earliest synthetic material |
+| ~3,500 BCE | Wheel-thrown pottery | Mesopotamia; enabled speed + scale |
+| ~3rd c. CE | Chinese proto-porcelain | First true vitrified white ware |
+| 9th c. CE | Tin-glazed earthenware | Islamic; enables white background painting |
+| ~960–1279 | Song Dynasty five great wares | Peak of aesthetic ceramic achievement |
+| 14th c. | Blue-and-white porcelain | Cobalt underglaze; defines export trade |
+| 1708 | Meissen hard-paste porcelain | European "discovery" of the formula |
+| ~1800 | Bone china | English soft-paste variant; defines British tableware |
+| 1920 | Leach Pottery, St Ives | Studio ceramics movement launches |
+| 1960s+ | Technical ceramics engineering | Aerospace, medical, electronics applications |
+
+---
+
+## Common Confusion Points
+
+**Fired ceramic can't be recycled like metals**:
+When you melt steel, you get steel. When you melt fired ceramic, you get a glassy slag with different properties. Ceramic is irreversible — which is why fired sherds survive millennia in archaeological deposits.
+
+**Earthenware ≠ low quality**:
+Greek amphora, terracotta sculpture, Wedgwood jasperware, and fine Italian maiolica are all earthenware. The firing range is lower but the craft can be extremely refined.
+
+**"Faience" means two different things**:
+Egyptian faience = ancient synthetic silicate material (not clay). French/Italian faience = tin-glazed earthenware (majolica). They have nothing in common except a name that migrated confusingly through history.
+
+**Porcelain = translucent**:
+Only in thin cross-section. A standard dinner plate of porcelain is not visibly translucent — but a porcelain eggshell cup or GIA-quality bone china cup held to light shows translucency.
+
+---
+
+## Cross-References
+
+- `01-CLAY-TYPES.md` grounds ceramic behavior in mineral structure and plasticity.
+- `05-FIRING-KILNS.md` explains how heat work converts formed clay into durable ceramic.
+- `10-CERAMIC-TRADES.md` connects materials and firing to the labor systems that make ceramic production possible.
+
+---
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Outdoor frost resistance | Check porosity, vitrification, water absorption, body maturity, glaze fit, and freeze-thaw cycling. | Stoneware helps only if the fired body is actually dense. |
+| Majolica or tin glaze | Separate earthenware body, opaque tin glaze, decoration sequence, firing temperature, and regional tradition. | The white surface comes from glaze chemistry, not porcelain body. |
+| Fine white tableware | Compare porcelain, bone china, translucency, strength, firing temperature, glaze, and cost. | "White" can come from different bodies with different durability. |
+| High-temperature industrial component | Start with alumina, silicon carbide, zirconia, thermal shock, creep, corrosion, and manufacturing route. | Technical ceramics are strong in compression but unforgiving in flaw control. |
+| Dental or biomedical ceramic | Check zirconia/alumina toughness, wear, biocompatibility, CAD/CAM fit, aging, and opposing-material damage. | Bioinert does not mean mechanically risk-free. |
+| Decorative art ceramic | Diagnose body, surface, firing atmosphere, scale, handling, and aesthetic intent together. | Any ceramic type can be art; material choice still constrains the object. |
+| Wood-fired ash effect | Inspect kiln type, clay body, ash chemistry, flame path, firing duration, and placement. | Natural ash is a process record, not a guaranteed glaze recipe. |
+| High-fire studio ware | Check cone, body maturity, glaze fit, kiln atmosphere, thermal expansion, and intended use. | Cone number alone does not certify food safety or durability. |

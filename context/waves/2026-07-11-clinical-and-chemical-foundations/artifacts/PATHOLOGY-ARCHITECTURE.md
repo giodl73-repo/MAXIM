@@ -23,7 +23,7 @@ for future pathology maintenance and promotion work.
 >
 > **⇢ RECONCILED 2026-07-12.** This record was first written as a **prototype boundary
 > review** covering guides `08`/`10` only. That framing is **superseded**: all **12/12**
-> guides are now authored at full peer depth and focused-MDLOOM-clean; the module is
+> guides are now authored at full peer depth and focused-PROOF-clean; the module is
 > **integrated** (`sections/life-sciences.md`, `.mkdocs/mkdocs.yml`, `TRACKER.md`),
 > **reciprocally wired** with the architecture-approved minimal sibling pointers
 > (`disease/00`→`01`–`03`; `disease/04`→`05`/`10`; `medicine/10`→`08` preserving its
@@ -34,7 +34,7 @@ for future pathology maintenance and promotion work.
 > *deferred / planned / not-added-this-pulse* is **historical and superseded** — the
 > authoritative current state is the **Ratified Guide Manifest** (now **12/12 complete**)
 > and the *Reconciliation* note in `pulses/05+pathology-architecture.md`. Provenance note:
-> `pathology/` is still untracked, so the backfill records **`mdloom-backfill` backsources
+> `pathology/` is still untracked, so the backfill records **`proof-backfill` backsources
 > only**; the module ledger truthfully reports Git provenance recorded for **0** guides and
 > pending for **12**. The generator adds `git-history` only when real tracked history exists.
 >
@@ -106,8 +106,8 @@ educational yet peer-level.
 - **MAXIM-PATH-25 — Custody metadata must reflect actual provenance.** Prototype metadata
   began truthfully at `source_custody: needs-source` with no backsources. The completed
   backfill now promotes all twelve guides to `status: source-custody` /
-  `source_custody: partial` with MDLOOM backfill records. Because the guides remain untracked,
-  no guide may claim git provenance: the module ledger reports MDLOOM backfill for all 12,
+  `source_custody: partial` with PROOF backfill records. Because the guides remain untracked,
+  no guide may claim git provenance: the module ledger reports PROOF backfill for all 12,
   Git provenance recorded for 0, pending for 12. External/authentic factual backsources
   remain incomplete, so custody stays partial.
 - **MAXIM-PATH-02 — Style contract & hard limits.** Landscape diagram first → layer
@@ -304,7 +304,7 @@ educational yet peer-level.
 
 Per-guide architecture IDs (MAXIM-PATH-G00 … G11) for traceability. **⇢ RECONCILED
 2026-07-12: the manifest is now 12/12 complete** — all twelve guides are authored at full
-peer depth, focused-MDLOOM-clean, integrated, source-backfilled, and reviewed; the module is
+peer depth, focused-PROOF-clean, integrated, source-backfilled, and reviewed; the module is
 final and Pulse 05 is DONE. (Historically, `08`/`10` were the gate-candidate
 prototypes, `09`/`11` the scaling-gate guides, and `00`–`07` the authoring round — the
 per-row "planned"/"prototype" labels below are superseded by the "authored, reviewed"
@@ -523,7 +523,7 @@ or forensic/legal determination is a **BLOCK**.
 | QR-11 | Boundary churn with the now-complete `clinical-medicine` module | Low-Med | The three-way split was pre-proposed by clinical Pulse 03 (MAXIM-CLIN-12); ratified here; reciprocal sibling pointers were prototype-gated and have **since been added** (2026-07-12: `disease/00`→`01`–`03`; `disease/04`→`05`/`10`; `medicine/10`→`08`; `clinical-medicine/03`→`pathology/`) |
 | QR-12 | Scaling risk in the non-prototyped boundary guides (09 procedure-creep; the `08`↔`11` QC/error/governance seam) — **not all remaining guides are low-risk** | Med-High | Scaling mini-contracts pinned now (MAXIM-PATH-24) with a **two-stage** gate: a Stage-1 `expert-skeptic` pass on **representative high-risk draft sections** (09 grossing/orientation + staining/frozen/cytology; 11 governance/accreditation + the total-testing-process `08`↔`11` seam) before bulk authoring, **and** a Stage-2 **completed-guide whole-procedure/whole-seam review before sign-off**; 08 introduces QC/error only as needed locally and defers the cross-process system to 11 |
 | QR-13 | False-authority citation (summaries presented as verified primary standards) | Med | MAXIM-PATH-23 citation-verification pass; "External framework grounding" heading de-authoritized; load-bearing attributions qualified and to be re-verified against primary sources at full authoring |
-| QR-14 | Custody metadata claiming provenance that does not exist | Med | Backfill complete with `source_custody: partial`; MDLOOM backfill recorded for all 12; Git provenance recorded for 0 and pending for 12 while guides are untracked; generator adds `git-history` only with real history; external/authentic factual backsources remain future work |
+| QR-14 | Custody metadata claiming provenance that does not exist | Med | Backfill complete with `source_custody: partial`; PROOF backfill recorded for all 12; Git provenance recorded for 0 and pending for 12 while guides are untracked; generator adds `git-history` only with real history; external/authentic factual backsources remain future work |
 
 ## Adopt / Prototype / Defer
 
@@ -548,14 +548,14 @@ determinations, and sibling-owned catalogs/decision theory.
 
 ## Gaps & Uncertainties (carry-forward)
 
-- **External source custody remains partial.** MDLOOM literal backfill and round-trip evidence
+- **External source custody remains partial.** PROOF literal backfill and round-trip evidence
   exist for all twelve guides, but claim-level authentic/primary-source custody is incomplete.
   The standard/framework pointers remain qualified rather than authoritative.
 - **Git provenance remains pending for all twelve guides.** The module is untracked in the
   current working tree, so the truthful ledger count is Git provenance recorded for 0 and
   pending for 12. A future post-commit regeneration can record real history.
 - **Pathology-specific Da Vinci invariants do not exist.** The R2 rubric therefore assigns
-  Silver rather than Gold despite strong guide quality and ordinary focused-MDLOOM
+  Silver rather than Gold despite strong guide quality and ordinary focused-PROOF
   cleanliness. Pinning load-bearing figures and performing a final Gold promotion review is
   future work.
 - **Registry insertion is intentionally absent.** No pathology row belongs in Certified Gold

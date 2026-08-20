@@ -53,13 +53,13 @@ re-check) surfaced five residual findings; all are now repaired in the guides. N
 
 ## Validation
 
-- Focused MDLOOM (MAXIM `mdloom.toml`) via the `tools-infra/proof` Cargo manifest,
+- Focused PROOF (MAXIM `proof.toml`) via the `tools-infra/proof` Cargo manifest,
   scoped to the two prototype guides, re-run after the R2 repairs: **2 files checked,
   0 errors, 0 warnings**.
 - `git diff --check`: clean (no whitespace/conflict errors); the prototype module is
   still **untracked** (not yet integrated), so the check was run against the two edited
   guides explicitly.
-- Source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) **not** run — this is a prototype
+- Source backfill (PROOF/MDCROP/MDPORT/FLETCH) **not** run — this is a prototype
   boundary review, per the pulse scope.
 - `medicine/` untouched; module not integrated into navigation, `TRACKER.md`, or the
   section landing page.

@@ -1,7 +1,7 @@
 # 2026-07-29 — Module source-corpus backfill (fact-fixed set)
 
 ## Scope
-Regenerated MDLOOM / MDCROP / MDPORT / FLETCH source-corpus artifacts for the six
+Regenerated PROOF / MDCROP / MDPORT / FLETCH source-corpus artifacts for the six
 modules touched by the 2026-07-29 fact + K♠ rescore pass:
 
 - biology
@@ -32,13 +32,13 @@ regenerated, not hand-edited.
 | cloud-architecture | 10 | 10/10 | 11 | 55 | 135 | 51 |
 
 ## Spot checks
-Stale bad strings absent from regenerated `.mdloom` sources:
+Stale bad strings absent from regenerated `.proof` sources:
 - biology Okazaki / discontinuous lagging strand wording present; old continuous-both-strands absent
 - cryptography RSA-OAEP present
 - genomics Sanger generation wording present; stale 1 Gb/day claim absent
 - disease 1918 "deadliest influenza pandemic" present; "deadliest pandemic in history" absent
 
-Guide working-tree diffs are frontmatter only (`backsource_ids`: `proof-backfill:` → `mdloom-backfill:`).
+Guide working-tree diffs are frontmatter only (`backsource_ids`: `proof-backfill:` → `proof-backfill:`).
 
 ## Non-goals
 - No full-library regen

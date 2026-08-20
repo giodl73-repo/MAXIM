@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/08-TYPESCRIPT.md
 canonical_path: languages/08-TYPESCRIPT.md
-backsource_ids: [mdloom-backfill:languages:08-typescript, git-history:languages:08-typescript]
+backsource_ids: [proof-backfill:languages:08-typescript, git-history:languages:08-typescript]
 concepts: [typescript]
 root_concepts: [typescript]
 index_roles: [guide, root-concept]

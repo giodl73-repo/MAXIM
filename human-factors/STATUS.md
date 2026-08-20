@@ -128,7 +128,7 @@ terminal-readable diagram; a fully worked fictional case; 3–5 calculation/inte
 tasks) and the **common safety & accessibility contract** (no operational instruction /
 certification / accident-or-legal ruling / individual fitness assessment; accessibility as a
 ≥2-channel safety requirement; the evidence-vs-acceptance seam). The whole module passes
-**focused MDLOOM (12 files checked, 0 errors, 0 warnings)** with the module's `mdloom.toml`
+**focused PROOF (12 files checked, 0 errors, 0 warnings)** with the module's `proof.toml`
 (tolerance = 2, `check_col_separators = false`), integration and reciprocal pointers are
 landed, and the source-corpus backfill is regenerated and validated. The **independent full-module
 adversarial panel (DoD closure gate 12)** has now been **conducted** — `panels/hf-full-r1/`
@@ -136,7 +136,7 @@ adversarial panel (DoD closure gate 12)** has now been **conducted** — `panels
 superset (guide `05` HRA error-factor/bounded-probability/SPAR-H-trigger; guide `07` automation
 model + L1 takeover; guide `10` overlapping coverage strata; guide `09` domain prescriptions; guide
 `11` reporting-without-triangulation; records/citations; guide `08` barrier-ranking + dust advice;
-cross-references; accessibility reach; totals; Leveson/RNLE/whitespace; MDLOOM-artifact truth), **all
+cross-references; accessibility reach; totals; Leveson/RNLE/whitespace; PROOF-artifact truth), **all
 repaired** in the guides and records, and `R2-gold-rubric.md` scores every guide **Silver** with
 **no registry row**. The citation/edition items (gates 4/11) are closed against authoritative sources
 and recorded. **Remaining before the pulse closes:** because the panel both raised and repaired the
@@ -149,7 +149,7 @@ The architecture is recorded
 (`context/waves/2026-07-11-human-systems-depth/artifacts/HUMAN-FACTORS-ARCHITECTURE.md`,
 findings **MAXIM-HF-01 … MAXIM-HF-20** + G00 … G11), the 12-guide manifest is fixed, and
 the ownership/defer matrix, HCI↔HF seam, and safety/ethics contract are recorded. The three
-prototype guides are authored at full peer depth and pass focused MDLOOM (**3 files checked,
+prototype guides are authored at full peer depth and pass focused PROOF (**3 files checked,
 0 errors, 0 warnings**). The **two-stage scaling gate** for guide `02` and the **review
 gates** for guides `03`/`06` are now **ratified**: the R1 boundary-gate panel
 (`panels/hf-prototype-r1/`) found and drove repair of the conservative-prototype findings,

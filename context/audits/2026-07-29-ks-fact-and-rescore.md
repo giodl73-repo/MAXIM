@@ -45,7 +45,7 @@ weak archetype. **No longer accurate:**
 
 ## Residual
 
-1. Source-corpus regeneration for touched modules (PROOF/MDLOOM path not wired
+1. Source-corpus regeneration for touched modules (PROOF/PROOF path not wired
    in this checkout — `module_source_backfill.py` present, PROOF binary missing).
 2. Gold registry rubber-stamp issue from 2026-06-27 still open (owner decision).
 3. Library-wide numbers/proper-nouns fact-check remains highest long-term value.

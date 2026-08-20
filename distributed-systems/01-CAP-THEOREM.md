@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/01-CAP-THEOREM.md
 canonical_path: distributed-systems/01-CAP-THEOREM.md
-backsource_ids: [mdloom-backfill:distributed-systems:01-cap-theorem, git-history:distributed-systems:01-cap-theorem]
+backsource_ids: [proof-backfill:distributed-systems:01-cap-theorem, git-history:distributed-systems:01-cap-theorem]
 concepts: [cap, theorem]
 root_concepts: [cap, theorem]
 index_roles: [guide, root-concept]

@@ -27,7 +27,7 @@ a **duty-vs-right conflation** (`11` ACM Code), a **lineage-ownership overlap** 
 microcase** (`11`), a **false exclusive boundary** (`industrial-design/06`), a **vague overlay
 reference** (`08`), an **inexact ISO 9241-411 throughput** (`03`), a **statistical-lineage
 conflation + mis-rounded curve** (`05`), and **prototype-era records** (STATUS "Pulse 02 COMPLETE").
-All are repaired in the guides, the two siblings, and the wave records; the full-module MDLOOM/backfill
+All are repaired in the guides, the two siblings, and the wave records; the full-module PROOF/backfill
 validation is clean. The final reviewer verified the repaired state and returned **PASS**. No Da
 Vinci / Gold work is claimed.
 
@@ -82,13 +82,13 @@ BLOCK: 5 · WARN: 13 — all **repaired** in this pass; none outstanding in sour
   **human-computer-interaction 12/12** round-trip PASS (0 errors, 0 warnings), FLETCH registry valid
   (`fletch_count: 61`, `finding_count: 0`); **cognitive-science 10/10** (registry `51`, 0 findings);
   **industrial-design 10/10** (registry `51`, 0 findings). MDCROP view-store inspect clean for each.
-- **Focused MDLOOM** over all twelve `human-computer-interaction/[00–11]` guides plus
+- **Focused PROOF** over all twelve `human-computer-interaction/[00–11]` guides plus
   `cognitive-science/09-APPLIED-BRIDGE.md` and `industrial-design/06-INTERACTION-DESIGN.md`:
   **14 files checked, 0 errors, 0 warnings** (one pre-existing `ascii_cell_padding` warning in the
   `industrial-design/06` spectrum diagram was cleared with a 1-space, width-preserving fix).
 - **Backfill-generator unit tests** (`.claude/skills/maxim-source-backfill/tests`): **9 passed**.
 - **Custody outcome:** `human-computer-interaction/` is untracked, so all twelve guides carry
-  `mdloom-backfill` backsources only (Git provenance `pending`); the two tracked siblings retain their
+  `proof-backfill` backsources only (Git provenance `pending`); the two tracked siblings retain their
   `git-history` backsource. All twelve HCI guides remain `status: source-custody` /
   `source_custody: partial`.
 - **`git diff --check`:** clean (no whitespace/conflict-marker errors) across the tracked edits.
@@ -105,13 +105,13 @@ content and records and returned **PASS**. Pulse 02 is **DONE**.
 ## R2 Tier Evidence and Registry Decision
 
 `R2-gold-rubric.md` scores every guide on all ten Gold dimensions, records 3–5 guide-specific reader
-tasks with pass/fail evidence, and confirms ordinary focused MDLOOM, adversarial, Da Vinci, and
+tasks with pass/fail evidence, and confirms ordinary focused PROOF, adversarial, Da Vinci, and
 source-custody status.
 
 - **Tier:** **Silver** for all 12 guides.
-- **Why not Gold:** **no HCI-specific Da Vinci invariants** exist in `mdloom.toml`, and external/
-  authentic source custody remains **partial** (`mdloom-backfill` only; Git provenance pending on an
-  untracked module) despite complete MDLOOM literal backfill.
+- **Why not Gold:** **no HCI-specific Da Vinci invariants** exist in `proof.toml`, and external/
+  authentic source custody remains **partial** (`proof-backfill` only; Git provenance pending on an
+  untracked module) despite complete PROOF literal backfill.
 - **Registry:** **no insertion** in `context/gold/REGISTRY.md`; no Candidate-Hardened or Certified
   Gold claim.
 - **Pulse gate:** **PASS; Pulse 02 DONE.** Gold/Da Vinci/external-source completion is optional future

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/04-REPLICATION.md
 canonical_path: distributed-systems/04-REPLICATION.md
-backsource_ids: [mdloom-backfill:distributed-systems:04-replication, git-history:distributed-systems:04-replication]
+backsource_ids: [proof-backfill:distributed-systems:04-replication, git-history:distributed-systems:04-replication]
 concepts: [replication]
 root_concepts: [replication]
 index_roles: [guide, root-concept]

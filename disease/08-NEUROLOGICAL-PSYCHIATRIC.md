@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/08-NEUROLOGICAL-PSYCHIATRIC.md
 canonical_path: disease/08-NEUROLOGICAL-PSYCHIATRIC.md
-backsource_ids: [mdloom-backfill:disease:08-neurological-psychiatric, git-history:disease:08-neurological-psychiatric]
+backsource_ids: [proof-backfill:disease:08-neurological-psychiatric, git-history:disease:08-neurological-psychiatric]
 concepts: [neurological, psychiatric]
 root_concepts: [neurological, psychiatric]
 index_roles: [guide, root-concept]

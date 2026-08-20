@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/09-PERSONALIZED-MEDICINE.md
 canonical_path: genomics/09-PERSONALIZED-MEDICINE.md
-backsource_ids: [mdloom-backfill:genomics:09-personalized-medicine, git-history:genomics:09-personalized-medicine]
+backsource_ids: [proof-backfill:genomics:09-personalized-medicine, git-history:genomics:09-personalized-medicine]
 concepts: [personalized, medicine]
 root_concepts: [personalized, medicine]
 index_roles: [guide, root-concept]

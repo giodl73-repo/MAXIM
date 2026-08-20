@@ -119,8 +119,8 @@ swapping the exemplar to a genuinely deep guide (e.g. `os/03-LINUX.md`,
 ## Known-but-not-fixed (follow-up fact-check wave)
 
 > **RESOLVED (2026-07-29).** All five leftovers below were fixed on source guides.
-> Derived MDLOOM/MDCROP/MDPORT artifacts for touched modules remain stale until
-> `module_source_backfill.py` is run against a wired PROOF/MDLOOM toolchain.
+> Derived PROOF/MDCROP/MDPORT artifacts for touched modules remain stale until
+> `module_source_backfill.py` is run against a wired PROOF/PROOF toolchain.
 
 - `biology/01` Okazaki fragment length — bacterial ~1–2 kb vs eukaryotic ~100–200 nt; Pol I/III context clarified.
 - `cryptography/02` OAEP encoding rewritten to RFC 8017 DB/seed mask order; broken KEM-DEM fence repaired.

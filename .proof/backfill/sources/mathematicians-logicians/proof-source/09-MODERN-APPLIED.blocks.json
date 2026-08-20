@@ -1,0 +1,61 @@
+{
+  "schema_version": "1",
+  "source_markdown": "mathematicians-logicians\\09-MODERN-APPLIED.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 69,
+      "heading_context": "### The Contribution: The Theory of Computation",
+      "confidence": "candidate",
+      "text": "TURING MACHINES\n================\n\nA Turing machine is an abstract device:\n  - An infinite tape divided into cells (read/write memory)\n  - A read/write head that can move left or right\n  - A finite set of states\n  - A transition function: (state, symbol) → (new state, new symbol, direction)\n\nA UNIVERSAL TURING MACHINE (UTM):\n  A Turing machine U that takes as input:\n    - A description of another Turing machine M (encoded on tape)\n    - An input string w\n  And simulates M running on w.\n\n  This is: a stored-program computer. The UTM is the theoretical basis\n  for the general-purpose computer. The \"program as data\" concept.\n\nTHE HALTING PROBLEM:\n  Does a program P halt on input I?\n\n  Theorem: No Turing machine can decide this for all (P, I).\n\n  Proof (diagonal argument):\n    Assume there is a machine H that halts with \"yes\" or \"no\"\n    for every input (M, w) where M is a TM description.\n\n    Construct D: On input M (a TM description),\n      Run H(M, M).\n      If H says M halts on M: loop forever.\n      If H says M doesn't halt on M: halt.\n\n    What does H(D, D) output?\n    If D halts on D: H should output \"yes\" → D loops → contradiction.\n    If D doesn't halt on D: H should output \"no\" → D halts → contradiction.\n\n    H cannot exist.\n\nSAME AS GÖDEL: The sentence \"This machine does not halt\" is the\n  computational version of \"This statement is unprovable.\"\n  Gödel (1931) → Turing (1936): same diagonal structure.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 171,
+      "heading_context": "### The Contribution: Information Theory",
+      "confidence": "candidate",
+      "text": "SHANNON ENTROPY\n================\n\nShannon's question: How do you measure INFORMATION?\n\nIntuition: Learning that the sun rose today carries little information\n  (you expected it). Learning that a fair coin came up heads carries\n  1 bit (maximum uncertainty resolved). Learning a surprising event\n  carries more information than a predictable one.\n\nShannon entropy of a discrete distribution P = {p₁, ..., pₙ}:\n  H(X) = -Σᵢ pᵢ log₂ pᵢ  (in bits, base-2 logarithm)\n\nProperties:\n  - H ≥ 0 with equality iff one outcome has probability 1 (certain)\n  - H is maximized by the uniform distribution: H = log₂ n bits\n  - H is concave in P\n  - H(X,Y) = H(X) + H(Y|X)  (chain rule — joint = marginal + conditional)\n\nFor a fair coin: H = -(0.5 log₂ 0.5 + 0.5 log₂ 0.5) = 1 bit.\nFor a biased coin with P(H) = 0.9: H ≈ 0.469 bits.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 276,
+      "heading_context": "### The Contribution: Feedback, Stochastic Processes, and Prediction Theory",
+      "confidence": "candidate",
+      "text": "WIENER'S CYBERNETICS\n=====================\n\nCore insight: Purposeful behavior in machines and animals has the same\n  mathematical structure — NEGATIVE FEEDBACK controlling deviation from a goal.\n\n                  Goal ─→ Comparator ─→ Effector ─→ Output\n                              ↑                       |\n                              └─────── Sensor ────────┘\n                                      (feedback)\n\nThis simple loop describes:\n  - Thermostat (temperature control)\n  - Biological homeostasis (blood sugar, temperature)\n  - The servomechanisms in WWII anti-aircraft guns\n  - Proportional-Integral-Derivative (PID) controllers\n  - Neural feedback in motor control\n  - Population dynamics (predator-prey)\n\nWiener's contribution: Formalize this mathematically.\n  The Wiener filter (see below) is the optimal linear feedback controller\n  for predicting/filtering a signal in noise.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 441,
+      "heading_context": "### The Contribution: Fractal Geometry",
+      "confidence": "candidate",
+      "text": "FRACTAL DIMENSION\n==================\n\nClassical geometry: lines are 1D, planes are 2D, solids are 3D.\n  Dimension is an integer.\n\nMandelbrot's insight: Rough objects have NON-INTEGER dimension.\n\nHausdorff dimension D: scale an object by factor r;\n  it breaks into N ~ r^D self-similar pieces.\n\n  D = log(N) / log(r)\n\nExamples:\n  Line segment: r=2 → N=2 pieces: D = log(2)/log(2) = 1 ✓\n  Koch snowflake: r=3 → N=4 self-similar pieces: D = log(4)/log(3) ≈ 1.26\n  Sierpinski triangle: r=2 → N=3: D = log(3)/log(2) ≈ 1.585\n  British coastline: D ≈ 1.25 (more wiggly than a line but less than area)\n\nThe \"coastline paradox\": the length of a coastline depends on the ruler\n  you use to measure it. With a smaller ruler, you pick up more detail.\n  Length → ∞ as ruler length → 0, at a rate governed by D.\n  Mandelbrot noticed this in 1967: \"How Long Is the Coast of Britain?\"",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "ascii_table_candidate",
+      "line": 528,
+      "heading_context": "### The Contribution: Green-Tao, Compressed Sensing, and Analytic Number Theory",
+      "confidence": "candidate",
+      "text": "GREEN-TAO THEOREM\n==================\n\nThe prime numbers contain arithmetic progressions of arbitrary length.\n\nAn arithmetic progression of length k: a, a+d, a+2d, ..., a+(k-1)d\n  (equally spaced sequence, all prime)\n\nExamples:\n  k=3: 3, 5, 7 (d=2) or 7, 11, 19 (no, 11+8≠19)... actually 3,7,11? no\n  k=3: 3, 5, 7 ✓; 5, 11, 17 ✓; 7, 19, 31 ✓\n  k=4: 5, 11, 17, 23 ✓ (d=6)\n  k=5: 5, 11, 17, 23, 29 ✓ (d=6)\n  k=6: 7, 157, 307, 457, 607, 757 ✓ (d=150)\n\nTheorem (Green-Tao 2004): For every k, there exist infinitely many\n  arithmetic progressions of length k in the primes.\n\nWHY HARD:\n  The primes become sparser as you go further out.\n  \"Coincidental\" long arithmetic progressions should disappear.\n  Green-Tao proved they don't — no matter how far you go.\n\nTHE PROOF TECHNIQUE:\n  Used ideas from:\n  - Gowers uniformity norms (a quantitative way to measure \"structure\")\n  - Ergodic theory (Furstenberg's proof of Szemerédi's theorem)\n  - Goldston-Pintz-Yıldırım (primes in arithmetic progressions)\n  - A transference principle: transfer Szemerédi's theorem\n    (arithmetic progressions in dense sets) to the primes.\n\nThis won Tao the Fields Medal.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

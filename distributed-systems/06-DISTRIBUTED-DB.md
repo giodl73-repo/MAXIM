@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/06-DISTRIBUTED-DB.md
 canonical_path: distributed-systems/06-DISTRIBUTED-DB.md
-backsource_ids: [mdloom-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]
+backsource_ids: [proof-backfill:distributed-systems:06-distributed-db, git-history:distributed-systems:06-distributed-db]
 concepts: [distributed, db]
 root_concepts: [distributed, db]
 index_roles: [guide, root-concept]

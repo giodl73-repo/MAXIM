@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/08-BIOINFORMATICS-PIPELINE.md
 canonical_path: genomics/08-BIOINFORMATICS-PIPELINE.md
-backsource_ids: [mdloom-backfill:genomics:08-bioinformatics-pipeline, git-history:genomics:08-bioinformatics-pipeline]
+backsource_ids: [proof-backfill:genomics:08-bioinformatics-pipeline, git-history:genomics:08-bioinformatics-pipeline]
 concepts: [bioinformatics, pipeline]
 root_concepts: [bioinformatics, pipeline]
 index_roles: [guide, root-concept]

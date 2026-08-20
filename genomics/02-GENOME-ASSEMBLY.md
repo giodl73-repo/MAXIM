@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/02-GENOME-ASSEMBLY.md
 canonical_path: genomics/02-GENOME-ASSEMBLY.md
-backsource_ids: [mdloom-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]
+backsource_ids: [proof-backfill:genomics:02-genome-assembly, git-history:genomics:02-genome-assembly]
 concepts: [genome, assembly]
 root_concepts: [genome, assembly]
 index_roles: [guide, root-concept]

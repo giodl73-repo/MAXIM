@@ -1,0 +1,94 @@
+{
+  "schema_version": "1",
+  "source_markdown": "pharmacology\\08-DRUG-DEVELOPMENT.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 26,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+──────────────────────────────────────────────────────────────────+\n|              DRUG DEVELOPMENT PIPELINE                           |\n|                                                                  |\n|  TARGET   →  LEAD       →  PRECLINICAL  →  CLINICAL TRIALS  →    |\n|  ID          DISCOVERY     TESTING         Phase I/II/III        |\n|  ~2 yr       ~2 yr         ~3-4 yr         ~6-8 yr               |\n|                                                                  |\n|  Failure rate: ────────────────────────────────────────────────  |\n|  Target ID    Lead        Enter      Phase I   Phase II  Ph III  |\n|  10-20% of   ~90% of     IND:       63% fail  66% fail  44%      |\n|  targets     compounds   10% pass                        fail    |\n|  validated   eliminated              ← Only ~10% through III →   |\n|                                                                  |\n|  → FDA REVIEW → APPROVAL → POST-MARKETING SURVEILLANCE (PV)      |\n|     6-12 mo                           Ongoing forever            |\n+──────────────────────────────────────────────────────────────────+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 49,
+      "heading_context": "## Target Identification and Validation",
+      "confidence": "candidate",
+      "text": "TARGET IDENTIFICATION\n──────────────────────\n  DISEASE HYPOTHESIS → MOLECULAR TARGET\n\n  Methods:\n  • Genetic linkage / GWAS: SNPs associated with disease → pathway\n  • CRISPR screens: knockout each gene → find which causes disease phenotype\n  • Proteomics: which proteins are differentially expressed/modified?\n  • Metabolomics: what metabolic changes accompany disease?\n  • Literature mining / pathway analysis\n\n  Good drug target characteristics:\n  • Disease-causative (not just correlated)\n  • Druggable (has binding pocket for small molecule; or accessible epitope for antibody)\n  • Essential for disease but dispensable in normal tissue\n  • Biomarker exists to measure target engagement\n\nTARGET VALIDATION\n──────────────────\n  Genetic: knockout/knockin animal models, patient loss-of-function mutations\n  Pharmacological: tool compounds → if modulating target → disease effect\n  Biomarker: measure target to confirm it's relevant in human disease\n\n  Classic validation success: BCR-ABL in CML\n    t(9;22) → BCR-ABL fusion → constitutive kinase → imatinib works brilliantly.\n    Causative, druggable, and biomarker (Philadelphia chromosome) all confirmed.\n\n  Classic validation failure: tau in Alzheimer's\n    Tau aggregates in AD brains. But causality uncertain.\n    Many anti-tau drugs failed Phase II/III.\n    Amyloid hypothesis similarly suffered many failures.\n    Target validation remains the hardest step in CNS drug discovery.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 88,
+      "heading_context": "## Lead Discovery and Optimization",
+      "confidence": "candidate",
+      "text": "LEAD DISCOVERY APPROACHES\n───────────────────────────\n\nPHENOTYPIC SCREENING (old-school but resurging)\n  Screen libraries of compounds for effect on cell or organism.\n  No predetermined target. Mechanism worked out later.\n  Historically produced many approved drugs (e.g., aspirin origin).\n  Advantage: finds drugs targeting unknown mechanisms.\n  Disadvantage: mechanism unknown → harder to optimize.\n\nSTRUCTURE-BASED DRUG DESIGN (SBDD)\n  X-ray crystallography or cryo-EM of target protein.\n  Design molecules that fit the active site.\n  Build drug around 3D structure.\n  Fragment-based screening: start with small fragments that bind weakly,\n  link them together → high-affinity drug.\n\nHIGH-THROUGHPUT SCREENING (HTS)\n  Robotic screening of 10⁶+ compounds vs target.\n  Fluorescence or luminescence readout.\n  Hit rate: ~0.01-0.1% → 100-1000 hits from 10⁶ compounds.\n\nVIRTUAL SCREENING / AI-BASED\n  Molecular docking: computational simulation of binding.\n  Generative AI: design novel compounds in silico.\n  AlphaFold: predict 3D structure of target when crystallography unavailable.\n  AI-designed drugs in clinical trials (as of 2025-2026): Insilico Medicine's ISM001-055\n  (IPF, Phase II completed with signals of efficacy); Recursion Pharmaceuticals multiple\n  programs in Phase I/II; Exscientia/Evotec partnerships; Absci (zero-shot antibody design);\n  Generate Biomedicines (protein design). The first AI-designed drug to reach Phase II\n  efficacy data was ISM001-055 (Insilico/Corcept) in 2024.\n\nLEAD OPTIMIZATION\n  Hit → Lead → Candidate:\n  Modify hit compound to:\n  (1) ↑Potency: improve binding to target\n  (2) ↑Selectivity: reduce off-target effects\n  (3) Improve PK: increase oral bioavailability, reduce metabolism\n  (4) Reduce toxicity: remove reactive groups, improve safety profile\n\nLIPINSKI'S RULE OF 5 (for oral bioavailability)\n  MW ≤ 500 Da\n  H-bond donors ≤ 5\n  H-bond acceptors ≤ 10\n  logP ≤ 5 (lipophilicity)\n  Violations predict poor oral absorption/permeability.\n  Biologics (antibodies, peptides) don't obey Rule of 5 — different delivery.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 142,
+      "heading_context": "## Preclinical Development",
+      "confidence": "candidate",
+      "text": "PRECLINICAL TESTING REQUIREMENTS\n──────────────────────────────────\nBefore first human dose, must demonstrate:\n  (1) Desired pharmacological effect in animal models\n  (2) Characterization of PK (ADME) in animals\n  (3) Safety: No unacceptable acute/chronic toxicity\n  (4) Genotoxicity: Ames test (bacteria), micronucleus test\n  (5) Safety pharmacology: heart (hERG), CNS, respiratory\n\nANIMAL MODELS\n  In vitro: Cell lines, primary cells, organoids\n  In vivo: Rodents (mouse, rat), then non-rodents (dog, monkey)\n  Regulatory requirement: 2 species for toxicology (1 rodent + 1 non-rodent)\n\nALLOMETRIC SCALING (dose translation)\n  Starting dose in Phase I estimated from:\n    NOAEL (No-Observed-Adverse-Effect Level) in most sensitive species\n    × Safety factor (usually 1/10 the NOAEL expressed as mg/kg)\n    × Body surface area or weight-based conversion to humans\n  Biologics: use minimum anticipated biological effect level (MABEL)\n\nIND (Investigational New Drug Application to FDA)\n  After preclinical, sponsor files IND:\n  • Chemistry, manufacturing, controls (CMC)\n  • Preclinical data package\n  • Clinical protocol for Phase I\n  • Investigators' brochure\n\n  If FDA doesn't object within 30 days → can start Phase I.\n  FDA can put on \"clinical hold\" if safety concerns.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 179,
+      "heading_context": "## Clinical Trials: Phase I, II, III",
+      "confidence": "candidate",
+      "text": "PHASE I: FIRST IN HUMAN\n────────────────────────\n  Purpose:     Safety, tolerability, PK, PD\n               Find maximum tolerated dose (MTD)\n  Design:      Dose escalation (3+3 design, accelerated titration, BOIN, mTPI)\n  Population:  Healthy volunteers (non-oncology)\n                OR cancer patients with advanced disease (oncology)\n  Size:        20-80 patients\n  Duration:    1-2 years\n\n  DOSE ESCALATION DESIGN\n  3+3 Classic:  3 patients at dose level.\n               If 0/3 DLT → escalate. If 1/3 → add 3 more.\n               If ≥2/6 DLT → stop, MTD = previous level.\n  Modern adaptive: BOIN, mTPI use Bayesian methods → more efficient.\n\n  Dose Limiting Toxicity (DLT): predefined severe adverse events in first cycle.\n  MTD: highest dose with DLT in < 33% of patients.\n  OBD (optimal biological dose): for biologics, not MTD but effective dose.\n\nPHASE II: PROOF OF CONCEPT\n────────────────────────────\n  Purpose:     Preliminary efficacy signal; dose selection; biomarker development\n  Design:      Single-arm (response rate vs historical control)\n               OR randomized Phase II (vs placebo or active comparator)\n  Population:  Target disease patient population; biomarker-selected\n  Size:        50-300 patients\n  Endpoint:    Response rate (ORR), progression-free survival (PFS), biomarkers\n  Duration:    1-3 years\n\n  Key decision gate:\n  Go/No-Go for Phase III based on:\n  • Efficacy signal sufficient to power Phase III?\n  • Toxicity acceptable?\n  • Appropriate patient population and dose identified?\n\nPHASE III: CONFIRMATORY\n────────────────────────\n  Purpose:     Efficacy vs standard of care (or placebo); safety profile\n  Design:      Randomized Controlled Trial (RCT); double-blind; superiority/non-inferiority\n  Population:  Large, representative disease population\n  Size:        300-5,000+ patients (depends on effect size and endpoint)\n  Primary endpoint: Typically overall survival (OS) or PFS (surrogate for OS)\n  Duration:    2-5 years\n\n  STATISTICAL DESIGN\n  Power: typically 80-90% to detect minimum clinically meaningful difference.\n  Type I error: α = 0.05 (5% chance of false positive).\n  Interim analyses with pre-specified stopping rules (futility, efficacy).\n  Adaptive designs: modify sample size or arms based on interim data.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "diagram_like",
+      "line": 236,
+      "heading_context": "## FDA Approval Process",
+      "confidence": "candidate",
+      "text": "FDA SUBMISSION TYPES\n─────────────────────\n  NDA (New Drug Application): Small molecule drugs\n  BLA (Biologics License Application): Vaccines, proteins, gene therapy\n  ANDA (Abbreviated NDA): Generic drugs (bioequivalence, not safety/efficacy)\n  510(k): Medical devices (substantially equivalent to predicate device)\n\nNDA/BLA SECTIONS\n  Module 1: Administrative and prescribing information\n  Module 2: Common technical document summaries\n  Module 3: Quality (CMC — chemistry, manufacturing, controls)\n  Module 4: Nonclinical (animal) study reports\n  Module 5: Clinical study reports\n\nREVIEW TIMELINES\n  Standard review: 10 months\n  Priority review: 6 months (serious condition + addresses unmet need)\n  Breakthrough therapy designation: more intense guidance; may qualify for priority review\n  Accelerated approval: approval on surrogate endpoint; confirmatory trial required\n  Fast track: frequent interactions with FDA; rolling review allowed\n\nADVISORY COMMITTEES\n  FDA convenes advisory committees (AdComs) for complex decisions.\n  External experts vote on approvability questions.\n  FDA not bound by vote but usually follows it.\n  High-profile examples: alzheimer's drugs (aducanumab controversy)\n\nPOST-MARKETING SURVEILLANCE (PHARMACOVIGILANCE)\n  REMS (Risk Evaluation and Mitigation Strategy): required for dangerous drugs.\n    Thalidomide (iPLEDGE): extreme teratogen; pregnancy test required before dispensing.\n    Clozapine: CBC monitoring program for agranulocytosis.\n    Isotretinoin (iPLEDGE): severe teratogen; multiple pregnancy tests/contraception.\n  Phase IV trials: post-approval; required or voluntary; detect rare toxicities.\n  Pharmacovigilance databases: FDA FAERS, VigiBase (WHO).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 279,
+      "heading_context": "## Engineering Bridge: Drug Development as Software Release Pipeline",
+      "confidence": "candidate",
+      "text": "  DRUG DEVELOPMENT              SOFTWARE RELEASE / ENGINEERING PARALLEL\n  ──────────────────────────────────────────────────────────────────────\n  Target identification         Requirements definition:\n                                What is the biological problem to solve?\n                                What is the measurable endpoint?\n\n  Lead discovery (HTS + AI)     Architecture / proof-of-concept:\n                                Does the approach work at all?\n                                Hit rate 0.01-0.1% → architecture studies\n                                have similar low-signal searches.\n\n  Preclinical testing           Unit + integration testing:\n                                In vitro = unit tests; in vivo = integration\n                                tests. NOAEL is the passing threshold.\n                                IND filing = design review gate (FDA has 30\n                                days to object before \"approval by silence\").\n\n  Phase I (safety, PK, MTD)     Alpha / internal testing:\n                                20-80 users; find failure modes;\n                                dose-escalation = binary search for MTD.\n                                3+3 design = conservative escalation with\n                                DLT stop rule. Bayesian adaptive (BOIN) =\n                                online learning dose-escalation.\n\n  Phase II (efficacy signal)    Beta / limited GA rollout:\n                                50-300 users; preliminary efficacy signal.\n                                Go/no-go gate: is this worth a Phase III?\n                                Power often limited → many false negatives.\n\n  Phase III (confirmatory RCT)  GA candidate / staged rollout:\n                                300-5000+ users; powered for hard endpoint.\n                                Double-blind RCT = the A/B test. Interim\n                                analysis with alpha-spending = sequential\n                                hypothesis testing. Adaptive design =\n                                midpoint sample-size re-estimation.\n\n  FDA review (NDA/BLA)          Compliance certification / security audit:\n                                Independent review of all evidence. Advisory\n                                committee = external security review board.\n                                Accelerated approval = conditional production\n                                deploy with required follow-up confirmation.\n\n  Post-marketing surveillance   Production monitoring / incident response:\n  (pharmacovigilance)           FAERS = incident database. REMS = privileged\n                                access control for dangerous drugs (requires\n                                a certified process to use). Phase IV =\n                                post-deploy validation studies.\n\n  Failure rate (~90% attrition) Product funnel: 10,000 compounds → 1 NDA.\n                                Phase II → Phase III: ~30% success.\n                                Oncology has the lowest Phase III success\n                                (~40%); CNS the lowest overall (~8%).\n  ──────────────────────────────────────────────────────────────────────",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "diagram_like",
+      "line": 339,
+      "heading_context": "## Generics, Biosimilars, and Drug Pricing",
+      "confidence": "candidate",
+      "text": "GENERIC DRUGS (ANDA)\n─────────────────────\n  Same active ingredient, same dose, same route.\n  Must demonstrate bioequivalence (Cmax and AUC within 80-125% of original).\n  Approved via ANDA — no safety/efficacy trials needed.\n  Hatch-Waxman Act (1984): 180-day exclusivity period for first generic filer.\n  Authorized generics: branded company makes \"own generic\" to compete.\n\nBIOSIMILARS\n  Biologics are complex proteins — cannot be identically reproduced.\n  Biosimilar: \"highly similar\" to reference biologic; no clinically meaningful differences.\n  More evidence required than small-molecule generics:\n    Structural characterization\n    Functional assays\n    PK/PD studies\n    Clinical data (1 or more trials)\n  FDA Purple Book: biosimilar reference database.\n  Interchangeability designation: pharmacist can substitute without prescriber sign-off.\n  Examples: Zarxio (filgrastim-sndz), Inflectra (infliximab-dyyb), multiple adalimumab biosimilars.\n\nPATENT PROTECTION AND DATA EXCLUSIVITY\n  Standard patent: 20 years from filing (often ~10 years remaining at approval)\n  Data exclusivity (Hatch-Waxman): 5 years for new chemical entity; 3 years for new indication\n  Pediatric exclusivity: 6 months additional if pediatric studies conducted\n  Orphan drug exclusivity: 7 years (prevalence < 200,000 US patients)\n  Biologic data exclusivity: 12 years (Biologics Price Competition and Innovation Act)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

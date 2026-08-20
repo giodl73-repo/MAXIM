@@ -1,0 +1,41 @@
+---
+maxim_schema: maxim.frontmatter.v1
+id: proof-backfill:public-health:08-health-policy
+kind: source-record
+module: public-health
+section: public-health
+title: Health Policy source record
+status: source-custody
+source_custody: partial
+current_path: .proof/backfill/sources/public-health/08-health-policy.source-record.md
+canonical_path: .proof/backfill/sources/public-health/08-health-policy.source-record.md
+backsource_ids: [git-history:public-health:08-health-policy]
+concepts: [health, policy]
+root_concepts: [health, policy]
+index_roles: [source-map]
+remap_from: []
+remap_to: []
+updated: null
+---
+
+# Health Policy source record
+
+| Field | Value |
+|---|---|
+| Current MAXIM file | `public-health/08-HEALTH-POLICY.md` |
+| PROOF source artifact | `.proof/backfill/sources/public-health/proof-source/08-HEALTH-POLICY.source.md` |
+| PROOF table sidecar | `.proof/backfill/sources/public-health/proof-source/08-HEALTH-POLICY.tables.json` |
+| PROOF block sidecar | `.proof/backfill/sources/public-health/proof-source/08-HEALTH-POLICY.blocks.json` |
+| Backfill report | `.proof/backfill/sources/public-health/backfill-report.json` |
+| PROOF classification | `literal_markdown` |
+| PROOF confidence | `high` |
+| Round trip | `passed` |
+| Structured extraction | `3` markdown tables, `8` visual/block candidates |
+| Git provenance | `992d6bc9`, `578235d5`, `ab7e7c6b`, `c3d7a740`, `ddd24c0f`, `9ae0c778`, `1115f05b` |
+
+## Custody note
+
+This first-pass record proves the current file can be regenerated as a PROOF
+literal source artifact and round-tripped without loss. It is still marked
+`partial` because external/authentic backsources for factual claims have not yet
+been attached.

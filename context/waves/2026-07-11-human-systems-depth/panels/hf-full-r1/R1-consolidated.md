@@ -4,7 +4,7 @@
 > re-review. No Gold, no registry, no unresolved BLOCK/WARN in source after this pass.** This
 > record consolidates the two R1 lenses — `R1-expert-skeptic.md` (overclaim, quantitative/model
 > rigor, safety floor, boundary accuracy) and `R1-reference-editor.md` (citations, standards,
-> structure, cross-references, accessibility reach, trackers, MDLOOM-artifact truth, records) — over
+> structure, cross-references, accessibility reach, trackers, PROOF-artifact truth, records) — over
 > the **whole** authored `human-factors/` module (all twelve guides `00`–`11`) and its records,
 > run after authoring, integration, and source-corpus backfill. This is the conservative
 > full-module adversarial pass named by Pulse 04's Definition-of-Done closure gate 12. Every finding
@@ -22,9 +22,9 @@ structure; `10` overlapping coverage strata), an **overclaim/prescription** defe
 "same fix"/checklist/handoff/second-check), a **determinate-without-triangulation** defect (`11`
 reporting culture), a **barrier-ranking + dust-advice** defect (`08`), plus reference-editor defects
 in **cross-reference navigability, the accessibility contract's honest reach (`01`/`03`/`05`/`09`/
-`10`), the trackers/totals, the Leveson/RNLE citations and untracked whitespace, the MDLOOM-artifact
+`10`), the trackers/totals, the Leveson/RNLE citations and untracked whitespace, the PROOF-artifact
 truth, and the missing panel/DoD records**. All are repaired in the guides and records; the
-full-module MDLOOM/backfill validation is clean. No Da Vinci / Gold work is claimed.
+full-module PROOF/backfill validation is clean. No Da Vinci / Gold work is claimed.
 
 ## Repair summary
 
@@ -41,7 +41,7 @@ full-module MDLOOM/backfill validation is clean. No Da Vinci / Gold work is clai
 | Accessibility ≥2-channel (RE-04) | Concise explicit cross-cutting note added to `01`,`03`,`05`,`09`,`10`, each anchored + pointing to `06` §3 — the module-wide claim is now true. |
 | Trackers/totals (RE-05) | Complete stays **239** (HCI counted; HF separate); **final target recomputed to 240 / ~2,410**; `sections/technology.md` marks HF 🔬. |
 | Leveson / RNLE / whitespace (RE-06) | Leveson → **MIT Press 2011** (paper *Safety Science* 2004) in `01`,`08`; RNLE load constant → **set by the revised 1993 equation** in `02`; stray `04` diagram trailing whitespace trimmed; whitespace validated over untracked files via **`git add --intent-to-add`**. |
-| MDLOOM-artifact truth (RE-07) | Focused **HF-only MDLOOM, 12 files, 0/0** recorded; `.mdloom/last-check.json` refreshed from the stale prototype `3` to `12`; sibling warnings reported separately. |
+| PROOF-artifact truth (RE-07) | Focused **HF-only PROOF, 12 files, 0/0** recorded; `.proof/last-check.json` refreshed from the stale prototype `3` to `12`; sibling warnings reported separately. |
 | Records (RE-02) | This panel + `R2-gold-rubric.md` created; citation-risk items closed against authoritative sources with recorded status; STATUS/Pulse/WAVE + DoD closure evidence updated, **IN REVIEW preserved**. |
 
 ## Findings ledger
@@ -59,14 +59,14 @@ full-module MDLOOM/backfill validation is clean. No Da Vinci / Gold work is clai
 | RE-04 | reference-editor | WARN | ≥2-channel accessibility invariant claimed module-wide but absent in `01`,`03`,`05`,`09`,`10` |
 | RE-05 | reference-editor | WARN | `TRACKER.md`/section totals didn't separate HCI-complete from HF-in-review or count HF in the final target |
 | RE-06 | reference-editor | WARN | Leveson mis-dated (→ 2011); RNLE load-constant provenance (→ revised 1993 equation); untracked-whitespace validation via intent-to-add |
-| RE-07 | reference-editor | WARN | `.mdloom/last-check.json` recorded the prototype's 3 files, not the 12-guide HF-only 12/0/0; sibling warnings not separated |
+| RE-07 | reference-editor | WARN | `.proof/last-check.json` recorded the prototype's 3 files, not the 12-guide HF-only 12/0/0; sibling warnings not separated |
 
 **BLOCK: 6 · WARN: 6 — all repaired in this pass; none outstanding in source or records.**
 
 ## Validation observed
 
-- **Focused MDLOOM (HF-only, all twelve `human-factors/[00–11]` guides):** **12 files checked, 0
-  errors, 0 warnings**. `.mdloom/last-check.json` refreshed to `files_checked: 12`. Sibling MDLOOM/
+- **Focused PROOF (HF-only, all twelve `human-factors/[00–11]` guides):** **12 files checked, 0
+  errors, 0 warnings**. `.proof/last-check.json` refreshed to `files_checked: 12`. Sibling PROOF/
   whitespace warnings, if any, are tracked **separately** and are not part of this module number.
 - **Source-backfill `--validate` (regenerate + validate) for `human-factors`:** **12/12 round-trip
   PASS** (`roundtrip_passed: 12`, `roundtrip_failed: 0`), tables 20, structured blocks 81, FLETCH
@@ -76,7 +76,7 @@ full-module MDLOOM/backfill validation is clean. No Da Vinci / Gold work is clai
 - **`git diff --check` (including untracked via `git add --intent-to-add`):** clean — no
   trailing-whitespace or conflict-marker errors across the HF guides and records after the `04`
   diagram trim.
-- **Custody outcome:** `human-factors/` is untracked, so all twelve guides carry `mdloom-backfill`
+- **Custody outcome:** `human-factors/` is untracked, so all twelve guides carry `proof-backfill`
   backsources only (Git provenance `pending`); all remain `status: source-custody` /
   `source_custody: partial`.
 - No `commit`/`push`; no submodule pointer update; no edits outside the twelve HF guides, the HF
@@ -96,8 +96,8 @@ Pulse 04 and the wave stay **IN REVIEW, not closed**.
 tasks with pass/fail evidence, and states the mechanical/adversarial/source-custody/Da Vinci status.
 
 - **Tier:** **Silver** for all 12 guides.
-- **Why not Gold:** **no HF-specific Da Vinci invariant** exists in `mdloom.toml`, and external/
-  authentic source custody is **partial** (`mdloom-backfill` only; Git provenance pending on an
+- **Why not Gold:** **no HF-specific Da Vinci invariant** exists in `proof.toml`, and external/
+  authentic source custody is **partial** (`proof-backfill` only; Git provenance pending on an
   untracked module) — **no Gold without pins and custody**.
 - **Registry:** **no insertion** in `context/gold/REGISTRY.md`; no Candidate-Hardened or Certified
   Gold claim.

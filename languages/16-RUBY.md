@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/16-RUBY.md
 canonical_path: languages/16-RUBY.md
-backsource_ids: [mdloom-backfill:languages:16-ruby, git-history:languages:16-ruby]
+backsource_ids: [proof-backfill:languages:16-ruby, git-history:languages:16-ruby]
 concepts: [ruby]
 root_concepts: [ruby]
 index_roles: [guide, root-concept]

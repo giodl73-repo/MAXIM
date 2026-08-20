@@ -63,7 +63,7 @@ is the boundary/quality/safety re-review only — which this round passes.
 
 ## Validation observed
 
-- Focused MDLOOM (repo `mdloom.toml`, the two guides only): **2 files checked, 0 errors, 0
+- Focused PROOF (repo `proof.toml`, the two guides only): **2 files checked, 0 errors, 0
   warnings**.
 - `git diff --check`: clean on the touched files.
 - No source-corpus backfill (out of scope); no edits to `cognitive-science/`,

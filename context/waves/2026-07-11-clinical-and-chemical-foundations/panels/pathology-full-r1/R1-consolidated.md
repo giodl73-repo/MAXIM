@@ -34,7 +34,7 @@ review is complete and clean, and the final reviewer returned PASS on 2026-07-12
 | Measurand vs measurement procedure (08 §1 prose + table) | Separated: measurand = analyte + system/matrix + kind of quantity; procedure = how it is estimated; method enters the measurand **only when method-defined** (operationally defined). |
 | Stale "planned guide 11" (08, 10) | Three references corrected from "planned guide `11`" to "guide `11`" (guide 11 is authored). |
 | Overview navigation (00, new §6) | Added a **concrete fictional mechanism→result→diagnosis navigation case** + **5 solved Reader Tasks** (routing exercises) **before** the Decision Cheat Sheet. |
-| Source-corpus custody (generator) | `module_source_backfill.py` fixed so a `git-history` backsource is added **only when `git log -- <path>` returns commits**; guide frontmatter + generated source-record `backsource_ids` include git-history only with real history; source-record Git provenance stays `pending` otherwise. **Focused unit tests** added (tracked-history-present vs untracked/no-history). Pathology + siblings regenerated: untracked `pathology`/`clinical-medicine` carry `mdloom-backfill` only; tracked `disease`/`medicine` retain `git-history`. |
+| Source-corpus custody (generator) | `module_source_backfill.py` fixed so a `git-history` backsource is added **only when `git log -- <path>` returns commits**; guide frontmatter + generated source-record `backsource_ids` include git-history only with real history; source-record Git provenance stays `pending` otherwise. **Focused unit tests** added (tracked-history-present vs untracked/no-history). Pathology + siblings regenerated: untracked `pathology`/`clinical-medicine` carry `proof-backfill` only; tracked `disease`/`medicine` retain `git-history`. |
 | Records reconciliation (Pulse 05, `PATHOLOGY-ARCHITECTURE.md`) | Reconciliation banners added; **manifest 12/12 complete**; every prototype/defer claim `[SUPERSEDED 2026-07-12]`-labeled with current state; reciprocal wiring + full-module validation recorded; final PASS added after the point-in-time R1 review state. |
 | Scaling panels (09, 11) | Guide `11` whole-seam panel finalized to **PASS** after repair; guide `09` is PASS; both scaling gates are cleared. |
 | Library counts (Life Sciences, `TRACKER`) | Life-Sciences directory count and portfolio totals corrected from actual counts: pathology adds **one** directory and **12** guides beyond the prior chemistry + clinical state. |
@@ -63,11 +63,11 @@ review is complete and clean, and the final reviewer returned PASS on 2026-07-12
   sibling: **pathology 12/12** round-trip PASS, **0 errors, 0 warnings**; **disease 11/11**;
   **medicine 11/11**; **clinical-medicine 12/12** — each with FLETCH registry `finding_count: 0`
   and a clean MDCROP view-store inspect.
-- **Focused MDLOOM** over all twelve `pathology/*.md` guides: **0 errors, 0 warnings**.
+- **Focused PROOF** over all twelve `pathology/*.md` guides: **0 errors, 0 warnings**.
 - **Backfill-generator unit tests** (`.claude/skills/maxim-source-backfill/tests`): **all pass** —
   git-history included when tracked history exists, omitted for untracked/no-history files;
   source-record backsources empty and Git provenance `pending` when no history.
-- **Custody outcome:** untracked `pathology`/`clinical-medicine` regenerated with `mdloom-backfill`
+- **Custody outcome:** untracked `pathology`/`clinical-medicine` regenerated with `proof-backfill`
   backsources only (Git provenance `pending`); tracked `disease`/`medicine` retain `git-history`.
 - **`git diff --check`:** clean (no whitespace/conflict markers) across the tracked edits.
 - No `commit`/`push`; no edits outside the pathology guides, the generator + its tests, the wave
@@ -82,12 +82,12 @@ BLOCK or WARN**. Both `09`/`11` scaling gates are cleared.
 ## R2 Tier Evidence and Registry Decision
 
 `R2-gold-rubric.md` scores every guide on all ten Gold dimensions, records 3–5
-guide-specific reader tasks with pass/fail evidence, and confirms ordinary focused MDLOOM,
+guide-specific reader tasks with pass/fail evidence, and confirms ordinary focused PROOF,
 adversarial, Da Vinci, and source-custody status.
 
 - **Tier:** Silver for all 12 guides.
 - **Why not Gold:** no pathology-specific Da Vinci invariants; external/authentic source
-  custody remains partial despite complete MDLOOM literal backfill.
+  custody remains partial despite complete PROOF literal backfill.
 - **Registry:** no insertion in `context/gold/REGISTRY.md`; no Candidate-Hardened or
   Certified Gold claim.
 - **Pulse gate:** Gold/Da Vinci/external-source completion is optional future work, not a

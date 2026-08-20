@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/04-JAVA.md
 canonical_path: languages/04-JAVA.md
-backsource_ids: [mdloom-backfill:languages:04-java, git-history:languages:04-java]
+backsource_ids: [proof-backfill:languages:04-java, git-history:languages:04-java]
 concepts: [java]
 root_concepts: [java]
 index_roles: [guide, root-concept]

@@ -10,7 +10,7 @@ source_request: "Resolve MAXIM local state and migrate generated artifacts."
 MAXIM's active expansion work was first preserved in checkpoint commit
 `0a189c79`. The source-corpus generator and derived artifacts then migrated to:
 
-- `.mdloom/`, `mdloom.toml`, and `mdloom.*`,
+- `.proof/`, `proof.toml`, and `proof.*`,
 - `.mdport/`, `*.mdport.json`, and `mdport.v1`,
 - existing MDCROP views and FLETCH registries pointing at the renamed artifacts.
 

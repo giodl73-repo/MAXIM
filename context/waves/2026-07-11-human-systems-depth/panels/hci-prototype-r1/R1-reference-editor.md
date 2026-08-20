@@ -125,6 +125,6 @@ pulse deliverable to "R1 recorded; findings repaired; strict re-review pending â
 
 ## Verdict
 
-Factual and structural defects in this lens are corrected and focused MDLOOM is green.
+Factual and structural defects in this lens are corrected and focused PROOF is green.
 Because every fix was made in the same repair pass, the pattern is **not** ratified on this
 record alone. **Recommend Pulse 01 stays IN REVIEW pending a strict R2 re-review.**

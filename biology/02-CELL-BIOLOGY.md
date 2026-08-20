@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: biology/02-CELL-BIOLOGY.md
 canonical_path: biology/02-CELL-BIOLOGY.md
-backsource_ids: [mdloom-backfill:biology:02-cell-biology, git-history:biology:02-cell-biology]
+backsource_ids: [proof-backfill:biology:02-cell-biology, git-history:biology:02-cell-biology]
 concepts: [cell, biology]
 root_concepts: [cell, biology]
 index_roles: [guide, root-concept]

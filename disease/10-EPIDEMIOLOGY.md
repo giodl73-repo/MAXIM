@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: disease/10-EPIDEMIOLOGY.md
 canonical_path: disease/10-EPIDEMIOLOGY.md
-backsource_ids: [mdloom-backfill:disease:10-epidemiology, git-history:disease:10-epidemiology]
+backsource_ids: [proof-backfill:disease:10-epidemiology, git-history:disease:10-epidemiology]
 concepts: [epidemiology]
 root_concepts: [epidemiology]
 index_roles: [guide, root-concept]

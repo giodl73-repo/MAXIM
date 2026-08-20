@@ -120,7 +120,7 @@ heuristic-evaluation average, a different study lineage), one evaluator at λ = 
 holds the peer-depth bar and the honesty invariants; the conservative pass surfaced one contested-case
 overclaim (`01`), one unit-of-analysis mismatch across `02`/`05`, one over-certified sibling pointer
 (`cognitive-science/09`), and four bounded honesty/precision defects (`09`, `10`, `07`, `05`). All are
-repaired in the guides and validated by focused module-scope MDLOOM (0 errors, 0 warnings). Because
+repaired in the guides and validated by focused module-scope PROOF (0 errors, 0 warnings). Because
 every fix was made in this same pass, this lens did not itself ratify. **Superseding final
 disposition:** the final reviewer returned **PASS**; Pulse 02 is **DONE**. **No Da Vinci figure
 invariants and no Gold eligibility** are claimed; the reference-editor lens and

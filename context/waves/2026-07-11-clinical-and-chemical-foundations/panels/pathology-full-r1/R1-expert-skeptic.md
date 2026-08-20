@@ -79,7 +79,7 @@ both guide frontmatter and generated source records, even when `git log -- <path
 commits** (as it does for the untracked `pathology/`). This claims provenance that does not exist,
 and contradicted the source record's own `Git provenance | pending`. *Repaired:* the generator now
 adds the `git-history` backsource **only when real tracked history exists**; untracked/historyless
-files carry `mdloom-backfill` only, and the source record's Git provenance stays `pending`. Focused
+files carry `proof-backfill` only, and the source record's Git provenance stays `pending`. Focused
 unit tests cover tracked-history-present vs untracked/no-history. Pathology + siblings regenerated;
 tracked `disease`/`medicine` correctly retain `git-history`, untracked `pathology`/
 `clinical-medicine` correctly drop it.
@@ -102,7 +102,7 @@ tracked `disease`/`medicine` correctly retain `git-history`, untracked `patholog
 hits the peer-depth bar; the conservative pass surfaced one mis-scoped definition (05), three
 technique-accuracy/procedure-creep defects (09), one physics over-generalization (07), one
 metrology-definition conflation (08), and one provenance-custody defect (generator). All are
-repaired in the guides or the generator, validated by focused module-scope MDLOOM and the generator
+repaired in the guides or the generator, validated by focused module-scope PROOF and the generator
 unit tests. R2 now confirms the full-module residual set clean; see `R1-consolidated.md` and
 `R2-gold-rubric.md`. Final module sign-off remains deliberately **withheld**, so Pulse 05
 stays IN REVIEW only for that sign-off.

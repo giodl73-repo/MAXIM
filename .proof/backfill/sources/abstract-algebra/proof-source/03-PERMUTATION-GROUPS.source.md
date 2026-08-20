@@ -1,0 +1,355 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "03-PERMUTATION-GROUPS.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:permutation-groups
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Permutation Groups
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/03-PERMUTATION-GROUPS.md
+canonical_path: abstract-algebra/03-PERMUTATION-GROUPS.md
+backsource_ids: [proof-backfill:abstract-algebra:03-permutation-groups, git-history:abstract-algebra:03-permutation-groups]
+concepts: [permutation, groups]
+root_concepts: [permutation, groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Permutation Groups
+
+## The Big Picture
+
+```
++====================================================================+
+|               PERMUTATION GROUPS — STRUCTURE                       |
++====================================================================+
+|                                                                    |
+|  S_n = all bijections {1,...,n} → {1,...,n}    |S_n| = n!         |
+|         |                                                          |
+|         +──── cycle decomposition ────────────────────────────    |
+|         |     every σ = product of disjoint cycles                |
+|         |     unique up to order; cycle type = conjugacy class     |
+|         |                                                          |
+|         +──── sign homomorphism ─────────────────────────────    |
+|               sgn: S_n → {±1},  sgn(σ) = (-1)^{# transpositions}  |
+|               ker(sgn) = A_n  (alternating group)                  |
+|                                                                    |
+|  A_n = {even permutations}   |A_n| = n!/2                         |
+|  A_n is SIMPLE for n ≥ 5 (no normal subgroups)                    |
+|  → quintic unsolvable; every finite group embeds in some S_n      |
+|                                                                    |
+|  CAYLEY'S THEOREM: Every group G embeds in S_{|G|} via           |
+|  the left-regular representation g ↦ (x ↦ gx).                   |
++====================================================================+
+```
+
+---
+
+## Cycle Notation
+
+```
+A PERMUTATION σ ∈ S_n can be written in cycle notation:
+
+ONE-LINE: σ = 4 1 3 2 5 means 1↦4, 2↦1, 3↦3, 4↦2, 5↦5.
+
+CYCLE NOTATION:
+  Start with 1: σ(1)=4, σ(4)=2, σ(2)=1 → cycle (1 4 2).
+  Move to unfixed: σ(3)=3 → 3 is fixed, write (3) or omit.
+  Remaining: 5 is fixed.
+  Full: σ = (1 4 2)(3)(5) = (1 4 2).  [Singletons suppressed]
+
+A k-CYCLE (a₁ a₂ ... aₖ) sends: a₁↦a₂, a₂↦a₃, ..., aₖ↦a₁.
+
+UNIQUE FACTORIZATION INTO DISJOINT CYCLES:
+  Every σ ∈ S_n = product of disjoint cycles, unique up to order.
+  Disjoint cycles commute.
+
+CYCLE TYPE: The multiset of cycle lengths.
+  σ = (1 4 2)(3 5): cycle type [3,2] (one 3-cycle, one 2-cycle).
+  Cycle type determines ORDER: lcm of cycle lengths.
+    ord((1 4 2)(3 5)) = lcm(3,2) = 6.
+```
+
+### Multiplication of Permutations
+
+```
+CONVENTION: σ∘τ means "apply τ first, then σ."  (Function composition order)
+  Some texts use σ∘τ = "apply σ first" — always check.
+
+EXAMPLE:  σ = (1 2 3),  τ = (1 2) in S_3.
+  σ∘τ: apply τ first.
+    1 →^τ 2 →^σ 3: so 1↦3.
+    2 →^τ 1 →^σ 2: so 2↦2.
+    3 →^τ 3 →^σ 1: so 3↦1.
+  σ∘τ = (1 3).
+
+  τ∘σ: apply σ first.
+    1 →^σ 2 →^τ 1: so 1↦1. Wait, τ(2)=1? τ=(12): 1↦2, 2↦1.
+    1 →^σ 2 →^τ 1: 1↦1.
+    2 →^σ 3 →^τ 3: 2↦3.
+    3 →^σ 1 →^τ 2: 3↦2.
+  τ∘σ = (2 3).
+
+  So (1 2 3)(1 2) = (1 3) ≠ (2 3) = (1 2)(1 2 3). Non-abelian. ✓
+
+KEY IDENTITY:
+  σ(a₁ a₂ ... aₖ)σ^{-1} = (σ(a₁) σ(a₂) ... σ(aₖ)).
+  Conjugation relabels the elements in the cycle.
+```
+
+---
+
+## Transpositions and Signs
+
+```
+TRANSPOSITION: A 2-cycle (i j).  Swaps i and j.
+  Every permutation is a product of transpositions (not necessarily disjoint).
+  (a₁ a₂ ... aₖ) = (a₁ aₖ)(a₁ aₖ₋₁)...(a₁ a₂)  [k-1 transpositions]
+
+SIGN (PARITY):
+  The decomposition into transpositions is NOT unique,
+  but the PARITY (even/odd number of transpositions) IS invariant.
+
+  sgn(σ) = (-1)^{number of transpositions in any decomposition}
+         = (-1)^{n - (number of cycles, counting fixed points)}
+
+  Even permutation: sgn = +1 (product of even number of transpositions).
+  Odd permutation:  sgn = -1.
+
+  SIGN FORMULA BY CYCLE TYPE:
+    A k-cycle is a product of k-1 transpositions.
+    k-cycle: even iff k is odd.
+    σ = product of disjoint cycles of lengths l₁, l₂, ..., lₘ:
+    sgn(σ) = (-1)^{Σ(lᵢ-1)} = (-1)^{n-m}
+      where n = total elements moved, m = number of cycles.
+
+  Examples:
+    (1 2 3 4 5): 5-cycle → 4 transpositions → even.
+    (1 2 3): 3-cycle → 2 transpositions → even.
+    (1 2)(3 4): two 2-cycles → 2 transpositions → even.
+    (1 2): single transposition → odd.
+    (1 2)(3 4 5): 2-cycle + 3-cycle → (1)+(2) = 3 transpositions → odd.
+
+SIGN HOMOMORPHISM:
+  sgn: S_n → {±1} is a group homomorphism.
+  sgn(στ) = sgn(σ)·sgn(τ).
+  kernel = A_n (even permutations).
+  First Isomorphism: S_n/A_n ≅ Z/2Z. ✓
+```
+
+---
+
+## The Alternating Group A_n
+
+```
+A_n = {σ ∈ S_n : sgn(σ) = +1} = even permutations.
+|A_n| = n!/2.
+Index [S_n : A_n] = 2 → A_n ◁ S_n (normal of index 2).
+Generated by 3-cycles: every even permutation = product of 3-cycles.
+
+SIMPLICITY OF A_n (n ≥ 5):
+  THEOREM: A_n is simple for all n ≥ 5.
+  (A₁ = {e}, A₂ = {e}, A₃ ≅ Z/3 not simple, A₄ not simple — has V₄.)
+
+  PROOF SKETCH:
+    Suppose N ◁ A_n with N ≠ {e}. We show N = A_n.
+    Key lemma: if N contains a 3-cycle, N contains all 3-cycles.
+      Proof: Any two 3-cycles are conjugate in S_n.
+        σ(a b c)σ^{-1} = (σ(a) σ(b) σ(c)).
+        In A_n: if σ is odd, use (σ∘(d e)) which is even, adjusting
+        (need n ≥ 5 for spare elements to construct even conjugating permutation).
+    Key fact: A_n is generated by 3-cycles → if N contains one 3-cycle, N = A_n.
+    Now show any non-trivial N contains a 3-cycle: case analysis on cycle types.
+    This requires n ≥ 5 in several steps.  □
+
+CONSEQUENCES OF A_n BEING SIMPLE:
+  A_n has no composition factors other than itself.
+  It cannot be "unraveled" further → not solvable.
+  S_n (n≥5) is not solvable: S_n' = A_n, A_n' = A_n (simple, equals derived subgroup).
+  Abel-Ruffini: no radical formula for the general degree-5 polynomial.
+```
+
+---
+
+## Cayley's Theorem
+
+```
+THEOREM: Every group G is isomorphic to a subgroup of some symmetric group.
+  Specifically: G embeds in S_{|G|} (or S_G where G acts on itself by left multiplication).
+
+PROOF: Define λ: G → S_G by λ(g) = (x ↦ gx) for each g ∈ G.
+  Each λ(g) is a bijection G → G.
+  λ is a group homomorphism: λ(gh)(x) = ghx = g(hx) = λ(g)(λ(h)(x)).
+  λ is injective: if λ(g) = λ(h), then gx = hx for all x; take x = e: g = h.
+  So G ≅ im(λ) ≤ S_G ≅ S_{|G|}.  □
+
+IMPLICATIONS:
+  Every finite group is a subgroup of some S_n.
+  To classify all finite groups: suffices to classify subgroups of S_n (impractical, but theoretically).
+  Every abstract group = concrete permutation group on its own elements.
+
+BETTER BOUNDS: G embeds in S_{n/d} where d = |largest subgroup in G| (by coset action).
+  Example: A_5 (order 60) embeds in S_5 (order 120) — far smaller than S_60.
+  The action on cosets of a subgroup H gives G → S_{[G:H]}.
+
+COMPUTATIONAL CONSEQUENCE:
+  Cayley says every G embeds in S_n — but what can you COMPUTE in S_n?
+  Schreier-Sims algorithm: given generators {σ₁,...,σₖ} for G ≤ S_n:
+    - Compute |G| in O(n² log³|G|) time
+    - Test membership (is τ ∈ G?) in O(n log|G|) time
+    - Find a base and strong generating set (SGS)
+  The base β = (β₁,...,βₘ) gives stabilizer chain:
+    G > G_{β₁} > G_{β₁,β₂} > ... > {e}
+  |G| = ∏ |orbit of βᵢ under G_{β₁,...,βᵢ₋₁}|
+  This is how GAP, Magma, and SageMath compute with groups — all permutation
+  group computation reduces to Schreier-Sims.
+```
+
+---
+
+## Group Actions
+
+```
+G ACTS ON X (set X):
+  A group action is a homomorphism φ: G → S_X.
+  For each g ∈ G: a bijection σ_g: X → X.
+  Axioms: σ_e = id, σ_{gh} = σ_g ∘ σ_h.
+
+EXAMPLES:
+  G acts on itself by left multiplication: x ↦ gx.  (Cayley's theorem)
+  G acts on itself by conjugation: x ↦ gxg^{-1}.
+  S_n acts on {1,...,n} naturally.
+  GL(n,F) acts on F^n by matrix-vector multiplication.
+  Gal(L/K) acts on L by automorphisms.
+
+ORBIT: Orb(x) = {gx : g ∈ G}. The G-orbit of x.
+STABILIZER: Stab(x) = {g ∈ G : gx = x}. Subgroup of G.
+
+ORBIT-STABILIZER THEOREM:
+  |G| = |Orb(x)| · |Stab(x)|
+
+  Proof: bijection Orb(x) ↔ G/Stab(x) by gx ↔ gStab(x).  □
+
+BURNSIDE'S LEMMA (Counting orbits):
+  # orbits = (1/|G|) · Σ_{g∈G} |Fix(g)|
+  where Fix(g) = {x ∈ X : gx = x}.
+
+  Application: Count necklaces with 4 beads, 2 colors (red/blue).
+    G = Z/4Z acting by rotation; X = {R,B}^4.
+    Fix(r⁰) = 16 (all), Fix(r¹) = 2 (RRRR,BBBB), Fix(r²) = 4 (RRRR,BBBB,RBRB,BRBR),
+    Fix(r³) = 2.
+    # orbits = (16+2+4+2)/4 = 6.
+    The 6 necklaces: RRRR, RRRB, RRBB, RBRB, RBBB, BBBB. ✓
+```
+
+---
+
+## Cycle Index and Pólya Enumeration
+
+```
+CYCLE INDEX of G acting on X:
+  Z(G) = (1/|G|) Σ_{g∈G} a₁^{c₁(g)} a₂^{c₂(g)} ... aₙ^{cₙ(g)}
+
+  where cₖ(g) = number of k-cycles in the action of g.
+
+PÓLYA'S THEOREM: Number of colorings of X with m colors (up to G-symmetry) =
+  Z(G)|_{aₖ → m} = Z(G) evaluated at all aₖ = m.
+
+Example: Necklaces with 3 beads, 2 colors:
+  G = Z/3Z acting on 3 beads.
+  Identity: (1)(2)(3) → a₁³.
+  Two rotations: (1 2 3) and (1 3 2) → a₃ each.
+  Z(G) = (1/3)(a₁³ + 2a₃).
+  m=2 colors: Z(G)|_{aₖ→2} = (1/3)(2³ + 2·2) = (8+4)/3 = 4.
+  4 necklaces: RRR, RRB, RBB, BBB. ✓
+```
+
+---
+
+## Symmetric Group Structure
+
+```
+CONJUGACY CLASSES IN S_n = sets of permutations with the same cycle type.
+  Two permutations are conjugate iff they have the same cycle type.
+  Proof: σ·(a₁ a₂ ... aₖ)·σ^{-1} = (σ(a₁) σ(a₂) ... σ(aₖ)).
+    Conjugation just relabels the elements.
+
+  Number of conjugacy classes = number of partitions of n = p(n).
+
+  p(1)=1, p(2)=2, p(3)=3, p(4)=5, p(5)=7, p(6)=11, p(7)=15.
+
+  Conjugacy classes of S_4:
+    [1,1,1,1]: identity. 1 element.
+    [2,1,1]: transpositions. C(4,2) = 6 elements.
+    [2,2]: double transpositions. 3 elements.
+    [3,1]: 3-cycles. 8 elements.
+    [4]: 4-cycles. 6 elements.
+    Total: 1+6+3+8+6 = 24 = 4!  ✓
+
+SUBGROUP LATTICE OF S_4:
+  Order 24: S_4
+  Order 12: A_4 (only normal subgroup of order 12)
+  Order 8: D_4 (Sylow 2-subgroups, conjugate)
+  Order 6: S_3 (Sylow 2 complement, not normal)
+  Order 4: V_4 = {e,(12)(34),(13)(24),(14)(23)} (normal in both A_4 and S_4)
+           Z/4 (three cyclic subgroups of order 4)
+  Order 3: A_3 ≅ Z/3 (Sylow 3-subgroups)
+  Order 2: many transposition and double-transposition groups
+  Order 1: {e}
+```
+
+---
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Permutation order | Decompose into disjoint cycles and take the lcm of cycle lengths. | Disjoint-cycle form is doing the real work; arbitrary notation obscures it. |
+| Composition direction | Trace each element through the rightmost permutation first, then the left one. | Convention matters; state it before comparing answers. |
+| Permutation parity | Count transpositions or use `(-1)^{n-c}` from cycle structure. | Parity is invariant even though transposition decompositions are not unique. |
+| Conjugacy in `S_n` | Compare cycle type and build the relabeling permutation if needed. | This clean criterion is special to full symmetric groups. |
+| Alternating-group generation | Use 3-cycles and parity constraints. | `A_n` is simple only for `n >= 5`; small cases are exceptional. |
+| Orbit counting | Apply Burnside by averaging fixed points over the group action. | Burnside counts orbits, not necessarily representatives or structures with weights. |
+| Embedding an abstract group | Use Cayley's left regular action on group elements. | The embedding is faithful but often far from minimal. |
+| Coloring/enumeration problem | Use cycle index and Pólya enumeration with the action on positions. | The answer depends on the action, not just the abstract group. |
+
+---
+
+## Cross-References
+
+- `01-GROUPS.md` supplies the axioms, homomorphisms, and subgroup language behind permutation groups.
+- `06-GALOIS-THEORY.md` uses permutation groups as the obstruction calculus for polynomial solvability.
+- `07-REPRESENTATION-THEORY.md` converts permutation actions into linear representations and character decompositions.
+
+---
+
+## Common Confusion Points
+
+**"Even permutation = even number of symbols moved."**
+Wrong. Parity refers to the number of transpositions in ANY decomposition,
+not how many symbols are moved. A 4-cycle (1 2 3 4) = (1 4)(1 3)(1 2) is odd
+(3 transpositions). But (1 2 3) moves only 3 symbols and is even (2 transpositions).
+
+**"Disjoint cycles can't be composed."**
+Disjoint cycles commute and their composition is just their product in cycle notation.
+(1 2 3)(4 5) = the permutation that does both cycles.
+
+**"A_5 has order 5! = 120."**
+A_5 has order 5!/2 = 60. S_5 has order 120.
+
+**"Conjugacy classes in A_n are the same as in S_n."**
+A conjugacy class C in S_n may SPLIT into two conjugacy classes in A_n.
+It splits when σ ∈ C is even and has no even permutation in S_n that conjugates σ
+to another element of C (i.e., when the centralizer of σ in S_n is contained in A_n).
+Splitting happens exactly for the conjugacy classes in A_5 corresponding to 5-cycles:
+  5-cycles in S_5: one class of size 24.
+  In A_5: splits into two classes of size 12 each.
+  (This is related to A_5 being simple but having character table with complex entries.)

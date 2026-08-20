@@ -1,0 +1,36 @@
+schema_version = "tracker.reuse-adoption.v1"
+consumer = "giodl73-repo/MAXIM"
+provider = "giodl73-repo/PROOF"
+mode = "cli-config-artifacts"
+provider_contract = "docs/adoption/reuse-boundary.md"
+
+contracts = [
+  "proof CLI check and corpus workflows",
+  "cascading proof.toml configuration",
+  "file-line-column-code-severity diagnostics",
+  "md:// invariant checks through MDPATH",
+  "versioned PROOF artifact and publication records",
+]
+
+consumer_owns = [
+  "source corpus and content",
+  "schema strictness and warning policy",
+  "accepted baselines",
+  "generated artifact admission",
+  "publication and deployment policy",
+]
+
+provider_owns = [
+  "configuration loading",
+  "validation and diagnostic semantics",
+  "compilation and rendering",
+  "versioned artifact production",
+]
+
+verification = "proof check --config proof.toml ."
+rollback = "Use the last MAXIM-tested PROOF revision; do not bulk-edit corpus content to conceal detector drift."
+
+[excluded]
+rust_library_embedding = true
+standalone_canvas_adopter = false
+standalone_math_adopter = false

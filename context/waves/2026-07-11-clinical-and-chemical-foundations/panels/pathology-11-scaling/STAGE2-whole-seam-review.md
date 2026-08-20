@@ -98,7 +98,7 @@ the formal PASS is granted:
 **PASS (clean re-review recorded 2026-07-12).** The Stage-2 whole-seam review returned the findings
 above; all were **repaired** in `pathology/11-QUALITY-ERROR-AND-THE-DIAGNOSTIC-LABORATORY-AS-SYSTEM.md`,
 and the **clean re-review has since been run (folded into the full-module `pathology-full-r1` pass)
-with no residual seam/governance/accuracy findings**. The guide passes focused Cargo MDLOOM
+with no residual seam/governance/accuracy findings**. The guide passes focused Cargo PROOF
 (**0 errors, 0 warnings**, part of the module-scope run over all twelve pathology guides that
 reports 0 errors), carries the four-pillar banner, holds **0** `you/your` (pillar-4 voice), keeps
 governance conceptual/dated, and re-derives none of `08`'s metrology. Guide `11` **clears its

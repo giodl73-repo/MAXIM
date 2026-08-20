@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cloud-architecture/02-COMPUTE-PATTERNS.md
 canonical_path: cloud-architecture/02-COMPUTE-PATTERNS.md
-backsource_ids: [mdloom-backfill:cloud-architecture:02-compute-patterns, git-history:cloud-architecture:02-compute-patterns]
+backsource_ids: [proof-backfill:cloud-architecture:02-compute-patterns, git-history:cloud-architecture:02-compute-patterns]
 concepts: [compute, patterns]
 root_concepts: [compute, patterns]
 index_roles: [guide, root-concept]

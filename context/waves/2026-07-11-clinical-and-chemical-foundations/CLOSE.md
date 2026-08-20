@@ -16,11 +16,11 @@ on 2026-07-12 with no unresolved BLOCK/WARN, closing the final wave gate.
 
 ## Validation
 
-- Chemistry: focused MDLOOM 12 files, 0 errors, 0 warnings; source-corpus round trips
+- Chemistry: focused PROOF 12 files, 0 errors, 0 warnings; source-corpus round trips
   and registry/view validation passed.
-- Clinical medicine: focused MDLOOM 12 files, 0 errors, 0 warnings; all full-module
+- Clinical medicine: focused PROOF 12 files, 0 errors, 0 warnings; all full-module
   adversarial findings repaired.
-- Pathology: focused MDLOOM 12 files, 0 errors, 0 warnings; prototype, scaling, full-module,
+- Pathology: focused PROOF 12 files, 0 errors, 0 warnings; prototype, scaling, full-module,
   and reader-task/tier reviews complete; final reviewer PASS.
 - Portfolio state: 238 directories and approximately 2,386 files complete.
 

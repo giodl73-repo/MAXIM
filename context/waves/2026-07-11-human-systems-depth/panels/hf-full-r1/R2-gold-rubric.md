@@ -2,7 +2,7 @@
 
 Date: 2026-07-13
 Scope: all 12 numbered guides in `human-factors/` (`00`–`11`)
-Reviewer lenses: Gold Rubric v2, reference-editor, expert-skeptic, mechanical MDLOOM
+Reviewer lenses: Gold Rubric v2, reference-editor, expert-skeptic, mechanical PROOF
 Decision: **Silver for every guide; no Certified Gold registry insertion**
 
 Disposition: **IN REVIEW pending an independent final re-review.** This rubric scores the module
@@ -16,23 +16,23 @@ This is a guide-specific review, not a cohort score copied across the module. Ev
 content-side threshold used here: average at least 4.5, no dimension below 4, at least three reader
 tasks pass, and no unresolved adversarial BLOCK/WARN. That does **not** establish Certified Gold.
 
-- **Ordinary focused MDLOOM:** PASS — `12 files checked, 0 errors, 0 warnings` (all twelve HF guides),
-  recorded in `.mdloom/last-check.json`. Sibling warnings, if any, are tracked separately.
+- **Ordinary focused PROOF:** PASS — `12 files checked, 0 errors, 0 warnings` (all twelve HF guides),
+  recorded in `.proof/last-check.json`. Sibling warnings, if any, are tracked separately.
 - **Source-backfill `--validate` (human-factors):** 12/12 round-trip PASS; tables 20; structured
   blocks 81; FLETCH registry 61.
 - **Adversarial review:** prototype R1/R2 (`02`,`03`,`06`) and **full-module R1 (all 12 guides)**
   complete; all findings repaired; **independent final re-review pending** (wave IN REVIEW).
-- **Da Vinci:** **no HF-specific invariant** exists in `mdloom.toml` (tolerance = 2,
-  `check_col_separators = false`); ordinary MDLOOM cleanliness must not be represented as Da Vinci
+- **Da Vinci:** **no HF-specific invariant** exists in `proof.toml` (tolerance = 2,
+  `check_col_separators = false`); ordinary PROOF cleanliness must not be represented as Da Vinci
   coverage.
-- **Source custody:** `partial` for all twelve. MDLOOM literal backfill is recorded for 12/12; Git
+- **Source custody:** `partial` for all twelve. PROOF literal backfill is recorded for 12/12; Git
   provenance is `pending` for 12/12 because `human-factors/` is untracked; authentic external/
   primary-source custody is incomplete.
 - **Registry:** **no row** is added to `context/gold/REGISTRY.md`; no Certified Gold or
   Candidate-Hardened claim. **No Gold without pins and custody.**
 
 The strongest honest tier is **Silver**: the guides are editorially strong, adversarially repaired,
-and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and complete source custody.
+and ordinary-PROOF-clean, but lack an HF-specific Da Vinci invariant and complete source custody.
 
 ---
 
@@ -59,7 +59,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Apply the HCI↔HF seam to a shared system. | **PASS** — a control-room touchscreen splits interaction/accessibility to HCI and workload/error/alarm to HF, with acceptance to the domain. |
 | Hold the safety contract. | **PASS** — the reader refuses a "certify this console" request and defers acceptance to the accountable organization. |
 
-**Adversarial status:** RE-05 (totals) repaired; no finding open. **Ordinary MDLOOM:** PASS, 0/0.
+**Adversarial status:** RE-05 (totals) repaired; no finding open. **Ordinary PROOF:** PASS, 0/0.
 **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -88,7 +88,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Refuse the ahistorical shortcut. | **PASS** — "just automate it" is placed as a Fitts-list (1951) idiom with its critique. |
 
 **Adversarial status:** RE-06 (Leveson date), RE-04 (accessibility note) repaired; no finding open.
-**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -98,7 +98,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 |---|---:|---|
 | Landscape power | 5 | Body-as-distribution → design-limit logic → load model organizes the whole physical-fit field. |
 | Layering integrity | 5 | Percentile/multivariate accommodation, the NIOSH RNLE, and the product↔workplace split with `industrial-design/05` layer cleanly. |
-| ASCII precision | 5 | The accommodation and RNLE diagrams carry real formulas and hold MDLOOM alignment. |
+| ASCII precision | 5 | The accommodation and RNLE diagrams carry real formulas and hold PROOF alignment. |
 | Explanatory compression | 5 | "Design for a distribution, not the average" compresses the discipline. |
 | Decision utility | 5 | The percentile/RNLE/RULA-REBA cheat sheet routes real fit/load questions. |
 | Confusion handling | 5 | Rejects the "average person" fallacy and the single-multiplier misread of the RNLE. |
@@ -115,7 +115,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Read the load, not just the fit. | **PASS** — the RNLE lift is scored with the six multipliers and reported bounded, not as a pass/fail. |
 | Name the validity limits. | **PASS** — the reader flags out-of-domain thermal/coupling assumptions and defers product-form to `industrial-design/05`. |
 
-**Adversarial status:** RE-06 (RNLE wording) repaired; no finding open. **Ordinary MDLOOM:** PASS, 0/0.
+**Adversarial status:** RE-06 (RNLE wording) repaired; no finding open. **Ordinary PROOF:** PASS, 0/0.
 **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -143,7 +143,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Choose an SA measure and its confound. | **PASS** — SAGAT freeze vs SPAM latency chosen with the intrusiveness/validity trade named. |
 | Hold the mechanism boundary. | **PASS** — "why attention tunnels" routes to `cognitive-science/`; the guide owns measurement-in-context. |
 
-**Adversarial status:** RE-04 (accessibility note) repaired; no finding open. **Ordinary MDLOOM:** PASS,
+**Adversarial status:** RE-04 (accessibility note) repaired; no finding open. **Ordinary PROOF:** PASS,
 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -171,7 +171,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Reframe person → system. | **PASS** — "who opened the wrong valve" becomes "what made the wrong valve easy to open." |
 | Hand off the rest. | **PASS** — recurrence probability routes to `05`; barrier value to `08`; no blame/legal verdict. |
 
-**Adversarial status:** RE-06 (whitespace) repaired; no finding open. **Ordinary MDLOOM:** PASS, 0/0.
+**Adversarial status:** RE-06 (whitespace) repaired; no finding open. **Ordinary PROOF:** PASS, 0/0.
 **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -182,7 +182,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 |---|---:|---|
 | Landscape power | 5 | The HRA pipeline (nominal → PSFs → dependency → bounded HEP → tree) frames the whole field. |
 | Layering integrity | 5 | THERP/HEART/SPAR-H/CREAM, PSFs, dependency, and uncertainty layer cleanly onto the pipeline. |
-| ASCII precision | 5 | The SPAR-H excerpt and the range box carry correct formulas and hold MDLOOM alignment. |
+| ASCII precision | 5 | The SPAR-H excerpt and the range box carry correct formulas and hold PROOF alignment. |
 | Explanatory compression | 5 | "A HEP is a model output, not a measurement" is the whole epistemic point. |
 | Decision utility | 5 | The method-selection and "give central + EF + method + PSFs" cheat rows route real HRA choices. |
 | Confusion handling | 5 | Rejects the point-HEP, the independence fallacy, and (now) the naive EF band. |
@@ -200,7 +200,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Find the dominant PSF. | **PASS** — the time sweep (×10 → ×1 → ×0.1) shows the adjustment dropping out below three negative PSFs (0.288 → 0.04 → 0.004). |
 
 **Adversarial status:** ES-01 (EF/ceiling/trigger), RE-04 (accessibility) repaired; no finding open.
-**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -210,7 +210,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 |---|---:|---|
 | Landscape power | 5 | Compatibility → coding/redundancy → alarm philosophy → mode visibility → EID → layout organizes the safety-critical UI. |
 | Layering integrity | 5 | Each layer drills one element and holds the HCI-usability seam and domain-system deferrals. |
-| ASCII precision | 5 | The alarm-metric and EID diagrams carry a traceable event inventory and hold MDLOOM alignment. |
+| ASCII precision | 5 | The alarm-metric and EID diagrams carry a traceable event inventory and hold PROOF alignment. |
 | Explanatory compression | 5 | "Never one channel" compresses redundant coding into a safety rule. |
 | Decision utility | 5 | The compatibility/alarm/mode cheat sheet routes real interface choices. |
 | Confusion handling | 5 | Separates population stereotypes (with cultural caveats) from universal constants. |
@@ -228,7 +228,7 @@ and ordinary-MDLOOM-clean, but lack an HF-specific Da Vinci invariant and comple
 | Attack the alarm flood. | **PASS** — rationalize/prioritize rather than add a master alarm; alarms separated from notifications. |
 
 **Adversarial status:** no full-module finding open (owns the ≥2-channel invariant). **Ordinary
-MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -238,7 +238,7 @@ MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier:
 |---|---:|---|
 | Landscape power | 5 | Levels/types × the ironies frames automation as a trade, not a subtraction. |
 | Layering integrity | 5 | The stage×level grid, the ironies, trust/bias, OOTL, and function allocation layer cleanly. |
-| ASCII precision | 5 | The redesigned allocation model and sweep carry correct arithmetic and hold MDLOOM alignment. |
+| ASCII precision | 5 | The redesigned allocation model and sweep carry correct arithmetic and hold PROOF alignment. |
 | Explanatory compression | 5 | "Automation is a trade with a named cost" is the whole guide. |
 | Decision utility | 5 | The cheat sheet routes "how much to automate" to a per-stage level and the irony tax. |
 | Confusion handling | 5 | Refuses "higher is safer"; separates LOA from SAE J3016. |
@@ -255,7 +255,7 @@ MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier:
 | Compute the LOA trade. | **PASS** — `E(L)=(1−p)W(L)+p·C(L)` with `W=[8,5,3,1]`, `C=[3,12,30,60]` gives the optimum sliding L4→L2 as `p` grows, and L1 carries no takeover term. |
 | Refuse "higher is safer." | **PASS** — "just go full autonomy" is answered with the irony tax and deferred acceptance. |
 
-**Adversarial status:** ES-02 (model/L1) repaired; no finding open. **Ordinary MDLOOM:** PASS, 0/0.
+**Adversarial status:** ES-02 (model/L1) repaired; no finding open. **Ordinary PROOF:** PASS, 0/0.
 **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -266,7 +266,7 @@ MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier:
 |---|---:|---|
 | Landscape power | 5 | Two views of failure (barrier + control) frame every method as one lens or the other. |
 | Layering integrity | 5 | Barriers, HAZOP-for-humans, human-inclusive FMEA, bow-tie, STAMP/STPA layer cleanly. |
-| ASCII precision | 5 | The bow-tie and common-cause decomposition carry correct arithmetic and hold MDLOOM alignment. |
+| ASCII precision | 5 | The bow-tie and common-cause decomposition carry correct arithmetic and hold PROOF alignment. |
 | Explanatory compression | 5 | "Every barrier is a fallible hypothesis" is the guide's discipline. |
 | Decision utility | 5 | The method cheat sheet routes hazard-ID / triage / control-rich choices. |
 | Confusion handling | 5 | Now rejects reading barrier strength off the category, and the independence assumption. |
@@ -283,7 +283,7 @@ MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier:
 | Quantify a bow-tie branch and its range. | **PASS** — `0.1×0.01×0.29 = 2.9e-4/yr`; bounded HEP `~0.06–0.8` gives `~6e-5–8e-4/yr`; the common-cause term (0.005) dominates. |
 | Catch the independence error. | **PASS** — a shared sensor makes "two barriers" closer to one; the decomposition splits shared vs independent parts. |
 
-**Adversarial status:** ES-05, ES-01a, RE-06 (Leveson) repaired; no finding open. **Ordinary MDLOOM:**
+**Adversarial status:** ES-05, ES-01a, RE-06 (Leveson) repaired; no finding open. **Ordinary PROOF:**
 PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
@@ -294,7 +294,7 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 |---|---:|---|
 | Landscape power | 5 | The model×domain grid makes the apply-and-defer thesis visible in one picture. |
 | Layering integrity | 5 | Aviation/healthcare/process/rail/maritime/road each apply the models and defer the systems. |
-| ASCII precision | 5 | The grid and the two-domain alarm read carry correct arithmetic and hold MDLOOM alignment. |
+| ASCII precision | 5 | The grid and the two-domain alarm read carry correct arithmetic and hold PROOF alignment. |
 | Explanatory compression | 5 | "One toolkit, many domains" compresses the guide's reason to exist. |
 | Decision utility | 5 | The apply-model / defer-system cheat sheet routes each domain problem to owner. |
 | Confusion handling | 5 | Now offers candidate mechanisms and evidence questions, not prescriptions. |
@@ -312,7 +312,7 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 | Port an intervention without re-teaching. | **PASS** — "port CRM to ferries" becomes "port the team-SA mechanism and verify," deferring systems and acceptance. |
 
 **Adversarial status:** ES-04 (prescriptions), RE-04 (accessibility) repaired; no finding open.
-**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -322,7 +322,7 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 |---|---:|---|
 | Landscape power | 5 | The question→bounded-evidence pipeline frames the whole methods field and its two break points. |
 | Layering integrity | 5 | Task analysis, observation, instrumentation, simulation, and use-error study layer onto the pipeline. |
-| ASCII precision | 5 | The crossed-factor frame and coverage boxes carry correct arithmetic and hold MDLOOM alignment. |
+| ASCII precision | 5 | The crossed-factor frame and coverage boxes carry correct arithmetic and hold PROOF alignment. |
 | Explanatory compression | 5 | "Coverage is the difference between evidence and a convenient anecdote" is the discipline. |
 | Decision utility | 5 | The method cheat sheet routes decompose/observe/simulate/use-error choices. |
 | Confusion handling | 5 | Now separates orthogonal crossed factors from overlapping strata, and coverage from power. |
@@ -340,7 +340,7 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 | Separate coverage from power. | **PASS** — "did we touch the critical cells?" (here) vs "is n-per-cell enough?" (`statistics-applied/`). |
 
 **Adversarial status:** ES-03 (crossed factors), RE-04 (accessibility) repaired; no finding open.
-**Ordinary MDLOOM:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
+**Ordinary PROOF:** PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
@@ -350,7 +350,7 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 |---|---:|---|
 | Landscape power | 5 | HRO + just culture + Safety-II + normalization-of-deviance frame the sustaining layer. |
 | Layering integrity | 5 | Each idea drills one mechanism and ties to the barrier/error guides it sustains. |
-| ASCII precision | 5 | The metric-reading and leading/lagging boxes carry correct readings and hold MDLOOM alignment. |
+| ASCII precision | 5 | The metric-reading and leading/lagging boxes carry correct readings and hold PROOF alignment. |
 | Explanatory compression | 5 | "Safety culture is not a single number" is the guide's discipline. |
 | Decision utility | 5 | The cheat sheet routes score/rank temptations to a triangulated basket. |
 | Confusion handling | 5 | Now treats reporting-rate as indeterminate without triangulation; separates personal vs process safety. |
@@ -367,14 +367,14 @@ PASS, 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 | Separate personal from process safety. | **PASS** — a flat low injury rate is shown to coexist with rising major-accident risk. |
 | Catch Goodhart. | **PASS** — "reduce reported incidents" as a target erodes learning; a basket of indicators resists gaming. |
 
-**Adversarial status:** RE-01 (triangulation) repaired; no finding open. **Ordinary MDLOOM:** PASS,
+**Adversarial status:** RE-01 (triangulation) repaired; no finding open. **Ordinary PROOF:** PASS,
 0/0. **Da Vinci:** missing. **Source custody:** partial. **Tier: Silver.**
 
 ---
 
 ## Module tier summary
 
-| Guide | Average | Adversarial | MDLOOM | Da Vinci | Custody | Tier |
+| Guide | Average | Adversarial | PROOF | Da Vinci | Custody | Tier |
 |---|---:|---|---|---|---|---|
 | `00` | 4.7 | clear | 0/0 | missing | partial | Silver |
 | `01` | 4.7 | clear | 0/0 | missing | partial | Silver |

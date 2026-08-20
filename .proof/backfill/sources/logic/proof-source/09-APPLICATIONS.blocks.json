@@ -1,0 +1,127 @@
+{
+  "schema_version": "1",
+  "source_markdown": "logic\\09-APPLICATIONS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "diagram_like",
+      "line": 81,
+      "heading_context": "### Hoare Logic Rules",
+      "confidence": "candidate",
+      "text": "  SKIP:\n     =================\n     {P} skip {P}\n\n  ASSIGNMENT:\n     ==========================\n     {Q[E/x]} x := E {Q}\n\n     (Substitute E for x in Q to get the precondition)\n\n  SEQUENTIAL:\n     {P} C1 {R}    {R} C2 {Q}\n     =========================\n        {P} C1; C2 {Q}\n\n  CONDITIONAL:\n     {P land B} C1 {Q}    {P land neg B} C2 {Q}\n     =============================================\n     {P} if B then C1 else C2 {Q}\n\n  WHILE (partial correctness):\n     {I land B} C {I}\n     ==============================\n     {I} while B do C {I land neg B}\n\n     I = loop invariant\n\n  CONSEQUENCE:\n     P' => P    {P} C {Q}    Q => Q'\n     ==================================\n              {P'} C {Q'}",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "diagram_like",
+      "line": 117,
+      "heading_context": "### Weakest Precondition Calculus (Dijkstra)",
+      "confidence": "candidate",
+      "text": "  wp(C, Q) = \"weakest precondition\": the largest set of states from which\n              C is guaranteed to terminate with Q satisfied.\n\n  wp(skip, Q)         = Q\n  wp(x := E, Q)       = Q[E/x]\n  wp(C1; C2, Q)       = wp(C1, wp(C2, Q))\n  wp(if B then C1 else C2, Q) = (B -> wp(C1, Q)) land (neg B -> wp(C2, Q))\n  wp(while B do C, Q) = ... (requires fixpoint: WF ordering for termination)\n\n  For total correctness of while: need a loop VARIANT (decreasing natural number).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "diagram_like",
+      "line": 156,
+      "heading_context": "## Separation Logic",
+      "confidence": "candidate",
+      "text": "  NEW CONNECTIVE: \"star\" (*)\n\n  P * Q   =   P and Q hold for DISJOINT parts of the heap.\n  P -* Q  =   \"magic wand\": if we add a heap satisfying P, the combined heap satisfies Q.\n\n  FRAME RULE (key innovation):\n     {P} C {Q}\n     ============================= (where C does not touch vars in R)\n     {P * R} C {Q * R}\n\n  This allows LOCAL REASONING:\n  Prove C correct on a small part of the heap (P),\n  then \"frame\" to larger contexts without reproving.\n\n  EXAMPLES:\n  {x -> a} x.next := y {x -> y}    (x is a heap cell pointing to a)\n  {x -> a * y -> b} swap(x, y) {x -> b * y -> a}\n\n  SEPARATION LOGIC FOR CONCURRENCY (Concurrent Separation Logic):\n  Threads own disjoint parts of the heap.\n  Sharing is explicit (lock ownership).\n  Races are statically excluded by type/logic.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "diagram_like",
+      "line": 188,
+      "heading_context": "## SAT Solving: Internals",
+      "confidence": "candidate",
+      "text": "  MODERN CDCL SOLVER (CaDiCaL, Kissat, MiniSat):\n\n  .=========.    .===========.    .===========.    .==========.\n  ! Decide  ! -> ! Propagate ! -> ! Conflict? ! -> ! Analyze  !\n  .=========.    ! (BCP:     !    .===========.    ! (1=UIP   !\n  Choose a       ! unit prop)!         !           ! scheme)  !\n  literal        .===========.         v           .==========.\n  to assign.                      Backjump to           !\n                                  level, add            v\n                                  learned clause.   Learn new clause.\n                                                    (add to clause DB)\n\n  KEY METRICS:\n  Decisions per second: 10^6 to 10^8\n  Learned clauses: can be millions (periodic cleanup needed)\n  VSIDS: bump variable score on each conflict; decay periodically.\n  Restarts: periodic, to avoid getting stuck in bad search region.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "diagram_like",
+      "line": 222,
+      "heading_context": "## SMT Solving",
+      "confidence": "candidate",
+      "text": "  SMT ARCHITECTURE:\n\n  SMT formula\n      !\n      v\n  Preprocessor / Simplifier\n      !\n      v\n  Boolean abstraction: replace theory atoms with Boolean variables\n      !    (Tseitin if needed)\n      v\n  .===========.            .=================.\n  ! SAT solver!  <-------> ! Theory solvers  !\n  ! (DPLL/    !  query T   ! T-SAT / T-UNSAT !\n  ! CDCL core)!  learn T-  ! for each theory !\n  .===========.  clauses   .=================.\n\n  COMBINED THEORIES (Nelson-Oppen method):\n  Theories must be \"stably infinite\" and share sort signatures.\n  Each theory solver handles its own atoms.\n  Conflict propagation via shared equalities.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "chart_like",
+      "line": 246,
+      "heading_context": "## SMT Solving",
+      "confidence": "candidate",
+      "text": "### Built-in Theories in Z3 / CVC5",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "diagram_like",
+      "line": 248,
+      "heading_context": "### Built-in Theories in Z3 / CVC5",
+      "confidence": "candidate",
+      "text": "  THEORY          EXAMPLE FORMULAS              USE CASE\n  =====           ================              ========\n  QF_EUF          f(x)=y land f(y)=z => f(x)=z  Equality . uninterpreted funcs\n                  (congruence closure)\n\n  QF_LIA          x . y < 5 land y > 2           Linear integer arithmetic\n                  land x > 0\n\n  QF_LRA          x . y <= 5.5 land y >= 2.3      Linear real arithmetic\n\n  QF_NIA          x * x = 4                       Nonlinear integer arith.\n                                                   (undecidable in general)\n\n  QF_BV           (x bvand y) bveq 0              Bit-vector arithmetic\n                  (bit-precise reasoning)\n\n  QF_A            a[i] = v -> a[i] = v            Array theory (McCarthy)\n                  (store/select axioms)\n\n  QF_S            len(s) > 3 land prefix(s,\"hi\")  String theory",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "chart_like",
+      "line": 271,
+      "heading_context": "### Built-in Theories in Z3 / CVC5",
+      "confidence": "candidate",
+      "text": "### Z3 in Practice",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "diagram_like",
+      "line": 314,
+      "heading_context": "## Curry-Howard Correspondence in Depth",
+      "confidence": "candidate",
+      "text": "  PROPOSITIONS AS TYPES:\n\n  Proposition          Type\n  ==========          ====\n  P -> Q              P -> Q   (function type)\n  P land Q            P * Q    (product/pair type)\n  P lor Q             P . Q    (sum/variant type)\n  bot                 void     (empty type)\n  top                 unit     (trivial type)\n  neg P               P -> void\n\n  PROOFS AS PROGRAMS:\n\n  Proof of P -> Q     Lambda abstraction: fun (x: P) -> term : Q\n  Proof of P land Q   Pair: (proof_P, proof_Q) : P * Q\n  Proof of P lor Q    Injection: Left(proof_P) : P . Q\n  Elimination (MP)    Function application: f(x)\n  Normalization       Beta reduction\n\n  CLASSICAL LOGIC:\n  neg neg P -> P  (DNE)    corresponds to call/cc (continuations)\n  P lor neg P (LEM)         corresponds to exceptions / control flow",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "diagram_like",
+      "line": 341,
+      "heading_context": "### Dependent Type Theory",
+      "confidence": "candidate",
+      "text": "  DEPENDENT TYPES (Martin-Löf, 1973):\n  Types can depend on VALUES.\n\n  Pi type:  Pi (x: A). B(x)   = dependent function type\n            (Forall x: A, B(x) in logic)\n            Program: f(x: A) -> B(x)  (return type depends on input)\n\n  Sigma type: Sigma (x: A). B(x)  = dependent pair type\n              (Exists x: A, B(x) in logic)\n              Program: (witness, proof) -- pair of a value and a proof about it\n\n  EXAMPLES:\n  Vec (A: Type) (n: Nat) : Type    (vector of As of length n)\n  head : Pi (n: Nat). Vec A (n.1) => A   (safe head: length > 0 is IN TYPE)\n\n  LEAN 4 EXAMPLE:\n  def head {α : Type} : (l : List α) → l.length > 0 → α\n    ! a :: _, _ => a\n    ! [], h => absurd h (Nat.not_lt_zero 0)\n  -- The proof obligation (l.length > 0) is a program argument.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "diagram_like",
+      "line": 389,
+      "heading_context": "## Knowledge Representation and Reasoning",
+      "confidence": "candidate",
+      "text": "  RELATIONAL (SQL / Entity Framework)     KNOWLEDGE GRAPH (OWL / SPARQL)\n  =====================================   =================================\n  Table                                   Class (OWL: owl:Class)\n  Row                                     Individual (ABox assertion)\n  Foreign key                             Object property (RDF triple: s p o)\n  Schema (DDL)                            Ontology / TBox (class . property defs)\n  JOIN                                    Triple pattern matching in SPARQL\n  NULL (absence)                          Open World Assumption: absence ≠ false\n  Unique row identity (PRIMARY KEY)       IRI as global identifier\n  SQL query → result set                  SPARQL SELECT → result bindings\n  Stored procedure                        SPARQL CONSTRUCT / DESCRIBE\n  CHECK constraint                        OWL class restriction (owl:maxCardinality)\n  Foreign key constraint enforcement      Closed World reasoning (requires extra step)",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

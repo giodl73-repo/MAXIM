@@ -14,19 +14,19 @@ guide meets the content-side Gold threshold used here: average at least 4.5, no
 dimension below 4, at least three reader tasks pass, and no unresolved adversarial
 BLOCK/WARN remains. That does **not** establish Certified Gold.
 
-- **Ordinary focused MDLOOM:** PASS — `12 files checked, 0 errors, 0 warnings`.
+- **Ordinary focused PROOF:** PASS — `12 files checked, 0 errors, 0 warnings`.
 - **Adversarial review:** prototype R1/R2, both scaling gates, and full-module R1
   complete; all findings repaired.
-- **Da Vinci:** no pathology-specific invariant exists in `mdloom.toml`; ordinary
-  MDLOOM cleanliness must not be represented as Da Vinci coverage.
-- **Source custody:** `partial` for all twelve. MDLOOM literal backfill is recorded
+- **Da Vinci:** no pathology-specific invariant exists in `proof.toml`; ordinary
+  PROOF cleanliness must not be represented as Da Vinci coverage.
+- **Source custody:** `partial` for all twelve. PROOF literal backfill is recorded
   for 12/12; Git provenance is recorded for 0/12 and pending for 12/12 because the
   guides are untracked; authentic external/primary-source custody remains incomplete.
 - **Registry:** no row is added to `context/gold/REGISTRY.md`, Certified Gold, or
   Candidate-Hardened.
 
 The strongest honest tier is **Silver**: the guides are editorially strong,
-adversarially repaired, and ordinary-MDLOOM-clean, but lack pathology-specific Da
+adversarially repaired, and ordinary-PROOF-clean, but lack pathology-specific Da
 Vinci protection and complete source custody. Those gaps are future promotion work,
 not Pulse-05 blockers under the wave exit gate.
 
@@ -57,9 +57,9 @@ not Pulse-05 blockers under the wave exit gate.
 
 **Adversarial status:** R1 `RE-01` (missing navigation case/tasks) repaired; the
 guide-05 malignancy wording propagated to the overview cheat sheet; no finding open.
-**Ordinary MDLOOM:** PASS, 0 errors / 0 warnings.
+**Ordinary PROOF:** PASS, 0 errors / 0 warnings.
 **Da Vinci:** missing; no overview-specific pathology invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -90,9 +90,9 @@ sources incomplete.
 
 **Adversarial status:** no R1 BLOCK/WARN specific to guide 01; final hygiene review
 qualified apoptosis across diagrams, cases, tasks, cheat sheet, and confusions.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no state-machine or apoptosis-pathway invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -122,9 +122,9 @@ sources incomplete.
 | Explain what “granulomatous inflammation” contributes without naming an entity. | **PASS** — Task 4 treats it as a mechanism-pattern that narrows cause classes and hands entity diagnosis to `disease/`. |
 
 **Adversarial status:** no unresolved guide-specific R1 finding.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no inflammation/repair-fork invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -154,9 +154,9 @@ sources incomplete.
 | Distinguish warm distributive shock from vasoconstricted shock. | **PASS** — Task 4 explains vascular tone, effective circulating volume, and compensatory state. |
 
 **Adversarial status:** no unresolved guide-specific R1 finding.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no circulation-failure invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -186,9 +186,9 @@ sources incomplete.
 | Explain why infection can be the pathology of immunodeficiency. | **PASS** — Task 4 distinguishes the missing defense component from the tissue lesion it permits. |
 
 **Adversarial status:** no unresolved guide-specific R1 finding.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no hypersensitivity-mechanism invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -219,9 +219,9 @@ sources incomplete.
 
 **Adversarial status:** R1 `ES-01` BLOCK repaired across definition, diagrams,
 case, task, cheat sheet, confusions, and overview; no finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no neoplastic-control or invasion-cascade invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -251,9 +251,9 @@ sources incomplete.
 | Predict consequences of a metabolic block. | **PASS** — Task 3 identifies substrate accumulation, product deficiency, toxic diversion, and energy failure. |
 
 **Adversarial status:** no unresolved guide-specific R1 finding.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no genotype-to-lesion invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -284,9 +284,9 @@ sources incomplete.
 
 **Adversarial status:** R1 `ES-05` BLOCK repaired in the big-picture diagram,
 prose, and cheat sheet; no finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no exposure-to-lesion invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -317,9 +317,9 @@ sources incomplete.
 
 **Adversarial status:** prototype R1/R2 passed; full R1 `ES-06` and `RE-02`
 repaired; final two second-person tokens removed. No finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no result-manufacture/metrology invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -350,9 +350,9 @@ sources incomplete.
 
 **Adversarial status:** Stage-2 whole-procedure PASS; full R1 `ES-02`,
 `ES-03`, and `ES-04` repaired; no finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no gross-to-glass compile invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -383,9 +383,9 @@ sources incomplete.
 
 **Adversarial status:** prototype R1/R2 passed; full R1 `RE-02` repaired;
 no finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no inference-pipeline or report-payload invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -416,9 +416,9 @@ sources incomplete.
 
 **Adversarial status:** Stage-2 whole-seam PASS after all recorded repairs; full
 R1 residual review clean; no finding open.
-**Ordinary MDLOOM:** PASS, 0 / 0.
+**Ordinary PROOF:** PASS, 0 / 0.
 **Da Vinci:** missing; no laboratory-quality-system invariant.
-**Source custody:** partial; MDLOOM backfill present, Git provenance pending, external
+**Source custody:** partial; PROOF backfill present, Git provenance pending, external
 sources incomplete.
 **Tier: Silver.**
 
@@ -426,7 +426,7 @@ sources incomplete.
 
 ## Module-Level Summary Matrix
 
-| Guide | Average | Minimum | Reader tasks | Adversarial status | Ordinary MDLOOM | Da Vinci | Source custody | Tier |
+| Guide | Average | Minimum | Reader tasks | Adversarial status | Ordinary PROOF | Da Vinci | Source custody | Tier |
 |---|---:|---:|---:|---|---|---|---|---|
 | `00-OVERVIEW` | 4.7 | 4 | 3/3 pass | `RE-01` repaired | 0 errors / 0 warnings | Missing | Partial | Silver |
 | `01-CELL-INJURY-ADAPTATION-AND-DEATH` | 4.7 | 4 | 3/3 pass | Final apoptosis hygiene repair; none open | 0 / 0 | Missing | Partial | Silver |
@@ -458,7 +458,7 @@ Future promotion work:
    claims and standards.
 3. Regenerate after real git history exists so the custody ledger can record actual
    provenance rather than `pending`.
-4. Re-run ordinary focused MDLOOM and the scoped Da Vinci gate, inspect literal
+4. Re-run ordinary focused PROOF and the scoped Da Vinci gate, inspect literal
    PASS/FAIL output, and repeat guide-specific adversarial/reader-task sign-off.
 5. Only then consider explicit Certified Gold registry rows.
 

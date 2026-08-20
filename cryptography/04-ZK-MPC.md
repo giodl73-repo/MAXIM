@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cryptography/04-ZK-MPC.md
 canonical_path: cryptography/04-ZK-MPC.md
-backsource_ids: [mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]
+backsource_ids: [proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]
 concepts: [zk, mpc]
 root_concepts: [zk, mpc]
 index_roles: [guide, root-concept]

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/01-SEQUENCING-TECH.md
 canonical_path: genomics/01-SEQUENCING-TECH.md
-backsource_ids: [mdloom-backfill:genomics:01-sequencing-tech, git-history:genomics:01-sequencing-tech]
+backsource_ids: [proof-backfill:genomics:01-sequencing-tech, git-history:genomics:01-sequencing-tech]
 concepts: [sequencing, tech]
 root_concepts: [sequencing, tech]
 index_roles: [guide, root-concept]

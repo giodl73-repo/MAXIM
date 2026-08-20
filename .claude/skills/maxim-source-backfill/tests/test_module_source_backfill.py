@@ -27,21 +27,21 @@ import module_source_backfill as msb  # noqa: E402
 
 
 class GuideBacksourceIdTests(unittest.TestCase):
-    """The guide frontmatter always keeps mdloom-backfill; git-history is conditional."""
+    """The guide frontmatter always keeps proof-backfill; git-history is conditional."""
 
     def test_includes_git_history_when_history_present(self):
         ids = msb.guide_backsource_ids("pathology", "00", "overview", True)
         self.assertEqual(
             ids,
             [
-                "mdloom-backfill:pathology:00-overview",
+                "proof-backfill:pathology:00-overview",
                 "git-history:pathology:00-overview",
             ],
         )
 
     def test_omits_git_history_when_no_history(self):
         ids = msb.guide_backsource_ids("pathology", "00", "overview", False)
-        self.assertEqual(ids, ["mdloom-backfill:pathology:00-overview"])
+        self.assertEqual(ids, ["proof-backfill:pathology:00-overview"])
         self.assertNotIn("git-history:pathology:00-overview", ids)
 
 
@@ -74,7 +74,7 @@ class ModuleProvenanceNoteTests(unittest.TestCase):
         guides = [{"git_hashes": []} for _ in range(12)]
         self.assertEqual(
             msb.module_provenance_note(guides),
-            "MDLOOM literal backfill is recorded for all 12 guides; "
+            "PROOF literal backfill is recorded for all 12 guides; "
             "Git provenance is recorded for 0 guides and pending for 12.",
         )
 
@@ -86,7 +86,7 @@ class ModuleProvenanceNoteTests(unittest.TestCase):
         ]
         self.assertEqual(
             msb.module_provenance_note(guides),
-            "MDLOOM literal backfill is recorded for all 3 guides; "
+            "PROOF literal backfill is recorded for all 3 guides; "
             "Git provenance is recorded for 2 guides and pending for 1.",
         )
 

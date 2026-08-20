@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: distributed-systems/07-MESSAGE-QUEUES.md
 canonical_path: distributed-systems/07-MESSAGE-QUEUES.md
-backsource_ids: [mdloom-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]
+backsource_ids: [proof-backfill:distributed-systems:07-message-queues, git-history:distributed-systems:07-message-queues]
 concepts: [message, queues]
 root_concepts: [message, queues]
 index_roles: [guide, root-concept]

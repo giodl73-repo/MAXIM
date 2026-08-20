@@ -1,0 +1,379 @@
+---
+tags: [backfill]
+ops: [backfill]
+content_tags: [markdown]
+proof_original: "01-GROUPS.md"
+---
+---
+maxim_schema: maxim.frontmatter.v1
+id: maxim:abstract-algebra:groups
+kind: guide
+module: abstract-algebra
+section: abstract-algebra
+title: Groups
+status: source-custody
+source_custody: partial
+current_path: abstract-algebra/01-GROUPS.md
+canonical_path: abstract-algebra/01-GROUPS.md
+backsource_ids: [proof-backfill:abstract-algebra:01-groups, git-history:abstract-algebra:01-groups]
+concepts: [groups]
+root_concepts: [groups]
+index_roles: [guide, root-concept]
+remap_from: []
+remap_to: []
+updated: null
+---
+# Groups
+
+## The Big Picture
+
+```
++====================================================================+
+|                GROUP THEORY LANDSCAPE                              |
++====================================================================+
+|                                                                      |
+|  FINITE GROUPS                      INFINITE GROUPS                  |
+|  ─────────────                      ───────────────                  |
+|  Sylow theorems → structure         Lie groups (SO(n), SU(n), GL(n)) |
+|  CFSG → complete classification     Finitely generated (free, surface)|
+|  Solvable → radical extensions      Arithmetic (SL(2,Z), etc.)       |
+|  Simple → atoms (A_n, Lie, sporadic)                                |
+|                                                                      |
+|  ABELIAN                            NON-ABELIAN                      |
+|  ───────                            ──────────                       |
+|  Structure theorem over Z           Sylow analysis                   |
+|  (invariant factors / primary)      Semidirect products              |
+|  Finitely generated: Z^r ⊕ torsion  Presentation (generators+rels)  |
+|                                                                      |
+|  COMPUTATIONAL                      APPLICATIONS                     |
+|  ─────────────                      ────────────                     |
+|  Schreier-Sims (perm groups)        Cryptography (cyclic, elliptic)  |
+|  Graph isomorphism (Babai)          Physics (Noether, representations)|
+|  Word problem (undecidable general) ML (equivariant networks)        |
++====================================================================+
+```
+
+```
++====================================================================+
+|                    THE GROUP AXIOMS                                |
++====================================================================+
+|                                                                    |
+|  A GROUP (G, ·) satisfies:                                        |
+|  1. CLOSURE:       a · b ∈ G for all a, b ∈ G                    |
+|  2. ASSOCIATIVITY: (a · b) · c = a · (b · c)                     |
+|  3. IDENTITY:      ∃e ∈ G: e · a = a · e = a  for all a          |
+|  4. INVERSES:      ∀a ∈ G ∃a⁻¹: a · a⁻¹ = a⁻¹ · a = e          |
+|                                                                    |
+|  ABELIAN: additionally a · b = b · a for all a, b.               |
+|                                                                    |
+|  The identity and inverses are UNIQUE (provable from the axioms). |
++====================================================================+
+
+                          EXAMPLES OF GROUPS
++---------------+----------+---------------------+-------------------+
+| Group         | Operation| Order               | Abelian?          |
++---------------+----------+---------------------+-------------------+
+| Z             | +        | infinite            | Yes               |
+| Z/nZ          | + mod n  | n                   | Yes               |
+| (Z/nZ)*       | x mod n  | phi(n)              | Yes               |
+| Q*, R*, C*    | x        | infinite            | Yes               |
+| S_n           | compose  | n!                  | n<=2 only         |
+| A_n           | compose  | n!/2                | n<=3 only         |
+| D_n           | compose  | 2n                  | n<=2 only         |
+| GL(n,F)       | x        | finite/infinite     | No (n>=2)         |
+| SL(n,F)       | x        | finite/infinite     | No (n>=2)         |
+| SO(n)         | x        | infinite Lie group  | n<=2 only         |
+| SU(2)         | x        | infinite Lie group  | No                |
+| (Z/pZ)*       | x        | p-1                 | Yes (cyclic)      |
++---------------+----------+---------------------+-------------------+
+```
+
+---
+
+**Axiom minimality note**: The 4-axiom definition is overdetermined. You only need closure, associativity, left identity, and left inverses — right identity and right inverses follow. Alternatively: closure, associativity, and the property that for all a,b the equations ax=b and ya=b have solutions. The connection to the algebraic hierarchy: drop inverses → monoid; drop identity → semigroup; drop associativity → magma. The algebraic ladder is the axiom-stripping hierarchy.
+
+**Uniqueness of identity:**
+```
+If e and e' both satisfy ea=ae=a:
+  e = e·e' = e'  (use e' as identity in first, e as identity in second).
+```
+
+**Uniqueness of inverses:**
+```
+If ab=e and ac=e, then:
+  b = eb = (ca)b = c(ab) = ce = c.
+```
+
+**Cancellation:**
+```
+Left cancellation: ab = ac → b = c.
+  (Multiply both sides on left by a⁻¹.)
+Right cancellation: ba = ca → b = c.
+```
+
+---
+
+## Key Examples in Depth
+
+### Symmetric Group S_n
+
+```
+S_n = all bijections {1,...,n} → {1,...,n}, under composition.
+|S_n| = n!.  Non-abelian for n ≥ 3.
+
+Two-line notation for σ ∈ S_4:
+  σ = (1 2 3 4)  means 1→2, 2→3, 3→4, 4→1.
+      (2 3 4 1)
+  In cycle notation: σ = (1 2 3 4), a single 4-cycle.
+
+Composition: σ∘τ means "apply τ first, then σ."
+  (1 2)(1 3) = ?  Apply (1 3) first: 1→3, 3→1; then (1 2): 3→3, 1→2.
+  Net: 1→3, 3→2, 2→2 ... computing:
+  1 →^{(13)} 3 →^{(12)} 3: so 1→3.
+  2 →^{(13)} 2 →^{(12)} 1: so 2→1.
+  3 →^{(13)} 1 →^{(12)} 2: so 3→2.
+  Result: (1 3 2) = (1 2)(1 3).  [Note: S_3 is non-abelian.]
+```
+
+### Dihedral Group D_n
+
+```
+D_n = symmetries of regular n-gon.
+Generators: r = rotation by 2π/n, s = a reflection.
+Relations: r^n = e,  s² = e,  srs^{-1} = r^{-1}  (i.e., srs = r^{-1}).
+
+Elements: {e, r, r², ..., r^{n-1}, s, sr, sr², ..., sr^{n-1}}
+|D_n| = 2n.
+
+D_3 ≅ S_3: label vertices 1,2,3. Rotations = even permutations. Reflections = transpositions.
+
+D_4 (square):
+  r = (1 2 3 4),  s = (1 4)(2 3)  [reflection across vertical axis]
+  Subgroups: {e}, {e,r²}, {e,r,r²,r³}, {e,s}, {e,sr²}, {e,sr,sr³}, ...
+  Has 3 subgroups of order 2 and 1 of order 4 besides the cyclic {r}.
+```
+
+### Quaternion Group Q_8
+
+```
+Q_8 = {1, -1, i, -i, j, -j, k, -k} under quaternion multiplication.
+  i² = j² = k² = ijk = -1.
+  ij = k, ji = -k, jk = i, kj = -i, ki = j, ik = -j.
+
+|Q_8| = 8.  Non-abelian.
+Every subgroup of Q_8 is normal! (Q_8 is a Hamiltonian group.)
+  This distinguishes Q_8 from D_4 (which has non-normal subgroups).
+
+Subgroups: {1}, {±1}, {±1,±i}, {±1,±j}, {±1,±k}, Q_8.
+  {±1}: the unique element of order 2 (the "center" has order 2).
+
+Connection to SU(2):
+  Q_8 embeds in SU(2) via i↦iσ_z, j↦iσ_y, k↦iσ_x (Pauli matrices times i).
+  This is the reason spin-1/2 particles have double-valued representations.
+```
+
+---
+
+## Order of Elements
+
+```
+ord(a) = smallest positive k with a^k = e.
+
+PROPERTIES:
+  ord(a) divides |G|  (Lagrange — the subgroup ⟨a⟩ has order ord(a))
+  ord(a^k) = ord(a) / gcd(k, ord(a))
+  In abelian group: ord(ab) | lcm(ord(a), ord(b))  (may be less)
+
+COMPUTATION:
+  In Z/nZ: ord([k]) = n/gcd(k,n).
+  In S_n: ord(σ) = lcm(cycle lengths of σ).
+    Example: (1 2 3)(4 5) ∈ S_5: lcm(3,2) = 6.
+  In GL(2,F_p): harder — Jordan normal form.
+
+CYCLIC GROUPS: G = ⟨a⟩ is cyclic iff ∃a with ord(a) = |G|.
+  Generators of Z/nZ: elements of order n = {k : gcd(k,n)=1}.
+  Count: φ(n) generators.
+```
+
+---
+
+## Subgroups
+
+```
+SUBGROUP TEST (H ≤ G):
+  H ≠ ∅ and ∀a,b ∈ H: ab⁻¹ ∈ H.
+
+SUBGROUPS OF Z: all are nZ = {0, ±n, ±2n, ...}.
+  Lattice: mZ ⊆ nZ iff n|m.
+  gcd(m,n)Z = mZ + nZ  (Bezout: generated by gcd).
+  lcm(m,n)Z = mZ ∩ nZ.
+
+SUBGROUPS OF Z/nZ: one subgroup of order d for each d|n.
+  Subgroup of order d: ⟨n/d⟩ = {0, n/d, 2n/d, ..., (d-1)n/d}.
+  Lattice of subgroups of Z/12Z: divides of 12 form the lattice.
+
+SUBGROUPS OF S_n:
+  A_n (even permutations, index 2).
+  Stab(i) = {σ ∈ S_n : σ(i)=i} ≅ S_{n-1}.
+  Sylow subgroups of prime order.
+```
+
+---
+
+## Lagrange's Theorem and Cosets
+
+```
+LEFT COSET of H in G: aH = {ah : h ∈ H}.
+  Two left cosets are either EQUAL or DISJOINT.
+  Every element of G is in exactly one left coset.
+  All cosets have the same size |H|.
+
+COSET PARTITION: G = H ⊔ a₁H ⊔ a₂H ⊔ ...  (disjoint union)
+  |G| = [G:H] · |H|  where [G:H] = number of cosets.
+
+LAGRANGE:
+  |H| | |G|,  |a| | |G|,  a^{|G|} = e.
+
+CONVERSE fails: A_4 has order 12, no subgroup of order 6.
+
+INDEX 2 SUBGROUPS are always normal (easy proof):
+  H has index 2 → only two cosets: H and G\H.
+  Left coset aH = right coset Ha (when a ∉ H, both equal G\H).
+  So aH = Ha for all a → H normal.
+  Example: A_n has index 2 in S_n → A_n ◁ S_n.
+```
+
+---
+
+## Sylow Theorems
+
+```
+|G| = p^a · m,  gcd(p,m) = 1.  A Sylow p-subgroup has order p^a.
+
+SYLOW I: Sylow p-subgroups exist.
+SYLOW II: All Sylow p-subgroups are conjugate: gPg^{-1} = Q.
+SYLOW III: n_p = # Sylow p-subgroups satisfies n_p ≡ 1 (mod p) and n_p | m.
+
+APPLICATION — classify groups of order 15 = 3·5:
+  n_3 | 5 and n_3 ≡ 1 (mod 3): n_3 ∈ {1,4} ∩ {1,4}: wait, divisors of 5: {1,5}.
+  n_3 ≡ 1 (mod 3) and n_3 | 5: n_3 = 1.  So Sylow 3-subgroup P is normal.
+  n_5 | 3 and n_5 ≡ 1 (mod 5): n_5 = 1. Sylow 5-subgroup Q is normal.
+  G = P × Q ≅ Z/3 × Z/5 ≅ Z/15 (since gcd(3,5)=1).
+  Every group of order 15 is cyclic. ✓
+
+APPLICATION — classify groups of order p² (p prime):
+  n_p = # Sylow p-subgroups of p² = p^2 ≡ 1 (mod p) and n_p | 1.
+  n_p = 1.  The unique Sylow p-subgroup is normal, so G is abelian.
+  By the classification of finite abelian groups: G ≅ Z/p² or Z/p × Z/p.
+```
+
+---
+
+## Computational Group Theory
+
+```
+ALGORITHMIC PROBLEMS ON GROUPS:
+  Input: group G given by generators (permutations, matrices, or presentation)
+
+  GROUP ORDER:     |G| from generators — Schreier-Sims: O(n² log³|G|) for perm groups
+  MEMBERSHIP:      Is g ∈ ⟨S⟩?  Schreier-Sims: polytime via base/SGS
+  GENERATORS:      Find strong generating set (SGS) for ⟨S⟩
+  ISOMORPHISM:     G ≅ H? — NP ∩ coAM; Babai (2015) quasipoly for graphs
+
+SCHREIER-SIMS ALGORITHM:
+  Core idea: build a "base" β₁,...,βₖ and "strong generating sets" S⁽ⁱ⁾
+  such that the stabilizer chain G > G_{β₁} > G_{β₁,β₂} > ... > {e}
+  allows membership testing by "sifting" — test g against each level.
+
+  |G| = ∏ |orbit of βᵢ under G_{β₁,...,βᵢ₋₁}|  (telescoping product)
+
+  Complexity: polynomial in n (degree of permutation group) and log|G|.
+  Foundation of GAP, Magma, SageMath group computation.
+
+GRAPH ISOMORPHISM (Babai 2015):
+  GI reduces to a group-theoretic problem (string isomorphism in Sₙ).
+  Babai's algorithm: quasipolynomial time exp((log n)^O(1)).
+  Uses: Luks's group-theoretic framework + "split-or-Johnson" structure theorem.
+  Status: strongest connection between group theory and complexity theory.
+```
+
+## Engineering Bridge: Group Actions in Machine Learning
+
+```
+GROUP ACTION CONCEPT               ML / PHYSICS APPLICATION
+──────────────────────────────────────────────────────────────────────────────
+G acts on X by symmetry             Equivariant neural networks
+  φ: G → Aut(X)                     Network f satisfies f(g·x) = g·f(x)
+  Invariant: f(g·x) = f(x)         Invariant networks: f(g·x) = f(x)
+
+Translation group (Z², R²)          CNNs: convolution = translation equivariance
+  Images are translation-equivalent   Weight sharing across spatial positions
+  → same features everywhere          IS equivariance under translations
+
+Rotation group SO(2), SO(3)         E(n)-equivariant GNNs (EGNN, PaiNN)
+  Molecular conformations rotated     Network outputs rotate WITH the molecule
+  → same physics regardless of        Used in: protein structure, drug design,
+  orientation                          molecular dynamics
+
+Symmetric group Sₙ                  Set functions / DeepSets (Zaheer et al.)
+  Permutation of input elements       f({x₁,...,xₙ}) = f({xσ(1),...,xσ(n)})
+  → output unchanged                  Architecture: Σᵢ φ(xᵢ) enforces this
+
+SE(3) = SO(3) ⋉ R³                 Geometric deep learning (Bronstein et al.)
+  Rigid motions in 3D                  Tensor field networks, spherical harmonics
+  → physical systems                   as basis for equivariant features
+
+Noether's theorem                    Conservation laws from continuous symmetry
+  Continuous symmetry of Lagrangian    Time invariance → energy conservation
+  → conserved quantity                  Space invariance → momentum conservation
+                                       Gauge invariance → charge conservation
+```
+
+The key insight: building symmetry into the network architecture (via group equivariance) is more data-efficient than learning it from examples. A CNN doesn't need to learn translation invariance — it gets it for free from weight sharing. Equivariant networks generalize this principle to any group action.
+
+## Decision Cheat Sheet
+
+| If you need to diagnose... | Start With | Key Caveat |
+|---|---|---|
+| Whether a set is a group | Check closure, associativity, identity, inverses, or use a known construction. | Associativity is usually inherited, not proved from scratch every time. |
+| Element order | Compute the smallest `k` with `a^k = e`; for permutations use cycle-length lcm. | Element order depends on the ambient operation. |
+| Lagrange-style consequence | Relate element/subgroup order to `|G|`, cosets, and divisibility. | Lagrange gives necessary divisibility, not existence of every divisor subgroup. |
+| Orders in `Z/nZ` | Factor `n`, use cyclic-group structure, gcds, and Euler phi counts. | Additive and multiplicative groups of residues are different objects. |
+| Finite abelian classification | Prime-factor `n`, decompose into p-primary parts, and apply invariant-factor/elementary-divisor form. | Classification is canonical only after choosing the correct normal form. |
+| Unknown group of given order | Use Sylow counts, normal subgroups, semidirect products, and known small-order classifications. | Sylow narrows possibilities; it may not finish the classification. |
+| Subgroup test | Check nonempty subset, closure under `ab^{-1}`, and inherited operation. | A subset with the right size pattern can still fail closure. |
+| Normality | Test conjugation invariance, kernel form, quotient intent, or index-two shortcut. | Normal means stable under all conjugation, not merely closed. |
+
+---
+
+## Cross-References
+
+- `02-SUBGROUPS-QUOTIENTS.md` turns groups into the machinery of normality, quotienting, and exact structure.
+- `03-PERMUTATION-GROUPS.md` makes finite symmetry concrete through actions on sets.
+- `07-REPRESENTATION-THEORY.md` linearizes groups so symmetry becomes matrices, characters, and decompositions.
+
+---
+
+## Common Confusion Points
+
+**"Left and right cosets are the same."**
+They're equal iff H is normal. For non-normal H: aH ≠ Ha in general.
+Example in S_3: H = {e,(12)}, a = (123).
+  aH = {(123),(123)(12)} = {(123),(13)}.
+  Ha = {(123),(12)(123)} = {(123),(23)}.  Different.
+
+**"Lagrange's converse holds."**
+A_4 is the standard counterexample. Order 12, but no subgroup of order 6.
+The converse holds for: abelian groups (structure theorem), p-groups (Sylow I),
+and whenever the order is prime (only one possible group: Z/p).
+
+**"SU(2) ≅ SO(3)."**
+SU(2) is a double cover of SO(3), not isomorphic. The map SU(2) → SO(3) is
+a 2-to-1 surjective homomorphism with kernel {±I}. This "covering" is why
+spin-1/2 particles (SU(2) representations) cannot be reduced to orbital angular
+momentum (SO(3) representations). The kernel {±I} is why a 360° rotation gives
+-ψ for spinors, not +ψ.
+
+**"All groups of order p^k are abelian."**
+True for p (order = prime) and p² — not for p³ or higher.
+Groups of order 8 = 2³: D_4 and Q_8 are non-abelian (with Z/8, Z/4×Z/2, Z/2³ abelian).

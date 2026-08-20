@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/14-SWIFT.md
 canonical_path: languages/14-SWIFT.md
-backsource_ids: [mdloom-backfill:languages:14-swift, git-history:languages:14-swift]
+backsource_ids: [proof-backfill:languages:14-swift, git-history:languages:14-swift]
 concepts: [swift]
 root_concepts: [swift]
 index_roles: [guide, root-concept]

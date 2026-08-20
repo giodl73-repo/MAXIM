@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cryptography/01-SYMMETRIC.md
 canonical_path: cryptography/01-SYMMETRIC.md
-backsource_ids: [mdloom-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]
+backsource_ids: [proof-backfill:cryptography:01-symmetric, git-history:cryptography:01-symmetric]
 concepts: [symmetric]
 root_concepts: [symmetric]
 index_roles: [guide, root-concept]

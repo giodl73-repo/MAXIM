@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cloud-architecture/03-STORAGE-PATTERNS.md
 canonical_path: cloud-architecture/03-STORAGE-PATTERNS.md
-backsource_ids: [mdloom-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]
+backsource_ids: [proof-backfill:cloud-architecture:03-storage-patterns, git-history:cloud-architecture:03-storage-patterns]
 concepts: [storage, patterns]
 root_concepts: [storage, patterns]
 index_roles: [guide, root-concept]

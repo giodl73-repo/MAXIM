@@ -1,0 +1,50 @@
+{
+  "schema_version": "1",
+  "source_markdown": "abstract-algebra\\03-PERMUTATION-GROUPS.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 24,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+====================================================================+\n|               PERMUTATION GROUPS — STRUCTURE                       |\n+====================================================================+\n|                                                                    |\n|  S_n = all bijections {1,...,n} → {1,...,n}    |S_n| = n!         |\n|         |                                                          |\n|         +──── cycle decomposition ────────────────────────────    |\n|         |     every σ = product of disjoint cycles                |\n|         |     unique up to order; cycle type = conjugacy class     |\n|         |                                                          |\n|         +──── sign homomorphism ─────────────────────────────    |\n|               sgn: S_n → {±1},  sgn(σ) = (-1)^{# transpositions}  |\n|               ker(sgn) = A_n  (alternating group)                  |\n|                                                                    |\n|  A_n = {even permutations}   |A_n| = n!/2                         |\n|  A_n is SIMPLE for n ≥ 5 (no normal subgroups)                    |\n|  → quintic unsolvable; every finite group embeds in some S_n      |\n|                                                                    |\n|  CAYLEY'S THEOREM: Every group G embeds in S_{|G|} via           |\n|  the left-regular representation g ↦ (x ↦ gx).                   |\n+====================================================================+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 106,
+      "heading_context": "## Transpositions and Signs",
+      "confidence": "candidate",
+      "text": "TRANSPOSITION: A 2-cycle (i j).  Swaps i and j.\n  Every permutation is a product of transpositions (not necessarily disjoint).\n  (a₁ a₂ ... aₖ) = (a₁ aₖ)(a₁ aₖ₋₁)...(a₁ a₂)  [k-1 transpositions]\n\nSIGN (PARITY):\n  The decomposition into transpositions is NOT unique,\n  but the PARITY (even/odd number of transpositions) IS invariant.\n\n  sgn(σ) = (-1)^{number of transpositions in any decomposition}\n         = (-1)^{n - (number of cycles, counting fixed points)}\n\n  Even permutation: sgn = +1 (product of even number of transpositions).\n  Odd permutation:  sgn = -1.\n\n  SIGN FORMULA BY CYCLE TYPE:\n    A k-cycle is a product of k-1 transpositions.\n    k-cycle: even iff k is odd.\n    σ = product of disjoint cycles of lengths l₁, l₂, ..., lₘ:\n    sgn(σ) = (-1)^{Σ(lᵢ-1)} = (-1)^{n-m}\n      where n = total elements moved, m = number of cycles.\n\n  Examples:\n    (1 2 3 4 5): 5-cycle → 4 transpositions → even.\n    (1 2 3): 3-cycle → 2 transpositions → even.\n    (1 2)(3 4): two 2-cycles → 2 transpositions → even.\n    (1 2): single transposition → odd.\n    (1 2)(3 4 5): 2-cycle + 3-cycle → (1)+(2) = 3 transpositions → odd.\n\nSIGN HOMOMORPHISM:\n  sgn: S_n → {±1} is a group homomorphism.\n  sgn(στ) = sgn(σ)·sgn(τ).\n  kernel = A_n (even permutations).\n  First Isomorphism: S_n/A_n ≅ Z/2Z. ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "ascii_table_candidate",
+      "line": 178,
+      "heading_context": "## Cayley's Theorem",
+      "confidence": "candidate",
+      "text": "THEOREM: Every group G is isomorphic to a subgroup of some symmetric group.\n  Specifically: G embeds in S_{|G|} (or S_G where G acts on itself by left multiplication).\n\nPROOF: Define λ: G → S_G by λ(g) = (x ↦ gx) for each g ∈ G.\n  Each λ(g) is a bijection G → G.\n  λ is a group homomorphism: λ(gh)(x) = ghx = g(hx) = λ(g)(λ(h)(x)).\n  λ is injective: if λ(g) = λ(h), then gx = hx for all x; take x = e: g = h.\n  So G ≅ im(λ) ≤ S_G ≅ S_{|G|}.  □\n\nIMPLICATIONS:\n  Every finite group is a subgroup of some S_n.\n  To classify all finite groups: suffices to classify subgroups of S_n (impractical, but theoretically).\n  Every abstract group = concrete permutation group on its own elements.\n\nBETTER BOUNDS: G embeds in S_{n/d} where d = |largest subgroup in G| (by coset action).\n  Example: A_5 (order 60) embeds in S_5 (order 120) — far smaller than S_60.\n  The action on cosets of a subgroup H gives G → S_{[G:H]}.\n\nCOMPUTATIONAL CONSEQUENCE:\n  Cayley says every G embeds in S_n — but what can you COMPUTE in S_n?\n  Schreier-Sims algorithm: given generators {σ₁,...,σₖ} for G ≤ S_n:\n    - Compute |G| in O(n² log³|G|) time\n    - Test membership (is τ ∈ G?) in O(n log|G|) time\n    - Find a base and strong generating set (SGS)\n  The base β = (β₁,...,βₘ) gives stabilizer chain:\n    G > G_{β₁} > G_{β₁,β₂} > ... > {e}\n  |G| = ∏ |orbit of βᵢ under G_{β₁,...,βᵢ₋₁}|\n  This is how GAP, Magma, and SageMath compute with groups — all permutation\n  group computation reduces to Schreier-Sims.",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 214,
+      "heading_context": "## Group Actions",
+      "confidence": "candidate",
+      "text": "G ACTS ON X (set X):\n  A group action is a homomorphism φ: G → S_X.\n  For each g ∈ G: a bijection σ_g: X → X.\n  Axioms: σ_e = id, σ_{gh} = σ_g ∘ σ_h.\n\nEXAMPLES:\n  G acts on itself by left multiplication: x ↦ gx.  (Cayley's theorem)\n  G acts on itself by conjugation: x ↦ gxg^{-1}.\n  S_n acts on {1,...,n} naturally.\n  GL(n,F) acts on F^n by matrix-vector multiplication.\n  Gal(L/K) acts on L by automorphisms.\n\nORBIT: Orb(x) = {gx : g ∈ G}. The G-orbit of x.\nSTABILIZER: Stab(x) = {g ∈ G : gx = x}. Subgroup of G.\n\nORBIT-STABILIZER THEOREM:\n  |G| = |Orb(x)| · |Stab(x)|\n\n  Proof: bijection Orb(x) ↔ G/Stab(x) by gx ↔ gStab(x).  □\n\nBURNSIDE'S LEMMA (Counting orbits):\n  # orbits = (1/|G|) · Σ_{g∈G} |Fix(g)|\n  where Fix(g) = {x ∈ X : gx = x}.\n\n  Application: Count necklaces with 4 beads, 2 colors (red/blue).\n    G = Z/4Z acting by rotation; X = {R,B}^4.\n    Fix(r⁰) = 16 (all), Fix(r¹) = 2 (RRRR,BBBB), Fix(r²) = 4 (RRRR,BBBB,RBRB,BRBR),\n    Fix(r³) = 2.\n    # orbits = (16+2+4+2)/4 = 6.\n    The 6 necklaces: RRRR, RRRB, RRBB, RBRB, RBBB, BBBB. ✓",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

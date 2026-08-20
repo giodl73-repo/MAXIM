@@ -57,7 +57,7 @@ it does not validate BANISH outcomes.
 
 Downstream repositories should not vendor MAXIM source directories. The stable
 distribution path is a committed module pack and registry after the flow in
-`.mdloom/backfill/README.md` is complete.
+`.proof/backfill/README.md` is complete.
 
 ## Adoption gate
 

@@ -17,13 +17,13 @@ that changed the library.
 | 2026-02-24 | Library Completion and Card Identity | Finish the 217-directory deck, add section architecture, Read This First, card identities, archetypes, and flairs. | archived |
 | 2026-02-26 | Editorial Sweep and Healing | Sweep, tag, bridge, and repair the reference library until every tracked guide graduated clean. | archived |
 | 2026-02-26 | Indices, Atlas, and Publishing Strategy | Catalog the full library, build concept layers, launch atlas design, and score the 52-volume publishing plan. | archived |
-| 2026-02-27 | Jokers, Invariants, and Puzzle Mdloom | Design and test the Joker puzzle system, execute improvement waves, author Red puzzles, and protect answers with the periodic-table protocol. | archived |
-| 2026-04-25 | Mdloom and ASCII Repair | Introduce proof-driven Markdown/ASCII validation and repair diagram/table/link issues across the library. | archived |
+| 2026-02-27 | Jokers, Invariants, and Puzzle Proof | Design and test the Joker puzzle system, execute improvement waves, author Red puzzles, and protect answers with the periodic-table protocol. | archived |
+| 2026-04-25 | Proof and ASCII Repair | Introduce proof-driven Markdown/ASCII validation and repair diagram/table/link issues across the library. | archived |
 | 2026-05-14 | MAXIM Quality Control Spine | Import wave/pulse execution discipline and raise the proof/editorial bar for gold-standard reference quality. | done |
 | 2026-05-14 | Pilot Gold Remediation | Resolve the three concrete WARN findings from the first Gold Rubric pilot audit. | done |
 | 2026-05-14 | Gold Figure Invariants | Pin canonical Package, Consensus, and Global Winds figures with Da Vinci invariants and repair atlas ASCII defects exposed by proof. | done |
 | 2026-05-14 | Gold Rubric Promotion | Promote Gold Rubric v2 from wave artifact into `/reference-review` so future reviews use the raised bar for Gold candidates. | done |
-| 2026-05-14 | Mdloom Scope Hygiene | Exclude wave/skill process docs from guide proof and record the live editor-tag baseline. | done |
+| 2026-05-14 | Proof Scope Hygiene | Exclude wave/skill process docs from guide proof and record the live editor-tag baseline. | done |
 | 2026-05-14 | Pilot Invariant Completion | Add Da Vinci invariants for Hydrogen identity and Pitch frequency-to-scale diagrams, completing pilot-set figure coverage. | done |
 | 2026-05-14 | Pilot Gold Rescore | Rescore the five pilot guides after remediation and invariants; identify two true Gold guides and three explicit candidates. | done |
 | 2026-05-14 | Gold Candidate Polish | Close Hydrogen mechanism-visual and Pitch cross-reference carry-forwards from the R2 Gold rescore. | done |

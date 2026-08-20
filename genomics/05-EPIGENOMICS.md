@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/05-EPIGENOMICS.md
 canonical_path: genomics/05-EPIGENOMICS.md
-backsource_ids: [mdloom-backfill:genomics:05-epigenomics, git-history:genomics:05-epigenomics]
+backsource_ids: [proof-backfill:genomics:05-epigenomics, git-history:genomics:05-epigenomics]
 concepts: [epigenomics]
 root_concepts: [epigenomics]
 index_roles: [guide, root-concept]

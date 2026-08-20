@@ -14,10 +14,10 @@ unresolved BLOCK or WARN finding. That is **not sufficient for Certified Gold**.
 
 The reset-era registry requires proof cleanliness, useful cross-references, and
 guide-specific Da Vinci protection as prerequisites. These new guides have **no
-`clinical-medicine` Da Vinci entries in `mdloom.toml`**. The current mechanical record
+`clinical-medicine` Da Vinci entries in `proof.toml`**. The current mechanical record
 is:
 
-- Focused MDLOOM, without Da Vinci: **PASS** —
+- Focused PROOF, without Da Vinci: **PASS** —
   `OK — 12 files checked, 0 errors, 0 warnings`.
 - Focused command with `--daVinci`: literal **FAIL** was observed —
   `FAIL — 12 files checked, 1 error, 128 warnings`. The diagnostics came from the
@@ -64,7 +64,7 @@ currently failing repository-wide `--daVinci` run.
 
 **Adversarial status:** R1 found no guide-specific BLOCK/WARN; the module-wide
 advice-creep checklist passed.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; strong routing xrefs;
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; strong routing xrefs;
 no overview-specific pin.
 **Tier: Silver.**
 
@@ -96,7 +96,7 @@ invariant.
 | Treat an examination finding as a measurement rather than ritual. | **PASS** — §2 gives LR+/LR− semantics, operator-dependence caveats, and the criterion that a useful finding must move a live hypothesis. |
 
 **Adversarial status:** no R1 finding remained or required repair in this guide.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; useful 02/03/07 links;
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; useful 02/03/07 links;
 no encounter-specific pin.
 **Tier: Silver.**
 
@@ -127,7 +127,7 @@ not, because the diagnostic-engine figure is unpinned.
 | Identify a bias and select a cognitive or system guardrail. | **PASS** — §4 catalogs biases and remedies; the worked case catches diagnosis momentum with a diagnostic timeout and transmits uncertainty onward. |
 
 **Adversarial status:** no guide-specific R1 BLOCK/WARN remained.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; strong 01/03/07/11
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; strong 01/03/07/11
 reasoning chain; no diagnostic-engine pin.
 **Tier: Silver.**
 
@@ -160,7 +160,7 @@ diagnostic loop or the threshold model.
 
 **Adversarial status:** R1 `RE-01` WARN (stale prototype/bidirectional-boundary
 language) was repaired; no BLOCK/WARN remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; repaired
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; repaired
 bidirectional cross-reference; no test-decision invariant.
 **Tier: Silver.**
 
@@ -191,7 +191,7 @@ pipeline is not Da Vinci-protected; Silver is the accurate tier.
 | Separate certainty, recommendation strength, and transportability. | **PASS** — §§3 and 5 distinguish GRADE's axes and external-validity threats; the worked case rates Moderate certainty but a weak recommendation. |
 
 **Adversarial status:** no guide-specific R1 BLOCK/WARN remained.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; strong
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; strong
 03/05/06/09 and methods deferrals; no evidence-transport pin.
 **Tier: Silver.**
 
@@ -223,7 +223,7 @@ opening two-loop model lacks a guide-specific invariant, so the decision is Silv
 
 **Adversarial status:** R1 `ES-01` WARN (resourced-system assumption) was repaired
 with a guide-local invariant/mechanism caveat; no BLOCK/WARN remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; 07/08 transition and
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; 07/08 transition and
 topology links present; no two-control-logics pin.
 **Tier: Silver.**
 
@@ -254,7 +254,7 @@ composition-failure map, the honest tier is Silver.
 | Identify and reason through a prescribing cascade/deprescribing candidate. | **PASS** — §4 diagrams the cascade and lists indication, TTB, harm/burden, stopping risk, and preference; the case applies all five without advice. |
 
 **Adversarial status:** no guide-specific R1 BLOCK/WARN remained.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; meaningful 04/05/09/10
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; meaningful 04/05/09/10
 links; no multimorbidity-composition pin.
 **Tier: Silver.**
 
@@ -286,7 +286,7 @@ threshold. Missing transition-state-transfer protection keeps it Silver.
 
 **Adversarial status:** R1 `RE-02` WARN (guide 08 was a prerequisite) and `ES-01`
 WARN (resourced topology) were repaired; no BLOCK/WARN remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; independent and
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; independent and
 additive cross-references after repair; no state-transfer pin.
 **Tier: Silver.**
 
@@ -319,7 +319,7 @@ is the maximum current claim.
 
 **Adversarial status:** the earlier strict prototype panel passed; full-module R1
 found no new unresolved BLOCK/WARN in this guide.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; dense and purposeful
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; dense and purposeful
 module links; no service-catalog or ownership-contract pin.
 **Tier: Silver.**
 
@@ -352,7 +352,7 @@ not invariant-protected, so the tier is Silver.
 **Adversarial status:** R1 `ES-05` NOTE (four-level prevention presented as settled)
 was repaired by distinguishing the conventional three-level taxonomy from Jamoulle's
 extension; no BLOCK/WARN remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; strong 03/04/06/10
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; strong 03/04/06/10
 links; no screening-chain pin.
 **Tier: Silver.**
 
@@ -385,7 +385,7 @@ map has no guide-specific invariant; Silver is the accurate claim.
 **Adversarial status:** R1 `ES-02` and `ES-03` NOTES (disclosure-standard
 overstatement and unsupported “most often” claim) were repaired; no BLOCK/WARN
 remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; clear applied/legal/
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; clear applied/legal/
 normative boundaries; no constraint-resolution pin.
 **Tier: Silver.**
 
@@ -418,7 +418,7 @@ Silver.
 
 **Adversarial status:** R1 `ES-01` WARN (resourced-system assumption) and `ES-04`
 NOTE (second-person voice) were repaired; no BLOCK/WARN remains.
-**Mechanical / cross-reference / Da Vinci:** focused MDLOOM pass; module-closing
+**Mechanical / cross-reference / Da Vinci:** focused PROOF pass; module-closing
 cross-references are substantive; no systems-practice pin.
 **Tier: Silver.**
 
@@ -426,7 +426,7 @@ cross-references are substantive; no systems-practice pin.
 
 ## Module-Level Summary Matrix
 
-| Guide | Average | Minimum | Reader tasks | Adversarial status | Focused MDLOOM | Cross-reference status | Da Vinci status | Tier |
+| Guide | Average | Minimum | Reader tasks | Adversarial status | Focused PROOF | Cross-reference status | Da Vinci status | Tier |
 |---|---:|---:|---:|---|---|---|---|---|
 | `00-OVERVIEW` | 4.7 | 4 | 3/3 pass | No unresolved finding | 0 errors / 0 warnings | Strong module routing | Missing | Silver |
 | `01-CLINICAL-ENCOUNTER` | 4.8 | 4 | 3/3 pass | No unresolved finding | 0 / 0 | Useful 02/03/07 chain | Missing | Silver |
@@ -477,7 +477,7 @@ Promotion requires all of the following:
    repository-wide pin set, the existing `cold-war-historiography-schools` error and
    stale figure-resolution warnings must be repaired or the tool must provide an
    honestly scoped validation mode before a clean prerequisite can be claimed.
-3. Reconfirm the ordinary focused MDLOOM result remains 12 files / 0 errors / 0
+3. Reconfirm the ordinary focused PROOF result remains 12 files / 0 errors / 0
    warnings after pinning.
 4. Re-run the final Gold sign-off against these differentiated scores and reader
    tasks, confirming that no content drift or new BLOCK/WARN appeared and that the

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: cryptography/05-POST-QUANTUM.md
 canonical_path: cryptography/05-POST-QUANTUM.md
-backsource_ids: [mdloom-backfill:cryptography:05-post-quantum, git-history:cryptography:05-post-quantum]
+backsource_ids: [proof-backfill:cryptography:05-post-quantum, git-history:cryptography:05-post-quantum]
 concepts: [post, quantum]
 root_concepts: [post, quantum]
 index_roles: [guide, root-concept]

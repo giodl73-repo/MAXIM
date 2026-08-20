@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/07-CRISPR.md
 canonical_path: genomics/07-CRISPR.md
-backsource_ids: [mdloom-backfill:genomics:07-crispr, git-history:genomics:07-crispr]
+backsource_ids: [proof-backfill:genomics:07-crispr, git-history:genomics:07-crispr]
 concepts: [crispr]
 root_concepts: [crispr]
 index_roles: [guide, root-concept]

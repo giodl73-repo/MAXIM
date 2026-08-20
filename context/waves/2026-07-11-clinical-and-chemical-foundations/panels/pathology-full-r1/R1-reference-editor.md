@@ -46,7 +46,7 @@ planned / not-added-this-pulse**, and the ratified manifest marked ten guides "p
 complete** (each row "authored, in review"); and every deferred/planned/not-run claim (Mission,
 Scope Inventory "Deferred" row, Non-Goals, Placement finding, QR-11/QR-14, the Gaps/Adopt-Defer
 sections, the carry-forward) is **labeled `[SUPERSEDED 2026-07-12]`** with the current state,
-including the provenance note that `pathology/` is untracked so backfill records `mdloom-backfill`
+including the provenance note that `pathology/` is untracked so backfill records `proof-backfill`
 only. The later R2 record updates the manifest state from "authored, in review" to
 "authored, reviewed," records Silver for all twelve, and preserves Pulse 05 as **IN REVIEW
 only for final sign-off**.
@@ -75,7 +75,7 @@ explicit Silver/no-registry decision; **final sign-off remains separate**.
   resource/geographic/bias caveats — present and doing real work.
 - Cross-references resolve: the three-way `08`→`medicine/10`→`clinical-medicine/03` split and the
   `08`↔`11` seam are consistent; no dangling "planned" pointers remain.
-- Records match the code: manifest 12/12; custody state (`partial`, `mdloom-backfill`) matches the
+- Records match the code: manifest 12/12; custody state (`partial`, `proof-backfill`) matches the
   regenerated artifacts; scaling panels and the counts are current.
 
 ## Decision

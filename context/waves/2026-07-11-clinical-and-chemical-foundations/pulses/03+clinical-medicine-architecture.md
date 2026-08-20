@@ -52,7 +52,7 @@ Get-Content disease\STATUS.md, medicine\STATUS.md, public-health\STATUS.md
 | Module manifest | `clinical-medicine/STATUS.md` (full 12-guide manifest; 03 + 08 complete, rest planned) |
 | Architecture record | `context/waves/.../artifacts/CLINICAL-MEDICINE-ARCHITECTURE.md` (MAXIM-CLIN-01 … 24 + G00 … G11) |
 | Wave tracking | `context/waves/.../pulses/03+clinical-medicine-architecture.md`; `WAVE.md` pulses table (Pulse 03 → IN REVIEW) |
-| **Deferred to Pulse 04** | `00-OVERVIEW` + guides 01, 02, 04, 05, 06, 07, 09, 10, 11; `sections/life-sciences.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
+| **Deferred to Pulse 04** | `00-OVERVIEW` + guides 01, 02, 04, 05, 06, 07, 09, 10, 11; `sections/life-sciences.md`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; source-corpus (`.proof/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -109,7 +109,7 @@ Get-Content disease\STATUS.md, medicine\STATUS.md, public-health\STATUS.md
       overlap honesty, and two contrasting transport-limit contexts; `08`
       referral-ownership-by-acceptance (five separated ownership fields), an end-to-end
       closed-loop comanagement case, alternate system topologies, an explicitly
-      illustrative specialty table, and tightened nephrology scope. Focused MDLOOM re-run
+      illustrative specialty table, and tightened nephrology scope. Focused PROOF re-run
       on `03`/`08` is clean; guides marked **prototype / in review** pending re-review
       sign-off.
 - [x] **Strict re-review (R2)** — a stricter editorial pass over `03`/`08` (advice-creep
@@ -125,7 +125,7 @@ Get-Content disease\STATUS.md, medicine\STATUS.md, public-health\STATUS.md
       acknowledgment; specialty-PPV qualified to demonstrable enrichment + test
       transport (spectrum can shift Sn/Sp); and a compact **alternate-system**
       (district-hospital / task-shifting / teleconsult) end-to-end case added. Focused
-      MDLOOM re-run on `03`/`08` is clean; guides passed the strict prototype gate with
+      PROOF re-run on `03`/`08` is clean; guides passed the strict prototype gate with
       **final sign-off** (recorded as prototype-complete in `STATUS.md`).
 - [ ] **Deferred to Pulse 04:** author `00` + the nine remaining guides; wire section/
       nav/TRACKER; run source-corpus backfill; run the adversarial panel over the full
@@ -137,15 +137,15 @@ Focused prototype validation only (per the boundary-review scope; **no full-modu
 source backfill**):
 
 ```powershell
-# Repo-config MDLOOM (MAXIM mdloom.toml) via the tools-infra/proof Cargo manifest,
+# Repo-config PROOF (MAXIM proof.toml) via the tools-infra/proof Cargo manifest,
 # scoped to the two prototype guides
 cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- `
   check clinical-medicine\03-DIAGNOSTIC-TEST-INTERPRETATION.md `
-        clinical-medicine\08-SPECIALTY-INTERFACES.md --config mdloom.toml
+        clinical-medicine\08-SPECIALTY-INTERFACES.md --config proof.toml
 git --no-pager diff --check
 ```
 
-If the Cargo-manifest MDLOOM is unavailable in the environment, record the exact failure
+If the Cargo-manifest PROOF is unavailable in the environment, record the exact failure
 and fall back to focused structural validation (single H1; required `## Decision Cheat
 Sheet` H2; ≥1 code block; no `@editor` tags; aligned ASCII boxes; consistent tables)
 plus `git diff --check`, per `.claude/skills/maxim-pulse/SKILL.md`.
@@ -160,7 +160,7 @@ the threshold model is attributed (Pauker & Kassirer *NEJM* 1975/1980).
 
 **Prototype re-review (R1) outcome:** the two guides were re-reviewed (`expert-skeptic`
 + `reference-editor`) and the repair pass recorded under `panels/clinical-prototype-r1/`.
-After repairs, the focused MDLOOM above reports **2 files checked, 0 errors, 0 warnings**
+After repairs, the focused PROOF above reports **2 files checked, 0 errors, 0 warnings**
 and `git diff --check` is clean; source backfill was **not** run. The guides then went
 through the R2 strict pass below and received **final prototype sign-off**.
 
@@ -171,7 +171,7 @@ conditional-independence treatment with no universal inequality and a validated 
 model / empirical combined LR; guide-08 routing-vs-responsibility split into two
 independent axes with transfer gated on explicit, acknowledged, locally valid agreement;
 specialty-PPV enrichment/transport qualification with spectrum caveat; and a new
-compact alternate-system end-to-end case). The focused MDLOOM re-run reports **2 files
+compact alternate-system end-to-end case). The focused PROOF re-run reports **2 files
 checked, 0 errors, 0 warnings** and `git diff --check` is clean (the prototype module is
 still untracked, so the check was run against the two edited guides explicitly); source
 backfill was **not** run and `medicine/` was **not** touched. With R2 closed, the prototypes
@@ -195,7 +195,7 @@ the remaining ten guides, section/nav/`TRACKER` integration, the reverse `medici
 - Do not author the remaining ten guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/life-sciences.md`,
   `.mkdocs/mkdocs.yml`, or `TRACKER.md`.
-- Do not run full module source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) — this is a
+- Do not run full module source backfill (PROOF/MDCROP/MDPORT/FLETCH) — this is a
   prototype boundary review.
 - Do not rename, re-scope, or edit `medicine/` (deferred to a later boundary decision).
 - Do not modify `README.md`, `FOREWORD.md`, `VOLUMES.md`, `PROJECTS.md`, or any

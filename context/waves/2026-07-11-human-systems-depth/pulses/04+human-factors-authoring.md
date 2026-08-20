@@ -14,7 +14,7 @@ governing_roles: [reference-editor, expert-skeptic]
 > The remaining nine `human-factors/` guides are authored at full peer depth on the ratified
 > (Pulse-03) prototype pattern, the module is wired into navigation/section/`TRACKER`, minimal
 > reciprocal pointers were added to the six boundary siblings, and source-corpus backfill ran for
-> `human-factors`. The module passes **focused MDLOOM (12 files, 0 errors, 0 warnings)**. The
+> `human-factors`. The module passes **focused PROOF (12 files, 0 errors, 0 warnings)**. The
 > **independent full-module adversarial panel** (Definition-of-Done **closure gate 12**,
 > `panels/hf-full-r1/`) has now been **conducted**: it surfaced a conservative **6 BLOCK + 6 WARN**
 > superset, all **repaired** in the guides and records, closed the citation/edition items (gates
@@ -51,9 +51,9 @@ Get-Content human-factors\STATUS.md
 Get-Content sections\technology.md, .mkdocs\mkdocs.yml, TRACKER.md
 Get-Content industrial-design\05-ERGONOMICS.md, cognitive-science\09-APPLIED-BRIDGE.md, systems-engineering\06-FMEA-RELIABILITY.md
 Get-Content clinical-medicine\11-SAFETY-QUALITY-AND-WORKFLOW.md, biomedical-engineering\07-MEDICAL-DEVICES.md, human-computer-interaction\STATUS.md
-# Backfill mechanics + MDLOOM surface
+# Backfill mechanics + PROOF surface
 Get-Content .claude\skills\maxim-source-backfill\SKILL.md, .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py
-Get-Content mdloom.toml | Select-Object -First 92
+Get-Content proof.toml | Select-Object -First 92
 ```
 
 ## Scope Inventory
@@ -61,12 +61,12 @@ Get-Content mdloom.toml | Select-Object -First 92
 | Area | Files |
 |---|---|
 | New guides (9) | `human-factors/{00-OVERVIEW,01-HISTORY-FOUNDATIONS,04-HUMAN-ERROR-TAXONOMIES,05-HUMAN-RELIABILITY-ANALYSIS,07-AUTOMATION-HUMAN-MACHINE,08-SAFETY-SYSTEMS-AND-HAZARD-ANALYSIS,09-DOMAIN-APPLICATIONS,10-METHODS-AND-MEASUREMENT,11-ORGANIZATIONAL-SAFETY-CULTURE}.md` |
-| Module MDLOOM config | `human-factors/mdloom.toml` (added; tolerance = 2, `check_col_separators = false`, matching every other module) |
+| Module PROOF config | `human-factors/proof.toml` (added; tolerance = 2, `check_col_separators = false`, matching every other module) |
 | Module manifest | `human-factors/STATUS.md` (→ 12/12 authored, module COMPLETE & WIRED, WAVE IN REVIEW) |
 | Navigation / section | `.mkdocs/mkdocs.yml` (Technology nav entry); `sections/technology.md` (Directories row, landscape SYSTEMS-ENGINEERING track, count, volume plan, adjacent-section bridges) |
 | Library tracker | `TRACKER.md` (Summary Dashboard row 🔬 In review; totals note) |
 | Reciprocal pointers (6 siblings) | `industrial-design/05-ERGONOMICS.md` (→ HF `02` quantitative-systems depth; product-form entry preserved); `human-computer-interaction/STATUS.md` (→ HF `03`/`04`/`06`/`08` safety-critical evidence; interaction/a11y methods retained); `cognitive-science/09-APPLIED-BRIDGE.md` (→ HF `03` applied measurement; mechanism/theory retained); `clinical-medicine/11-SAFETY-QUALITY-AND-WORKFLOW.md` (→ HF `04`/`11` generic science; clinical application retained); `systems-engineering/06-FMEA-RELIABILITY.md` (→ HF `05`/`08` human extension; tree/RPN math retained); `biomedical-engineering/07-MEDICAL-DEVICES.md` (→ HF `06`/`09` use-safety; device engineering/regulation retained) |
-| Source corpus (regenerated) | `.mdloom/backfill/**`, `.mdcrop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-factors` + the 5 changed content-guide siblings |
+| Source corpus (regenerated) | `.proof/backfill/**`, `.mdcrop/views/**`, `.mdport/packs/**`, `.fletch/registries/**` for `human-factors` + the 5 changed content-guide siblings |
 | Wave tracking | this pulse; `WAVE.md` Pulse Sequence (Pulse 04 → IN REVIEW; final re-review/sign-off pending) |
 | **Remaining Pulse-04 gate** | final independent re-review/sign-off only |
 | **Out of scope / future work** | any Gold-tier / Da Vinci-invariant work; any legal content in `law/` |
@@ -77,7 +77,7 @@ Each guide follows the gate-passed pattern **and** the **Testable Definition of 
 `02` (§"Guide-Family Scaling Contracts" / "Testable Definition of Done"): the **eight content
 gates** (1 required formal model(s) named+dated; 2 reproducible synthetic quantitative
 demonstration; 3 uncertainty/validity/bias analysis; 4 source-hierarchy/edition attribution; 5
-explicit boundary test; 6 conceptual terminal-readable diagram in the MDLOOM-safe open idiom; 7
+explicit boundary test; 6 conceptual terminal-readable diagram in the PROOF-safe open idiom; 7
 fully worked fictional case; 8 3–5 calculation/interpretation reader tasks) **and** the **common
 safety & accessibility contract** (no operational instruction / certification / accident-or-legal
 ruling / individual fitness assessment; accessibility as a ≥2-channel safety requirement; the
@@ -104,8 +104,8 @@ accountable organization and its regulator).
       pass, a fully worked fictional case, 3–5 reader tasks, Decision Cheat Sheet, Common Confusion
       Points, global/WEIRD/resource caveats, and a non-WEIRD contrasting example — meeting the
       eight DoD content gates and the common safety/accessibility contract.
-- [x] `human-factors/mdloom.toml` added (the module was missing it as a prototype); single-file
-      MDLOOM now resolves the module config, and all 12 guides pass focused MDLOOM (0/0).
+- [x] `human-factors/proof.toml` added (the module was missing it as a prototype); single-file
+      PROOF now resolves the module config, and all 12 guides pass focused PROOF (0/0).
 - [x] `STATUS.md` → **12/12 authored**, module **COMPLETE & WIRED**, **WAVE IN REVIEW**; manifest
       marks updated; Placement → wired; Pulse 04 status recorded.
 - [x] Integration: `.mkdocs/mkdocs.yml` Technology nav entry; `sections/technology.md` Directories
@@ -117,7 +117,7 @@ accountable organization and its regulator).
       evidence-vs-acceptance framing. No other sibling edits.
 - [x] Source-corpus backfill (`--validate`) for `human-factors` and the five changed
       content-guide siblings; HF guides graduate to `status: source-custody` / `source_custody:
-      partial` with `mdloom-backfill` backsources.
+      partial` with `proof-backfill` backsources.
 - [x] **Full-module R1/R2 adversarial panel** over all 12 guides (DoD closure gate 12) —
       **conducted** (`panels/hf-full-r1/`: expert-skeptic + reference-editor + consolidated +
       `R2-gold-rubric`); a conservative **6 BLOCK + 6 WARN** superset was surfaced and **repaired**
@@ -141,18 +141,18 @@ foreach ($m in "human-factors","industrial-design","cognitive-science","systems-
   python .claude\skills\maxim-source-backfill\scripts\module_source_backfill.py --module-dir $m --module-id $m --validate
 }
 
-# Focused MDLOOM over the touched content guides (00-OVERVIEW is mdloom.toml-excluded on a full-repo run)
+# Focused PROOF over the touched content guides (00-OVERVIEW is proof.toml-excluded on a full-repo run)
 cargo run --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml --quiet -- check `
   human-factors\01-*.md human-factors\04-*.md human-factors\05-*.md human-factors\07-*.md `
   human-factors\08-*.md human-factors\09-*.md human-factors\10-*.md human-factors\11-*.md `
   industrial-design\05-ERGONOMICS.md cognitive-science\09-APPLIED-BRIDGE.md `
   systems-engineering\06-FMEA-RELIABILITY.md clinical-medicine\11-SAFETY-QUALITY-AND-WORKFLOW.md `
-  biomedical-engineering\07-MEDICAL-DEVICES.md --config mdloom.toml
+  biomedical-engineering\07-MEDICAL-DEVICES.md --config proof.toml
 
 git --no-pager diff --check
 ```
 
-The source-corpus backfill regenerates MDLOOM/MDCROP/MDPORT/FLETCH from the canonical numbered
+The source-corpus backfill regenerates PROOF/MDCROP/MDPORT/FLETCH from the canonical numbered
 guides; the five sibling backfills include the reciprocal pointers. No commit or push; no submodule
 pointer update.
 
@@ -164,7 +164,7 @@ instruction, no certification, no accident/legal ruling, no fitness assessment; 
 dated/bounded; acceptance deferred to the accountable organization and its regulator). The module
 is wired into `sections/technology.md`, `.mkdocs/mkdocs.yml`, and `TRACKER.md`; reciprocal pointers
 were added to the six boundary siblings only; source-corpus backfill ran for HF and the five
-changed content-guide siblings; focused MDLOOM is clean (12 files, 0/0). The independent full-module
+changed content-guide siblings; focused PROOF is clean (12 files, 0/0). The independent full-module
 adversarial panel (`panels/hf-full-r1/`) has been **conducted** — 6 BLOCK + 6 WARN repaired, every
 guide **Silver**, no registry — so the remaining Definition-of-Done step is an **independent final
 re-review**, which is **pending**; the wave is **IN REVIEW**. **No Da Vinci figure invariants and no

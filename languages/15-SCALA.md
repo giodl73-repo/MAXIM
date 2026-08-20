@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/15-SCALA.md
 canonical_path: languages/15-SCALA.md
-backsource_ids: [mdloom-backfill:languages:15-scala, git-history:languages:15-scala]
+backsource_ids: [proof-backfill:languages:15-scala, git-history:languages:15-scala]
 concepts: [scala]
 root_concepts: [scala]
 index_roles: [guide, root-concept]

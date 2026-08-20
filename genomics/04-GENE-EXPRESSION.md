@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: genomics/04-GENE-EXPRESSION.md
 canonical_path: genomics/04-GENE-EXPRESSION.md
-backsource_ids: [mdloom-backfill:genomics:04-gene-expression, git-history:genomics:04-gene-expression]
+backsource_ids: [proof-backfill:genomics:04-gene-expression, git-history:genomics:04-gene-expression]
 concepts: [gene, expression]
 root_concepts: [gene, expression]
 index_roles: [guide, root-concept]

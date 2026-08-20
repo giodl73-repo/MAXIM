@@ -89,10 +89,10 @@ File: `02` (Testable Definition of Done)
 
 Finding: The DoD listed eight **content** gates but left source verification as "residual
 citation-risk **logged for backfill**," i.e. citation risk could remain open at sign-off, and it
-named no process gates for MDLOOM, metadata/custody, independent review, or records/integration.
+named no process gates for PROOF, metadata/custody, independent review, or records/integration.
 
 Fix: Strengthen gate 4 to **edition verification** and add **five closure gates** every
-remaining guide must also pass: (9) ordinary MDLOOM with no BLOCK/WARN; (10) truthful metadata &
+remaining guide must also pass: (9) ordinary PROOF with no BLOCK/WARN; (10) truthful metadata &
 **source-custody transition** (prototype→real custody only after backfill artifacts exist);
 (11) **source-hierarchy/edition & citation-risk closure** — *citation risk cannot remain
 unresolved at sign-off*; (12) **independent adversarial closure** (the R2 pattern; no
@@ -109,8 +109,8 @@ gate-pending to **DONE / ratified**, and two truthfulness items needed fixing: (
 step," stale now that R1 ran and R2 has signed off.
 
 Fix: STATUS, architecture, pulse, and WAVE updated to **DONE / ratified (R1 + independent R2)**;
-the pulse Validation now states MDLOOM checks the guides **explicitly by path** (module untracked;
-STATUS/00/`context` MDLOOM-excluded) and that `git diff --check` was run **after `git add -N`
+the pulse Validation now states PROOF checks the guides **explicitly by path** (module untracked;
+STATUS/00/`context` PROOF-excluded) and that `git diff --check` was run **after `git add -N`
 (intent-to-add)** and then unstaged, so the whitespace/conflict check genuinely covers the
 untracked guides. Scope was kept **human factors** (no Westgard/lab-QC drift), and **no sibling
 module was edited**. *Disposition: repaired.*
@@ -124,10 +124,10 @@ module was edited**. *Disposition: repaired.*
 | Worked passes recomputable by hand | PASS: joint 0.8245; RWL 13.88 / LI 1.08 / sweep 0.90–1.44; RTLX A 49.2 B 48.8, weighted A 53.9 B 60.3; alarm inventory sums to 62 (40% actionable) |
 | Dates/standards attributed & at the correct edition | PASS: NIOSH 1993/1994 + 94-110 lookup; EEMUA 191 4th ed. 2024; ANSI/ISA-18.2-2016; IEC 62682:2022 |
 | Reader tasks answerable, computation/boundary-focused | PASS (5 each) |
-| Focused MDLOOM | PASS — 3 files checked, 0 errors, 0 warnings |
+| Focused PROOF | PASS — 3 files checked, 0 errors, 0 warnings |
 
 ## Verdict
 
 Factual, quantitative, DoD, and record defects in this lens are corrected and reproducible, and
-focused MDLOOM is green. As the raiser is independent of the repairs, this pass **clears** the
+focused PROOF is green. As the raiser is independent of the repairs, this pass **clears** the
 gate. **Recommend: ratify; Pulse 03 → DONE.**

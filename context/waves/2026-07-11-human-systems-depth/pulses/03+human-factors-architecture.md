@@ -42,8 +42,8 @@ Get-Content industrial-design\05-ERGONOMICS.md      # compact product-form ergon
 Get-Content cognitive-science\09-APPLIED-BRIDGE.md   # owns psychophysical laws + Endsley SA/NDM as theory
 Get-Content systems-engineering\06-FMEA-RELIABILITY.md, clinical-medicine\11-SAFETY-QUALITY-AND-WORKFLOW.md
 Get-Content nuclear\05-SAFETY-SYSTEMS.md, aeronautics\04-AVIONICS.md, transportation\07-AUTONOMOUS-VEHICLES.md, biomedical-engineering\07-MEDICAL-DEVICES.md
-# MDLOOM rule surface for content guides
-Get-Content mdloom.toml | Select-Object -First 130
+# PROOF rule surface for content guides
+Get-Content proof.toml | Select-Object -First 130
 ```
 
 ## Scope Inventory
@@ -54,7 +54,7 @@ Get-Content mdloom.toml | Select-Object -First 130
 | Module manifest | `human-factors/STATUS.md` (full 12-guide manifest; `02` scaling-gate + `03`/`06` review-gated prototypes; rest planned) |
 | Architecture record | `context/waves/2026-07-11-human-systems-depth/artifacts/HUMAN-FACTORS-ARCHITECTURE.md` (MAXIM-HF-01 … 20 + G00 … G11) |
 | Wave tracking | `context/waves/2026-07-11-human-systems-depth/pulses/03+human-factors-architecture.md`; `WAVE.md` Pulse Sequence table (Pulse 03 → DONE) and current-state line |
-| **Deferred to Pulse 04** | `00-OVERVIEW` + guides `01`, `04`, `05`, `07`, `08`, `09`, `10`, `11`; `sections/*`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; reciprocal pointers into `industrial-design/05`, `cognitive-science/09`, `human-computer-interaction/`; source-corpus (`.mdloom/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
+| **Deferred to Pulse 04** | `00-OVERVIEW` + guides `01`, `04`, `05`, `07`, `08`, `09`, `10`, `11`; `sections/*`; `.mkdocs/mkdocs.yml`; `TRACKER.md`; reciprocal pointers into `industrial-design/05`, `cognitive-science/09`, `human-computer-interaction/`; source-corpus (`.proof/backfill/**`, `.mdcrop/**`, `.mdport/**`, `.fletch/**`) |
 
 ## Scope Contract (non-duplication)
 
@@ -161,14 +161,14 @@ Get-Content mdloom.toml | Select-Object -First 130
 
 Focused prototype validation only (per the boundary-review scope; **no full-module source
 backfill**). `STATUS.md`, `00-OVERVIEW`, the architecture record, and the pulse/wave records
-are excluded from MDLOOM by `mdloom.toml` (`*/STATUS.md`, `*/00-OVERVIEW.md`, `context/**`); the
+are excluded from PROOF by `proof.toml` (`*/STATUS.md`, `*/00-OVERVIEW.md`, `context/**`); the
 three prototype **guides** are checked explicitly:
 
 ```powershell
 cargo run --release --manifest-path C:\src\TRACKER\repos\tools-infra\proof\Cargo.toml -- `
   check human-factors\02-PHYSICAL-ERGONOMICS-ANTHROPOMETRICS.md `
         human-factors\03-COGNITIVE-WORKLOAD-SITUATION-AWARENESS.md `
-        human-factors\06-DISPLAY-CONTROL-INTERFACE-DESIGN.md --config mdloom.toml
+        human-factors\06-DISPLAY-CONTROL-INTERFACE-DESIGN.md --config proof.toml
 # guides are untracked: intent-to-add so git diff --check actually inspects them,
 # then undo staging to leave them untracked (still not integrated).
 git add -N human-factors\02-PHYSICAL-ERGONOMICS-ANTHROPOMETRICS.md `
@@ -178,9 +178,9 @@ git --no-pager diff --check
 git reset -q -- human-factors
 ```
 
-Result: focused MDLOOM reports **3 files checked, 0 errors, 0 warnings** after both the R1 and
-the R2 repairs (MDLOOM checks the three prototype guides **explicitly by path**, since the
-module is untracked and `*/STATUS.md` / `*/00-OVERVIEW.md` / `context/**` are MDLOOM-excluded).
+Result: focused PROOF reports **3 files checked, 0 errors, 0 warnings** after both the R1 and
+the R2 repairs (PROOF checks the three prototype guides **explicitly by path**, since the
+module is untracked and `*/STATUS.md` / `*/00-OVERVIEW.md` / `context/**` are PROOF-excluded).
 `git diff --check` only inspects **tracked/indexed** content by default, so — because these
 guides are still untracked — they were staged with **intent-to-add** (`git add -N`) purely so
 the whitespace/conflict-marker check actually covers them, then unstaged; with that, `git diff
@@ -210,7 +210,7 @@ Pulse-04 spot-checks (metadata truthfully `status: prototype` / `source_custody:
 ## Status
 
 Architecture recorded (findings MAXIM-HF-01 … 20); the three highest-risk guides authored at
-full depth and passing focused MDLOOM; STATUS manifest and wave tracking updated. The two-stage
+full depth and passing focused PROOF; STATUS manifest and wave tracking updated. The two-stage
 scaling gate (`02`) and the review gates (`03`, `06`) were **exercised by the R1 boundary-gate
 panel** (`panels/hf-prototype-r1/`) and then **ratified by an independent strict R2 re-review**
 (`panels/hf-prototype-r2/`) that neither authored nor repaired the findings; load-bearing
@@ -226,7 +226,7 @@ pulse.
 
 - Do not author the remaining nine guides or `00-OVERVIEW` in this pulse.
 - Do not integrate the incomplete module into `sections/`, `.mkdocs/mkdocs.yml`, or `TRACKER.md`.
-- Do not run full-module source backfill (MDLOOM/MDCROP/MDPORT/FLETCH) — this is a prototype
+- Do not run full-module source backfill (PROOF/MDCROP/MDPORT/FLETCH) — this is a prototype
   boundary review; no backfill.
 - Do not edit, rescope, or add reciprocal cross-references into `industrial-design/05`,
   `cognitive-science/09`, `human-computer-interaction/`, `systems-engineering/06`,

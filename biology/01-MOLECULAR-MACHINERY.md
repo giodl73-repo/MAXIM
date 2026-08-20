@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: biology/01-MOLECULAR-MACHINERY.md
 canonical_path: biology/01-MOLECULAR-MACHINERY.md
-backsource_ids: [mdloom-backfill:biology:01-molecular-machinery, git-history:biology:01-molecular-machinery]
+backsource_ids: [proof-backfill:biology:01-molecular-machinery, git-history:biology:01-molecular-machinery]
 concepts: [molecular, machinery]
 root_concepts: [molecular, machinery]
 index_roles: [guide, root-concept]

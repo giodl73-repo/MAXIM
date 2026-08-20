@@ -153,7 +153,7 @@ Fix: `status: prototype`, `source_custody: needs-source`, `backsource_ids: []`.
 ## Verdict
 
 The prototypes now clear the specific over-claim, statistical-rigor, model-honesty, and
-metadata risks in this lens, and focused MDLOOM stays green. **This does not ratify the
+metadata risks in this lens, and focused PROOF stays green. **This does not ratify the
 pattern.** All eleven findings were fixed by the same author in the same pass; an
 independent, **strict re-review (R2)** is required before the pattern can govern Pulse-02
 authoring. Recommendation: **Pulse 01 remains IN REVIEW.**

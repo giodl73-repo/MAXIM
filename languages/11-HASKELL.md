@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/11-HASKELL.md
 canonical_path: languages/11-HASKELL.md
-backsource_ids: [mdloom-backfill:languages:11-haskell, git-history:languages:11-haskell]
+backsource_ids: [proof-backfill:languages:11-haskell, git-history:languages:11-haskell]
 concepts: [haskell]
 root_concepts: [haskell]
 index_roles: [guide, root-concept]

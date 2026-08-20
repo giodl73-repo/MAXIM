@@ -1,0 +1,149 @@
+{
+  "schema_version": "1",
+  "source_markdown": "formal-methods\\00-OVERVIEW.md",
+  "blocks": [
+    {
+      "id": "block-1",
+      "kind": "ascii_table_candidate",
+      "line": 27,
+      "heading_context": "## The Big Picture",
+      "confidence": "candidate",
+      "text": "+------------------------------------------------------------------------------+\n|                         FORMAL METHODS SPECTRUM                              |\n|                                                                              |\n|  LIGHTWEIGHT <───────────────────────────────────────────> HEAVYWEIGHT       |\n|                                                                              |\n|  TYPES &        MODEL           BOUNDED         DEDUCTIVE    FULL            |\n|  LINTING        CHECKING        MODEL           PROGRAM      PROOF           |\n|                                 CHECKING        ANALYSIS                     |\n|                                                                              |\n|  TypeScript     TLA+ TLC        CBMC            Dafny        Coq             |\n|  Mypy           SPIN            KLEE            F*           Lean 4          |\n|  Eslint         NuSMV           SAT-based       Infer        Isabelle        |\n|  Rust types     Alloy                           VeriFast                     |\n|                                                                              |\n|  Cost:  LOW <───────────────────────────────────────────> VERY HIGH          |\n|  ROI:   HIGH (just use it)       HIGH (protocols)         High (safety-crit) |\n|  Scope: shallow/scalable         finite-state systems      full correctness  |\n+------------------------------------------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-2",
+      "kind": "ascii_table_candidate",
+      "line": 54,
+      "heading_context": "## The Three Pillars",
+      "confidence": "candidate",
+      "text": "+------------------------+    +------------------------+    +------------------------+\n|     SPECIFICATION      |    |     VERIFICATION       |    |        PROOF           |\n|                        |    |                        |    |                        |\n|  Formally describe     |    |  Check that a model    |    |  Construct a rigorous  |\n|  WHAT a system does,   |    |  satisfies a property  |    |  mathematical argument |\n|  not HOW it does it.   |    |  (automatically).      |    |  (human + machine).    |\n|                        |    |                        |    |                        |\n|  Tools:                |    |  Tools:                |    |  Tools:                |\n|  TLA+                  |    |  TLC (TLA+ checker)    |    |  Coq                   |\n|  Z notation            |    |  SPIN                  |    |  Lean 4                |\n|  Alloy                 |    |  NuSMV                 |    |  Isabelle/HOL          |\n|  Event-B               |    |  CBMC / KLEE           |    |  HOL4                  |\n|                        |    |  Z3 (SMT solver)       |    |                        |\n|  Output:               |    |  Output:               |    |  Output:               |\n|  Formal model          |    |  \"Property holds\" OR   |    |  Machine-checkable     |\n|  of the design         |    |  concrete counterexmpl |    |  proof term            |\n+------------------------+    +------------------------+    +------------------------+\n          |                             |                             |\n          +-----------------------------+-----------------------------+\n                                        |\n                              Most real-world work\n                              combines all three",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-3",
+      "kind": "chart_like",
+      "line": 144,
+      "heading_context": "## The Three Tool Categories",
+      "confidence": "candidate",
+      "text": "### Category 1: Model Checkers",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-4",
+      "kind": "ascii_table_candidate",
+      "line": 149,
+      "heading_context": "### Category 1: Model Checkers",
+      "confidence": "candidate",
+      "text": "  You write:    A model of your protocol (state machines, actions)\n  You ask:      \"Does this invariant always hold?\"\n                \"Is deadlock reachable?\"\n                \"Does every request eventually get a response?\"\n  Tool answers: YES (within explored states) OR\n                NO + counterexample trace showing exactly how it breaks\n\n  Key tools:\n  +---------+  PROMELA language, LTL properties, works well for\n  |  SPIN   |  concurrent protocols, partial order reduction\n  +---------+\n\n  +--------+  Temporal Logic of Actions, closest to\n  |  TLA+  |  informal distributed systems thinking,\n  |  (TLC) |  AWS/Azure use for protocol specs\n  +--------+\n\n  +--------+  BDD-based, good for hardware and control systems\n  | NuSMV  |  (successor to SMV by Clarke)\n  +--------+\n\n  +--------+  Relational model, Alloy Analyzer, finds structural\n  | Alloy  |  bugs in object/data models (bounded SAT)\n  +--------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-5",
+      "kind": "chart_like",
+      "line": 176,
+      "heading_context": "### Category 1: Model Checkers",
+      "confidence": "candidate",
+      "text": "### Category 2: Automated Analyzers",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-6",
+      "kind": "ascii_table_candidate",
+      "line": 180,
+      "heading_context": "### Category 2: Automated Analyzers",
+      "confidence": "candidate",
+      "text": "  You give:   Source code (C, Java, C#, etc.)\n  You ask:    \"Are there null pointer dereferences?\"\n              \"Is this buffer access safe?\"\n              \"Do these security properties hold?\"\n  Tool finds: Concrete bug reports with file/line/trace\n\n  Key tools:\n  +---------+  SAT-based, C code, memory safety, buffer overflow\n  |  CBMC   |  AWS uses this on their C codebases at scale\n  +---------+\n\n  +-------+  Symbolic execution, C/LLVM, maximum code coverage\n  | KLEE  |  finds crashes and assertion violations\n  +-------+\n\n  +-------+  Separation logic + bi-abduction, Java/C, Meta uses\n  | Infer |  on every code review, finds null deref + memory leaks\n  +-------+\n\n  +--------+  C analysis platform, MISRA compliance, DO-178C,\n  | Frama-C|  formal verification for safety-critical C code\n  +--------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-7",
+      "kind": "chart_like",
+      "line": 205,
+      "heading_context": "### Category 2: Automated Analyzers",
+      "confidence": "candidate",
+      "text": "### Category 3: Proof Assistants",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-8",
+      "kind": "ascii_table_candidate",
+      "line": 209,
+      "heading_context": "### Category 3: Proof Assistants",
+      "confidence": "candidate",
+      "text": "  You write:   Formal spec + proof script (tactics)\n  You get:     Machine-verified certificate of correctness\n               (or \"type error\" if your proof is wrong)\n\n  Key tools:\n  +------+  Calculus of Inductive Constructions, OCaml extraction,\n  | Coq  |  CompCert, four-color theorem, the verified C compiler\n  +------+\n\n  +--------+  Dependent type theory, Lean 4 is fastest modern PA,\n  | Lean 4 |  Mathlib (>100k theorems), active ML community\n  +--------+\n\n  +----------+  Higher-order logic, Sledgehammer ATP integration,\n  | Isabelle |  seL4 microkernel proof, most used in CS academia\n  | /HOL     |\n  +----------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-9",
+      "kind": "chart_like",
+      "line": 233,
+      "heading_context": "## Industrial Adoption — The Real Cases",
+      "confidence": "candidate",
+      "text": "### AWS: TLA+ at Scale (Newcombe et al., CACM 2015)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-10",
+      "kind": "chart_like",
+      "line": 275,
+      "heading_context": "### Microsoft: Dafny and P for System Software",
+      "confidence": "candidate",
+      "text": "### seL4: The Verified Microkernel (NICTA/CSIRO, 2009)",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-11",
+      "kind": "chart_like",
+      "line": 304,
+      "heading_context": "### seL4: The Verified Microkernel (NICTA/CSIRO, 2009)",
+      "confidence": "candidate",
+      "text": "### Airbus: B-Method and DO-178C Level A",
+      "notes": [
+        "detected from bar/chart glyph density with numeric labels"
+      ]
+    },
+    {
+      "id": "block-12",
+      "kind": "ascii_table_candidate",
+      "line": 343,
+      "heading_context": "## The Gap Question: Why Isn't All Software Verified?",
+      "confidence": "candidate",
+      "text": "COST FACTORS:\n+------------------+--------------------------------------------+\n| Spec writing     | Writing a correct formal spec is as hard   |\n|                  | as writing correct code. Bugs in the spec  |\n|                  | mean the proof proves the wrong thing.     |\n+------------------+--------------------------------------------+\n| Proof effort     | seL4: 11 person-years for 10k LOC.         |\n|                  | Most software: not safety-critical enough  |\n|                  | to justify this ratio.                     |\n+------------------+--------------------------------------------+\n| Tooling maturity | Lean 4 Mathlib is excellent for math.      |\n|                  | For software, library coverage is limited. |\n|                  | OS interfaces, networking stacks, databases|\n|                  | lack verified models.                      |\n+------------------+--------------------------------------------+\n| State explosion  | Model checkers: state space grows           |\n|                  | exponentially with concurrent components.   |\n|                  | 10 threads x 10 states each = 10^10 states. |\n+------------------+--------------------------------------------+\n| Undecidability   | Full program correctness is undecidable    |\n|                  | (Rice's Theorem). All sound analyzers      |\n|                  | approximate — false positives are real.    |\n+------------------+--------------------------------------------+\n| Human factors    | Engineers aren't trained in it.             |\n|                  | TLA+ is not in most CS curricula.           |\n|                  | Coq has a steep learning curve.             |\n+------------------+--------------------------------------------+",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    },
+    {
+      "id": "block-13",
+      "kind": "diagram_like",
+      "line": 381,
+      "heading_context": "## Your MIT TCS Background: What Maps to What",
+      "confidence": "candidate",
+      "text": "MIT COURSE                     FORMAL METHODS RELEVANCE\n──────────────────────────────────────────────────────────────────\nAutomata theory                MODEL CHECKING: Kripke structures ARE\n(DFA, NFA, Buchi automata)     automata. LTL model checking reduces to\n                               Buchi automaton intersection emptiness.\n\nFormal language theory         SMT SOLVERS: decision procedures for\n(regular, context-free,        fragments of first-order logic map\nChomsky hierarchy)             to recognizable languages (Presburger\n                               arithmetic = Presburger automata).\n\nComputability theory           UNDECIDABILITY: Rice's Theorem directly\n(halting problem, Rice)        explains why no static analyzer can be\n                               sound + complete + terminating.\n\nLambda calculus / type theory  PROOF ASSISTANTS: Coq's CIC is dependent\n(STLC, System F)               type theory. Lean 4's type theory is\n                               MLTT with universes. You have the base.\n\nLogic (propositional, FOL)     SAT/SMT SOLVERS: DPLL is resolution\n                               refutation for propositional logic.\n                               Z3 extends this to theories over FOL.\n\nComplexity theory              PRACTICAL LIMITS: SAT is NP-complete\n(NP, PSPACE, co-NP)            but modern SAT solvers handle millions\n                               of variables. Model checking is\n                               PSPACE-complete (explicit state).",
+      "notes": [
+        "fenced visual/source block"
+      ]
+    }
+  ]
+}

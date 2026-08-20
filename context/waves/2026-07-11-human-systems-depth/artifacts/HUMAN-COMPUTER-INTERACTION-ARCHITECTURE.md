@@ -327,7 +327,7 @@ manual, a legal/compliance ruling, or a safety-certification. Author rules:
   defer are sharpest, so gate-passing it de-risks both the HF pulse and the safety contract
   for the whole module.
 
-Both prototypes are authored at full depth and pass focused MDLOOM. Both boundary-gate rounds
+Both prototypes are authored at full depth and pass focused PROOF. Both boundary-gate rounds
 have now run. The R1 panel (`panels/hci-prototype-r1/`) returned conservative-prototype
 findings — statistical-rigor, model-honesty, and metadata over-claims — which were
 **repaired** in `05`/`08`. The independent **strict R2 re-review** (`panels/hci-prototype-r2/`)

@@ -9,7 +9,7 @@ status: source-custody
 source_custody: partial
 current_path: languages/06-PYTHON.md
 canonical_path: languages/06-PYTHON.md
-backsource_ids: [mdloom-backfill:languages:06-python, git-history:languages:06-python]
+backsource_ids: [proof-backfill:languages:06-python, git-history:languages:06-python]
 concepts: [python]
 root_concepts: [python]
 index_roles: [guide, root-concept]

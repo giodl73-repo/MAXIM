@@ -14,7 +14,7 @@
       "level": 0,
       "line": 1,
       "metadata": {
-        "backsource_ids": "[mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
+        "backsource_ids": "[proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
         "canonical_path": "cryptography/04-ZK-MPC.md",
         "concepts": "[zk, mpc]",
         "current_path": "cryptography/04-ZK-MPC.md",
@@ -42,7 +42,7 @@
       "level": 0,
       "line": 1,
       "metadata": {
-        "backsource_ids": "[mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
+        "backsource_ids": "[proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
         "canonical_path": "cryptography/04-ZK-MPC.md",
         "concepts": "[zk, mpc]",
         "current_path": "cryptography/04-ZK-MPC.md",
@@ -70,7 +70,7 @@
       "level": 0,
       "line": 1,
       "metadata": {
-        "backsource_ids": "[mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
+        "backsource_ids": "[proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
         "canonical_path": "cryptography/04-ZK-MPC.md",
         "concepts": "[zk, mpc]",
         "current_path": "cryptography/04-ZK-MPC.md",
@@ -98,7 +98,7 @@
       "level": 0,
       "line": 1,
       "metadata": {
-        "backsource_ids": "[mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
+        "backsource_ids": "[proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
         "canonical_path": "cryptography/04-ZK-MPC.md",
         "concepts": "[zk, mpc]",
         "current_path": "cryptography/04-ZK-MPC.md",
@@ -126,7 +126,7 @@
       "level": 0,
       "line": 1,
       "metadata": {
-        "backsource_ids": "[mdloom-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
+        "backsource_ids": "[proof-backfill:cryptography:04-zk-mpc, git-history:cryptography:04-zk-mpc]",
         "canonical_path": "cryptography/04-ZK-MPC.md",
         "concepts": "[zk, mpc]",
         "current_path": "cryptography/04-ZK-MPC.md",
@@ -144,7 +144,7 @@
         "title": "04 - Zero-Knowledge Proofs and Multi-Party Computation",
         "updated": "null"
       },
-      "text": "```\n┌─────────────────────────────────────────────────────────────────────────┐\n│                       ZK / MPC LANDSCAPE                                │\n├─────────────────────────────────────────────────────────────────────────┤\n│                                                                         │\n│  COMPLEXITY FOUNDATIONS                                                 │\n│   IP = PSPACE; MIP = NEXPTIME; PCP theorem; AM/MA hierarchy            │\n│   ZK proofs: completeness + soundness + zero-knowledge (simulator)     │\n│                                                                         │\n│  INTERACTIVE ZK (Σ-protocols)                                           │\n│   Schnorr identification (DLP); Pedersen commitment (homomorphic)      │\n│   Fiat-Shamir: interactive → non-interactive (NIZK) via random oracle  │\n│                                                                         │\n│  MDLOOM SYSTEMS FOR CIRCUITS                                             │\n│  ┌─────────────────────────────────────────────────────────────────┐    │\n│  │  zkSNARKs (Groth16, Plonk):                                     │    │\n│  │    Succinct (O(1) proof); fast verify; needs trusted setup      │    │\n│  │    Pairing-based; not post-quantum                              │    │\n│  │  zkSTARKs (StarkWare):                                          │    │\n│  │    No trusted setup; post-quantum; larger proof (~100KB)        │    │\n│  │    FRI (Fast Reed-Solomon IOPP)                                 │    │\n│  │  Bulletproofs:                                                  │    │\n│  │    No trusted setup; logarithmic proof size; slow verify        │    │\n│  └─────────────────────────────────────────────────────────────────┘    │\n│                                                                         │\n│  MULTI-PARTY COMPUTATION (MPC)                                          │\n│   Secret sharing: Shamir; additive; VSS                                 │\n│   Garbled circuits: Yao's; Boolean; 2-party                            │\n│   GMW / BGW: n-party; honest majority; arithmetic circuits             │\n│   Oblivious transfer: building block; OT extension                     │\n│                                                                         │\n│  APPLICATIONS                                                           │\n│   zkRollups (Ethereum L2); anonymous credentials; PSI; e-voting        │\n└─────────────────────────────────────────────────────────────────────────┘\n```"
+      "text": "```\n┌─────────────────────────────────────────────────────────────────────────┐\n│                       ZK / MPC LANDSCAPE                                │\n├─────────────────────────────────────────────────────────────────────────┤\n│                                                                         │\n│  COMPLEXITY FOUNDATIONS                                                 │\n│   IP = PSPACE; MIP = NEXPTIME; PCP theorem; AM/MA hierarchy            │\n│   ZK proofs: completeness + soundness + zero-knowledge (simulator)     │\n│                                                                         │\n│  INTERACTIVE ZK (Σ-protocols)                                           │\n│   Schnorr identification (DLP); Pedersen commitment (homomorphic)      │\n│   Fiat-Shamir: interactive → non-interactive (NIZK) via random oracle  │\n│                                                                         │\n│  PROOF SYSTEMS FOR CIRCUITS                                             │\n│  ┌─────────────────────────────────────────────────────────────────┐    │\n│  │  zkSNARKs (Groth16, Plonk):                                     │    │\n│  │    Succinct (O(1) proof); fast verify; needs trusted setup      │    │\n│  │    Pairing-based; not post-quantum                              │    │\n│  │  zkSTARKs (StarkWare):                                          │    │\n│  │    No trusted setup; post-quantum; larger proof (~100KB)        │    │\n│  │    FRI (Fast Reed-Solomon IOPP)                                 │    │\n│  │  Bulletproofs:                                                  │    │\n│  │    No trusted setup; logarithmic proof size; slow verify        │    │\n│  └─────────────────────────────────────────────────────────────────┘    │\n│                                                                         │\n│  MULTI-PARTY COMPUTATION (MPC)                                          │\n│   Secret sharing: Shamir; additive; VSS                                 │\n│   Garbled circuits: Yao's; Boolean; 2-party                            │\n│   GMW / BGW: n-party; honest majority; arithmetic circuits             │\n│   Oblivious transfer: building block; OT extension                     │\n│                                                                         │\n│  APPLICATIONS                                                           │\n│   zkRollups (Ethereum L2); anonymous credentials; PSI; e-voting        │\n└─────────────────────────────────────────────────────────────────────────┘\n```"
     }
   ],
   "refs": [
