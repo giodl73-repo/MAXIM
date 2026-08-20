@@ -71,3 +71,19 @@ A reuse claim requires a downstream manifest that records:
 
 Until those fields exist, references to MAXIM are discovery leads, not admitted
 evidence reuse.
+
+## Compatibility and lifecycle
+
+Named guide paths, `md://` references, certification labels, and published pack
+identifiers are the compatibility surface. Corpus prose may improve without
+creating a new product contract, but removing or repurposing an adopted
+identifier requires a migration map and downstream revalidation. A
+certification downgrade is a compatibility change and must remain visible to
+consumers.
+
+An adopted surface may be deprecated only with its replacement or removal
+reason, affected references, and an explicit removal condition. MAXIM must not
+silently delete a recorded adopter's reference. Consumers may pin their last
+accepted references or packs while migrating; if evidence custody weakens,
+rollback means lowering or removing the consumer claim rather than preserving
+an unsupported MAXIM-ready status.
