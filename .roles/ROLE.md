@@ -22,6 +22,20 @@ structure, graduation criteria, public navigation, or reader-facing content.
 |---|---|---|
 | `stakeholders/learner-advocate.md` | Learner Advocate | Expert compression vs. reader orientation |
 
+## Productive tensions
+
+| Pulls | Against | Because |
+|---|---|---|
+| Reference Integrity Auditor | Reader Path Editor | Complete factual context can obscure the shortest useful route through the material. |
+| Executable Evidence Auditor | Learner Advocate | Reproducible expert examples can assume context that a learner does not yet have. |
+| Learner Advocate | Reference Integrity Auditor | Introductory simplification can overstate or distort a nuanced reference claim. |
+| Reader Path Editor | Executable Evidence Auditor | A smooth narrative path can hide prerequisites or omit the proof needed to reproduce behavior. |
+
+Factual integrity and non-reproducible claims block publication first. Then test reader and learner
+disputes against the actual guide: preserve the shortest path that still includes prerequisites,
+one usable example, and necessary evidence. Record unresolved interpretation differences instead
+of blending them into unsupported consensus.
+
 ## Review order
 
 1. Use the Reader Path Editor when navigation, routes, or guide structure change.
