@@ -18,6 +18,9 @@ This role protects MAXIM from confident compression that outruns evidence.
 ## Lens - What to Verify
 
 - Claims are precise enough for a reference library.
+- Numbers, proper nouns, dates, formulas, standards, versions, and named
+  historical details have source-first custody before they are reused as fact
+  authority.
 - Field boundaries, exceptions, and disputed interpretations are visible.
 - Synthesis does not erase important caveats.
 - Graduation status matches the guide's actual review maturity.

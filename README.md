@@ -96,6 +96,16 @@ The [reuse boundary](docs/adoption/reuse-boundary.md) defines this advisory
 grounding contract, certification and source-custody limits, attribution rules,
 and the required downstream adoption record.
 
+### Specific-fact custody gate
+
+MAXIM guide prose is not enough to carry a downstream number, proper noun, date,
+formula, standard, version, or named historical detail as fact authority. Reuse
+of those specifics must name the guide path, exact claim, certification/source
+custody status, supporting audit or fact-check wave, and consumer-owned
+verification. The stricter
+[fact-custody boundary](docs/adoption/fact-custody-boundary.md) closes
+`MAXIM-PF-02` for cases where a strong guide could hide one bad specific.
+
 ### MDCROP corpus-view adoption
 
 MAXIM is a downstream consumer of MDCROP's bounded 0.2.0 CLI contract. Its

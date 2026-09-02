@@ -86,3 +86,25 @@ process-dependent.
 **Evidence:** `CLAUDE.md`, `.proof/backfill/README.md`,
 `context/audits/2026-06-27-honest-gap-audit.md`, and
 `context/audits/2026-07-29-module-source-backfill.md`.
+
+## MAXIM-I-06: Specific Facts Require Custody Before Reuse
+
+**Status:** VERIFIED
+
+**Claim:** Numbers, proper nouns, dates, formulas, standards, versions, and named
+historical details in MAXIM are research leads unless a downstream consumer can
+name the guide path, exact claim, certification/source-custody status,
+supporting audit or fact-check wave, Reference Integrity Auditor review, and
+consumer-owned verification.
+
+**Why it matters:** A broadly strong guide can make one wrong specific more
+trusted, especially when a downstream repository turns the prose into public,
+scientific, legal, safety, product, or simulation authority.
+
+**Enforcement:** The fact-custody boundary and policy check keep `MAXIM-PF-02`
+visible from README, reuse, PITFALL, role, and invariant surfaces.
+
+**Evidence:** `docs/adoption/fact-custody-boundary.md`, `README.md`,
+`.pitfall/maxim-pitfalls.md`, `.roles/ROLE.md`,
+`.roles/parliament/reference-integrity-auditor.md`, and
+`tools/check-fact-custody-boundary.ps1`.

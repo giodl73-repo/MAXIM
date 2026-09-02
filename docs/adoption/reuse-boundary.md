@@ -45,6 +45,13 @@ A consumer must not turn MAXIM prose into a legal, medical, scientific,
 historical, safety, or simulation-validity claim without its own source and
 domain review.
 
+Specific facts have a stricter custody gate. Numbers, proper nouns, dates,
+formulas, standards, versions, and named historical details require the named
+guide path, exact claim, certification/source-custody status, supporting audit
+or fact-check wave, Reference Integrity Auditor review, and consumer-owned
+verification before reuse as fact authority. See
+[`fact-custody-boundary.md`](fact-custody-boundary.md).
+
 ## Ownership boundary
 
 MAXIM owns corpus text, guide structure, certification tiers, review records,

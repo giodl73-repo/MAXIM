@@ -36,6 +36,12 @@ disputes against the actual guide: preserve the shortest path that still include
 one usable example, and necessary evidence. Record unresolved interpretation differences instead
 of blending them into unsupported consensus.
 
+## PITFALL gates
+
+| Gate | Roles | Blocks |
+|---|---|---|
+| `MAXIM-PF-02` specific-fact custody | Reference Integrity Auditor; Executable Evidence Auditor; Learner Advocate; Reader Path Editor | Reusing a number, proper noun, date, formula, standard, version, or named historical detail as fact authority unless the guide path, exact claim, certification/source-custody status, supporting audit or fact-check wave, role review, and consumer-owned verification are visible. |
+
 ## Review order
 
 1. Use the Reader Path Editor when navigation, routes, or guide structure change.

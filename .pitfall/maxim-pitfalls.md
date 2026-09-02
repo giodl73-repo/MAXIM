@@ -26,7 +26,7 @@ Candidate-Hardened provenance.
 
 ## MAXIM-PF-02: Confident Specifics Hide In Strong Guides
 
-**Status:** OPEN
+**Status:** MITIGATED
 
 **Pattern:** A guide is broadly strong but includes a wrong number, name, date,
 formula, or standard detail stated with confidence.
@@ -39,11 +39,17 @@ makes the bad specific more trusted and harder to notice.
 
 **Structural solution:** Run targeted numbers/proper-nouns/formulas/standards
 fact-check waves and record fixes source-first with regenerated custody
-artifacts when applicable.
+artifacts when applicable. Until that evidence exists, require the specific
+guide path, exact claim, certification/source-custody status, supporting audit or
+fact-check wave, role review, and consumer-owned verification before any number,
+proper noun, date, formula, standard, version, or named historical detail is
+reused as fact authority.
 
 **Evidence:** `context/audits/2026-06-27-honest-gap-audit.md`,
 `context/audits/2026-07-29-ks-fact-and-rescore.md`, and
-`.roles/parliament/reference-integrity-auditor.md`.
+`.roles/parliament/reference-integrity-auditor.md`,
+`docs/adoption/fact-custody-boundary.md`, `README.md`, `.roles/ROLE.md`, and
+`tools/check-fact-custody-boundary.ps1`.
 
 ## MAXIM-PF-03: Source-Corpus Derivatives Drift From Guides
 
