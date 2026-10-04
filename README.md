@@ -14,6 +14,11 @@ repository-local review panels.
 
 ## Start Here
 
+**[Explore MAXIM](https://giodl73-repo.github.io/MAXIM/explore/)** searches
+published guide entries with a reusable Rust inverted index running locally as
+WebAssembly. Filter by module and follow results directly to their guide
+headings. See [search architecture and build instructions](docs/search.md).
+
 | If you're... | Go to |
 |---|---|
 | New to the library | [`FOREWORD.md`](FOREWORD.md) — why it exists, how to use it |
