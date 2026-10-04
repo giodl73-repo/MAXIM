@@ -12,8 +12,9 @@ that changed the library.
 
 The focused [Rust search pulse](2026-10-04-rust-search/WAVE.md) implements the
 browser reference desk alongside the existing content waves. Native/WASM,
-fresh-site build, and browser checks pass; hosted CI and publication remain
-pending. It does not advance or replace the active content-quality wave.
+fresh-site build, browser checks, and hosted CI pass; the Pages workflow and
+TRACKER snapshot track publication. It does not advance or replace the active
+content-quality wave.
 
 | Date | Wave | Mission | Status |
 |---|---|---|---|

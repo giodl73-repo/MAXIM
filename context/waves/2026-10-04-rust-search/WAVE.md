@@ -1,7 +1,8 @@
 # Rust search and the browser reference desk
 
-Status: native, WASM, fresh-site build, and browser checks passed; hosted CI
-and publication pending. GitHub authentication and repository access restored.
+Status: native, WASM, fresh-site build, browser checks, and hosted CI passed.
+Publication evidence is tracked by the default-branch Pages workflow and the
+TRACKER adoption snapshot. GitHub authentication and repository access restored.
 
 ## Mission
 
@@ -11,7 +12,7 @@ preserve the distinction between relevance and factual certification.
 
 | Pulse | Deliverable | Status |
 |---|---|---|
-| 01 | Rust inverted index, WASM adapter, accessible search UI, Pages build | locally validated; publication gates pending |
+| 01 | Rust inverted index, WASM adapter, accessible search UI, Pages build | locally and hosted-CI validated; see Pages workflow for deployment |
 
 ## Scope and scout
 

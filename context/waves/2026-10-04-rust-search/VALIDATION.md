@@ -27,7 +27,7 @@
 An initial experiment used the existing sibling reference-site (37,088 entries).
 The final verification below rebuilt the current local source through MkDocs,
 prepared guide entries, built the Rust index and WASM, and served `/MAXIM/`.
-It is local validation; hosted CI and deployment have not run.
+These measurements are local; hosted verification is recorded separately below.
 
 | Measurement | Observation |
 |---|---|
@@ -44,7 +44,7 @@ It is local validation; hosted CI and deployment have not run.
 Environment: Windows x64, Rust/Cargo stable 1.95.0, Node 24.19.0, Python 3.13,
 bundled Playwright 1.62.1 and installed Chromium revision 1243. CI deliberately
 uses the committed Playwright 1.58.2 lockfile with its matching browser download;
-that clean installation remains to be validated. Final local tests served the
+that clean installation passed in the hosted run below. Final local tests served the
 freshly built `site/MAXIM` tree, replacing the earlier baseline preview server.
 Localhost timings exclude realistic WAN transfer costs. The initial download
 and memory footprint remain material; sharding/binary encoding are follow-ups
@@ -58,22 +58,25 @@ if measured usage warrants them. Do not call this a small or instant download.
   this boundary and content licensing. No guide facts were edited or promoted.
 - Executable Evidence Auditor: core and browser execution have direct evidence.
   Fresh-site build and its browser tests passed. The pinned CI browser install
-  and live deployment remain explicit open gates.
+  passed; deployment evidence belongs to the default-branch Pages workflow.
 - Learner Advocate: descriptive labels, keyboard form submission, mobile
   wrapping, excerpts, empty states, and recovery links are present. Matching
   semantics are visible; no unsupported fuzzy-search promise is made.
 
-## Open release gates
+## Release evidence and boundaries
 
 1. Git metadata access and `giodl73-repo` authentication are restored. Changes
    are isolated on `codex/rust-wasm-search` from the fetched default branch.
-2. Run hosted CI with the committed browser lockfile. Initial dependency-download
-   attempts failed TLS handshakes; the original Python install eventually
-   completed, enabling the successful fresh build above.
+2. [Hosted CI run 37235302834](https://github.com/giodl73-repo/MAXIM/actions/runs/37235302834)
+   passed source validation, a clean site/WASM build, the committed Playwright
+   1.58.2 browser tests, and Pages artifact upload for implementation `43949e0b6`.
+   Final built-in Codex review was clean after the size correction below.
 3. `python -m proof check` is unavailable: `No module named proof`. Focused
    implementation checks above ran instead; no library-wide proof claim.
-4. Commit and push MAXIM, pass hosted CI, merge to `master`, verify Pages;
-   only then snapshot the pushed child SHA in TRACKER and merge TRACKER to main.
+4. [PR #3](https://github.com/giodl73-repo/MAXIM/pull/3) releases the implementation
+   to `master`. Its default-branch workflow owns deployment receipts; TRACKER's
+   `2026-10-04-rust-webassembly-pages` wave records the final child SHA and live
+   verification before its portfolio snapshot is merged.
 
 The DLL crash was isolated separately: bundled Git lacks its HTTPS helper;
 placing the installed Git executable/helper and matching native DLLs together
