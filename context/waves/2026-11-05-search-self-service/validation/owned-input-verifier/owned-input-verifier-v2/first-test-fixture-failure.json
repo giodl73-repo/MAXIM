@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "tools/test_input_custody.py"
+  ],
+  "tests": 15,
+  "failures": 1,
+  "failed_case": "unsafe backslash wire path",
+  "observation": "On Windows ZipInfo normalized the test-created vendor\\escape filename to vendor/escape before writing. Production verifier still rejected inventory mismatch; expected unsafe-path branch was not exercised. Corrected test mutates both actual ZIP filename headers without changing lengths/CRC. No input/destination policy weakened.",
+  "first_failure_output": "Raw output retained in tool session; structured observation retained here."
+}

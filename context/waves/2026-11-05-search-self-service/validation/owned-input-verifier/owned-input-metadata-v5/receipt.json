@@ -1,0 +1,34 @@
+{
+  "all_expected": true,
+  "commands": [
+    {
+      "name": "all-features",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-input-proof-v2\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "missing-features",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\owned-input-metadata-v5\\missing-features.json",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "scope": "Actual restored all-feature metadata accepted; identical input paths/packages with root feature disabled rejected. No Rust compilation."
+}

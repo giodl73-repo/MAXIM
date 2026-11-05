@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "tools/test_input_custody.py"
+  ],
+  "tests": 15,
+  "failures": 1,
+  "failed_case": "unsafe backslash wire path",
+  "observation": "Initial ZipInfo test construction normalized Windows backslashes; a raw-header test then showed ZipInfo also normalizes them on read. Both runs rejected the archive through later inventory checks, but the intended raw wire-name guard was absent. Verification now checks orig_filename before the normalized alias and rejects control/Windows-forbidden characters. Failed v2 raw logs/source and first structured fixture observation are retained; no policy weakened.",
+  "first_failure_output": "First raw output retained in tool session; v2 logs and exact source retained in owned-input-verifier-v2."
+}

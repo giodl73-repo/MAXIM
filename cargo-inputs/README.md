@@ -7,12 +7,26 @@ manifest.json inventories the complete capsule; sha256.txt anchors its bytes
 from this trusted checkout. Third-party terms remain unchanged; MAXIM's software
 license does not replace them. Original archives preserve their own source modes.
 
-An external qualification verifier checks every archive/member/vendor checksum
-and independently restores all20 Cargo manifests offline into new inputs/Cargo
-home. See the self-service wave's input-closure proof. Compiled replay, a portable
-MAXIM receiver with negative controls, full Python/source/archive custody and
-live release remain open. This directory is a preservation checkpoint, not an
-installed compiler/toolchain or a complete self-service release. The native Cargo
+The MAXIM-owned verifier checks every archive/member/vendor checksum, source mode,
+complete dependency/notice inventory and both new external destinations before
+restoring. Run from the source root with two new absolute folder paths:
+
+```sh
+python tools/test_input_custody.py
+python tools/input_custody.py --sha256 <trusted-input-sha> --inputs <new-input-folder> --cargo-home <new-cargo-home>
+```
+
+Take the trusted SHA from this checkout's sha256.txt or a separately verified
+release receipt. Set CARGO_HOME to the restored home, CARGO_NET_OFFLINE=true and
+CARGO_INCREMENTAL=0 before Cargo commands. Keep CARGO_TARGET_DIR explicit if using
+a shared compiled target; source inputs must never overlap it. The CI pipeline
+checks every actual metadata manifest path in the restored vendor, then compiles
+and exercises native/WASM/browser behavior with acquisition offline.
+
+An earlier external proof independently restored all20 Cargo manifests offline.
+See the self-service wave's actual run receipts for the current compiled replay
+status. Full Python/source/archive custody and live release remain open. This is
+not an installed compiler/toolchain or a complete self-service release. The native Cargo
 dependency contract and all version pins are unchanged.
 
 Keep this compact complete input capsule in Git for source preservation. MkDocs

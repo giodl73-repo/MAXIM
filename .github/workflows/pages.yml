@@ -33,6 +33,18 @@ jobs:
           cargo install wasm-bindgen-cli --version 0.2.127 --locked
           npm ci
           npx playwright install --with-deps chromium
+      - name: Verify and restore complete locked Rust inputs
+        run: |
+          python tools/test_input_custody.py
+          input_sha=$(cut -d' ' -f1 cargo-inputs/sha256.txt)
+          python tools/input_custody.py --sha256 "$input_sha" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home"
+          echo "CARGO_HOME=$RUNNER_TEMP/maxim-cargo-home" >> "$GITHUB_ENV"
+          echo "CARGO_NET_OFFLINE=true" >> "$GITHUB_ENV"
+          echo "CARGO_INCREMENTAL=0" >> "$GITHUB_ENV"
+      - name: Verify independent offline Cargo metadata
+        run: |
+          cargo metadata --locked --offline --all-features --format-version 1 > "$RUNNER_TEMP/maxim-restored-metadata.json"
+          python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof.json"
       - name: Validate source
         run: |
           cargo fmt --check
@@ -57,6 +69,16 @@ jobs:
             ${{ runner.temp }}/maxim-search-parity/results
       - name: Browser smoke tests
         run: npm test
+      - name: Verify Rust inputs stayed isolated throughout the build
+        run: python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof-after.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rust-input-proof
+          path: |
+            ${{ runner.temp }}/maxim-rust-input-proof.json
+            ${{ runner.temp }}/maxim-rust-input-proof-after.json
+            ${{ runner.temp }}/maxim-restored-metadata.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/MAXIM

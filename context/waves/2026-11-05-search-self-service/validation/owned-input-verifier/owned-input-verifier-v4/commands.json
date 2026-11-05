@@ -1,0 +1,38 @@
+[
+  {
+    "name": "tests",
+    "command": [
+      "python",
+      "tools/test_input_custody.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "metadata-restored",
+    "command": [
+      "python",
+      "tools/check_input_metadata.py",
+      "--metadata",
+      "C:\\src\\maxim-self-service-qualification-20261105\\cargo-input-proof-v2\\metadata.stdout",
+      "--inputs",
+      "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+      "--cargo-home",
+      "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "metadata-owner-cache",
+    "command": [
+      "python",
+      "tools/check_input_metadata.py",
+      "--metadata",
+      "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\metadata.stdout",
+      "--inputs",
+      "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+      "--cargo-home",
+      "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+    ],
+    "exit_code": 1
+  }
+]

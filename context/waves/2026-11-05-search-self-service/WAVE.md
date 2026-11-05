@@ -1,7 +1,9 @@
 # Reproducible MAXIM search delivery
 
-Status: original native baseline recorded; native/WASM parity and full custody
-are in progress. No new hosted release or factual certification is claimed.
+Status: native/WASM and locked-generator source CI qualified; MAXIM-owned input
+verifier passes16 local tests. Offline compiled input replay and full source/
+Python/archive/worker/default/live custody remain open. No new hosted release
+or factual certification is claimed.
 
 Preserve original `d6c411e58b02b0901e96353ab884d4acab2fe607` Rust Index,
 native index-builder, lexical ranking, Unicode tokenization, AND intersection,
@@ -153,3 +155,39 @@ Exclude the new cargo-inputs and examples directories from incidental MkDocs
 copying. This changes only new implementation-asset publication paths, preserving
 guide content, navigation/theme and Rust semantics. Source downloads will bind
 and expose the complete inputs explicitly when their receiver is qualified.
+
+## MAXIM-owned Cargo input verification and offline compilation candidate
+
+tools/input_custody.py now verifies the trusted outer SHA, canonical lock/Git
+blob, every original crate checksum/member, exact source modes/vendor checksums,
+complete package/file/grant inventories and notices/configuration before any
+restoration. Registry-only schema v1 covers all20 original external packages;
+unknown kinds, unreferenced files, duplicate/case/ancestor collisions and unsafe
+wire names are rejected. Both new destinations are checked before creating either;
+source/default/explicit-target overlap, existing paths and junctions are refused.
+Restore preserves source modes and creates a dedicated offline Cargo home.
+
+All16 current local tests pass, including re-bound inventories/vendor checksums,
+notices pruning, archive/source corruption, dangerous paths/modes/schema, full
+vendor restore and destination/no-write protections. Two earlier wire-name tests
+failed at later rejection branches: Windows ZipInfo normalizes backslashes both
+on ZIP creation and read. Actual raw-header mutation exposed the absent original-
+name check. The verifier now validates orig_filename before normalized aliases,
+including NUL/control/Windows-forbidden names. Failed logs/source and corrected
+observations stay separate; no policy or assertion is weakened to get a pass.
+
+tools/check_input_metadata.py checks every locked manifest, all first-party
+features, all760 restored vendor/source/checksum files, source modes on POSIX,
+exact offline configuration and absent registry/Git caches. It accepts the earlier
+independent restored folders; actual owner-cache metadata and a disabled-feature
+variant are rejected. No new local Rust compilation was attempted. The owned
+restore is independently exercised by the full positive test; earlier metadata
+folders are not retagged as a new compiled replay.
+
+CI restores with the MAXIM-owned CLI into fresh inputs/Cargo home before any
+project Cargo operation, proves all-feature paths/bytes, then runs native/fmt/
+Clippy, full site/index/WASM/parity/browser checks with acquisition offline. It
+rechecks every input byte/config/cache after the build and retains both receipts.
+Installed compiler/target/linker/bindgen/Python/Node/browser remain prerequisites.
+The actual hosted candidate still must pass; full source/Python/archive/worker/
+default/live delivery and the separate portfolio snapshot remain open.
