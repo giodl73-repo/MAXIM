@@ -1,0 +1,178 @@
+{
+  "checked_at": "2026-11-05T19:18:41.298440+00:00",
+  "source": "d6c411e58b02b0901e96353ab884d4acab2fe607",
+  "commands": [
+    {
+      "name": "metadata",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "metadata",
+        "--locked",
+        "--offline",
+        "--all-features",
+        "--format-version",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "tests",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "test",
+        "--all-targets",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "clippy",
+        "--all-targets",
+        "--all-features",
+        "--no-deps",
+        "--locked",
+        "--offline",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "native-cli",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--bin",
+        "maxim-index",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "wasm",
+      "argv": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--release",
+        "--target",
+        "wasm32-unknown-unknown",
+        "--lib",
+        "--features",
+        "wasm",
+        "--locked",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "bindgen",
+      "argv": [
+        "C:/src/TRACKER/.local-tools/wasm-bindgen-0.2.127-x86_64-pc-windows-msvc/wasm-bindgen.exe",
+        "C:/src/.tracker-cargo-target/wasm32-unknown-unknown/release/maxim_search.wasm",
+        "--target",
+        "web",
+        "--out-dir",
+        "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\pkg"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "corpus-preparation",
+      "argv": [
+        "python",
+        "tools/test_build_search.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "shared_compiled_target_reused": true,
+  "input_acquisition_offline": true,
+  "files": [
+    {
+      "path": "src/lib.rs",
+      "bytes": 11128,
+      "sha256": "0c3cb18d7cc6cb67a49a2bc8aa6fb2a610837523e79616457bcb6199bc7b49bc",
+      "git_blob": "e68bf10853b836c2d3f3858d8ceea26754fca311"
+    },
+    {
+      "path": "src/bin/maxim-index.rs",
+      "bytes": 942,
+      "sha256": "f6b325a99a3b6b097931ab1638a3068416fb8b7af2c98bfd08f2f77bd934cf16",
+      "git_blob": "b89ed48a1892d3b4f150d9cb0fe0e229ff41b7a1"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 609,
+      "sha256": "d7f3feff8c2897bcc189132f72d116174a6f23089ce0af8e63c631ef6aced41f",
+      "git_blob": "9e9f933f27785dc3f7a7744af33a1dffb8b5a70d"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 4836,
+      "sha256": "1efbac23828db79fe3e768a72eea6bf612e2fce3b398780825308561eb91183b",
+      "git_blob": "ce83e11675013ec710e12f170cf83e7a6adb63af"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "bytes": 103,
+      "sha256": "f131eefe0e750faaa70183a0cd98184b93e932f00ca3aa4740661c63e7bf53a7",
+      "git_blob": "2bde0dffd02e572e74ceb72c5d350cb837784e96"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 37,
+      "sha256": "6ce652fde1a0564ff8dbc781b0e76204a6dcfd7d38547a84731e3ace511ea486",
+      "git_blob": "fa2d8a471f638f6bf0dc82029447e74ee8c685bb"
+    },
+    {
+      "path": "tools/build-search.py",
+      "bytes": 2516,
+      "sha256": "75625ea8fe11501a56bad3a727c0557778ad6f20c463b9b75834cb95d07353ff",
+      "git_blob": "0cdfed3f9b9dc8c546bbe872908c222810442414"
+    },
+    {
+      "path": "tools/build-site.py",
+      "bytes": 2843,
+      "sha256": "13428f639023bd663d4e8401819915f3fb469382f45ee88b78a3810fc97966fb",
+      "git_blob": "065abc83ace0177f9d49f3fa51d0c1b0df23996f"
+    },
+    {
+      "path": "LICENSE.md",
+      "bytes": 2485,
+      "sha256": "a99211ac011e7a20175cca97a94e5c53c85f7cbad7b704ef60d447ce14c068d3",
+      "git_blob": "f2156065fd41ed3d5f6b5b0f5a4051552cdd1872"
+    },
+    {
+      "path": "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\maxim-index.exe",
+      "bytes": 718848,
+      "sha256": "fe7460642e1127a41c5082a38a984db355094378652d511e5593e1c1de390230"
+    },
+    {
+      "path": "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\maxim_search_bg.wasm",
+      "bytes": 163288,
+      "sha256": "391aa3b16659471c76a1005f30070b26049c04fa77c68bf68ec9bac487e462aa"
+    }
+  ],
+  "complete": true
+}

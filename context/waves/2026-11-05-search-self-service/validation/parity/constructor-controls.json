@@ -1,0 +1,95 @@
+[
+  {
+    "name": "empty",
+    "native_exit": 0,
+    "native": {
+      "count": 0,
+      "ok": true,
+      "sections_json": "[]"
+    },
+    "wasm": {
+      "ok": true,
+      "count": 0,
+      "sections_json": "[]"
+    },
+    "exact": true
+  },
+  {
+    "name": "syntax",
+    "native_exit": 2,
+    "native": {
+      "error": "EOF while parsing an object at line 1 column 1",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "EOF while parsing an object at line 1 column 1"
+    },
+    "exact": true
+  },
+  {
+    "name": "missing-fields",
+    "native_exit": 2,
+    "native": {
+      "error": "missing field `version` at line 1 column 2",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "missing field `version` at line 1 column 2"
+    },
+    "exact": true
+  },
+  {
+    "name": "unsupported-version",
+    "native_exit": 2,
+    "native": {
+      "error": "Unsupported search index version",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "Unsupported search index version"
+    },
+    "exact": true
+  },
+  {
+    "name": "out-of-range-posting",
+    "native_exit": 2,
+    "native": {
+      "error": "Invalid search index posting",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "Invalid search index posting"
+    },
+    "exact": true
+  },
+  {
+    "name": "duplicate-posting",
+    "native_exit": 2,
+    "native": {
+      "error": "Invalid search index posting",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "Invalid search index posting"
+    },
+    "exact": true
+  },
+  {
+    "name": "negative-weight",
+    "native_exit": 2,
+    "native": {
+      "error": "invalid value: integer `-1`, expected u32 at line 1 column 124",
+      "ok": false
+    },
+    "wasm": {
+      "ok": false,
+      "error": "invalid value: integer `-1`, expected u32 at line 1 column 124"
+    },
+    "exact": true
+  }
+]
