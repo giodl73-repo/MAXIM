@@ -1,0 +1,94 @@
+{
+  "capsule_sha256": "7a347a05f464ec935d86de8362b35ccfd1bf3e04c118740af9624b9f9f2725e8",
+  "tests": 14,
+  "packages": 29,
+  "artifacts": 62,
+  "original_sdists": 29,
+  "independent_venv": true,
+  "owner_site_packages_unused": true,
+  "offline_local_capsule_install": true,
+  "pip_check": true,
+  "generator_preflight": true,
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+        "tools/test_python_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "restore",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+        "tools/python_custody.py",
+        "--sha256",
+        "7a347a05f464ec935d86de8362b35ccfd1bf3e04c118740af9624b9f9f2725e8",
+        "--output",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "venv",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+        "-m",
+        "venv",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "offline-install",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-compile",
+        "--find-links",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache\\wheels",
+        "--require-hashes",
+        "--only-binary=:all:",
+        "--no-deps",
+        "-r",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache\\requirements-hashes.txt"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "dependency-check",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "generator-preflight",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/build_inputs.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "independent-package-locations",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\locations.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "source_file_sha256": {
+    "tools/python_custody.py": "bad5ee9d279a31cf01051aa70d4e04e8d1b3fcbc0563c31063e318875de238a8",
+    "tools/test_python_custody.py": "5cda64bd4bddb7a8bc658ce7eacd4c36c14131193e22ceecc167d840749d166b"
+  },
+  "scope": "Actual complete capsule verification and14 control suite, all62 raw original archives restored, fresh CPython3.12.16venv installed only from restored hash-bound wheels with no index/deps/source build. All29 distributions resolve under that venv. Linux capsule install and source/archive rebuild remain open. Interpreter/pip prerequisite is separate."
+}

@@ -15,6 +15,12 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-24.04
+    env:
+      PYTHONNOUSERSITE: '1'
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONPATH: ''
+      PIP_CONFIG_FILE: /dev/null
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -26,10 +32,21 @@ jobs:
           cache: npm
       - name: Install Rust toolchain
         run: rustup show
-      - name: Install site tools
+      - name: Verify and install complete locked Python inputs offline
         run: |
-          python -m pip install -r requirements-build.lock
-          python tools/build_inputs.py
+          python tools/test_python_custody.py
+          input_sha=$(cut -d' ' -f1 python-inputs/sha256.txt)
+          python tools/python_custody.py --sha256 "$input_sha" --output "$RUNNER_TEMP/maxim-python-inputs"
+          python -m venv "$RUNNER_TEMP/maxim-python-env"
+          "$RUNNER_TEMP/maxim-python-env/bin/python" -m pip install --no-index --no-compile --find-links "$RUNNER_TEMP/maxim-python-inputs/wheels" --require-hashes --only-binary=:all: --no-deps -r "$RUNNER_TEMP/maxim-python-inputs/requirements-hashes.txt"
+          "$RUNNER_TEMP/maxim-python-env/bin/python" -m pip check
+          "$RUNNER_TEMP/maxim-python-env/bin/python" tools/build_inputs.py
+          echo "$RUNNER_TEMP/maxim-python-env/bin" >> "$GITHUB_PATH"
+          echo "VIRTUAL_ENV=$RUNNER_TEMP/maxim-python-env" >> "$GITHUB_ENV"
+      - name: Verify independent Python environment before the build
+        run: python tools/check_python_inputs.py --cache "$RUNNER_TEMP/maxim-python-inputs" --venv "$RUNNER_TEMP/maxim-python-env" --snapshot "$RUNNER_TEMP/maxim-python-installed.json" > "$RUNNER_TEMP/maxim-python-input-proof.json"
+      - name: Install other build prerequisites
+        run: |
           cargo install wasm-bindgen-cli --version 0.2.127 --locked
           npm ci
           npx playwright install --with-deps chromium
@@ -71,6 +88,16 @@ jobs:
         run: npm test
       - name: Verify Rust inputs stayed isolated throughout the build
         run: python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof-after.json"
+      - name: Verify Python inputs stayed unchanged throughout the build
+        run: python tools/check_python_inputs.py --cache "$RUNNER_TEMP/maxim-python-inputs" --venv "$RUNNER_TEMP/maxim-python-env" --compare "$RUNNER_TEMP/maxim-python-installed.json" > "$RUNNER_TEMP/maxim-python-input-proof-after.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-input-proof
+          path: |
+            ${{ runner.temp }}/maxim-python-input-proof.json
+            ${{ runner.temp }}/maxim-python-input-proof-after.json
+            ${{ runner.temp }}/maxim-python-installed.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:

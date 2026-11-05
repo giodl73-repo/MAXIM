@@ -5,3 +5,6 @@ context/waves/2026-11-05-search-self-service/validation/**/stdout -text -whitesp
 context/waves/2026-11-05-search-self-service/validation/**/stderr -text -whitespace
 context/waves/2026-11-05-search-self-service/validation/**/*.gz -text
 cargo-inputs/DEPENDENCY-NOTICES.txt -text
+# Original third-party notices contain CRLF, trailing spaces and separator lines.
+# Preserve and hash their bytes; review the readable file against the capsule.
+python-inputs/DEPENDENCY-NOTICES.txt -text -diff

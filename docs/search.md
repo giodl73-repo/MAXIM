@@ -38,9 +38,13 @@ the default branch deploys. Repository Pages settings must select GitHub Actions
 
 The generator requires the exact Python patch version and distribution pins in
 `requirements-build.lock`; `build_inputs.py` checks them before rendering. Rust
-native consumers do not need this Python environment. These pins bind versions,
-not complete wheel/source custody. Independent offline build inputs, full source
-archive and deployed-byte verification remain tracked in the self-service wave.
+native consumers do not need this Python environment. The separately verified
+`python-inputs/` capsule (see its source README) preserves the original
+locked wheels for Windows/Linux x64 and corresponding source distributions.
+CI installs them into a fresh venv without a package index and compares the
+complete installed environment before and after the build. Compiler, interpreter
+and browser prerequisites remain separate. Full source archive and deployed-byte
+verification remain tracked in the self-service wave.
 Do not assume a new Python/Markdown environment regenerates an old index exactly.
 
 ## Data and query contract

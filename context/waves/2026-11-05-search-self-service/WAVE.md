@@ -191,3 +191,34 @@ rechecks every input byte/config/cache after the build and retains both receipts
 Installed compiler/target/linker/bindgen/Python/Node/browser remain prerequisites.
 The actual hosted candidate still must pass; full source/Python/archive/worker/
 default/live delivery and the separate portfolio snapshot remain open.
+
+## Original Python inputs and independent offline installation
+
+The tracked Python capsule preserves 29 original source distributions and 33
+unique Windows/Linux CPython 3.12 wheels (62 original archives, 39,635 member
+records). Its separately tracked release catalog binds the unchanged lock and
+all selected PyPI release identities. All original archive hashes, wheel RECORD
+entries, release metadata and 119 conservatively selected notice/attribution
+files are verified before restoration. The original third-party wheel builds
+were not reproduced; original terms remain unchanged.
+
+All 14 capsule tests pass on Windows, including corruption despite rebound
+inventories, missing source/notice closure, inconsistent internal wheel RECORD,
+unsafe paths/modes and actual destination junction rejection. A new isolated
+Python 3.12.16 venv installs all 29 packages from the restored capsule with
+--no-index, --require-hashes, --only-binary and --no-deps; pip check and exact
+generator preflight pass. No owner site packages are used.
+
+The installed-input checker verifies every restored archive/notice/hash
+requirement and snapshots all 18,369 installed environment files, including
+prerequisite pip/launcher files. An unchanged comparison passes; an altered
+snapshot, separately copied corrupted cache and owner interpreter are rejected.
+Invalid proofs create no snapshots. Raw commands and observations are retained.
+
+CI now installs into a new venv using only the capsule and checks full installed
+bytes before/after the site/native/WASM/browser build. Exact-head Linux execution
+and a full Windows build using this newly installed venv are the next checks;
+earlier qualified Rust/site runs are not retagged. Interpreter, pip, compiler,
+bindgen, Node and browser remain installed prerequisites. Complete source archive,
+font custody, worker lifecycle, default/live release and portfolio snapshot gates
+remain open. Source PR 4 remains a draft.

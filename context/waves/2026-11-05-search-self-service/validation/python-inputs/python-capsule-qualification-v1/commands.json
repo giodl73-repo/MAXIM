@@ -1,0 +1,77 @@
+[
+  {
+    "name": "tests",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+      "tools/test_python_custody.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "restore",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+      "tools/python_custody.py",
+      "--sha256",
+      "7a347a05f464ec935d86de8362b35ccfd1bf3e04c118740af9624b9f9f2725e8",
+      "--output",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "venv",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-toolchains\\cpython-3.12.16-windows-x86_64-none\\python.exe",
+      "-m",
+      "venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "offline-install",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "install",
+      "--no-index",
+      "--no-compile",
+      "--find-links",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache\\wheels",
+      "--require-hashes",
+      "--only-binary=:all:",
+      "--no-deps",
+      "-r",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache\\requirements-hashes.txt"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "dependency-check",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "-m",
+      "pip",
+      "check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "generator-preflight",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "tools/build_inputs.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "independent-package-locations",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\locations.py"
+    ],
+    "exit_code": 0
+  }
+]
