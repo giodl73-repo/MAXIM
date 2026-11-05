@@ -7,12 +7,13 @@ interface lives at `/MAXIM/explore/`, linked from the MkDocs navigation.
 
 ## Reproduce
 
-Install Rust 1.95.0 (including `wasm32-unknown-unknown`), Python 3.12+, Node 22,
+Install Rust 1.95.0 (including `wasm32-unknown-unknown`), Python 3.12.16, Node 22,
 and wasm-bindgen-cli 0.2.127 (`cargo install wasm-bindgen-cli --version 0.2.127
 --locked`). From this repository's root:
 
 ```sh
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-build.lock
+python tools/build_inputs.py
 cargo test --locked
 cargo clippy --locked --all-targets --all-features -- -D warnings
 cargo fmt --check
@@ -34,6 +35,13 @@ npm test
 The Pages workflow runs the native tests, builds the complete library and search
 assets, and runs browser checks before uploading a deployment artifact. Only
 the default branch deploys. Repository Pages settings must select GitHub Actions.
+
+The generator requires the exact Python patch version and distribution pins in
+`requirements-build.lock`; `build_inputs.py` checks them before rendering. Rust
+native consumers do not need this Python environment. These pins bind versions,
+not complete wheel/source custody. Independent offline build inputs, full source
+archive and deployed-byte verification remain tracked in the self-service wave.
+Do not assume a new Python/Markdown environment regenerates an old index exactly.
 
 ## Data and query contract
 

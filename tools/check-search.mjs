@@ -42,9 +42,35 @@ for(const [name,value]of [['empty',JSON.stringify({version:1,entries:[],terms:{}
  constructors.push({name,native_exit:observed.status,native:expected,wasm:result,exact});
 }
 fs.writeFileSync(path.join(output,'constructor-controls.json'),JSON.stringify(constructors,null,2)+'\n');
+// Positive-at-limit fixtures make guard removal observable, rather than comparing
+// two empty results for long or unknown terms. This does not replace corpus proof.
+const words=Array.from({length:17},(_,i)=>`term${i}`);
+const longTerms=['r'.repeat(512),'r'.repeat(513),'é'.repeat(256),'é'.repeat(257),'é'.repeat(256)+'x','é'.repeat(255)+'x'];
+const boundaryFixture={version:1,entries:[{title:'Explicit boundary fixture',url:'fixture/boundaries/',section:'fixture',text:[...words,...longTerms].join(' ')}],terms:Object.fromEntries([...words,...longTerms].map(term=>[term,[[0,1000]]]))};
+const fixturePath=path.join(output,'boundary-fixture.json');fs.writeFileSync(fixturePath,JSON.stringify(boundaryFixture));
+const boundaryQueries=[
+ {name:'sixteen-present-terms',query:words.slice(0,16).join(' '),total:1,hits:1},
+ {name:'seventeen-present-terms',query:words.join(' '),total:0,hits:0},
+ {name:'ascii512-present',query:longTerms[0],total:1,hits:1},
+ {name:'ascii513-present',query:longTerms[1],total:0,hits:0},
+ {name:'unicode512-bytes-present',query:longTerms[2],total:1,hits:1},
+ {name:'unicode514-bytes-present',query:longTerms[3],total:0,hits:0},
+ {name:'mixed513-bytes-present',query:longTerms[4],total:0,hits:0},
+ {name:'mixed511-bytes-present',query:longTerms[5],total:1,hits:1},
+ {name:'zero-limit-retains-total',query:'term0',limit:0,total:1,hits:0},
+ {name:'missing-module-rejects-match',query:'term0',section:'missing',total:0,hits:0},
+];
+const boundaryNative=spawnSync(control,[fixturePath],{input:boundaryQueries.map(q=>JSON.stringify({query:q.query,section:q.section??'',limit:q.limit??20})).join('\n')+'\n',encoding:'utf8',timeout:15000,maxBuffer:2*1024*1024});
+fs.writeFileSync(path.join(output,'boundaries.native.stdout'),boundaryNative.stdout??'');fs.writeFileSync(path.join(output,'boundaries.native.stderr'),boundaryNative.stderr??'');
+if(boundaryNative.status!==0)throw new Error('Native boundary controls failed');
+const nativeBoundaries=boundaryNative.stdout.trimEnd().split('\n').slice(1).map(line=>JSON.parse(line));
+if(nativeBoundaries.length!==boundaryQueries.length)throw new Error('Native boundary record count mismatch');
+const boundaryIndex=new adapter.SearchIndex(JSON.stringify(boundaryFixture));
+const boundaries=boundaryQueries.map((q,i)=>{const json=boundaryIndex.search(q.query,q.section??'',q.limit??20);const result=JSON.parse(json);return {...q,query_bytes:Buffer.byteLength(q.query),native_json:nativeBoundaries[i].json,wasm_json:json,exact:json===nativeBoundaries[i].json,expected:result.total===q.total&&result.hits.length===q.hits};});
+boundaryIndex.free();fs.writeFileSync(path.join(output,'boundary-controls.json'),JSON.stringify(boundaries,null,2)+'\n');
 // JavaScript coerces raw numbers to wasm32 usize before Rust receives them.
 // These observations are intentionally outside the typed parity assertion.
 const abi=[4294967296,4294967297,1.5,-1].map(limit=>({limit,coerced_u32:limit>>>0,result:index.search('entropy','',limit)}));
 fs.writeFileSync(path.join(output,'raw-js-abi.json.gz'),gzipSync(JSON.stringify(abi)));
-const record={schema:'maxim.search-parity.v1',input:{path:path.resolve(input),bytes:raw.length,sha256:sha(raw)},wasm:{bytes:bytes.length,sha256:sha(bytes),imports:WebAssembly.Module.imports(module)},native:{path:path.resolve(control),sha256:sha(fs.readFileSync(control))},entries:index.count(),sections:JSON.parse(index.sections()).length,controls:queries.length,constructor_controls:constructors.length,all_exact:mismatches.length===0&&constructors.every(x=>x.exact),mismatches,raw_js_abi_controls_separate:abi.length,scope:'Exact same-index native/WASM Results serialization, totals, scores, ordering, complete entry text, sections and count, plus small explicit constructor/empty/corruption controls. Input provenance, MkDocs/source-to-index lineage and complete release custody require separate evidence. Native binary/toolchain and shared compiled target are installed prerequisites; no clean-cache claim.'};
+const record={schema:'maxim.search-parity.v1',input:{path:path.resolve(input),bytes:raw.length,sha256:sha(raw)},wasm:{bytes:bytes.length,sha256:sha(bytes),imports:WebAssembly.Module.imports(module)},native:{path:path.resolve(control),sha256:sha(fs.readFileSync(control))},entries:index.count(),sections:JSON.parse(index.sections()).length,controls:queries.length,constructor_controls:constructors.length,boundary_controls:boundaries.length,all_exact:mismatches.length===0&&constructors.every(x=>x.exact)&&boundaries.every(x=>x.exact&&x.expected),mismatches,raw_js_abi_controls_separate:abi.length,scope:'Exact same-index native/WASM Results serialization, totals, scores, ordering, complete entry text, sections and count, plus explicit constructor/empty/corruption and positive/rejected boundary fixtures. Input provenance, MkDocs/source-to-index lineage and complete release custody require separate evidence. Native binary/toolchain and shared compiled target are installed prerequisites; no clean-cache claim.'};
 fs.writeFileSync(path.join(output,'receipt.json'),JSON.stringify(record,null,2)+'\n');index.free();console.log(JSON.stringify(record));if(!record.all_exact)process.exitCode=1;

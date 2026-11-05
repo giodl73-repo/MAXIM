@@ -102,3 +102,28 @@ also records Python package versions, generator hashes and per-entry/term
 diagnostic fingerprints to localize index drift. These diagnostic canonical
 hashes do not replace full exact native/WASM result or artifact comparisons.
 No patched default/live or advisory closure is claimed before actual release.
+
+## Positive boundaries and generator version lock
+
+Ten explicit small boundary cases supplement the134 full-index queries and7
+constructor controls. The fixture contains the queried terms, so16 present words
+and exact512-byte ASCII/Unicode words must match;17 words and over512-byte present
+words must be rejected.511-byte mixed text, zero-limit totals and exact module
+rejection are also checked. Native and WASM results plus expected counts agree.
+The unknown-term long queries remain parity observations, not sole guard proof.
+
+requirements-build.lock records all29 non-pip distributions from qualified
+Material9.7.7 CI42097138955. Python3.12.16 and those installed versions are checked
+before site generation. Local incompatible Python3.14 is rejected; the lock
+matches the actual hosted package inventory exactly. This is version pinning,
+not complete upstream wheel/source/hash custody. CI must qualify the positive
+installed environment and full source/index/browser replay with this lock.
+
+The controlled Markdown3.11/3.11.2 paragraph experiment holds Python and the
+original plain-text extractor fixed. Older rendering interprets two sourceR*
+asterisks as emphasis; newer rendering preserves them, and its extracted text
+matches the retained fresh entry. The strict old-fragment match fails because
+of another whitespace difference. Keep that failed exact comparison explicit;
+this is evidence for the notation mechanism, not all57 entries/140 bytes or a
+full old-environment replay. A first Windows console encoding failure is retained
+separately. No guide text is edited or normalized to force old output hashes.
