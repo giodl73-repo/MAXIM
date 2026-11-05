@@ -14,8 +14,23 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site", type=Path, required=True, help="Built explore directory")
     parser.add_argument("--output", type=Path, required=True, help="New external evidence directory")
+    parser.add_argument("--expected-source-head", help="Required for a verified source archive outside Git")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
+    if (root / '.git').exists():
+        source_commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
+        if args.expected_source_head and args.expected_source_head != source_commit:raise ValueError('Expected source head differs')
+        clean = not subprocess.check_output(['git', 'status', '--porcelain', '--untracked-files=no'], cwd=root)
+        source_kind = 'git-checkout'
+    else:
+        if not args.expected_source_head:raise ValueError('Use --expected-source-head outside Git')
+        from source_custody import source_data
+        from input_custody import strict_json
+        source, _ = source_data(root, args.expected_source_head)
+        source_commit = strict_json(source['SOURCE-MANIFEST.json'])['source_commit']
+        del source
+        clean = True
+        source_kind = 'verified-complete-source-archive'
     output = Path(os.path.abspath(args.output))
     for parent in [output, *output.parents]:
         if parent.is_symlink() or (parent.exists() and getattr(parent.lstat(), "st_file_attributes", 0) & 0x400):
@@ -52,8 +67,7 @@ def main():
     (output / "stderr").write_bytes(result.stderr)
     observation = dict(
         command=command, exit_code=result.returncode,
-        source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip(),
-        clean_tracked_source=not subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=no"], cwd=root),
+        source_commit=source_commit, clean_tracked_source=clean, source_kind=source_kind,
         generated_gzip_sha256=hashlib.sha256(compressed).hexdigest(),
         generated_index_sha256=hashlib.sha256(index.read_bytes()).hexdigest(),
         python_version=sys.version,

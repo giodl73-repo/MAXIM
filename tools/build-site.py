@@ -2,12 +2,16 @@
 import argparse
 import gzip
 import json
+import os
 import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 from build_inputs import verify
+from input_custody import destination, digest
+from source_custody import source_data
+from site_custody import add_delivery, verify_site, BUILD_MANIFEST, source_epoch
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -19,13 +23,25 @@ def run(*args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--site", type=Path, default=Path("site"))
+    parser.add_argument("--expected-source-head", help="Required for a verified source archive outside Git")
     args = parser.parse_args()
     print(json.dumps({"generator_inputs": verify()}))
-    site = args.site.resolve()
-    # Only the dedicated generated tree can be replaced. Resolve symlinks first.
+    site = destination(args.site)
+    # New outputs only; inspect lexical parents before following links.
     output_root = ROOT / "site"
     if site != output_root and output_root not in site.parents:
         raise ValueError("Output must be site or a directory inside site")
+    targets = [ROOT / 'target']
+    if os.environ.get('CARGO_TARGET_DIR'):targets.append(Path(os.environ['CARGO_TARGET_DIR']).resolve())
+    if any(site == target or site in target.parents or target in site.parents for target in targets):raise ValueError('Output overlaps compiled target')
+    head = args.expected_source_head
+    if (ROOT / '.git').exists():
+        actual = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+        if head and head != actual:raise ValueError('Expected source head differs')
+        head = actual
+    elif not head:raise ValueError('Use --expected-source-head with a verified source archive')
+    data, modes = source_data(ROOT, head)
+    os.environ['SOURCE_DATE_EPOCH'] = str(source_epoch(data))
     version = subprocess.check_output(["wasm-bindgen", "--version"], text=True).strip()
     if version != "wasm-bindgen 0.2.127":
         raise ValueError(f"Expected wasm-bindgen 0.2.127, found {version}")
@@ -44,17 +60,16 @@ def main():
         (explore / "index.json.gz").write_bytes(gzip.compress(raw.read_bytes(), compresslevel=9, mtime=0))
         raw.unlink()
         (explore / "entries.json").unlink()
-        for name in ("index.html", "style.css", "app.js", "worker.js"):
-            shutil.copy2(ROOT / "web" / name, explore / name)
         (build / ".nojekyll").touch()
+        manifest = add_delivery(build, data, modes, head)
+        verify_site(build, digest((build / BUILD_MANIFEST).read_bytes()), head)
         size = sum(path.stat().st_size for path in build.rglob("*") if path.is_file())
         print(f"Published site: {size:,} bytes")
         if size >= 1_000_000_000:
             raise ValueError("Generated site exceeds the GitHub Pages 1 GB limit")
-        if site.exists():
-            shutil.rmtree(site)
         site.parent.mkdir(parents=True, exist_ok=True)
         shutil.copytree(build, site)
+        print(json.dumps(dict(source_commit=head, source_tree=manifest['source_tree'], build_manifest_sha256=digest((site / BUILD_MANIFEST).read_bytes()), source_archive=manifest['source'], total_bytes=manifest['total_bytes'])))
     print(f"Search: {site / 'explore'}")
 
 

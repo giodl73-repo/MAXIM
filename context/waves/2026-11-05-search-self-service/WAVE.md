@@ -304,3 +304,46 @@ pruned Rust/Python notices still fail under a self-consistent rebound source
 commit/tree/blob inventory. All 16 tests pass on pinned Python 3.12.16. These
 tests directly cover the missed integration. Full actual source export, stdlib
 receiver/restore and repack must pass before this phase is called qualified.
+
+## Source downloads, original fonts and complete archive rebuild candidate
+
+The complete 21,006-file source at da19ee59 is qualified from actual hosted
+artifacts and an independent base-Python receiver; standalone restoration and
+same-environment repacking outside Git are byte-exact. Root checkpoint PR360
+records the distinct original/failed/qualified source identities.
+
+This candidate integrates exact commit-bound source/index/adapter/WASM and
+original software/content, Cargo/Python, Rust-library and font notice downloads.
+The footer revision/downloads work without JavaScript or a running worker.
+A full-site manifest inventories every rendered guide/runtime/download below
+the original 1 GB budget. The stdlib verifier bundle is copied from exact Git
+source, with original source manifest and concrete receiving instructions.
+Receivers compare actual source tree/blob/mode/input closure, UI templates,
+notices and fonts, not only self-declared inventory hashes. Integrity remains
+distinct from executable/source-to-artifact evidence and factual certification.
+
+Original DM Sans, Libre Caslon Display, EB Garamond and JetBrains Mono remain:
+all 30 captured WOFF2 files and CSS subsets are unchanged; only URLs become local.
+Original upstream distributions/OFL notices and the unchanged installed Rust
+1.95.0 library copyright are retained. No font or third-party wheel build or
+editable font-source completeness is claimed. Font inputs stay out of incidental
+MkDocs copying. Corpus preparation, guide facts, split grants and Rust core are
+unchanged. Existing output folders and source/target/junction overlaps are refused.
+
+Both build/parity tools accept an externally expected archive commit and verify
+the complete restored source without inventing .git. MkDocs SOURCE_DATE_EPOCH
+comes from the original source commit. The archive qualifier restores new
+Rust/Python inputs and a Python venv/Cargo home, uses a new empty target by
+default, builds the full native/site/WASM/index, compares every published file
+and manifest byte-for-byte, then runs all archived-source browser cases.
+Installed interpreter/pip/toolchain/Node/Playwright/browser remain prerequisites;
+the locked installed Node test package is copied explicitly, not re-resolved.
+
+All 16 source and 16 site/font custody tests pass locally. Site tests deliberately
+use a small custody-only WASM/index fixture and exercise rebound corrupted UI,
+notices, fonts, source archives, receiver helpers, payloads and unsafe destinations.
+They do not stand in for engine execution. Three new browser cases add blocked-
+external-request real search/four-font loading, complete source download with
+WASM unavailable, and no-JavaScript revision/download discovery. The complete
+16-case browser run, full hosted/archive build and actual artifact receipts are
+pending. PR4 remains draft; no default/live release or gitlink advance occurs.

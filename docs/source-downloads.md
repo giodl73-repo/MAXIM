@@ -36,6 +36,29 @@ the verified original file bytes. No cross-platform ZIP identity is assumed.
 The 50,000-file / 768 MiB uncompressed / 512 MiB ZIP limits cover the complete
 current library, rather than selecting a smaller source subset.
 
-This is a source custody foundation. Pages download integration, standalone
-receiver distribution, the complete outside-Git site/native/WASM/browser replay,
-licensed font delivery and default/live release remain qualification gates.
+The Pages build publishes the complete source ZIP, source manifest, index,
+adapter, WASM and original notices in Explore's footer. The source and index
+revision are visible without JavaScript. The verifier bundle contains seven
+Git-bound stdlib helpers and concrete source-receiving commands. The complete
+project site's `explore/BUILD-MANIFEST.json` inventories every rendered guide,
+runtime file and download, with one total budget below 1 GB.
+
+`tools/receive-site.py` verifies a downloaded full project folder using its
+independently trusted manifest SHA and source commit. It checks every file,
+original source, dependency/font/runtime notices, UI templates and receiver
+helper identities. This is artifact integrity; execution evidence remains
+separate from hash verification.
+
+`tools/qualify-archive.py` restores the complete source without `.git`, creates
+new Cargo/Python inputs and a Python venv, then runs native, full site/WASM,
+parity and browser checks. It compares every published file and the complete
+manifest byte-for-byte. CI uses a new empty compiled target; explicit local
+`--target-dir` cache reuse is recorded. Installed interpreter/pip, Rust/target/
+bindgen, Node/Playwright/browser are prerequisites. The locked installed Node
+test package is copied as a prerequisite, without re-resolving dependencies.
+
+MkDocs receives `SOURCE_DATE_EPOCH` from the original source commit for stable
+build/sitemap timestamps. Fonts retain the original families, WOFF2 bytes and
+all original CSS subsets, with URLs pointing to same-origin assets and complete
+OFL notices. Their builds and editable font source were not reproduced. Default/
+live delivery still needs separate qualification.

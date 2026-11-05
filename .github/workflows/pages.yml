@@ -69,6 +69,7 @@ jobs:
           cargo clippy --locked --all-targets --all-features -- -D warnings
           python tools/test_build_search.py
           python tools/test_source_custody.py
+          python tools/test_site_custody.py
       - name: Package and verify the complete original source archive
         run: |
           source_head=$(git rev-parse HEAD)
@@ -110,6 +111,28 @@ jobs:
           path: |
             ${{ runner.temp }}/maxim-browser-report.json
             test-results/
+      - name: Rebuild and exercise the complete source archive outside Git
+        run: |
+          manifest_sha=$(python -c 'import hashlib;from pathlib import Path;print(hashlib.sha256(Path("site/MAXIM/explore/BUILD-MANIFEST.json").read_bytes()).hexdigest())')
+          python tools/qualify-archive.py --site site/MAXIM --manifest-sha256 "$manifest_sha" --expected-source-head "$(git rev-parse HEAD)" --output "$RUNNER_TEMP/maxim-archive-proof"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: archive-proof
+          path: |
+            ${{ runner.temp }}/maxim-archive-proof/receipt.json
+            ${{ runner.temp }}/maxim-archive-proof/commands.json
+            ${{ runner.temp }}/maxim-archive-proof/site-comparison.json
+            ${{ runner.temp }}/maxim-archive-proof/*.stdout
+            ${{ runner.temp }}/maxim-archive-proof/*.stderr
+            ${{ runner.temp }}/maxim-archive-proof/installed-python.json
+            ${{ runner.temp }}/maxim-archive-proof/browser-report.json
+            ${{ runner.temp }}/maxim-archive-proof/browser-results/
+            ${{ runner.temp }}/maxim-archive-proof/parity/build-input.json
+            ${{ runner.temp }}/maxim-archive-proof/parity/index-fingerprints.json.gz
+            ${{ runner.temp }}/maxim-archive-proof/parity/stdout
+            ${{ runner.temp }}/maxim-archive-proof/parity/stderr
+            ${{ runner.temp }}/maxim-archive-proof/parity/results/
       - name: Verify Rust inputs stayed isolated throughout the build
         run: python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof-after.json"
       - name: Verify Python inputs stayed unchanged throughout the build

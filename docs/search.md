@@ -32,6 +32,11 @@ python tools/build-site.py --site site/MAXIM
 npm test
 ```
 
+Build into a new `site/` folder; existing outputs and links/junctions are refused.
+Outside Git, supply `--expected-source-head <trusted-commit>` to `build-site.py`
+and `check-search.py`. They verify the complete restored source instead of
+inventing Git state. See [complete source custody](source-downloads.md).
+
 The Pages workflow runs the native tests, builds the complete library and search
 assets, and runs browser checks before uploading a deployment artifact. Only
 the default branch deploys. Repository Pages settings must select GitHub Actions.
