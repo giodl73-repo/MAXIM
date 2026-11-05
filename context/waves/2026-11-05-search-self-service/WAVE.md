@@ -261,3 +261,29 @@ the failed trace/screenshot kept in the external qualification directory.
 The four repository review lenses were applied by the implementing agent; no
 independent reviewer certification is claimed. Full source/archive, font and
 default/live delivery gates remain open; source PR 4 stays draft.
+
+## Complete source archive foundation
+
+Worker candidate 1361b73e passes run 42122603764 with actual browser/parity/
+Rust/Python service artifacts verified. All 13 browser cases pass once without
+retries/skips, the original 134+7+10 engine controls and full index remain exact,
+and all 18,336 installed Python / 760 restored Rust files stay unchanged.
+
+The source foundation exports every tracked raw Git blob through one batch,
+reconstructs the full Git tree and binds original commit bytes, modes, lengths
+and SHA-256 values. Both complete original input capsules/catalogs/notices are
+verified before packaging or restoration. Hidden tracked files and all guides
+are retained. Checkout comparison permits ordinary CRLF expansion only; outside-
+Git source must match original bytes and POSIX modes. Unlisted config/source,
+unsupported modes/Gitlinks, ZIP wire aliases/case/ancestor conflicts, existing
+destinations, source/target overlap and actual junctions are rejected.
+
+All 13 custody tests pass on pinned Python 3.12.16, including a real Git commit
+with executable/raw-CRLF/Unicode files and adversarial rebound inventories/tree
+hashes. Source resource limits cover the full current ~394 MB / 21k-file tree,
+rather than trimming content. Bootstrap is stdlib-only Python 3.11+, never source
+execution. Full actual MAXIM export, independent receiver/repack, outside-Git
+full build and Pages integration remain to qualify; existing tests are not a
+substitute. CI now packages/receives the complete source and retains its ZIP and
+receipts before the full original site/native/WASM/browser path. Source PR 4
+remains draft, with fonts/default/live and canonical snapshot gates open.

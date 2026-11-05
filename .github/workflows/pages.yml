@@ -68,6 +68,21 @@ jobs:
           cargo test --locked
           cargo clippy --locked --all-targets --all-features -- -D warnings
           python tools/test_build_search.py
+          python tools/test_source_custody.py
+      - name: Package and verify the complete original source archive
+        run: |
+          source_head=$(git rev-parse HEAD)
+          python tools/package-source.py --expected-source-head "$source_head" --output "$RUNNER_TEMP/maxim-source.zip" > "$RUNNER_TEMP/maxim-source-proof.json"
+          source_sha=$(python -c 'import json,os;print(json.load(open(os.environ["RUNNER_TEMP"]+"/maxim-source-proof.json"))["sha256"])')
+          python tools/receive-source.py --source "$RUNNER_TEMP/maxim-source.zip" --sha256 "$source_sha" --commit "$source_head" > "$RUNNER_TEMP/maxim-source-received.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: complete-source
+          path: |
+            ${{ runner.temp }}/maxim-source.zip
+            ${{ runner.temp }}/maxim-source-proof.json
+            ${{ runner.temp }}/maxim-source-received.json
       - name: Build library and WASM search
         run: python tools/build-site.py --site site/MAXIM
       - name: Compare original native and WASM search on the complete built index
