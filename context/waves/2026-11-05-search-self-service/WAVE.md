@@ -127,3 +127,29 @@ of another whitespace difference. Keep that failed exact comparison explicit;
 this is evidence for the notation mechanism, not all57 entries/140 bytes or a
 full old-environment replay. A first Windows console encoding failure is retained
 separately. No guide text is edited or normalized to force old output hashes.
+
+## Locked environment qualification and captured Rust inputs
+
+Head0d3a33f08cf2b64205fe3060ab7744debed8f180 passes hosted run42101622641:
+exact Python3.12.16 and all29 pinned distributions, complete source/site build,
+134 query/7 constructor/10 positive boundary controls, and all3 original browser
+cases. The full raw index matches the qualified Material9.7.7 baseline exactly.
+CI merge4b2366c69f85496dab53065d22bbed87785226ac has the same complete tree;
+downloaded parity artifact/source/lock/input identities are verified. This is
+version-locked source-build qualification, not complete offline input custody.
+
+cargo-inputs captures all20 locked external registry packages: original checksum-
+bound crate archives, every original source/dotfile/member/mode, Cargo checksum
+records and actual grant/notice files. The3,582,759-byte ZIP contains782 files
+plus its manifest and retains all prior third-party terms. An external verifier
+derived from CERESdfa877a (only accepted schema changes) checks archive/member/
+vendor checksums and restores a new input tree/Cargo home. All-feature metadata
+resolves all20 manifests there offline, with no owner registry/Git cache. The
+first proof attempt correctly refused destinations inside the verifier's source
+root; a separate destination succeeds. This proves input closure, not compiled
+replay. A distributable MAXIM helper and negative tests remain open.
+
+Exclude the new cargo-inputs and examples directories from incidental MkDocs
+copying. This changes only new implementation-asset publication paths, preserving
+guide content, navigation/theme and Rust semantics. Source downloads will bind
+and expose the complete inputs explicitly when their receiver is qualified.
