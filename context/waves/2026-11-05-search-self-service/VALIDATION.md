@@ -39,3 +39,24 @@ certification or independent human review. Full Python/Cargo input custody,
 complete source/artifact receivers, worker lifecycle, hosted default/live proof
 and separate portfolio snapshot remain open. Adequate external scratch space is
 pending; under1GB laptop free space prevents safe full local site duplication.
+
+## Hosted original baseline and explicit patch candidate
+
+Original headcec61d9 passes hosted run42094859530 with a complete freshly generated
+site/index,134 exact queries,7 constructors and all3 original browser cases.
+Downloaded artifact SHA/source-tree proof and full native/WASM observations are
+in validation/hosted-original/. The raw generated index is140 bytes larger than
+the observed deployment. No index/archive byte-reproducibility claim is made;
+source generator/platform drift remains open. Exact per-index native/WASM results
+pass independently. No source/tree/CI identity was retagged.
+
+The next candidate explicitly patches Material9.7.2 to upstream9.7.7 for enabled
+search.suggest (GHSA-xvg9-69gf-fjrf), keeping original baseline evidence and all
+Rust/guides/MkDocs configuration unchanged. Current wrapper syntax, actionlint
+and a small explicit wrapper-integration fixture pass locally; this fixture is
+not substituted for the retained full42,242-entry proof or full patched build.
+The next hosted run must qualify the full patched build/parity/browser path.
+Python installed package versions, generator hashes and full entry/term diagnostic
+fingerprints are captured to investigate drift; canonical diagnostic hashes never
+replace exact result/source/artifact comparisons. Patched live/default security
+closure and complete delivery remain unqualified.

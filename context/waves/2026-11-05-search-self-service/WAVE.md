@@ -80,3 +80,25 @@ CI now runs the same parity tool on the complete freshly generated source index,
 and retains source/input identity plus full compressed native/WASM observations.
 Ubuntu24.04 keeps the original pinned Playwright1.58.2 on its supported runner.
 The complete site/source/dependency/worker/default/live gates remain open.
+
+## Hosted original baseline and next generator patch
+
+Original-source PR head cec61d9e2d4ea6c77d9f80c2ba2ddb97fb426784 passes
+Actions42094859530: full source site build,134 native/WASM queries,7 constructors
+and the original3 browser cases. The downloaded parity artifact digest matches
+GitHub; actual CI merge56c83fefff939e2828a210be695c57f60f7926f4 has the same
+complete tree as the branch. The generated raw index is96,445,672 bytes:140 bytes
+larger than the observed published index, with the same42,242 entries/242 modules.
+Neither raw nor gzip bytes match the old deployment. This is an open generator/
+platform-input drift to investigate, not a reason to normalize or retag evidence.
+Full Pages artifact custody still awaits adequate local scratch space.
+
+GitHub reports [GHSA-xvg9-69gf-fjrf](https://github.com/squidfunk/mkdocs-material/security/advisories/GHSA-xvg9-69gf-fjrf)
+against original Material9.7.2; the existing MkDocs configuration enables the
+affected search.suggest feature. Upstream9.7.7 fixes it. Preserve all original
+baseline receipts, then qualify the explicit requirements patch without changing
+guides, Rust, ranking, MkDocs configuration or native behavior. The next CI run
+also records Python package versions, generator hashes and per-entry/term
+diagnostic fingerprints to localize index drift. These diagnostic canonical
+hashes do not replace full exact native/WASM result or artifact comparisons.
+No patched default/live or advisory closure is claimed before actual release.
