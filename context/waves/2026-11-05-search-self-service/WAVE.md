@@ -287,3 +287,20 @@ full build and Pages integration remain to qualify; existing tests are not a
 substitute. CI now packages/receives the complete source and retains its ZIP and
 receipts before the full original site/native/WASM/browser path. Source PR 4
 remains draft, with fonts/default/live and canonical snapshot gates open.
+
+## Source integration regression and correction
+
+Full source CI 42125335945 at d9f87da3 fails before writing its source ZIP:
+the new source wrapper unpacked two values from MAXIM's Rust verifier, whose
+actual API returns manifest/data/modes. The tree-only 13 tests did not cover
+that interface. Actual failed CI logs are preserved. The matching known-bad
+local producer was stopped by verified PID/command/source-head after the CI
+failure, not treated as stalled or restarted because of observation timeouts.
+It wrote no source ZIP; its interrupted command result is retained separately.
+
+The wrapper now consumes the three-value API. Three added tests use the actual
+complete Rust and Python capsules, not stubs: valid input closure succeeds;
+pruned Rust/Python notices still fail under a self-consistent rebound source
+commit/tree/blob inventory. All 16 tests pass on pinned Python 3.12.16. These
+tests directly cover the missed integration. Full actual source export, stdlib
+receiver/restore and repack must pass before this phase is called qualified.

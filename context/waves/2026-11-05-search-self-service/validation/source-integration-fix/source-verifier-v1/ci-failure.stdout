@@ -1,0 +1,40 @@
+build	Package and verify the complete original source archive	﻿2026-11-05T22:57:34.7325491Z ##[group]Run source_head=$(git rev-parse HEAD)
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7325922Z ^[[36;1msource_head=$(git rev-parse HEAD)^[[0m
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7326638Z ^[[36;1mpython tools/package-source.py --expected-source-head "$source_head" --output "$RUNNER_TEMP/maxim-source.zip" > "$RUNNER_TEMP/maxim-source-proof.json"^[[0m
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7327607Z ^[[36;1msource_sha=$(python -c 'import json,os;print(json.load(open(os.environ["RUNNER_TEMP"]+"/maxim-source-proof.json"))["sha256"])')^[[0m
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7328614Z ^[[36;1mpython tools/receive-source.py --source "$RUNNER_TEMP/maxim-source.zip" --sha256 "$source_sha" --commit "$source_head" > "$RUNNER_TEMP/maxim-source-received.json"^[[0m
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7351794Z shell: /usr/bin/bash -e {0}
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7352061Z env:
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7352271Z   PYTHONNOUSERSITE: 1
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7352526Z   PYTHONDONTWRITEBYTECODE: 1
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7352784Z   PYTHONPATH: 
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7353014Z   PIP_CONFIG_FILE: /dev/null
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7353268Z   PIP_DISABLE_PIP_VERSION_CHECK: 1
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7353658Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7354109Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7354613Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7355027Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7355417Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7355805Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7356207Z   VIRTUAL_ENV: /home/runner/work/_temp/maxim-python-env
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7356571Z   CARGO_HOME: /home/runner/work/_temp/maxim-cargo-home
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7356887Z   CARGO_NET_OFFLINE: true
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7357130Z   CARGO_INCREMENTAL: 0
+build	Package and verify the complete original source archive	2026-11-05T22:57:34.7357361Z ##[endgroup]
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4364186Z Traceback (most recent call last):
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4365195Z   File "/home/runner/work/MAXIM/MAXIM/tools/package-source.py", line 12, in <module>
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4366509Z     print(json.dumps(package_source(Path(__file__).resolve().parents[1], args.output, args.expected_source_head)))
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4367581Z                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4368571Z   File "/home/runner/work/MAXIM/MAXIM/tools/source_custody.py", line 235, in package_source
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4369382Z     data, modes = source_data(repo, head)
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4369838Z                   ^^^^^^^^^^^^^^^^^^^^^^^
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4370837Z   File "/home/runner/work/MAXIM/MAXIM/tools/source_custody.py", line 182, in source_data
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4371513Z     return git_source(repo, head)
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4371923Z            ^^^^^^^^^^^^^^^^^^^^^^
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4372585Z   File "/home/runner/work/MAXIM/MAXIM/tools/source_custody.py", line 176, in git_source
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4373289Z     verify_source_data(data, modes, head)
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4374149Z   File "/home/runner/work/MAXIM/MAXIM/tools/source_custody.py", line 107, in verify_source_data
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4376055Z     rust, rust_data = rust_inputs.verify(data['cargo-inputs/inputs.zip'], data['cargo-inputs/sha256.txt'].decode().split()[0], data['Cargo.lock'])
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4376983Z     ^^^^^^^^^^^^^^^
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.4377459Z ValueError: too many values to unpack (expected 2)
+build	Package and verify the complete original source archive	2026-11-05T22:57:43.5343373Z ##[error]Process completed with exit code 1.

@@ -104,7 +104,7 @@ def verify_tree(data, modes, expected_head):
 
 def verify_source_data(data, modes, expected_head):
     manifest = verify_tree(data, modes, expected_head)
-    rust, rust_data = rust_inputs.verify(data['cargo-inputs/inputs.zip'], data['cargo-inputs/sha256.txt'].decode().split()[0], data['Cargo.lock'])
+    rust, rust_data, _ = rust_inputs.verify(data['cargo-inputs/inputs.zip'], data['cargo-inputs/sha256.txt'].decode().split()[0], data['Cargo.lock'])
     if strict_json(data['cargo-inputs/manifest.json']) != rust or data['cargo-inputs/DEPENDENCY-NOTICES.txt'] != rust_data['DEPENDENCY-NOTICES.txt']:
         raise ValueError('Original Rust manifest/notices differ')
     python, python_data = python_inputs.verify(data['python-inputs/inputs.zip'], data['python-inputs/sha256.txt'].decode().split()[0], data['python-inputs/releases.json'], data['requirements-build.lock'])

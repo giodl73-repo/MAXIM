@@ -129,4 +129,37 @@ class SourceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Duplicate JSON'):custody.verify_tree(data,self.modes,self.head)
 
 
+class CompleteInputTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        root=Path(__file__).resolve().parents[1]
+        names=['Cargo.lock','requirements-build.lock','cargo-inputs/inputs.zip','cargo-inputs/manifest.json','cargo-inputs/sha256.txt','cargo-inputs/DEPENDENCY-NOTICES.txt','python-inputs/inputs.zip','python-inputs/manifest.json','python-inputs/sha256.txt','python-inputs/releases.json','python-inputs/DEPENDENCY-NOTICES.txt']
+        cls.original={name:(root/name).read_bytes() for name in names}
+
+    def committed(self, change=None):
+        data=dict(self.original)
+        if change:change(data)
+        rows=[dict(path=name,mode='100644',git_blob=custody.git_id('blob',raw),bytes=len(raw),sha256=custody.digest(raw)) for name,raw in sorted(data.items())]
+        tree=custody.git_tree(rows)
+        commit=b'tree '+tree.encode()+b'\nauthor MAXIM test <test@example.invalid> 0 +0000\ncommitter MAXIM test <test@example.invalid> 0 +0000\n\nOriginal input integration fixture\n'
+        head=custody.git_id('commit',commit)
+        manifest=dict(schema='maxim.source.v1',source_commit=head,source_tree=tree,commit_object_hex=commit.hex(),git_files=rows)
+        data[custody.SOURCE_MANIFEST]=custody.encoded(manifest)
+        return head,data,{name:0o100644 for name in data}
+
+    def test_actual_complete_rust_and_python_capsules(self):
+        head,data,modes=self.committed()
+        self.assertEqual(custody.verify_source_data(data,modes,head)['source_commit'],head)
+
+    def test_original_rust_notices_required_despite_valid_rebound_commit(self):
+        head,data,modes=self.committed(lambda d:d.update({'cargo-inputs/DEPENDENCY-NOTICES.txt':b'pruned notices'}))
+        custody.verify_tree(data,modes,head)
+        with self.assertRaisesRegex(ValueError,'Rust manifest/notices'):custody.verify_source_data(data,modes,head)
+
+    def test_original_python_notices_required_despite_valid_rebound_commit(self):
+        head,data,modes=self.committed(lambda d:d.update({'python-inputs/DEPENDENCY-NOTICES.txt':b'pruned notices'}))
+        custody.verify_tree(data,modes,head)
+        with self.assertRaisesRegex(ValueError,'Python manifest/notices'):custody.verify_source_data(data,modes,head)
+
+
 if __name__=='__main__':unittest.main()
