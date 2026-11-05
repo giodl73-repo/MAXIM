@@ -1,9 +1,9 @@
 # Reproducible MAXIM search delivery
 
-Status: native/WASM and locked-generator source CI qualified; MAXIM-owned input
-verifier passes16 local tests. Offline compiled input replay and full source/
-Python/archive/worker/default/live custody remain open. No new hosted release
-or factual certification is claimed.
+Status: complete locked Rust/Python offline source builds are qualified on
+Windows and Linux. Worker recovery passes 13 local browser cases; its exact-head
+full source CI is next. Full source/archive/font/default/live custody remains
+open. No new hosted release or factual certification is claimed.
 
 Preserve original `d6c411e58b02b0901e96353ab884d4acab2fe607` Rust Index,
 native index-builder, lexical ranking, Unicode tokenization, AND intersection,
@@ -60,10 +60,10 @@ these are simulated review perspectives, not independent human certification.
 - Learner Advocate: visible matching semantics, substantial initial download,
   useful failure/retry/download paths and keyboard/mobile remain necessary.
 
-The laptop currently has under 1 GB free and M: is disconnected. Full library
-build/output duplication is deferred pending adequate scratch space; source and
-bounded native/parity work can proceed. Do not clear the shared Cargo target,
-remove retained original/failed/qualified artifacts, or alter other sessions.
+The earlier laptop space constraint cleared externally; complete local builds
+are now qualified. M: is not needed for this bounded replay. Do not clear the
+shared Cargo target, remove retained original/failed/qualified artifacts, or
+alter other sessions.
 
 Initial metadata failed offline because two locked registry inputs were absent.
 Acquisition fetched them without changing Cargo.lock. The second original
@@ -222,3 +222,42 @@ earlier qualified Rust/site runs are not retagged. Interpreter, pip, compiler,
 bindgen, Node and browser remain installed prerequisites. Complete source archive,
 font custody, worker lifecycle, default/live release and portfolio snapshot gates
 remain open. Source PR 4 remains a draft.
+
+## Qualified Python offline build and worker recovery candidate
+
+Source 0ede7045868a1fbd20dcbca635310f4e7675e567 passes hosted run
+42120700537. Actual downloaded Python/Rust/parity service ZIP hashes match
+GitHub's digests, and the built PR merge tree equals the source branch tree.
+All 29 Python packages install from the capsule offline into a new venv. All
+18,336 Linux installed files, original Python cache bytes and 760 restored Rust
+files/configuration remain unchanged after the complete native/site/WASM/browser
+build. Full index bytes match Windows and the earlier qualified generator;
+134 query, 7 constructor and 10 boundary comparisons pass. This is execution
+evidence, not a list of package URLs. Installed prerequisites remain explicit.
+
+The worker candidate adds a 120-second complete-index initialization deadline
+and 15-second computation deadline, actual termination on failure/Stop search,
+and Retry search with a new worker. Query/module state is retained. Edits clear
+results immediately; one active request and only the latest queued request are
+kept. Request IDs and worker generations fence stale replies, including captured
+callbacks after restart. Page hide retires the worker; BFCache return restarts.
+Navigation and downloads remain independently usable. Native Rust/search policy,
+guide source, licenses and the complete corpus remain unchanged.
+
+All 13 local browser cases pass: the original three full-index cases, actual
+503-index recovery followed by successful Rust search, and lifecycle/protocol
+controls for startup/compute deadlines, cancel/retry, immediate invalidation,
+latest module/query, old generations, message errors and construction failure.
+Deadline/cancel controls use real browser Workers and observe their close events;
+protocol fixtures do not stand in for engine parity. The current UI is mounted
+over the unchanged qualified complete site/index, not claimed as a fresh full
+source build. Exact-head hosted CI must still qualify this candidate.
+
+The first 13-case run passed 12 cases: assigning onmessageerror did not receive
+the synthetic messageerror event in the actual browser Worker. Registering an
+event listener fixes it; the full 13-case rerun passes without weakening the
+assertion. Failed and passing reports/raw output are retained separately, with
+the failed trace/screenshot kept in the external qualification directory.
+The four repository review lenses were applied by the implementing agent; no
+independent reviewer certification is claimed. Full source/archive, font and
+default/live delivery gates remain open; source PR 4 stays draft.

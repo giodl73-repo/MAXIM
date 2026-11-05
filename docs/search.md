@@ -70,6 +70,13 @@ Do not assume a new Python/Markdown environment regenerates an old index exactly
   or weights before use. The UI renders text nodes, confines result URLs to the
   site, ignores stale replies, and displays a usable failure state.
 
+Search runs in a worker with a two-minute initialization deadline for the full
+index and a fifteen-second computation deadline. Stop search terminates the
+worker; Retry search creates a new one while preserving the query and module.
+Edits clear visible results immediately. Request IDs and worker generations
+prevent earlier replies from replacing the current search. Library navigation
+and download links remain available when search cannot run.
+
 Posting weights use fixed-point thousandths and compact tuple serialization.
 The index is delivered as deterministic gzip and decompressed in the worker with
 the browser's `DecompressionStream` API. An unsupported browser gets the normal

@@ -1,0 +1,72 @@
+
+Running 13 tests using 2 workers
+
+
+
+
+
+
+
+
+
+[1A[2K[1/13] tests\browser\search.spec.js:3:1 › real WASM searches guides under a project prefix
+[1A[2K[2/13] tests\browser\lifecycle.spec.js:59:1 › a failed actual index download retries successfully in a fresh worker
+[1A[2K[3/13] tests\browser\search.spec.js:31:1 › mobile search is usable and has no horizontal overflow
+[1A[2K[4/13] tests\browser\lifecycle.spec.js:73:1 › initialization deadline actually closes a stalled worker
+[1A[2K[5/13] tests\browser\lifecycle.spec.js:83:1 › compute deadline actually terminates a blocked worker
+[1A[2K[6/13] tests\browser\search.spec.js:40:1 › failed index download offers a readable recovery route
+[1A[2K[7/13] tests\browser\lifecycle.spec.js:93:1 › stop during initialization preserves the draft and starts a new worker on retry
+[1A[2K[8/13] tests\browser\lifecycle.spec.js:110:1 › stop during computation clears results and closes the active worker
+[1A[2K[9/13] tests\browser\lifecycle.spec.js:119:1 › edits clear results immediately and ignore an older in-flight reply
+[1A[2K[10/13] tests\browser\lifecycle.spec.js:142:1 › a module change queues only the latest request behind active computation
+[1A[2K[11/13] tests\browser\lifecycle.spec.js:155:1 › captured previous-generation replies cannot affect a restarted session
+[1A[2K[12/13] tests\browser\lifecycle.spec.js:173:1 › unreadable worker messages retire the session with usable navigation
+[1A[2K  1) tests\browser\lifecycle.spec.js:173:1 › unreadable worker messages retire the session with usable navigation 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: locator('#status')
+    Expected substring: [32m"unreadable response"[39m
+    Received string:    [31m"Searching…"[39m
+    Timeout: 5000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 5000ms[22m
+    [2m  - waiting for locator('#status')[22m
+    [2m    9 × locator resolved to <p id="status" role="status" aria-live="polite">Searching…</p>[22m
+    [2m      - unexpected value "Searching…"[22m
+
+
+      47 | }
+      48 | async function stopped(page, closed, message) {
+    > 49 |   await expect(page.locator('#status')).toContainText(message);
+         |                                         ^
+      50 |   await expect(page.locator('#retry')).toBeVisible();
+      51 |   await expect(page.locator('#submit')).toBeDisabled();
+      52 |   await expect(page.locator('.result')).toHaveCount(0);
+        at stopped (C:\src\maxim-self-service-20261105\tests\browser\lifecycle.spec.js:49:41)
+        at C:\src\maxim-self-service-20261105\tests\browser\lifecycle.spec.js:177:9
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\maxim-self-service-qualification-20261105\worker-lifecycle-v1\results\lifecycle-unreadable-worke-c168c-sion-with-usable-navigation\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\maxim-self-service-qualification-20261105\worker-lifecycle-v1\results\lifecycle-unreadable-worke-c168c-sion-with-usable-navigation\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\maxim-self-service-qualification-20261105\worker-lifecycle-v1\results\lifecycle-unreadable-worke-c168c-sion-with-usable-navigation\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\maxim-self-service-qualification-20261105\worker-lifecycle-v1\results\lifecycle-unreadable-worke-c168c-sion-with-usable-navigation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+[1A[2K[13/13] tests\browser\lifecycle.spec.js:180:1 › worker construction failure retains recovery and download links
+[1A[2K  1 failed
+    tests\browser\lifecycle.spec.js:173:1 › unreadable worker messages retire the session with usable navigation 
+  12 passed (1.1m)

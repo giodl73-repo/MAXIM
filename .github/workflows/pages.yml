@@ -85,7 +85,16 @@ jobs:
             ${{ runner.temp }}/maxim-search-parity/stderr
             ${{ runner.temp }}/maxim-search-parity/results
       - name: Browser smoke tests
-        run: npm test
+        env:
+          PLAYWRIGHT_JSON_OUTPUT_NAME: ${{ runner.temp }}/maxim-browser-report.json
+        run: npm test -- --reporter=line,json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-proof
+          path: |
+            ${{ runner.temp }}/maxim-browser-report.json
+            test-results/
       - name: Verify Rust inputs stayed isolated throughout the build
         run: python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof-after.json"
       - name: Verify Python inputs stayed unchanged throughout the build
