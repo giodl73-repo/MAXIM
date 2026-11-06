@@ -18,7 +18,7 @@ Search relevance remains separate from guide factual/Gold status.
 ## Qualified delivery and final review
 
 The original receipts and single implementing-agent four-role review are kept
-under [validation/qualified-delivery-96050739/](validation/qualified-delivery-96050739/).
+with the [qualified delivery review](validation/qualified-delivery-96050739/review.json).
 They retain their original source identities, paths, platform limits and hashes.
 The [qualified hosted run](https://github.com/giodl73-repo/MAXIM/actions/runs/42137091006)
 built PR merge `f2be70535655fa4bdfc472216b5155c9d610c40d`, whose complete tree
