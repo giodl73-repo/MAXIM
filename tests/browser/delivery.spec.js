@@ -52,7 +52,11 @@ test('revision, source and notices remain discoverable without JavaScript', asyn
   const context = await browser.newContext({javaScriptEnabled:false,baseURL});
   try {
     const page = await context.newPage(); await page.goto('/MAXIM/explore/');
-    await expect(page.getByText('Enable JavaScript to search',{exact:false})).toBeVisible();
+    // Playwright's global text engine skips NOSCRIPT subtrees. Select the
+    // actual rendered paragraph, and prove search JavaScript stayed inactive.
+    await expect(page.locator('noscript p')).toBeVisible();
+    await expect(page.locator('noscript p')).toContainText('Enable JavaScript to search');
+    await expect(page.locator('#submit')).toBeDisabled();
     const revision = await page.locator('#source-revision').textContent(); expect(revision).toMatch(/^[0-9a-f]{12}$/);
     await expect(page.getByRole('link',{name:'Download source',exact:true})).toHaveAttribute('href',/maxim-source-[0-9a-f]{40}\.zip$/);
     await expect(page.getByRole('link',{name:'Font notices',exact:true})).toBeVisible();

@@ -377,3 +377,24 @@ Source original notices/CRLF bytes remain unchanged; only the generated font
 catalog uses normal LF Git text policy. Exact old/failed/current evidence stays
 separate. The full16-browser/source/native/WASM/archive candidate is next; source
 PR4 remains draft and default/live/canonical snapshot gates stay open.
+
+## Actual delivery browser evidence and no-JavaScript selector correction
+
+Run42134825021 at06c72a9c builds and independently verifies the complete site
+under the existing budget; native/WASM151 controls pass. The 16-case browser run
+passes15, including real search with every external request blocked, all four
+original font families loaded and a rendered guide, and a complete source ZIP
+download/hash check while WASM returns503. One no-JavaScript assertion fails:
+Playwright's global text engine explicitly skips NOSCRIPT subtrees. The actual
+service report/trace/screenshot ZIP digest is verified and retained externally;
+the DOM trace contains the correct visible fallback paragraph.
+
+A separate actual Chrome145 no-JavaScript DOM check shows the old locator count
+zero, the noscript paragraph visible with its correct text, search disabled,
+zero workers and the correct static source revision. The test now selects that
+rendered paragraph directly and asserts its text/visibility and disabled search,
+retaining revision/source/notice checks. No product code, source corpus, parser
+semantics, expected results or comparison policy changes. This isolated DOM
+check is not a full build/source-download claim. The full16-case run and complete
+outside-Git build/file comparison still must pass; archive qualification was
+not reached in the failed run. Original/failed/corrected evidence stays distinct.
