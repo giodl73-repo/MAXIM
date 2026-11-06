@@ -7,13 +7,14 @@ import zipfile
 
 from font_custody import verify_fonts
 from source_custody import digest, encoded, strict_json, validate_paths, source_zip, verify_source
+from rust_build import expected_policy
 
 BUILD_MANIFEST = 'explore/BUILD-MANIFEST.json'
 SITE_BUDGET = 1_000_000_000
 INDEX_RAW_BUDGET = 256 * 1024 * 1024
 RUNTIME_NOTICE = 'notices/rust-1.95.0-COPYRIGHT-library.html'
 RUNTIME_NOTICE_SHA = '90567e2718bf7fd65a71a3a43c5596488e80e5f51ed02bfea6fec54458b5f3d1'
-HELPERS = ['receive-source.py', 'source_custody.py', 'input_custody.py', 'python_custody.py', 'receive-site.py', 'site_custody.py', 'font_custody.py']
+HELPERS = ['receive-source.py', 'source_custody.py', 'input_custody.py', 'python_custody.py', 'receive-site.py', 'site_custody.py', 'font_custody.py', 'rust_build.py']
 NOTICES = {
     'LICENSE.md': 'LICENSE.md',
     'RUST-DEPENDENCY-NOTICES.txt': 'cargo-inputs/DEPENDENCY-NOTICES.txt',
@@ -66,7 +67,7 @@ def index_digest(raw):
     return digest(value)
 
 
-def add_delivery(build, data, modes, head):
+def add_delivery(build, data, modes, head, rust_policy=None):
     source_manifest = strict_json(data['SOURCE-MANIFEST.json'])
     verify_fonts(data)
     if digest(data[RUNTIME_NOTICE]) != RUNTIME_NOTICE_SHA:
@@ -76,7 +77,7 @@ def add_delivery(build, data, modes, head):
     source_name = 'explore/downloads/maxim-source-' + head + '.zip'
     (build / source_name).write_bytes(source)
     index_raw = (build / 'explore/index.json.gz').read_bytes()
-    manifest = dict(schema='maxim.site.v1', source_commit=head, source_tree=source_manifest['source_tree'], source_date_epoch=source_epoch(data), source=descriptor(source_name, source),
+    manifest = dict(schema='maxim.site.v1', source_commit=head, source_tree=source_manifest['source_tree'], source_date_epoch=source_epoch(data), rust_paths=rust_policy or expected_policy(data['Cargo.lock']), source=descriptor(source_name, source),
                     index=dict(**descriptor('explore/index.json.gz', index_raw), raw_sha256=index_digest(index_raw), schema=1),
                     wasm=descriptor('explore/pkg/maxim_search_bg.wasm', (build / 'explore/pkg/maxim_search_bg.wasm').read_bytes()),
                     adapter=descriptor('explore/pkg/maxim_search.js', (build / 'explore/pkg/maxim_search.js').read_bytes()),
@@ -131,6 +132,7 @@ def verify_site_data(files, expected_manifest_sha, expected_head):
     if source_manifest['source_tree'] != manifest['source_tree']:
         raise ValueError('Site and original source tree differ')
     if manifest['source_date_epoch'] != source_epoch(data):raise ValueError('Original source epoch differs')
+    if manifest['rust_paths'] != expected_policy(data['Cargo.lock'], manifest['rust_paths']['inherited_flags']):raise ValueError('Declared compiler path policy differs from original lock')
     verify_fonts(data)
     if digest(data[RUNTIME_NOTICE]) != RUNTIME_NOTICE_SHA:
         raise ValueError('Original runtime notice hash mismatch')
@@ -155,7 +157,7 @@ def verify_site_data(files, expected_manifest_sha, expected_head):
 
 
 def verify_site(root, expected_manifest_sha, expected_head):
-    root = Path(root)
+    root = Path(os.path.abspath(root))
     for parent in [root, *root.parents]:
         if parent.is_symlink() or (parent.exists() and getattr(parent.lstat(), 'st_file_attributes', 0) & 0x400):
             raise ValueError('Site root uses a link/junction')

@@ -38,7 +38,7 @@ current library, rather than selecting a smaller source subset.
 
 The Pages build publishes the complete source ZIP, source manifest, index,
 adapter, WASM and original notices in Explore's footer. The source and index
-revision are visible without JavaScript. The verifier bundle contains seven
+revision are visible without JavaScript. The verifier bundle contains eight
 Git-bound stdlib helpers and concrete source-receiving commands. The complete
 project site's `explore/BUILD-MANIFEST.json` inventories every rendered guide,
 runtime file and download, with one total budget below 1 GB.
@@ -58,7 +58,16 @@ bindgen, Node/Playwright/browser are prerequisites. The locked installed Node
 test package is copied as a prerequisite, without re-resolving dependencies.
 
 MkDocs receives `SOURCE_DATE_EPOCH` from the original source commit for stable
-build/sitemap timestamps. Fonts retain the original families, WOFF2 bytes and
+build/sitemap timestamps. Release Rust builds remap first-party and dependency
+diagnostic file paths to stable virtual roots; inherited environment compiler flags are
+retained and declared. This changes build output at its producer, not retained
+observations or comparison rules. Fonts retain the original families, WOFF2 bytes and
 all original CSS subsets, with URLs pointing to same-origin assets and complete
 OFL notices. Their builds and editable font source were not reproduced. Default/
 live delivery still needs separate qualification.
+
+Two unnumbered auxiliary documents use flat `.html` routes to avoid colliding
+with existing lowercase directories on case-insensitive computers:
+`PUZZLE-HUNT.md` and this wave's `VALIDATION.md`. All source content is retained,
+MkDocs resolves internal Markdown links to their new routes, and numbered guide
+URLs remain unchanged. Unexpected case collisions still fail the build.

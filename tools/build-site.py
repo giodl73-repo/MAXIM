@@ -12,6 +12,7 @@ from build_inputs import verify
 from input_custody import destination, digest
 from source_custody import source_data
 from site_custody import add_delivery, verify_site, BUILD_MANIFEST, source_epoch
+from rust_build import configure, expected_policy
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -42,6 +43,9 @@ def main():
     elif not head:raise ValueError('Use --expected-source-head with a verified source archive')
     data, modes = source_data(ROOT, head)
     os.environ['SOURCE_DATE_EPOCH'] = str(source_epoch(data))
+    rust_metadata = json.loads(subprocess.check_output(['cargo', 'metadata', '--locked', '--offline', '--all-features', '--format-version', '1'], cwd=ROOT))
+    rust_policy = configure(ROOT, rust_metadata)
+    if rust_policy != expected_policy(data['Cargo.lock'], rust_policy['inherited_flags']):raise ValueError('Compiler path policy differs from complete lock')
     version = subprocess.check_output(["wasm-bindgen", "--version"], text=True).strip()
     if version != "wasm-bindgen 0.2.127":
         raise ValueError(f"Expected wasm-bindgen 0.2.127, found {version}")
@@ -61,7 +65,7 @@ def main():
         raw.unlink()
         (explore / "entries.json").unlink()
         (build / ".nojekyll").touch()
-        manifest = add_delivery(build, data, modes, head)
+        manifest = add_delivery(build, data, modes, head, rust_policy)
         verify_site(build, digest((build / BUILD_MANIFEST).read_bytes()), head)
         size = sum(path.stat().st_size for path in build.rglob("*") if path.is_file())
         print(f"Published site: {size:,} bytes")

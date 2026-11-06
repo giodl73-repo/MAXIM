@@ -129,6 +129,19 @@ class SiteTests(unittest.TestCase):
         finally:
             self.assertEqual(link.resolve(),self.build.resolve());link.rmdir() if os.name=='nt' else link.unlink()
 
+    def test_relative_site_through_junction_or_symlink_is_rejected(self):
+        link=self.root/'working-link';previous=Path.cwd()
+        if os.name=='nt':subprocess.run([os.environ.get('COMSPEC','cmd.exe'),'/c','mklink','/J',str(link),str(self.build)],check=True,capture_output=True)
+        else:link.symlink_to(self.build,target_is_directory=True)
+        try:
+            # Windows retains the junction in GetCurrentDirectory. POSIX getcwd
+            # returns its physical target, so exercise a lexical relative link.
+            os.chdir(link if os.name=='nt' else self.root)
+            relative=Path('.') if os.name=='nt' else Path('working-link')
+            with self.assertRaisesRegex(ValueError,'link/junction'):site.verify_site(relative,self.manifest_sha,self.head)
+        finally:
+            os.chdir(previous);self.assertEqual(link.resolve(),self.build.resolve());link.rmdir() if os.name=='nt' else link.unlink()
+
 
 class FontTests(unittest.TestCase):
     @classmethod

@@ -347,3 +347,33 @@ external-request real search/four-font loading, complete source download with
 WASM unavailable, and no-JavaScript revision/download discovery. The complete
 16-case browser run, full hosted/archive build and actual artifact receipts are
 pending. PR4 remains draft; no default/live release or gitlink advance occurs.
+
+## Producer routing and reproducible Rust paths
+
+Full candidate ce03f59e run42131888293 stops at the strict site receiver, before
+browser/archive qualification: directory URL output for PUZZLE-HUNT.md collides
+by case with puzzle-hunt/, and this wave's VALIDATION.md collides with its
+validation/ directory. Captured actual MkDocs file-map diagnostics identify both
+roots. The producer now gives just those two unnumbered auxiliary documents flat
+.html routes. No source content is removed or renamed; numbered guide URLs and
+corpus preparation remain unchanged. MkDocs updates internal Markdown links.
+The complete current file map passes strict portability checks; unexpected case
+collisions still reject. The first routing test mistakenly indexed MkDocs Files
+as a list; its actual failed output/source is retained and corrected via its API.
+
+An actual earlier qualified WASM contains absolute owned-dependency paths. To
+produce the same bytes from different restored roots, release Cargo builds now
+remap first-party/dependency diagnostics to stable virtual paths. Inherited
+environment Rust flags are preserved through CARGO_ENCODED_RUSTFLAGS and declared
+in the build receipt. Original Rust/core/lock/search policy is unchanged. A real
+Rust1.95.0 file! probe (including spaces in source paths) proves the compiler
+applies the mapping; flags/duplicate virtual names/empty encoded precedence are
+tested separately. This is a producer change, not normalized observations or a
+weakened archive comparison. Full new module/archive equality remains to prove.
+
+All 41 local tests pass:16 source,17 site/font (including relative Windows
+junction/current-directory protection),4 compiler-path and4 routing controls.
+Source original notices/CRLF bytes remain unchanged; only the generated font
+catalog uses normal LF Git text policy. Exact old/failed/current evidence stays
+separate. The full16-browser/source/native/WASM/archive candidate is next; source
+PR4 remains draft and default/live/canonical snapshot gates stay open.

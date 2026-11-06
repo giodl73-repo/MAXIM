@@ -70,6 +70,8 @@ jobs:
           python tools/test_build_search.py
           python tools/test_source_custody.py
           python tools/test_site_custody.py
+          python tools/test_rust_build.py
+          python tools/test_portable_routes.py
       - name: Package and verify the complete original source archive
         run: |
           source_head=$(git rev-parse HEAD)
@@ -133,6 +135,10 @@ jobs:
             ${{ runner.temp }}/maxim-archive-proof/parity/stdout
             ${{ runner.temp }}/maxim-archive-proof/parity/stderr
             ${{ runner.temp }}/maxim-archive-proof/parity/results/
+            ${{ runner.temp }}/maxim-archive-proof/source/site/MAXIM/explore/pkg/
+            ${{ runner.temp }}/maxim-archive-proof/source/site/MAXIM/explore/BUILD-MANIFEST.json
+            site/MAXIM/explore/pkg/
+            site/MAXIM/explore/BUILD-MANIFEST.json
       - name: Verify Rust inputs stayed isolated throughout the build
         run: python tools/check_input_metadata.py --metadata "$RUNNER_TEMP/maxim-restored-metadata.json" --inputs "$RUNNER_TEMP/maxim-rust-inputs" --cargo-home "$RUNNER_TEMP/maxim-cargo-home" > "$RUNNER_TEMP/maxim-rust-input-proof-after.json"
       - name: Verify Python inputs stayed unchanged throughout the build
