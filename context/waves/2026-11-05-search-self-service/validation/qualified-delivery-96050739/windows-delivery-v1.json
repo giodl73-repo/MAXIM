@@ -1,0 +1,311 @@
+{
+  "head": "96050739eab2833836d07363db7bff6ee899d275",
+  "checked_at": "2026-11-06T01:45:15.835372+00:00",
+  "site": "C:\\src\\maxim-self-service-20261105\\site\\delivery-windows-20261105\\MAXIM",
+  "manifest_sha256": "216e82682e83c10fd3925c003feb6e7b891047dcbaeadcc6d34db7319e1b43bd",
+  "total_bytes": 574288995,
+  "source": {
+    "path": "explore/downloads/maxim-source-96050739eab2833836d07363db7bff6ee899d275.zip",
+    "bytes": 157423161,
+    "sha256": "333a223c8ac1f2a22618ec04d22bbf174ec3cdf3894da4aff2a6336cd2af6925"
+  },
+  "index": {
+    "path": "explore/index.json.gz",
+    "bytes": 34828989,
+    "sha256": "9a7b4b9d7704252dc0b2a069c335475cdc71ac7217982569b2e58be4d05d8ae5",
+    "raw_sha256": "81c94c073692eeb442ff30a683e03b7ee3d016325fbbdde36e7a40fd799be5f5",
+    "schema": 1
+  },
+  "wasm": {
+    "path": "explore/pkg/maxim_search_bg.wasm",
+    "bytes": 163024,
+    "sha256": "b38a3f1da7d20c9f58f67461450a3b783244d5fd7dae7df46f9ca08de5ff79e0"
+  },
+  "rust_paths": {
+    "source": "/maxim-source",
+    "dependencies": [
+      "bumpalo-3.20.3",
+      "cfg-if-1.0.5",
+      "itoa-1.0.18",
+      "memchr-2.8.3",
+      "once_cell-1.21.4",
+      "proc-macro2-1.0.107",
+      "quote-1.0.47",
+      "rustversion-1.0.23",
+      "serde-1.0.229",
+      "serde_core-1.0.229",
+      "serde_derive-1.0.229",
+      "serde_json-1.0.151",
+      "syn-2.0.119",
+      "syn-3.0.6",
+      "unicode-ident-1.0.26",
+      "wasm-bindgen-0.2.127",
+      "wasm-bindgen-macro-0.2.127",
+      "wasm-bindgen-macro-support-0.2.127",
+      "wasm-bindgen-shared-0.2.127",
+      "zmij-1.0.23"
+    ],
+    "inherited_flags": []
+  },
+  "commands": [
+    {
+      "name": "python-before",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/check_python_inputs.py",
+        "--cache",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+        "--venv",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+        "--snapshot",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\installed-python.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "rust-restore",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/input_custody.py",
+        "--sha256",
+        "2cf28dcaa10481609425989e6ac9278a8106ea3257a2da19b63d2aede391c37a",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\rust-inputs",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\cargo-home"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "metadata",
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "metadata",
+        "--locked",
+        "--offline",
+        "--all-features",
+        "--format-version",
+        "1"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "rust-before",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\rust-inputs",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\cargo-home"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "fmt",
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "native",
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "test",
+        "--locked",
+        "--offline",
+        "--all-targets"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "clippy",
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "clippy",
+        "--locked",
+        "--offline",
+        "--no-deps",
+        "--all-targets",
+        "--all-features",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "control",
+      "command": [
+        "cargo",
+        "+1.95.0",
+        "build",
+        "--locked",
+        "--offline",
+        "--example",
+        "search-control"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "site",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/build-site.py",
+        "--site",
+        "C:\\src\\maxim-self-service-20261105\\site\\delivery-windows-20261105\\MAXIM",
+        "--expected-source-head",
+        "96050739eab2833836d07363db7bff6ee899d275"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "parity",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/check-search.py",
+        "--site",
+        "C:\\src\\maxim-self-service-20261105\\site\\delivery-windows-20261105\\MAXIM\\explore",
+        "--output",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\parity",
+        "--expected-source-head",
+        "96050739eab2833836d07363db7bff6ee899d275"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "receive-site",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/receive-site.py",
+        "--site",
+        "C:\\src\\maxim-self-service-20261105\\site\\delivery-windows-20261105\\MAXIM",
+        "--manifest-sha256",
+        "216e82682e83c10fd3925c003feb6e7b891047dcbaeadcc6d34db7319e1b43bd",
+        "--commit",
+        "96050739eab2833836d07363db7bff6ee899d275"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "browser",
+      "command": [
+        "node",
+        "C:\\src\\maxim-self-service-20261105\\node_modules\\@playwright\\test\\cli.js",
+        "test",
+        "--config",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\playwright.config.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "rust-after",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\rust-inputs",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\cargo-home"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "python-after",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/check_python_inputs.py",
+        "--cache",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+        "--venv",
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+        "--compare",
+        "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\installed-python.json"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "parity": {
+    "schema": "maxim.search-parity.v1",
+    "input": {
+      "path": "C:\\src\\maxim-self-service-qualification-20261105\\windows-delivery-v1\\parity\\index.json",
+      "bytes": 96445672,
+      "sha256": "81c94c073692eeb442ff30a683e03b7ee3d016325fbbdde36e7a40fd799be5f5"
+    },
+    "wasm": {
+      "bytes": 163024,
+      "sha256": "b38a3f1da7d20c9f58f67461450a3b783244d5fd7dae7df46f9ca08de5ff79e0",
+      "imports": [
+        {
+          "module": "./maxim_search_bg.js",
+          "name": "__wbg___wbindgen_throw_bb96b2010945f0bc",
+          "kind": "function"
+        },
+        {
+          "module": "./maxim_search_bg.js",
+          "name": "__wbindgen_cast_0000000000000001",
+          "kind": "function"
+        }
+      ]
+    },
+    "native": {
+      "path": "C:\\src\\.tracker-cargo-target\\debug\\examples\\search-control.exe",
+      "sha256": "37411e3d79fc3db97b4cb9a3b0b68396e6bb90879363c56eef70cec602548c1b"
+    },
+    "entries": 42242,
+    "sections": 242,
+    "controls": 134,
+    "constructor_controls": 7,
+    "boundary_controls": 10,
+    "all_exact": true,
+    "mismatches": [],
+    "raw_js_abi_controls_separate": 4,
+    "scope": "Exact same-index native/WASM Results serialization, totals, scores, ordering, complete entry text, sections and count, plus explicit constructor/empty/corruption and positive/rejected boundary fixtures. Input provenance, MkDocs/source-to-index lineage and complete release custody require separate evidence. Native binary/toolchain and shared compiled target are installed prerequisites; no clean-cache claim."
+  },
+  "browser_stats": {
+    "startTime": "2026-11-06T01:39:11.820Z",
+    "duration": 17604.397,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "python_before": {
+    "packages": 29,
+    "artifacts": 62,
+    "capsule_sha256": "7a347a05f464ec935d86de8362b35ccfd1bf3e04c118740af9624b9f9f2725e8",
+    "prefix": "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+    "all_package_locations_in_venv": true,
+    "complete_cache_bytes_verified": true,
+    "installed_files": 18549,
+    "installed_snapshot_sha256": "27b1f65eff7d815c1424e7a9b83fe84fa95a1cbdecf065e16e3bfaa970ba266b",
+    "compared": false,
+    "scope": "Entire installed venv snapshot includes installed sources/binaries/metadata and prerequisite pip/launcher files. Bytecode writing is disabled. Original archives/notices checked; third-party wheel builds were not reproduced."
+  },
+  "python_after": {
+    "packages": 29,
+    "artifacts": 62,
+    "capsule_sha256": "7a347a05f464ec935d86de8362b35ccfd1bf3e04c118740af9624b9f9f2725e8",
+    "prefix": "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+    "all_package_locations_in_venv": true,
+    "complete_cache_bytes_verified": true,
+    "installed_files": 18549,
+    "installed_snapshot_sha256": "27b1f65eff7d815c1424e7a9b83fe84fa95a1cbdecf065e16e3bfaa970ba266b",
+    "compared": true,
+    "scope": "Entire installed venv snapshot includes installed sources/binaries/metadata and prerequisite pip/launcher files. Bytecode writing is disabled. Original archives/notices checked; third-party wheel builds were not reproduced."
+  },
+  "rust_inputs_unchanged": true,
+  "compiled_target_reused": true,
+  "scope": "Complete Windows checkout build with owned restored offline Rust inputs/new Cargo home, installed capsule Python/Node/browser prerequisites and explicit shared compiled-target reuse; full native/site/WASM151/browser16/site-receiver pass. This is not a Windows archive rebuild or cross-platform compressed ZIP/WASM byte-identity claim. Linux complete empty-target archive proof is separate."
+}

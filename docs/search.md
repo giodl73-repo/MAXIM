@@ -17,18 +17,17 @@ python tools/build_inputs.py
 cargo test --locked
 cargo clippy --locked --all-targets --all-features -- -D warnings
 cargo fmt --check
-python tools/build-site.py --site site
-python -m http.server 8000 --directory site
+python tools/build-site.py --site site/MAXIM
 ```
 
-Open `http://localhost:8000/explore/`. To run browser checks under the GitHub
-project prefix (including WASM execution, result links, empty results, module
-filtering, mobile layout, and load failure):
+Serve that output with `python -m http.server 8000 --directory site` and open
+`http://localhost:8000/MAXIM/explore/`. To run browser checks against the same
+built project prefix (including WASM execution, result links, empty results,
+module filtering, mobile layout, and load failure):
 
 ```sh
 npm ci
 npx playwright install chromium
-python tools/build-site.py --site site/MAXIM
 npm test
 ```
 

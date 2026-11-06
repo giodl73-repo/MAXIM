@@ -1,9 +1,12 @@
 # Reproducible MAXIM search delivery
 
-Status: complete locked Rust/Python offline source builds are qualified on
-Windows and Linux. Worker recovery passes 13 local browser cases; its exact-head
-full source CI is next. Full source/archive/font/default/live custody remains
-open. No new hosted release or factual certification is claimed.
+Status: complete Linux checkout/outside-Git archive and Windows checkout builds
+are qualified at source `96050739`. Each passes all 151 native/WASM comparisons
+and 16 browser cases; the Linux archive rebuild matches every site file and
+manifest byte-for-byte. Actual complete Pages/source/font/notice/helper custody
+is verified. This final evidence/documentation revision needs its own exact-head
+hosted qualification. Default/live delivery and the separate TRACKER snapshot
+remain open. No factual or library-wide Gold certification is claimed.
 
 Preserve original `d6c411e58b02b0901e96353ab884d4acab2fe607` Rust Index,
 native index-builder, lexical ranking, Unicode tokenization, AND intersection,
@@ -11,6 +14,48 @@ exact module filter, score ordering/URL ties, count/limit semantics, UTF-8 and
 distinct-token limits. Keep all numbered guides, generated source-corpus
 artifacts, protected structural files and existing software/content grants.
 Search relevance remains separate from guide factual/Gold status.
+
+## Qualified delivery and final review
+
+The original receipts and single implementing-agent four-role review are kept
+under [validation/qualified-delivery-96050739/](validation/qualified-delivery-96050739/).
+They retain their original source identities, paths, platform limits and hashes.
+The [qualified hosted run](https://github.com/giodl73-repo/MAXIM/actions/runs/42137091006)
+built PR merge `f2be70535655fa4bdfc472216b5155c9d610c40d`, whose complete tree
+`e2f4556d7ec67d6407cc0b8210b2d463b6934f86` matches branch `96050739`.
+Do not relabel those observations as this later evidence commit.
+
+- Linux checkout and fresh-input/new-venv/new-Cargo-home/empty-target outside-Git
+  archive builds pass native/fmt/Clippy, full site/WASM, 134 query comparisons,
+  seven constructor controls, ten boundary controls and 16 browser cases each.
+  Every published file and the complete manifest match exactly. Installed
+  interpreter/pip/toolchain/target/bindgen/Node/browser remain prerequisites.
+- The actual downloaded Pages artifact and the published eight-helper stdlib
+  bundle each verify all 4,694 site files and 21,123 original Git source blobs,
+  complete Rust/Python capsules and original font/runtime/dependency notices.
+  Its 574,210,343 bytes stay below the original 1 GB total site budget.
+- The complete Windows checkout separately passes native/fmt/Clippy, site/WASM,
+  all 151 comparisons, all 16 browser cases and full site verification. All 760
+  restored Rust files/config and all 18,549 installed Python files remain
+  unchanged. Shared compiled-target reuse and installed Python/Node/browser
+  prerequisites are explicit. Its site totals 574,288,995 bytes. This is not a
+  Windows archive rebuild or a cross-platform ZIP/WASM byte-identity claim:
+  the raw index matches, but the actual Windows/Linux WASM binaries differ.
+- The four repository review lenses confirm original Rust/core/lock/toolchain,
+  native index builder, protected structural files, licenses and all numbered
+  guides are unchanged. Static revisions/downloads, source retrieval with WASM
+  unavailable, four original font families with external requests blocked,
+  keyboard/mobile and worker stop/retry/deadline/stale-reply cases pass.
+  Integrity and lexical relevance remain separate from guide facts/Gold status.
+
+Review finding MAXIM-DOC-01 is corrected in `docs/search.md`: both manual use
+and browser tests reuse one build at `site/MAXIM`; sequential instructions no
+longer attempt an overlapping output folder. Existing-output refusal remains.
+This evidence/documentation change must pass its own complete hosted source,
+archive and actual-artifact gates before PR promotion. Default deployment,
+anonymous live full-file/download/behavior verification and an explicit separate
+TRACKER gitlink snapshot follow. The chronological observations below retain
+earlier failed, corrected and pending states without normalization.
 
 ## Delivery work and evidence gates
 
