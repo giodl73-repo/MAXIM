@@ -1,0 +1,41 @@
+{
+  "tests": 16,
+  "all_expected": true,
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "python",
+        "tools/test_input_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "syntax",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/input_custody.py",
+        "tools/test_input_custody.py",
+        "tools/check_input_metadata.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workflow",
+      "command": [
+        "C:/src/TRACKER/.local-tools/expense-ci-workflow-20261104/actionlint/actionlint.exe",
+        ".github/workflows/pages.yml"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "tools/input_custody.py": "2014adf86835b97ac8154981095560f37d7ad14b0133d9d788589564f0fe22a1",
+    "tools/test_input_custody.py": "51ae505badc987eb418da169ef7466f7f357a55e53059aa941eaa75649e48607",
+    "tools/check_input_metadata.py": "ef800ca14d46c219b455b8a2535449e39a1f67e08055af335dac8233f8626503",
+    ".github/workflows/pages.yml": "919fe0d8cda024d4ef0edf82d0c101b43bb9ff12da788c7d237409023c46ee8c"
+  },
+  "scope": "Current MAXIM-owned verifier16 full real-capsule/safety/restore tests plus syntax/actionlint pass on Windows. Metadata path/source/feature tests are separate; full offline native/WASM/site/browser compiled replay remains for CI. No new local Rust build."
+}

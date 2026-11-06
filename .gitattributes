@@ -1,0 +1,18 @@
+# Preserve exact observations, including native trailing newlines and CRLF bytes.
+context/waves/2026-11-05-search-self-service/validation/**/*.stdout -text -whitespace
+context/waves/2026-11-05-search-self-service/validation/**/*.stderr -text -whitespace
+context/waves/2026-11-05-search-self-service/validation/**/stdout -text -whitespace
+context/waves/2026-11-05-search-self-service/validation/**/stderr -text -whitespace
+context/waves/2026-11-05-search-self-service/validation/**/*.gz -text
+cargo-inputs/DEPENDENCY-NOTICES.txt -text
+# Original third-party notices contain CRLF, trailing spaces and separator lines.
+# Preserve and hash their bytes; review the readable file against the capsule.
+python-inputs/DEPENDENCY-NOTICES.txt -text -diff
+font-inputs/** -text
+font-inputs/manifest.json text eol=lf
+assets/fonts/** -text
+assets/fonts/FONT-NOTICES.txt -diff
+# Preserve original license/copyright whitespace, verified against captured bytes.
+assets/fonts/licenses/*.txt -diff
+font-inputs/upstream-distributions/**/OFL.txt -diff
+notices/rust-1.95.0-COPYRIGHT-library.html -text -diff

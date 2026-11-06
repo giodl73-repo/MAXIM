@@ -1,0 +1,52 @@
+{
+  "all_expected": true,
+  "commands": [
+    {
+      "name": "positive",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-input-proof-v2\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "owner-cache",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 1
+    },
+    {
+      "name": "missing-feature",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\owned-input-metadata-v5\\missing-features.json",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "files": {
+    "tools/check_input_metadata.py": "da4ef66535b676069ea307cc6ed8a6d2b1689e3f6c12cd150e522297caafba53",
+    ".github/workflows/pages.yml": "59b4d55a31ef0eb9a60ec954b61aae7d6bf6c3b136bb7f8cb61ab7644de5c9ee"
+  },
+  "scope": "All20 manifests and760 restored source/checksum files match, no owner cache, exact configuration. Real owner-cache metadata and disabled-feature metadata are rejected. Folders restored in earlier proof reused; no new compiled replay inferred."
+}

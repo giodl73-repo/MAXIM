@@ -1,0 +1,72 @@
+[
+  {
+    "name": "before",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "tools/check_python_inputs.py",
+      "--cache",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+      "--venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+      "--snapshot",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\installed-snapshot.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "after",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "tools/check_python_inputs.py",
+      "--cache",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+      "--venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+      "--compare",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\installed-snapshot.json"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "changed-installed-snapshot",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "tools/check_python_inputs.py",
+      "--cache",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+      "--venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+      "--compare",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\changed-snapshot.json"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "changed-cache-archive",
+    "command": [
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+      "tools/check_python_inputs.py",
+      "--cache",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\mutant-cache",
+      "--venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+      "--snapshot",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\must-not-be-written.json"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "owner-interpreter",
+    "command": [
+      "python",
+      "tools/check_python_inputs.py",
+      "--cache",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\restored-cache",
+      "--venv",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv",
+      "--snapshot",
+      "C:\\src\\maxim-self-service-qualification-20261105\\python-installed-proof-v1\\owner-must-not-write.json"
+    ],
+    "exit_code": 1
+  }
+]

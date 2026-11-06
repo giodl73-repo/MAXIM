@@ -1,0 +1,21 @@
+.............F.
+======================================================================
+FAIL: test_unsafe_case_and_ancestor_paths (__main__.InputCustodyTests.test_unsafe_case_and_ancestor_paths)
+----------------------------------------------------------------------
+ValueError: Unreferenced capsule files
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\src\maxim-self-service-20261105\tools\test_input_custody.py", line 89, in test_unsafe_case_and_ancestor_paths
+    self.reject(raw.replace(b"vendor/escape", b"vendor\\escape"), "Unsafe input path")
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\src\maxim-self-service-20261105\tools\test_input_custody.py", line 44, in reject
+    with self.assertRaisesRegex(ValueError, message):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "Unsafe input path" does not match "Unreferenced capsule files"
+
+----------------------------------------------------------------------
+Ran 15 tests in 14.572s
+
+FAILED (failures=1)

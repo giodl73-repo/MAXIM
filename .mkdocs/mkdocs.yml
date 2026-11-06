@@ -12,6 +12,12 @@ exclude_docs: |
   /tools/
   /tests/
   /web/
+  /examples/
+  /cargo-inputs/
+  /python-inputs/
+  /font-inputs/
+  /notices/
+  /SOURCE-MANIFEST.json
   /Cargo.lock
   /package-lock.json
 
@@ -44,9 +50,13 @@ theme:
     - search.suggest
     - content.code.copy
     - toc.follow
-  font:
-    text: EB Garamond
-    code: JetBrains Mono
+  font: false
+
+extra_css:
+  - assets/fonts/fonts.css
+
+hooks:
+  - portable_routes.py
 
 markdown_extensions:
   - tables

@@ -1,0 +1,40 @@
+{
+  "tests": 13,
+  "all_expected": true,
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_source_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workflow",
+      "command": [
+        "C:\\src\\TRACKER\\.local-tools\\expense-ci-workflow-20261104\\actionlint\\actionlint.exe",
+        "-shellcheck=",
+        "-pyflakes=",
+        ".github/workflows/pages.yml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "tools/source_custody.py": "f78d26125155303e9f0c534453fbd4fb8dd9a23d083cc00bc9bcefb203d11447",
+    "tools/package-source.py": "ddff84153a7db24c3d3b2126f280005f90fbb7256bdf0677cf2c60e22f8accfc",
+    "tools/receive-source.py": "631756c88520aa85acc28ad694b447674a9e2cb75db837e16c7957b9d30ac900",
+    "tools/test_source_custody.py": "e5866fceeeca67e175c43f99b0f6d5abbec3e1ad77ebcf58e1432b2f4240916e"
+  },
+  "scope": "Real Git fixture commit/tree/blob/mode/rawCRLF/Unicode and source corruption/path/destination tests. Full actual MAXIM source/input export, standalone restore/repack and outside-Git site rebuild are separate gates."
+}

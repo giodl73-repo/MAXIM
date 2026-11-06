@@ -1,0 +1,48 @@
+{
+  "commands": [
+    {
+      "name": "tests",
+      "command": [
+        "python",
+        "tools/test_input_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "metadata-restored",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-input-proof-v2\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "metadata-owner-cache",
+      "command": [
+        "python",
+        "tools/check_input_metadata.py",
+        "--metadata",
+        "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\metadata.stdout",
+        "--inputs",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-inputs-v2",
+        "--cargo-home",
+        "C:\\src\\maxim-self-service-qualification-20261105\\cargo-restored-home-v2"
+      ],
+      "exit_code": 1
+    }
+  ],
+  "files": {
+    "tools/input_custody.py": "454e2775f8f5a33d7bd3447bb9de8e3a90e87d9361d97db5a24ba2d00dc740de",
+    "tools/test_input_custody.py": "2e76982cf9555ac4618428938aac2a1f1c1da4872a07985e3725d2c76c003710",
+    "tools/check_input_metadata.py": "573b3830d7101238c62e90af35a6b072ed596fff9eff24cc7a35607246a2d8da"
+  },
+  "tests": 15,
+  "all_expected": true,
+  "scope": "MAXIM-owned capsule/restore/destination/corruption controls pass locally. Metadata checker accepts earlier independently restored input folders and rejects actual owner-cache metadata. Full compiled replay from the owned CLI is reserved for CI; no new local Rust build."
+}

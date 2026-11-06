@@ -1,0 +1,64 @@
+{
+  "source_tests": 16,
+  "site_font_tests": 16,
+  "all_expected": true,
+  "commands": [
+    {
+      "name": "source-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_source_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "site-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_site_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workflow",
+      "command": [
+        "C:\\src\\TRACKER\\.local-tools\\expense-ci-workflow-20261104\\actionlint\\actionlint.exe",
+        "-shellcheck=",
+        "-pyflakes=",
+        ".github/workflows/pages.yml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "browser-syntax",
+      "command": [
+        "node",
+        "--check",
+        "tests/browser/delivery.spec.js"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "tools/font_custody.py": "e4028188048aba14b340ef2d30d29a93ea3aebafc53e7fcedc1c47bcc3b857d3",
+    "tools/site_custody.py": "aaa1b0f0fba47914a5507c653dbb480d637caf2c49501e58727176e1232a20f9",
+    "tools/receive-site.py": "af3fcf85423a98e63ec586eb7146ed0c7f3331590cdf3a0273e92a58e920e8bf",
+    "tools/qualify-archive.py": "8d12ed1051a15a9d0ae71ca5187556ff197a2de3ef6ee08ec007d66e666767d3",
+    "tools/test_site_custody.py": "b4958790128426112d28cd88b07a46b2cb9cd631db4cae0f9af3f2504900a5f8",
+    "tools/build-site.py": "306e72849a30973ab47c726953488d76f61595c81ee481437e03db99dbdfe02b",
+    "tools/check-search.py": "2201ce9d165066191152c742481ef06d8d485443209edbe7669f28ac80869ed5",
+    "web/index.html": "c440c2a551897741a82db48cd855435672180a5e10d5d4aedd9861c496f7e493",
+    "web/style.css": "b5e89445590904898e637483cbf16fd275d3a37b53e14de004f82ff7a5b87bc0",
+    "tests/browser/delivery.spec.js": "febf1d147a9cc7f269ae5c94c06788b7a66d098ffd3c6cbf0a59c9ead6e2dd77"
+  },
+  "scope": "Custody/corruption/font tests with actual original dependency/font inputs and a small custody-only WASM/index fixture. Does not replace full native/WASM/browser/source/archive execution. New hosted full integration qualification pending."
+}

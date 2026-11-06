@@ -1,0 +1,71 @@
+{
+  "all_expected": true,
+  "total_tests": 41,
+  "source_tests": 16,
+  "site_font_tests": 17,
+  "rust_path_tests": 4,
+  "routing_tests": 4,
+  "commands": [
+    {
+      "name": "source-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_source_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "site-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_site_custody.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "rust-path-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_rust_build.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "route-tests",
+      "command": [
+        "C:\\src\\maxim-self-service-qualification-20261105\\python-capsule-qualification-v1\\new-venv\\Scripts\\python.exe",
+        "tools/test_portable_routes.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "workflow",
+      "command": [
+        "C:\\src\\TRACKER\\.local-tools\\expense-ci-workflow-20261104\\actionlint\\actionlint.exe",
+        "-shellcheck=",
+        "-pyflakes=",
+        ".github/workflows/pages.yml"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "files": {
+    "tools/rust_build.py": "acb1228031771be61ac32ab7d23af590e087eeac25701d8d72d8f31b62156636",
+    "tools/test_rust_build.py": "8770eac78f93787bbcc3e951d3966348af5027fb4e39b1aec55f1b168595e983",
+    "tools/test_portable_routes.py": "6dec162bcf7890834cef65b52abcdb69fe062d8b91c642773ef3b4d0855b4fb1",
+    ".mkdocs/portable_routes.py": "760df59c4c9dd3d7f4b73e482ce1b9574891c164be5d64968c412c2b8dfe3fea",
+    "tools/build-site.py": "dfa5bebb04db76bfeb0ecf48f5afbc92bbca648c93c2c46e7021fd85a5e70e45",
+    "tools/site_custody.py": "d670e8d0e4e788343742efb2bb312a7269226b92d383519c8bd1dd2c6d4e8548",
+    "tools/test_site_custody.py": "3bd6e3e6d45ef530c1b20d065710f07bb05a1641f96cb7df583e898e48d8a1c6"
+  },
+  "scope": "Original-source/input/site/font guards plus actual MkDocs full file-map and pinned rustc path execution. Current full native/WASM/site/archive/browser CI remains separate."
+}

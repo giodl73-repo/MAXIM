@@ -1,0 +1,75 @@
+[
+  {
+    "name": "fmt",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "fmt",
+      "--check"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "tests",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "test",
+      "--all-targets",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "clippy",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "clippy",
+      "--all-targets",
+      "--all-features",
+      "--no-deps",
+      "--locked",
+      "--offline",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "control",
+    "command": [
+      "cargo",
+      "+1.95.0",
+      "build",
+      "--example",
+      "search-control",
+      "--locked",
+      "--offline"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "js-syntax",
+    "command": [
+      "node",
+      "--check",
+      "tools/check-search.mjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "same-input-parity",
+    "command": [
+      "node",
+      "tools/check-search.mjs",
+      "C:\\src\\maxim-self-service-qualification-20261105\\observed-live-index\\index.json",
+      "C:\\src\\maxim-self-service-qualification-20261105\\original-native-v2\\pkg",
+      "C:\\src\\maxim-self-service-qualification-20261105\\native-wasm-parity-v1\\search-control.exe",
+      "C:\\src\\maxim-self-service-qualification-20261105\\native-wasm-parity-v1\\results"
+    ],
+    "exit_code": 0
+  }
+]

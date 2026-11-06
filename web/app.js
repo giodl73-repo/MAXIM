@@ -1,39 +1,70 @@
 const $ = (selector) => document.querySelector(selector);
 const query = $('#query'), section = $('#section'), status = $('#status'), results = $('#results');
-let worker, ready = false, request = 0, limit = 20, timer;
+// Initialization includes the complete 35 MB compressed index, not just WASM.
+const INITIALIZATION_TIMEOUT_MS = 120_000, SEARCH_TIMEOUT_MS = 15_000;
+let worker, ready = false, request = 0, generation = 0, limit = 20, timer;
+let bootTimer, computeTimer, activeRequest = null, pending = null;
 const params = new URLSearchParams(location.search);
 query.value = (params.get('q') || '').slice(0, 512);
 
-function fail() {
-  ready = false;
-  $('#submit').disabled = true;
-  section.disabled = true;
+function clearResults() {
   results.replaceChildren();
   $('#more').hidden = true;
-  status.textContent = 'Search could not load. Reload to retry, or browse the library above.';
+}
+function retire() {
+  generation++;
+  request++;
+  clearTimeout(timer); clearTimeout(bootTimer); clearTimeout(computeTimer);
+  pending = null; activeRequest = null;
+  if (worker) {
+    worker.onmessage = null; worker.onerror = null;
+    worker.terminate(); worker = null;
+  }
+  ready = false;
+}
+function fail(message) {
+  retire();
+  $('#submit').disabled = true;
+  section.disabled = true;
+  clearResults();
+  $('#stop').hidden = true; $('#retry').hidden = false;
+  $('#results-title').textContent = 'Choose another path';
+  status.textContent = message + ' Retry search, or browse the library above.';
+}
+function invalidate() {
+  request++; pending = null;
+  clearResults();
+}
+function dispatch() {
+  if (!ready || activeRequest !== null || !pending) return;
+  const message = pending; pending = null; activeRequest = message.id;
+  $('#stop').hidden = false;
+  computeTimer = setTimeout(() => fail('Search took too long and was stopped.'), SEARCH_TIMEOUT_MS);
+  try { worker.postMessage(message); }
+  catch { fail('Search could not run.'); }
 }
 function search() {
+  clearTimeout(timer);
+  invalidate();
   if (!ready) return;
   const q = query.value.trim();
   const next = new URL(location.href);
   q ? next.searchParams.set('q', q) : next.searchParams.delete('q');
   section.value ? next.searchParams.set('module', section.value) : next.searchParams.delete('module');
   history.replaceState(null, '', next);
-  request++;
   if (!q) {
-    results.replaceChildren(); $('#more').hidden = true;
     $('#results-title').textContent = 'A world of connections';
     status.textContent = 'Choose a starting point above, or search for an idea.';
     return;
   }
   const words = new Set(q.toLowerCase().match(/[\p{L}\p{N}]+/gu) || []);
   if (new TextEncoder().encode(q).length > 512 || words.size > 16) {
-    results.replaceChildren(); $('#more').hidden = true;
     status.textContent = 'Use up to 16 different words and 512 UTF-8 bytes.';
     return;
   }
   status.textContent = 'Searching…';
-  worker.postMessage({ type: 'search', query: q, section: section.value, limit, id: request });
+  pending = { type: 'search', query: q, section: section.value, limit, id: request, generation };
+  dispatch();
 }
 function highlight(parent, text) {
   // Text nodes only: guide content and queries never become HTML.
@@ -71,23 +102,50 @@ function render(data) {
   $('#more').hidden = data.hits.length >= data.total || limit >= 100;
 }
 $('#search-form').addEventListener('submit', (event) => { event.preventDefault(); clearTimeout(timer); limit = 20; search(); });
-query.addEventListener('input', () => { clearTimeout(timer); request++; limit = 20; timer = setTimeout(search, 180); });
+query.addEventListener('input', () => {
+  clearTimeout(timer); invalidate(); limit = 20;
+  if (ready) status.textContent = 'Waiting for your search…';
+  timer = setTimeout(search, 180);
+});
 section.addEventListener('change', () => { limit = 20; search(); });
 $('#more').addEventListener('click', () => { limit += 20; search(); });
 document.querySelectorAll('[data-query]').forEach((button) => button.addEventListener('click', () => { query.value = button.dataset.query; limit = 20; search(); query.focus(); }));
-try {
-  worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
-  worker.onerror = fail;
-  worker.onmessage = ({ data }) => {
-    if (data.type === 'ready') {
-      ready = true;
-      for (const name of data.sections) { const option = new Option(name.replaceAll('-', ' '), name); section.add(option); }
-      if (data.sections.includes(params.get('module'))) section.value = params.get('module');
-      $('#submit').disabled = false; section.disabled = false;
-      $('#engine').textContent = `${data.count.toLocaleString()} entries · Rust + WebAssembly · searches stay on your device`;
-      search();
-    } else if (data.type === 'results') render(data);
-    else if (data.type === 'error') fail();
-  };
-  worker.postMessage({ type: 'init' });
-} catch { fail(); }
+function start() {
+  retire(); clearResults();
+  const epoch = generation;
+  $('#submit').disabled = true; section.disabled = true;
+  $('#stop').hidden = false; $('#retry').hidden = true;
+  status.textContent = 'Loading the search library (about 35 MB)…';
+  $('#results-title').textContent = 'A world of connections';
+  try {
+    worker = new Worker(new URL('./worker.js', import.meta.url), { type: 'module' });
+    bootTimer = setTimeout(() => fail('The search library took too long to load and was stopped.'), INITIALIZATION_TIMEOUT_MS);
+    worker.onerror = (event) => {
+      if (epoch !== generation) return;
+      event.preventDefault(); fail('Search could not load or run.');
+    };
+    worker.addEventListener('messageerror', () => { if (epoch === generation) fail('Search returned an unreadable response.'); });
+    worker.onmessage = ({ data }) => {
+      if (epoch !== generation || data.generation !== epoch) return;
+      if (data.type === 'ready' && !ready) {
+        clearTimeout(bootTimer); ready = true;
+        section.replaceChildren(new Option('All modules', ''));
+        for (const name of data.sections) section.add(new Option(name.replaceAll('-', ' '), name));
+        const selected = new URLSearchParams(location.search).get('module');
+        if (data.sections.includes(selected)) section.value = selected;
+        $('#submit').disabled = false; section.disabled = false; $('#stop').hidden = true;
+        $('#engine').textContent = `${data.count.toLocaleString()} entries · Rust + WebAssembly · searches stay on your device`;
+        search();
+      } else if (data.type === 'results' && data.id === activeRequest) {
+        clearTimeout(computeTimer); activeRequest = null; $('#stop').hidden = true;
+        render(data); dispatch();
+      } else if (data.type === 'error') fail('Search could not load or run.');
+    };
+    worker.postMessage({ type: 'init', generation: epoch });
+  } catch { fail('Search could not load.'); }
+}
+$('#stop').addEventListener('click', () => fail('Search was stopped.'));
+$('#retry').addEventListener('click', start);
+window.addEventListener('pagehide', retire);
+window.addEventListener('pageshow', event => { if (event.persisted) start(); });
+start();

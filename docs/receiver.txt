@@ -1,0 +1,25 @@
+MAXIM complete source and site receivers
+
+Source commit: __SOURCE_COMMIT__
+Source archive: __SOURCE_NAME__
+Source SHA-256: __SOURCE_SHA256__
+
+Keep all eight Python helper files together. Python 3.11+ and its standard
+library are sufficient for verification; no Git or generator packages are used.
+Confirm the commit and SHA using an independently trusted checkout/release
+receipt. Integrity does not certify authorship or guide facts.
+
+Verify and restore into a NEW external folder (never an existing checkout):
+  python receive-source.py --source __SOURCE_NAME__ --sha256 __SOURCE_SHA256__ --commit __SOURCE_COMMIT__ --restore-source NEW_FOLDER
+
+Verify a complete downloaded project-site folder, including all library pages
+and downloads, using the separately trusted BUILD-MANIFEST.json SHA:
+  python receive-site.py --site PROJECT_ROOT --manifest-sha256 TRUSTED_MANIFEST_SHA --commit __SOURCE_COMMIT__
+
+After restoration, read docs/search.md and docs/source-downloads.md. Restore
+the owned Cargo/Python capsules with the tools in the restored source. A full
+build needs the documented exact Python generator/29 packages, Rust toolchain,
+WASM target/bindgen, Node and browser prerequisites. They are not bundled here.
+Original source and dependency notices are included. Code is MIT; authored
+content remains CC BY-NC 4.0 with prior grants preserved; third-party software
+and fonts retain their original terms. Wheel/font builds are not reproduced.

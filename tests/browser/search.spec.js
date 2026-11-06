@@ -40,6 +40,7 @@ test('mobile search is usable and has no horizontal overflow', async ({ page }) 
 test('failed index download offers a readable recovery route', async ({ page }) => {
   await page.route('**/explore/index.json.gz', route => route.fulfill({ status: 503, body: 'unavailable' }));
   await page.goto('/MAXIM/explore/');
-  await expect(page.locator('#status')).toContainText('Reload to retry');
+  await expect(page.locator('#status')).toContainText('Retry search');
+  await expect(page.getByRole('button', { name: 'Retry search', exact: true })).toBeVisible();
   await expect(page.getByRole('link', { name: 'Read the library' })).toBeVisible();
 });
